@@ -32,7 +32,7 @@
   "control": {
     "changed_factor": "rule",
     "settings": "{\"family\":\"C\",\"size\":800,\"steps\":400}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"C\",\"size\":800,\"steps\":400}"
   },
   "lock": {
     "hash": "sha256:35dfa1a9f01007f6deb4928e6e613f0fb8ee67b988a20a907032f6eaadcb0784",
@@ -198,6 +198,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:02b0040a11dffbea993de223b475a7f8b2324782356bf8dc440e69a542b13692"
+    },
+    {
+      "seed": 6,
+      "size": 800,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:7c68f9bb34193f79b619dc3bd72c2da19bf044f8eaf8ec5c3f66f9d5c8eca9fe"
+    },
+    {
+      "seed": 7,
+      "size": 800,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:227ecc5756d3ce481f6335f734a4064fffb7857382a38e9da8583b07cc573586"
+    },
+    {
+      "seed": 8,
+      "size": 800,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:dac83de5a199bd43300e87addeccfd339f8a87ef22ff0e9f182c9d8c8aae7be0"
+    },
+    {
+      "seed": 9,
+      "size": 800,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:aabe325b8fe5e0700732c1debc601b593ec06a718e22fb69027e1022285299c4"
+    },
+    {
+      "seed": 10,
+      "size": 800,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:0bdfe94c84ad72fa67aca81f8010678eb1f30e6361747108f1c3261f2c05102e"
     }
   ],
   "result": {
@@ -216,10 +256,10 @@
       "match": true
     }
   ],
-  "label": "DIFFERS",
+  "label": "CONJECTURE",
   "novelty": {
     "nearest_cards": [],
     "known_mechanism": "Elementary / Life-like cellular automaton class behaviour (Wolfram classes) differs from the rule-30 baseline."
   },
-  "notes": "Legacy conversion of origin idea 98 ('Majority Mirror', v2 mapping) from the v3 100-origin sweep. Best primary measure: activity (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life."
+  "notes": "Legacy conversion of origin idea 98 ('Majority Mirror', v2 mapping) from the v3 100-origin sweep. Best primary measure: activity (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on activity = -1.67; BH recomputed in starter-3.0.0/rule including F1 children: q = 0. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: DIFFERS. Label set to CONJECTURE: with a real null arm this card is no longer legacy, and only the gate checker may promote a non-legacy card; the gate checker should rerun and sign."
 }

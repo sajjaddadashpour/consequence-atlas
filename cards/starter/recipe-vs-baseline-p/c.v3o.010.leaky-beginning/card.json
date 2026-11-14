@@ -222,10 +222,17 @@
       "match": true
     }
   ],
-  "label": "DIFFERS",
+  "label": "REPRODUCED",
   "novelty": {
-    "nearest_cards": [],
+    "nearest_cards": [
+      "c.v3o.010.leaky-beginning.sf-a2",
+      "c.v3o.010.leaky-beginning.sf-gamma",
+      "c.v3o.010.leaky-beginning.sf-leak",
+      "c.v3o.010.leaky-beginning.sf-light",
+      "c.v3o.010.leaky-beginning.sf-records",
+      "c.v3o.010.leaky-beginning.sf-start"
+    ],
     "known_mechanism": "Reaction-diffusion bookkeeping: pair creation, the A2 veto, light re-absorption and records change how fast A+B->0 annihilation empties the lattice versus the plain baseline."
   },
-  "notes": "Legacy conversion of origin idea 10 ('Leaky Beginning', v2 mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor."
+  "notes": "Legacy conversion of origin idea 10 ('Leaky Beginning', v2 mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor. F1 follow-up (LOCKED_SINGLE_FACTOR_F1.md): this card's control changes 6 settings at once, so it is not a fair control. Single-factor children: 6; F1 local verdict DIFFERS (pending gate) for: start. F1 relabel DIFFERS -> REPRODUCED: outputs reproduce exactly, but there is no fair control; fair claims live on the children."
 }

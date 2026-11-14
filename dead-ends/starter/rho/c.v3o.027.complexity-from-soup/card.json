@@ -32,7 +32,7 @@
   "control": {
     "changed_factor": "rho",
     "settings": "{\"family\":\"C\",\"dim\":2,\"size\":128,\"steps\":500}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"C\",\"dim\":2,\"size\":128,\"steps\":500}"
   },
   "lock": {
     "hash": "sha256:ea887425c4813bb7f65167b22141f2ce3e8b6460a26c8c70649b94559c271f3d",
@@ -198,6 +198,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:f88b26eb5c1f6cf67f17bdf72feb24ee0b2b8e8d9027440457c391ff02331eaf"
+    },
+    {
+      "seed": 6,
+      "size": 128,
+      "steps": 500,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:39fadf7aae0eba28638bede6923e26b1d3145202a553280196157b2866ad0956"
+    },
+    {
+      "seed": 7,
+      "size": 128,
+      "steps": 500,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:54aec3dbbe6bca29d68d4aead207dc04dac0c8e50fd433a7cd5f5ac398a41051"
+    },
+    {
+      "seed": 8,
+      "size": 128,
+      "steps": 500,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:d0afc7a7db7e9ad475848375f7007d43607b14b5393c736184d2dc3e4bc81443"
+    },
+    {
+      "seed": 9,
+      "size": 128,
+      "steps": 500,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:45bd11f868d0ac9526ad440830a18603bee20dacfefaf97e0136514e39d4ca82"
+    },
+    {
+      "seed": 10,
+      "size": 128,
+      "steps": 500,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:2fef84ef3f251b655d84d4a2155eb57fbbce4bf34c451a3791999357adb7e8f9"
     }
   ],
   "result": {
@@ -207,7 +247,7 @@
     "deterministic": false,
     "half_size_z": 1.759480559650502,
     "double_size_z": null,
-    "fdr_q": 0.000622
+    "fdr_q": 0.001243
   },
   "replications": [
     {
@@ -221,5 +261,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 27 ('Complexity from Soup', v2 mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on dS but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.)"
+  "notes": "Legacy conversion of origin idea 27 ('Complexity from Soup', v2 mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on dS but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.) F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on dS = -0.37; BH recomputed in starter-3.0.0/rho including F1 children: q = 0.00124. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

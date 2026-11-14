@@ -5,7 +5,7 @@ bridge_premises:
 - 'B2 (bridge, IMPORTED physics): memory requires records, which require an arrow of time (arrow >= 1).'
 - 'B3 (bridge, CONJECTURE): a lasting self requires stable, complex bodies, i.e. chemistry (S6) with C/O or substitutes.'
 - 'B4 (IMPORTED/DERIVED): chemistry requires stable non-relativistic atoms and hydrogen: n = 3; alpha between the stellar lower bound (alpha^2*beta >= 2.62e-12 gives alpha >~ 6.9e-5 at our beta) and the hydrogen upper bound (~0.0108-0.0199, DERIVED-UNDER-ASSUMPTION); the star-mass window (alpha <~ 0.23) and atomic stability (alpha < 0.2) are looser; beta < 1/81.'
-- 'B5 (IMPORTED): energy and elements require stars and the pp chain: -4% <~ s <~ +3.4% (contested), Hoyle window contested; Lambda below ~57 x ours.'
+- 'B5 (IMPORTED): energy and elements require stars and the pp chain: -4% <~ s <~ +3.4% (contested), Hoyle window contested; Lambda below ~57 x ours; for negative Lambda, above about -7 x ours if observers need as long as they took here (CONTESTED).'
 is_ought_gap: 'Nothing here derives an ''ought''. The chain only says: IF beings who can care exist, THEN these physical conditions held (given the bridges). Each bridge is labelled; B1 and B3 are not physics.'
 sources:
 - rovelli2020

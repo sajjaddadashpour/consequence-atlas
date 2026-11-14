@@ -2,7 +2,5 @@
 
 Cards that ended as `FAILED`, `DEAD-END` or `INERT-BY-CONSTRUCTION`, in the same format and layout as `cards/`. They are kept forever because a closed path is progress too.
 
-From the v3 origins sweep (37):
-- **INERT-BY-CONSTRUCTION (6):** test and control outputs are byte-identical at every seed and size, so the changed settings do nothing in this engine.
-- **DEAD-END (2):** origin 42 (Entanglement Split), a deterministic 0.02% difference that the old protocol's "SE = 0 means significant" rule counted as real; and origin 45 (Quantum Handoff), where the half-size run never reaches the step that switches dephasing on, so the half-size check was invalid by construction.
-- **FAILED (29):** null results, or differences at only one size. Origin 92 (Glitch Universe) passed the original lock but fails here because v0 adds a Bonferroni correction across measures. Its half-size z of −3.14 sits below the corrected 3.29.
+- **From the v3 origins sweep (37 legacy cards):** 6 INERT-BY-CONSTRUCTION (test and control outputs byte-identical); 2 DEAD-END (origin 42, a deterministic 0.02% difference counted by the old "SE = 0 means significant" rule; origin 45, a half-size run that never reaches the step where dephasing switches on); 29 FAILED. Origin 92 (Glitch Universe) fails because v0 adds a Bonferroni correction across measures: its half-size z of −3.14 is below the corrected 3.29.
+- **From the single-factor follow-up F1 (222 children):** 179 FAILED, 41 INERT-BY-CONSTRUCTION, and 2 DEAD-END where the seed-shuffled null arm itself differed from the control: `c.v3o.029.inflating-lattice.sf-h` (factor `H`) (null z = −3.08) and `c.v3o.056.big-bounce.sf-expand` (null z = 3.40). Those measures are not reliable for those setups. See `cards/README.md` for the protocol.

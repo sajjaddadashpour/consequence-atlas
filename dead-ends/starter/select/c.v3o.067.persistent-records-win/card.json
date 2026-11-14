@@ -31,7 +31,7 @@
   "control": {
     "changed_factor": "select",
     "settings": "{\"family\":\"M\",\"size\":256,\"steps\":256,\"meta\":\"pop\",\"fitness\":\"records\",\"select\":false}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"M\",\"size\":256,\"steps\":256,\"meta\":\"pop\",\"fitness\":\"records\",\"select\":false}"
   },
   "lock": {
     "hash": "sha256:64e00e709a4b8a0e6b5b358760eb45483907cbae205e595376feb500c01419ce",
@@ -197,6 +197,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:aa1b2adcde8db8eef8ceeb734d11530e43ac87b772d5d0ac95ecdc0f3ab0941b"
+    },
+    {
+      "seed": 6,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:a1e02ecac23f80990a4a8f222bb053e29c8b6166bf61714928880fd1f81fe498"
+    },
+    {
+      "seed": 7,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:fdb9db562f7034c2bb5adcd9ada93a0dc81489ef39dec571e5d41dc474cc5143"
+    },
+    {
+      "seed": 8,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:6ef5fde12640310ddc2b3134ff193a0289e5353e02ca51d373a01e96e0eea1a2"
+    },
+    {
+      "seed": 9,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:0454e4ae9575751c50aa6171c4382d7a5cf44ffd9160a667d44f092b40cfe103"
+    },
+    {
+      "seed": 10,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:da463dc6ca0e36bc3125510734e74fb2d3afda2d5b2203e712ab6ae9dd8ffd56"
     }
   ],
   "result": {
@@ -220,5 +260,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 67 ('Persistent Records Win', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: fitSlope (protocol: any of fitEnd, fitSlope; Bonferroni k = 2, |z| > 3.21). Size axis = popN. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result."
+  "notes": "Legacy conversion of origin idea 67 ('Persistent Records Win', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: fitSlope (protocol: any of fitEnd, fitSlope; Bonferroni k = 2, |z| > 3.21). Size axis = popN. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on fitSlope = 0.83; BH recomputed in starter-3.0.0/select including F1 children: q = 0.0172. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

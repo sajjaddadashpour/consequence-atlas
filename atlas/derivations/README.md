@@ -1,7 +1,7 @@
 # Derivations
 
 In-repo computations cited by atlas links as `derive.*` sources. They are not publications.
-Rerun: `pip install numpy scipy && python3 derive.py` (writes `derived.json`; values below are from that file).
+Rerun: `pip install numpy scipy && python3 derive.py` (writes `derived.json`; values below are from that file). `derived.json` has no adopted schema yet; a proposal is in `docs/proposals/derived.schema.json`.
 
 Inputs that come from papers are IMPORTED and cited on the link that uses them; only the arithmetic is DERIVED here.
 
@@ -36,3 +36,8 @@ Planck 2018: Ω_m = 0.315, so Ω_Λ ≈ 0.685 and ρ_Λ,ours = 2.17 ρ_m0. Bound
 
 ## us27
 Universe Starter v3, lattice-gas arrow-of-time toy, 5 seeds (log Pass 27). Low-entropy start: entropy 0.84 → 3.26 of a maximum 3.74, and the backward run recovers the start exactly. Equilibrium start: stays at 1.965, its maximum. With 2% noise: reaches 3.74 and the backward run misses 21.6% of sites. A mechanism demonstration in a toy, not a prediction about our universe.
+
+## d11
+Lifetime of a flat universe with matter and a negative cosmological constant. The Friedmann equation gives a(t) ∝ sin^(2/3)((3/2) H_L t) with H_L = sqrt(8πG|ρ_Λ|/3), so recollapse comes at t = (2π/3)/H_L, whatever the matter density.
+Our numbers (Planck 2018): H0 = 67.4 km/s/Mpc, so 1/H0 = 14.51 Gyr. Ω_Λ = 0.685 gives 1/H_L,ours = 14.51/√0.685 = 17.53 Gyr. For a dial value x < 0: t = 2.094 × 17.53 / √|x| = 36.7 Gyr / √|x|.
+Benchmarks (assumptions, not results): t ≥ 13.787 Gyr (our observers, Planck 2018) gives x ≥ −7.09; t ≥ 5 Gyr gives x ≥ −53.9.

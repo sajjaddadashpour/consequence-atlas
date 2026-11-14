@@ -31,7 +31,7 @@
   "control": {
     "changed_factor": "select",
     "settings": "{\"family\":\"M\",\"size\":256,\"steps\":256,\"meta\":\"pop\",\"select\":false}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"M\",\"size\":256,\"steps\":256,\"meta\":\"pop\",\"select\":false}"
   },
   "lock": {
     "hash": "sha256:35b2edfddb82239d3fb4128fdb582e400ead8d96f4343785b6f7b29c276c9eb5",
@@ -197,6 +197,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:fd2df2faf0dfa65afa7d6515a91d7569722e3c754d7cacd037cc8dc59d3ecf4b"
+    },
+    {
+      "seed": 6,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:ee4b66b6913fca4c8e001f3ce59905d7c4d28ec9f0d8bddef973b4f7277bf723"
+    },
+    {
+      "seed": 7,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:f9ccbdb51b69f128a882b4a37815950e73c23b5d3c6a9b47cea483fc296126ab"
+    },
+    {
+      "seed": 8,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:8d0be6503e9aaf2da8a808dc53bb206efcc4f03130824d4b61189e53440a0873"
+    },
+    {
+      "seed": 9,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:23becc1757750efaf513965b72cdf822e09d926154c488619ca525e25f19cff3"
+    },
+    {
+      "seed": 10,
+      "size": 16,
+      "steps": 256,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:b71ff9922458490b6189b8d2b8af1b64674ef5c5040e04ceee90d421952e188d"
     }
   ],
   "result": {
@@ -220,5 +260,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 65 ('Cosmological natural selection', PROXY mapping) from the v3 100-origin sweep. Best primary measure: fitEnd (protocol: any of fitEnd, fitSlope; Bonferroni k = 2, |z| > 3.21). Size axis = popN. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result."
+  "notes": "Legacy conversion of origin idea 65 ('Cosmological natural selection', PROXY mapping) from the v3 100-origin sweep. Best primary measure: fitEnd (protocol: any of fitEnd, fitSlope; Bonferroni k = 2, |z| > 3.21). Size axis = popN. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on fitEnd = -0.15; BH recomputed in starter-3.0.0/select including F1 children: q = 0.347. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

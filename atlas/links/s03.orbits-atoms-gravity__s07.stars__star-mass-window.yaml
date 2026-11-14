@@ -1,12 +1,16 @@
 id: l.s07.star-mass-window
 from: s03.orbits-atoms-gravity
 to: s07.stars
-label: DERIVED
+label: DERIVED-UNDER-ASSUMPTION
 condition: beta/alpha**2 >= 1/100
+assumptions:
+- 'Stellar mass limits scale as in the cited papers: minimum mass set by electron degeneracy versus nuclear ignition, maximum mass set by radiation pressure, both in units of the Chandrasekhar mass; the ratio depends on the constants only through beta/alpha^2.'
+- Gravity (G), the proton mass and the nuclear burning physics are held fixed; only alpha and beta change.
+- The thresholds 1/464, 1/200 and 1/100 are imported as published (Adams 2019, Tegmark 1998, Barnes 2012); their spread is reported as CONTESTED, not averaged.
 sources:
 - derive.d6
 - adams2019
 - tegmark1998
 - barnes2012
 status: contested
-notes: 'PASS beta/alpha^2 >= 1/100 (above all three published limits 1/464, 1/200, 1/100). CONTESTED between 10^(-8/3) (1/464, Adams 2019) and 1/100 (Barnes 2012). FAIL below 10^(-8/3): smallest star outweighs the largest stable one. The scaling is derived; the thresholds are imported.'
+notes: 'PASS beta/alpha^2 >= 1/100 (above all three published limits: 1/464 Adams 2019, 1/200 Tegmark 1998, 1/100 Barnes 2012). CONTESTED between 10^(-8/3) ~ 1/464 and 1/100. FAIL below 10^(-8/3): the smallest hydrogen-burning star would outweigh the largest stable one. The scaling with beta/alpha^2 is derived (derive.d6); the three thresholds are imported from the cited papers. At our beta: alpha must stay below 0.233 (Barnes), 0.330 (Tegmark) or 0.503 (Adams).'

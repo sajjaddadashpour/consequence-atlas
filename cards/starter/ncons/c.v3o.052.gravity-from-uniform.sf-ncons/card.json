@@ -1,0 +1,274 @@
+{
+  "id": "c.v3o.052.gravity-from-uniform.sf-ncons",
+  "schema_version": "0.1.0",
+  "parents": [
+    "c.v3o.052.gravity-from-uniform"
+  ],
+  "author": "physicist",
+  "engine": {
+    "name": "starter",
+    "version": "3.0.0"
+  },
+  "family": "starter-3.0.0/ncons",
+  "meanings": [
+    "prr.a1-directional-alphabet",
+    "prr.d2-mirroring"
+  ],
+  "rules": {
+    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":96,\"steps\":600,\"start\":\"scattered\",\"rho\":0.08,\"ncons\":true,\"a2\":false,\"records\":false,\"light\":false,\"leak\":\"off\",\"attract\":\"long\",\"gs\":1.5,\"temp\":0.3}",
+    "code_hash": "sha256:8487a8d2b8c7cfdd28a5487c32d7fac93c29e57b8f8bcd108a7141767264667d"
+  },
+  "start": {
+    "kind": "scattered",
+    "params": {}
+  },
+  "hypothesis": {
+    "measure": "density",
+    "direction": "two-sided",
+    "sizes": [
+      96,
+      48
+    ],
+    "steps": 600,
+    "n_seeds": 5,
+    "extra_measures": [
+      "clustering",
+      "dS"
+    ]
+  },
+  "control": {
+    "changed_factor": "ncons",
+    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":96,\"steps\":600,\"start\":\"scattered\",\"rho\":0.08,\"a2\":false,\"records\":false,\"light\":false,\"leak\":\"off\",\"attract\":\"long\",\"gs\":1.5,\"temp\":0.3}",
+    "null_settings": "{\"family\":\"P\",\"dim\":2,\"size\":96,\"steps\":600,\"start\":\"scattered\",\"rho\":0.08,\"a2\":false,\"records\":false,\"light\":false,\"leak\":\"off\",\"attract\":\"long\",\"gs\":1.5,\"temp\":0.3}"
+  },
+  "lock": {
+    "hash": "sha256:2460e84b03fd069dbef0f8db3d4be6f7d84d6545347edd87170b9f1daad304c0",
+    "server_timestamp": "2026-11-14T19:18:15Z"
+  },
+  "label": "CONJECTURE",
+  "runs": [
+    {
+      "seed": 1,
+      "size": 96,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/0",
+      "output_hash": "sha256:d634122480cbdbf6f947bc13813f74b07e6d4a802c93a01427bbebc2c87c9722"
+    },
+    {
+      "seed": 2,
+      "size": 96,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/1",
+      "output_hash": "sha256:7112cde5fa6ff2eb48215108c96cb040989d84100b6a975cce91657f08489348"
+    },
+    {
+      "seed": 3,
+      "size": 96,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/2",
+      "output_hash": "sha256:5c2b2c53bf8cd56feb0063f8d4b6f40998e6782c9b70a5a93cc0f6991f676b44"
+    },
+    {
+      "seed": 4,
+      "size": 96,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/3",
+      "output_hash": "sha256:cbc4f9115d1a0c628e866f3379cc4dca05d72a6c8def4b5391e094a51af6bb08"
+    },
+    {
+      "seed": 5,
+      "size": 96,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/4",
+      "output_hash": "sha256:789c72359a04cd93dd9e23ee9aa446c817234ccefef522c10a12b7244514d76d"
+    },
+    {
+      "seed": 1,
+      "size": 48,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/0",
+      "output_hash": "sha256:cf63189030c883a02c91741456fab9c8ec3574808d7a3f3792106e19160865fe"
+    },
+    {
+      "seed": 2,
+      "size": 48,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/1",
+      "output_hash": "sha256:f3ad9c2b9998e3b9b05daa9ee0bfa956fdcc832a77a68aa38c7cb6334e1610af"
+    },
+    {
+      "seed": 3,
+      "size": 48,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/2",
+      "output_hash": "sha256:b240f448013cadf1c8f4ec208430f206dc07e096cb4e62a68733490581964085"
+    },
+    {
+      "seed": 4,
+      "size": 48,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/3",
+      "output_hash": "sha256:095d25160b387c611f242b7135f034fd27b73b22e6d4848cf97e5f7a0512d47a"
+    },
+    {
+      "seed": 5,
+      "size": 48,
+      "steps": 600,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/4",
+      "output_hash": "sha256:851cb1b3fdb367fc550e72495c156d2380850473323369e57a39e89a13a09c1d"
+    },
+    {
+      "seed": 1,
+      "size": 96,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/0",
+      "output_hash": "sha256:51dec85a2b001c1027801ec15480f79acd2a1d1ba0e29a1bf85b78195b006b2c"
+    },
+    {
+      "seed": 2,
+      "size": 96,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/1",
+      "output_hash": "sha256:4d7c6f663ebfa87bdffb81ce8a6b67985b3e75e8240edbbd4acbcfa2982b3f55"
+    },
+    {
+      "seed": 3,
+      "size": 96,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/2",
+      "output_hash": "sha256:077a9eee248fe34c28e1598443877f14bfacb14435955ca939113a362a17c822"
+    },
+    {
+      "seed": 4,
+      "size": 96,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/3",
+      "output_hash": "sha256:a256fcc3e52e131fad83114be335a9a151098404281f41375da323ba5790f214"
+    },
+    {
+      "seed": 5,
+      "size": 96,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/4",
+      "output_hash": "sha256:10ba92af4176c7a80331ca65e0cf96b809657e08cc0259b472cb6a7748b16fb1"
+    },
+    {
+      "seed": 1,
+      "size": 48,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/0",
+      "output_hash": "sha256:1b146b92ac43b36233a30ea5c3ac7f0fd1165b6d1fafe65b54aebc9451e3d49d"
+    },
+    {
+      "seed": 2,
+      "size": 48,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/1",
+      "output_hash": "sha256:bb3970a27ff6ae606af16f26692777d8dc4689b29b6faff41152c7e247565dd0"
+    },
+    {
+      "seed": 3,
+      "size": 48,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/2",
+      "output_hash": "sha256:f213f543f2a37ff66671672bf49c544c2d8c15a58d319200be9370962599476a"
+    },
+    {
+      "seed": 4,
+      "size": 48,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/3",
+      "output_hash": "sha256:8757637afcb68820652fdb9d3c2835b71f08eae9ca70e7846468184988873dc9"
+    },
+    {
+      "seed": 5,
+      "size": 48,
+      "steps": 600,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/4",
+      "output_hash": "sha256:4fcbf9870f2020624225687221239f6fe605ced044403062cb82bfb328f95cd1"
+    },
+    {
+      "seed": 6,
+      "size": 96,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:7bd3f4b110af404b71bf0a6c27d2b8484ab719228c200e7edd67a463f35d4ddf"
+    },
+    {
+      "seed": 7,
+      "size": 96,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:77bb5246d2b6ae54539944843ab0a98d2b9f443966b46063c6b41bdef75386bb"
+    },
+    {
+      "seed": 8,
+      "size": 96,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:dc23414ca2ee70ac9f4f9adfec0703a71be093fa714f7414e6b57f702681774c"
+    },
+    {
+      "seed": 9,
+      "size": 96,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:61e643f92e444eae76222994ae955689a1a612189b5f026fe593d6f10d60035d"
+    },
+    {
+      "seed": 10,
+      "size": 96,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:f0a46465e008a88acb8be19ccd46d843b018d2d69e15d806ee6a15e2d91a4764"
+    }
+  ],
+  "result": {
+    "effect": 0.0689236111111111,
+    "se": 0.00137011233660283,
+    "z": 50.30508029874836,
+    "deterministic": false,
+    "half_size_z": 60.59788689470858,
+    "double_size_z": null,
+    "fdr_q": 0.0
+  },
+  "replications": [
+    {
+      "agent": "physicist-run-card-rerun",
+      "lineage": "physicist",
+      "match": true
+    }
+  ],
+  "novelty": {
+    "nearest_cards": [
+      "c.v3o.052.gravity-from-uniform"
+    ],
+    "known_mechanism": "Known mechanism: switching off number conservation unbalances creation and annihilation. No new mechanism claimed."
+  },
+  "notes": "Single-factor child of c.v3o.052.gravity-from-uniform: the control is the parent's test with only 'ncons' reset to the family-baseline value. Best measure density (Bonferroni k = 3); null arm z = 0.44; BH q = 0 in starter-3.0.0/ncons. Null arm: the control settings run with seeds 6-10, a seed-shuffled A/A null that catches artifacts of the statistic. It is not a label shuffle. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. Label computed by the local F1 analysis (build/f1/analyze.py), not by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no double size, no stranger replication. Toy universe: shows mechanisms, never predicts chemistry or life. F1 local verdict: DIFFERS (all F1 gates passed). The label stays CONJECTURE because only the gate checker may promote a non-legacy card; the gate checker should rerun and sign."
+}

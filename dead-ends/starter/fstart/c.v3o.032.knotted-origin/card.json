@@ -32,7 +32,7 @@
   "control": {
     "changed_factor": "fstart",
     "settings": "{\"family\":\"F\",\"size\":64,\"steps\":4000,\"noise\":\"off\"}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"F\",\"size\":64,\"steps\":4000,\"noise\":\"off\"}"
   },
   "lock": {
     "hash": "sha256:698e7bdffb2e0a7e4f59717c551704e66bc680087c16251b4faf7c33bc1bdb1b",
@@ -198,6 +198,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:20bcc1d61bcaa8cdeadc73faded8309ed96022325d5d2a576f624ed14df23a6d"
+    },
+    {
+      "seed": 6,
+      "size": 64,
+      "steps": 4000,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:e0f215288b636c9acce9dad1858a56e91c5a23f0e6f1c8ac646ce07a1a98182d"
+    },
+    {
+      "seed": 7,
+      "size": 64,
+      "steps": 4000,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:3e9ca909684df23a3405f42ae2ede4b18dc88c6bdb026cbcf388ec1c0fbb0dde"
+    },
+    {
+      "seed": 8,
+      "size": 64,
+      "steps": 4000,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:7b7b0397bd9b0a661217e578468ef9d16d97d5baa8d6db7b37d2fb03c4e0403d"
+    },
+    {
+      "seed": 9,
+      "size": 64,
+      "steps": 4000,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:d757acab213a60f2d43c9239ef4ac9afe8acc385b3732d3be2f2ba01a65abab6"
+    },
+    {
+      "seed": 10,
+      "size": 64,
+      "steps": 4000,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:eecce836323f1aaf10b8e6036ee347927e61d97bacbd06c69b83a64736cb32f1"
     }
   ],
   "result": {
@@ -221,5 +261,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 32 ('Knotted Origin', PROXY mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, xi, energy; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on density but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.)"
+  "notes": "Legacy conversion of origin idea 32 ('Knotted Origin', PROXY mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, xi, energy; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on density but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.) F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on density = -2.01; BH recomputed in starter-3.0.0/fstart including F1 children: q = 1.89e-25. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

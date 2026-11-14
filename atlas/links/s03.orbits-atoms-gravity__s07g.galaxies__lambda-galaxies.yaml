@@ -7,7 +7,7 @@ assumptions:
 - Earliest galaxies at redshift z ~ 4, as used by Martel, Shapiro & Weinberg 1998.
 - Primordial fluctuation amplitude Q and dark-matter-to-photon ratio held at our values (Tegmark et al. 2006 show the bound scales with Q^3).
 - Our density ratio Omega_Lambda/Omega_m = 0.685/0.315 (Planck 2018).
-- Only positive Lambda is covered; negative Lambda (recollapse time) is not in v0.
+- Applies to positive Lambda. For negative Lambda, structure forms readily in the recollapsing phase (Peacock 2007), so this link PASSes; the negative-Lambda limit is the lifetime link l.s11.lambda-lifetime.
 window:
   dial: cosmological-constant
   hi: 57.5

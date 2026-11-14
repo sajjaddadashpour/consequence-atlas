@@ -36,7 +36,7 @@
   "control": {
     "changed_factor": "ncons",
     "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.3,\"a2\":false,\"records\":false,\"light\":false,\"leak\":\"off\"}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.3,\"a2\":false,\"records\":false,\"light\":false,\"leak\":\"off\"}"
   },
   "lock": {
     "hash": "sha256:cd1bd68646039a42912b8e41f9754f5234c48b0985a98f751640e0ee5ea0b6b1",
@@ -202,6 +202,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:3124545eb48521c23d124d0ccae809f3fea2c49fa580a818ab5e6cfcc371a31e"
+    },
+    {
+      "seed": 6,
+      "size": 64,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:68f0673729e42623ec5290cf9372731dd5011b3ceb706c9eec6d48fe9530916d"
+    },
+    {
+      "seed": 7,
+      "size": 64,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:dfa8d186eae822f47c8beed2ba2cdb8b8d9a8718b264e6853908f026014bd734"
+    },
+    {
+      "seed": 8,
+      "size": 64,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:1b4d7562c85e7c3627fc60ef2712f117a9651cbfae1ae6de3f12d685cc2d2049"
+    },
+    {
+      "seed": 9,
+      "size": 64,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:f3e915e03c883a759e4d0aa268781fa5dd26eaa076497a5399e291b8f20e6378"
+    },
+    {
+      "seed": 10,
+      "size": 64,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:d40c6d4fc2930f3fdde8f46bac0a95cc0403be6f9fb231650dbf610852810da6"
     }
   ],
   "result": {
@@ -220,10 +260,10 @@
       "match": true
     }
   ],
-  "label": "DIFFERS",
+  "label": "CONJECTURE",
   "novelty": {
     "nearest_cards": [],
     "known_mechanism": "Reaction-diffusion bookkeeping: pair creation, the A2 veto, light re-absorption and records change how fast A+B->0 annihilation empties the lattice versus the plain baseline."
   },
-  "notes": "Legacy conversion of origin idea 79 ('Counting Begins', v2 mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life."
+  "notes": "Legacy conversion of origin idea 79 ('Counting Begins', v2 mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on density = -1.51; BH recomputed in starter-3.0.0/ncons including F1 children: q = 0. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: DIFFERS. Label set to CONJECTURE: with a real null arm this card is no longer legacy, and only the gate checker may promote a non-legacy card; the gate checker should rerun and sign."
 }
