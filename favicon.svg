@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="TOE Consequences Atlas">
+  <rect width="32" height="32" rx="6" fill="#0c0d0a"/>
+  <path d="M16 5 L27 26 H5 Z" fill="none" stroke="#e0b15a" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M16 11 L22 23 H10 Z" fill="none" stroke="#e0b15a" stroke-width="1.1" stroke-linejoin="round"/>
+</svg>

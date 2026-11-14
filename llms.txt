@@ -1,0 +1,50 @@
+# Consequence Atlas — public site
+
+> Live site: https://toeatlas.si
+> Compact machine-readable index: https://toeatlas.si/data/index.json
+> Source repository: https://github.com/sajjaddadashpour/consequence-atlas
+
+The index lists every real card and atlas link, excluding examples/. The repository files are the source of record. Do not treat local verdicts in card notes as gate-signed promotions.
+
+---
+
+# Consequence Atlas
+
+> Honestly labelled atlas of what follows from the rules of a universe. For people, single agents, and swarms.
+
+Outside submissions are not open yet. Do not add cards, links, dials, meanings, or sources.
+
+## How to read the repo
+
+- `schema/` is the contract. JSON Schema, draft 2020-12. Read `docs/CARD_SCHEMA_v0.md` for the card fields and the label ladder.
+- `examples/` holds the only checked-in examples. They are illustrations, not a catalogue of results. Some of them name source ids that have no record in `sources/` yet. Do not invent those records.
+- `cards/`, `dead-ends/`, `meanings/`, and `sources/` are JSON. `dials/` and `atlas/` are YAML. `examples/atlas/` is JSON today and is checked against the same dial and link schemas.
+- `verify/` is the validator. `python3 -m verify` checks the tree. `python3 -m verify.bundle` writes `dist/atlas-bundle.json` after a clean check. Do not commit `dist/`.
+
+Card labels, exactly: CONJECTURE, REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, NOVEL-CANDIDATE, FAILED, DEAD-END, INERT-BY-CONSTRUCTION. The ladder is CONJECTURE, then REPRODUCED, DIFFERS, ROBUST, then KNOWN-MECHANISM or NOVEL-CANDIDATE. Only the gate checker moves a card up. A label above CONJECTURE is invalid without `gate` (`checker` and `signature`, both non-blank). Agents cannot self-promote. FAILED, DEAD-END, and INERT-BY-CONSTRUCTION are kept and are not promotions.
+
+Atlas labels, exactly: DERIVED, DERIVED-UNDER-ASSUMPTION, IMPORTED, ASSUMED, CONJECTURE, CONTESTED. DERIVED-UNDER-ASSUMPTION needs a non-empty `assumptions` array. IMPORTED needs at least one source id, and every cited id must exist under `sources/`.
+
+Card paths are `<engine>/<factor>/<card-id>/card.json`. `factor` is `control.changed_factor` when that is one path segment, and the slug in `family` when the changed factor lists several names. Only `card.json` is validated. `outputs.json` is not. Card ids are unique. Every `parents` id resolves.
+
+A legacy card has `null_settings` of `NOT-RUN` and a local lock. Do not reject it for a missing `label_set_by`. Report it as `legacy, unverified`. Its label needs recomputation by the gate checker. It cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock.
+
+In a link condition, a hyphenated dial id may be written with underscores (`cosmological_constant` for `cosmological-constant`). The helper `Z_fission` is allowed. `atlas/derivations/` has no schema yet and is skipped with a warning. Stages, backward chains, and the seed catalogue have schemas.
+
+In YAML, quote `yes`, `no`, `on`, `off`, `y`, and `n`. Unquoted, YAML 1.1 turns them into booleans. `true` and `false` are real booleans and may stay unquoted.
+
+## Validate locally
+
+From the repository root, three commands:
+
+```
+python3 -m pip install -r requirements.txt -r requirements-dev.txt
+make validate
+make test
+```
+
+`make validate` runs `python3 -m verify`. `make test` runs the good and bad fixtures, including a hydrogen link with empty assumptions and a YAML `no` trap, both of which must fail.
+
+## Contributing
+
+Not open yet. When it opens, `CONTRIBUTING.md` is the rule: no invented physics, no invented sources, no self-promotion. Code is MIT (`LICENSE`). Data is CC-BY-4.0 (`LICENSE-DATA`). Cite the atlas with `CITATION.cff`.

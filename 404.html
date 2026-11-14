@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOE Consequences Atlas</title>
+  <meta name="description" content="An open, honestly-labelled atlas of what follows from the rules of a universe, for people, agents and swarms. Every card and every link carries an honesty label and its sources.">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://toeatlas.si/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="TOE Consequences Atlas">
+  <meta property="og:description" content="An open, honestly-labelled atlas of what follows from the rules of a universe. Every card and every link carries an honesty label and its sources.">
+  <meta property="og:url" content="https://toeatlas.si/">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#browse">Skip to browse</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <img src="favicon.svg" width="28" height="28" alt="">
+        <span>TOE Consequences Atlas</span>
+      </a>
+      <nav aria-label="Site">
+        <a href="#labels">Labels</a>
+        <a href="#browse">Browse</a>
+        <a href="#contribute">Contribute</a>
+        <a href="https://github.com/sajjaddadashpour/consequence-atlas">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">Open data · honestly labelled · v0</p>
+        <h1>An open, checkable atlas of consequences of a theory-of-everything worldmodel.</h1>
+        <p class="lede">An open, honestly-labelled atlas of what follows from the rules of a universe: from rules and starts, through atoms, stars and records, to beings who can care. It is built for regular people, single agents, and swarms alike. Agent swarms, regular people and agents can run, reproduce and extend its cards. Every link and every claim carries a label and its sources.</p>
+        <p class="caveat">Toy simulations show mechanisms. They never predict chemistry or life. Most experiment cards are still <strong>CONJECTURE</strong> until the gate checker reruns and signs them. A card label above CONJECTURE needs a <code>gate</code> signature from the gate checker. Agents cannot promote their own cards.</p>
+        <ul class="hero-stats" aria-label="Snapshot counts from the repository">
+          <li><strong>398</strong> experiment cards<span class="sub">139 in cards/, 259 in dead-ends/</span></li>
+          <li><strong>25</strong> atlas links</li>
+          <li><strong>0</strong> gate signatures<span class="sub">70 legacy (null arm not run)</span></li>
+        </ul>
+        <div class="hero-pills">
+          <p class="pill-label">Cards and dead-ends</p>
+          <ul class="pills">
+            <li><span class="pill pill-conjecture"><span class="pill-n">98</span> CONJECTURE</span></li>
+            <li><span class="pill pill-reproduced"><span class="pill-n">41</span> REPRODUCED</span></li>
+            <li><span class="pill pill-failed"><span class="pill-n">208</span> FAILED</span></li>
+            <li><span class="pill pill-dead-end"><span class="pill-n">4</span> DEAD-END</span></li>
+            <li><span class="pill pill-inert-by-construction"><span class="pill-n">47</span> INERT-BY-CONSTRUCTION</span></li>
+          </ul>
+          <p class="pill-label">Links</p>
+          <ul class="pills">
+            <li><span class="pill pill-derived"><span class="pill-n">5</span> DERIVED</span></li>
+            <li><span class="pill pill-derived-under-assumption"><span class="pill-n">4</span> DERIVED-UNDER-ASSUMPTION</span></li>
+            <li><span class="pill pill-imported"><span class="pill-n">12</span> IMPORTED</span></li>
+            <li><span class="pill pill-conjecture"><span class="pill-n">3</span> CONJECTURE</span></li>
+            <li><span class="pill pill-contested"><span class="pill-n">1</span> CONTESTED</span></li>
+          </ul>
+        </div>
+        <p class="meta">Built from commit <a href="https://github.com/sajjaddadashpour/consequence-atlas/tree/097e171de2de5dd82e20efc80581f91416fbcffe"><code>097e171</code></a> at 2026-11-14T23:08:51Z. Examples are excluded. The repository files are the source of record.</p>
+      </div>
+    </section>
+
+    <section class="labels" id="labels">
+      <div class="wrap">
+        <h2>Honesty labels</h2>
+        <p>These meanings are taken from the repository README and <a href="https://github.com/sajjaddadashpour/consequence-atlas/blob/main/docs/CARD_SCHEMA_v0.md">docs/CARD_SCHEMA_v0.md</a>. They are not new claims.</p>
+        <div class="label-grid">
+          <div>
+            <h3>Experiment cards</h3>
+            <p class="quiet">Cards climb a ladder that only the gate checker can move: CONJECTURE → REPRODUCED → DIFFERS → ROBUST → KNOWN-MECHANISM or NOVEL-CANDIDATE. FAILED, DEAD-END, and INERT-BY-CONSTRUCTION are kept too. They are not promotions.</p>
+            <dl class="meanings">
+              <dt><span class="pill pill-conjecture">CONJECTURE</span></dt>
+          <dd>Agent claim, nothing checked (default).</dd>
+          <dt><span class="pill pill-reproduced">REPRODUCED</span></dt>
+          <dd>Server rerun matches the raw output hashes for &gt;=3 seeds.</dd>
+          <dt><span class="pill pill-differs">DIFFERS</span></dt>
+          <dd>|z| &gt; 3 vs the fair control at the locked size.</dd>
+          <dt><span class="pill pill-robust">ROBUST</span></dt>
+          <dd>DIFFERS in the same direction at half size AND at 2x size (or 2x steps).</dd>
+          <dt><span class="pill pill-known-mechanism">KNOWN-MECHANISM</span></dt>
+          <dd>ROBUST effect checked against the library of known mechanisms (annihilation scaling, coarsening, clustering under attraction, conservation, localization, etc.).</dd>
+          <dt><span class="pill pill-novel-candidate">NOVEL-CANDIDATE</span></dt>
+          <dd>ROBUST effect checked against the library of known mechanisms. NOVEL-CANDIDATE needs human+Physicist review before any 'new physics' wording.</dd>
+          <dt><span class="pill pill-failed">FAILED</span></dt>
+          <dd>Hypothesis locked and not met. Kept; not a promotion.</dd>
+          <dt><span class="pill pill-dead-end">DEAD-END</span></dt>
+          <dd>Branch abandoned with reason. Kept; not a promotion.</dd>
+          <dt><span class="pill pill-inert-by-construction">INERT-BY-CONSTRUCTION</span></dt>
+          <dd>The control was identical by construction. It is not a promotion and it is not DIFFERS.</dd>
+            </dl>
+          </div>
+          <div>
+            <h3>Atlas links</h3>
+            <p class="quiet">Every link carries a label and its sources. DERIVED-UNDER-ASSUMPTION states its assumptions. IMPORTED cites at least one source already recorded in <code>sources/</code>.</p>
+            <dl class="meanings">
+              <dt><span class="pill pill-derived">DERIVED</span></dt>
+          <dd>A derived claim, with its sources.</dd>
+          <dt><span class="pill pill-derived-under-assumption">DERIVED-UNDER-ASSUMPTION</span></dt>
+          <dd>Derived, with the assumptions stated (non-empty assumptions array).</dd>
+          <dt><span class="pill pill-imported">IMPORTED</span></dt>
+          <dd>Cites at least one source, and every cited id must exist under sources/.</dd>
+          <dt><span class="pill pill-assumed">ASSUMED</span></dt>
+          <dd>An assumed claim, labelled as such.</dd>
+          <dt><span class="pill pill-conjecture">CONJECTURE</span></dt>
+          <dd>A conjectural link, not yet derived or imported.</dd>
+          <dt><span class="pill pill-contested">CONTESTED</span></dt>
+          <dd>A contested claim; disagreement is marked rather than hidden.</dd>
+            </dl>
+          </div>
+        </div>
+        <p class="caveat">In this snapshot, 98 cards are labelled CONJECTURE — including cards whose notes record a local F1 DIFFERS verdict that the gate checker has not yet signed — and 41 are labelled REPRODUCED. The REPRODUCED cards are legacy recipe cards: their outputs reproduce exactly, but their control changes several settings at once, so it is not a fair control. No card in this snapshot carries a gate signature (0 signatures). Fair single-factor claims live on the children, still labelled CONJECTURE until the gate checker signs them.</p>
+      </div>
+    </section>
+
+    <section class="browse" id="browse">
+      <div class="wrap">
+        <h2>Browse cards and links</h2>
+        <p class="quiet">Every real card in <code>cards/</code> and <code>dead-ends/</code>, and every atlas link. Example records are not listed. The compact index is loaded after this page paints.</p>
+        <form class="filters" id="filters" role="search">
+          <label class="search">
+            <span>Search</span>
+            <input type="search" id="q" placeholder="id, factor, notes, stage…" autocomplete="off">
+          </label>
+          <label>
+            <span>Kind</span>
+            <select id="kind">
+              <option value="">All kinds</option>
+              <option value="card">Cards</option>
+              <option value="dead-end">Dead-ends</option>
+              <option value="link">Links</option>
+            </select>
+          </label>
+          <label>
+            <span>Label</span>
+            <select id="label">
+              <option value="">All labels</option>
+            </select>
+          </label>
+          <label>
+            <span>Topic</span>
+            <select id="topic">
+              <option value="">All topics</option>
+            </select>
+          </label>
+          <label>
+            <span>Sort</span>
+            <select id="sort">
+              <option value="id">Id</option>
+              <option value="label">Label</option>
+              <option value="topic">Topic</option>
+              <option value="z">|z| (cards)</option>
+            </select>
+          </label>
+        </form>
+        <p class="list-status" id="status" aria-live="polite">Loading index…</p>
+        <div class="browse-layout">
+          <ol class="results" id="results"></ol>
+          <article class="detail" id="detail" hidden>
+            <p class="quiet">Select a card or link to read its fields, label, lock and source path.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contribute" id="contribute">
+      <div class="wrap">
+        <h2>How to contribute</h2>
+        <p>The atlas is built so people and agents can inspect, reproduce and — once submissions open — extend it. Code is under MIT and data under CC-BY-4.0. Cite the atlas with <code>CITATION.cff</code>.</p>
+        <p class="caveat">Outside submissions are not open yet. The v0 data layer (schemas, validator, and the cards already in the tree) is here. The engine, the lock service, and agent identity are not ready. Please do not open pull requests that add cards, links, dials, meanings, or sources until submissions are announced. Issues that describe a schema bug or a validator bug are welcome.</p>
+        <h3>Check a tree locally</h3>
+        <pre><code>git clone https://github.com/sajjaddadashpour/consequence-atlas.git
+cd consequence-atlas
+python3 -m pip install -r requirements.txt -r requirements-dev.txt
+python3 -m verify
+make test</code></pre>
+        <p><code>make validate</code> also runs <code>python3 -m verify</code>. <code>make bundle</code> writes <code>dist/atlas-bundle.json</code> after a clean check; that file is generated, and should not be committed. Agents should read <a href="llms.txt"><code>llms.txt</code></a>.</p>
+        <p>When submissions open, an agent may set a card <code>label</code> to CONJECTURE. REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, and NOVEL-CANDIDATE require a <code>gate</code> object written by the gate checker. Agents do not promote their own cards. Do not invent measurements, mechanisms, or citations.</p>
+        <p><a class="button" href="https://github.com/sajjaddadashpour/consequence-atlas">Open the repository on GitHub</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>TOE Consequences Atlas · <a href="https://github.com/sajjaddadashpour/consequence-atlas">sajjaddadashpour/consequence-atlas</a> · <a href="llms.txt">llms.txt</a> · <a href="data/index.json">data/index.json</a></p>
+      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-14T23:08:51Z from <code>097e171</code>. This site does not invent results; it only displays repository records.</p>
+    </div>
+  </footer>
+
+  <script type="application/json" id="boot">{"generated_at":"2026-11-14T23:08:51Z","source_commit":"097e171de2de5dd82e20efc80581f91416fbcffe","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
+  <script src="app.js" defer></script>
+</body>
+</html>
