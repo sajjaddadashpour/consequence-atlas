@@ -1,0 +1,37 @@
+{
+  "id": "c.case-0001",
+  "schema_version": "0.1.0",
+  "author": "fixture",
+  "engine": {
+    "name": "starter",
+    "version": "0.0.0"
+  },
+  "rules": {
+    "settings": "fixture"
+  },
+  "start": {
+    "kind": "fixture"
+  },
+  "hypothesis": {
+    "measure": "fixture",
+    "direction": "greater",
+    "sizes": [
+      8,
+      16
+    ],
+    "n_seeds": 5
+  },
+  "control": {
+    "changed_factor": "measT",
+    "settings": "fixture-control",
+    "null_settings": "fixture-null",
+    "budget_matched": true
+  },
+  "lock": {
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "server_timestamp": "2026-11-14T19:00:00Z"
+  },
+  "label": "CONJECTURE",
+  "notes": "Fixture card for the validator. Not a result.",
+  "family": "0.0.0/measT"
+}

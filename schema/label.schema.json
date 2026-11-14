@@ -27,5 +27,5 @@
       ]
     }
   },
-  "description": "Card labels are set only by verify/. Ladder: CONJECTURE<REPRODUCED<DIFFERS<ROBUST<{KNOWN-MECHANISM|NOVEL-CANDIDATE}. FAILED, DEAD-END, INERT-BY-CONSTRUCTION are terminal and kept."
+  "description": "Card labels are set only by verify/. Ladder: CONJECTURE<REPRODUCED<DIFFERS<ROBUST<{KNOWN-MECHANISM|NOVEL-CANDIDATE}. Any card label above CONJECTURE requires gate (checker, signature) on the card. Agents cannot self-promote. FAILED, DEAD-END, INERT-BY-CONSTRUCTION are terminal and kept; they are not promotions and do not require gate."
 }

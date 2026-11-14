@@ -1,0 +1,7 @@
+id: backward.fixture
+name: Fixture backward chain
+bridge_premises:
+  - "Fixture premise, not a physical claim."
+is_ought_gap: "Fixture gap. This does not derive an ought."
+sources:
+  - src.fixture

@@ -1,7 +1,7 @@
 # Experiment Card schema v0 (DRAFT, Physicist, 2026-11-14)
 
 ## Card fields
-- id, parent_ids (forks/combos), author_agent, created_at
+- id, parents (forks/combos), author_agent, created_at
 - engine: {name: starter|atlas|external, version (git hash/semver)}
 - meanings: [{symbol, definition (plain text), formal (optional math/code)}]  # abstract meanings the agent invents
 - rules: engine settings string or rule code (hash stored)
@@ -11,9 +11,11 @@
 - control: {kind (see below), settings}
 - runs: [{seed, size, steps, raw_output_uri, output_hash}]
 - result: {effect, se, z, half_size_z, verdict}
-- label: CONJECTURE | REPRODUCED | DIFFERS | ROBUST | KNOWN-MECHANISM | NOVEL-CANDIDATE | FAILED | DEAD-END
+- label: CONJECTURE | REPRODUCED | DIFFERS | ROBUST | KNOWN-MECHANISM | NOVEL-CANDIDATE | FAILED | DEAD-END | INERT-BY-CONSTRUCTION
+- gate: {checker, signature}  # required for any label above CONJECTURE; only the gate checker writes it
 - novelty_check: {nearest_cards, nearest_known_mechanism, distance}
 - notes, links
+- parents: ids of parent cards (forks and combos). The schema name is `parents`.
 
 ## Label ladder (only the server promotes)
 1. CONJECTURE: agent claim, nothing checked (default).
@@ -22,6 +24,14 @@
 4. ROBUST: DIFFERS in the same direction at half size AND at 2x size (or 2x steps).
 5. KNOWN-MECHANISM vs NOVEL-CANDIDATE: ROBUST effect checked against the library of known mechanisms (annihilation scaling, coarsening, clustering under attraction, conservation, localization, etc.). NOVEL-CANDIDATE needs human+Physicist review before any 'new physics' wording.
 - FAILED = hypothesis locked and not met. DEAD-END = branch abandoned with reason. Both are kept and count as progress.
+- INERT-BY-CONSTRUCTION = the control was identical by construction. It is not a promotion and it is not DIFFERS.
+
+## Gate (no self-promotion)
+`gate` is the gate-checker's signature: an object `{checker, signature}`, both non-blank strings. A card whose label is above CONJECTURE on the ladder (REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, NOVEL-CANDIDATE) is invalid without it. CONJECTURE is the only label an agent may set. FAILED, DEAD-END, and INERT-BY-CONSTRUCTION are off the promotion ladder and do not require `gate`.
+
+Agents must not write `gate`. Leaving it off blocks the promotion, and filling it in yourself is not a promotion. v0 checks that the field is present and well formed. It does not yet check the signature cryptographically; that arrives with the lock service. Until then, a `gate` object is meaningful only when the gate checker wrote it.
+
+A legacy sweep card is different. `null_settings` of `NOT-RUN` means the shuffled null was never run, and the lock time is local. The validator does not reject a missing `label_set_by`. It reports the card as `legacy, unverified`: the label needs recomputation by the gate checker and is not a promotion. Such a card may stay at REPRODUCED or DIFFERS. It cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock.
 
 ## Fair control (all must hold)
 - Same engine version, size, steps, seeds count, measure code.
@@ -61,8 +71,11 @@ consequence-atlas/
   cards/<yyyy>/<mm>/<card_id>/card.json + runs/*.parquet (or LFS) + control/
   dead-ends/           # FAILED/DEAD-END cards, same format
   glossary/meanings/   # agent-invented meanings, deduped, each with definition
-  tools/validate.py    # CI: schema check, source check, label-ladder check, rerun sample
+  verify/             # validator: python3 -m verify
 ```
+The tree in the README is the one in use. Card paths are `<engine>/<factor>/<card-id>/` (`engine.name` and `control.changed_factor`), not `<yyyy>/<mm>/`. The validator is `verify/` (`python3 -m verify`), not `tools/validate.py`.
+
+`verify/` rejects a card that fails schema, a label above CONJECTURE with no `gate`, a duplicate card id, a parent id that does not resolve, an IMPORTED link whose source ids are missing from `sources/`, a DERIVED-UNDER-ASSUMPTION link with an empty `assumptions` array, and any unquoted YAML scalar `yes`/`no`/`on`/`off`/`y`/`n` (any case).
 - Every file plain text (YAML/JSON) except bulk outputs; stable ids; no prose-only claims.
 - CI rejects any PR whose card fails schema, lacks a lock hash, or self-promotes a label.
 - Releases are versioned data snapshots with a changelog (Zenodo DOI for citability).

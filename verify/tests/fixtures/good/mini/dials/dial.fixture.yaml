@@ -1,0 +1,7 @@
+id: dial-fixture
+name: Fixture dial
+symbol: "no"
+units: "1"
+ours: 0
+range: [0, 1]
+scale: linear

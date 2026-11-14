@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/backward.schema.json",
+  "title": "Backward chain",
+  "description": "A backward chain from a stated end, with each bridge premise written out and cited. The schema describes that shape. It does not add premises.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "bridge_premises",
+    "is_ought_gap",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bridge_premises": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "is_ought_gap": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+      }
+    }
+  }
+}

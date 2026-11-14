@@ -1,0 +1,18 @@
+{
+  "source": "Fixture catalogue, not a sweep.",
+  "seeds": [
+    {
+      "n": 1,
+      "name": "Fixture seed",
+      "category": "fixture",
+      "description": "Not an origin idea.",
+      "idea_label": "CONJECTURE",
+      "v3_mapping": "NOT RUNNABLE",
+      "v3_mapping_note": "",
+      "settings": "{}",
+      "sweep_class": "DESCRIPTIVE",
+      "card": "cards/starter/factor/c.good-0001/card.json",
+      "label": "CONJECTURE"
+    }
+  ]
+}

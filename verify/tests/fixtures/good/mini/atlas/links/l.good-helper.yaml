@@ -1,0 +1,6 @@
+id: l.good-helper
+from: s.from-node
+to: s.to-node
+label: DERIVED
+condition: "min(floor(dial_fixture), Z_fission(dial_fixture, cosmological_constant)) >= 0"
+sources: []

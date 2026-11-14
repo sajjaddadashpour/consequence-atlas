@@ -1,0 +1,4 @@
+id: s00.fixture
+name: Fixture stage
+order: 0
+requires: []

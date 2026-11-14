@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: Consequence Atlas
+message: >-
+  If you use the Consequence Atlas, please cite it.
+  Code in this repository is MIT. The atlas data is CC-BY-4.0.
+type: dataset
+authors:
+  - family-names: Dadashpour
+    given-names: Sajjad
+abstract: >-
+  An honestly labelled atlas of what follows from the rules of a universe,
+  for people, single agents, and agent swarms.
+version: "0.1.0"
+date-released: "2026-11-14"
+license: CC-BY-4.0
+repository-code: "https://github.com/sajjaddadashpour/consequence-atlas"
+url: "https://github.com/sajjaddadashpour/consequence-atlas"
