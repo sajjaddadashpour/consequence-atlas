@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from verify.gate import sign, stats
-from verify.gate.gate import CardResult, assign_labels, build_plan, decide, evaluate, half
+from verify.gate.gate import CardResult, apply_confirmation, assign_labels, build_plan, confirm_plan, decide, evaluate, half
 from verify.gate.seeds import gate_seed, gate_seeds
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -153,13 +153,75 @@ def test_evaluate_differs_path():
     assert r.label == "DIFFERS"
 
 
-def test_evaluate_null_trip_is_dead_end():
+TEST = [5, 5.1, 4.9, 5.05, 4.95]
+CTRL = [1, 1.1, 0.9, 1.05, 0.95]
+TRIP = [3, 3.1, 2.9, 3.05, 2.95]
+CLEAN = [1.02, 0.98, 1.0, 1.01, 0.99]
+
+
+def _tripped():
     c = _card()
     _, meta = build_plan(c, 5)
-    out = _out([5, 5.1, 4.9, 5.05, 4.95], [1, 1.1, 0.9, 1.05, 0.95], [3, 3.1, 2.9, 3.05, 2.95])
+    out = _out(TEST, CTRL, TRIP)
     r = evaluate(c, out, meta)
+    return c, meta, out, r
+
+
+def test_null_trip_awaits_confirmation():
+    c, meta, out, r = _tripped()
+    assert r.null_pending == ["full", "half"] and not r.null_trip and r.null_confirmed is None
+    with pytest.raises(ValueError):
+        decide(r)
+
+
+def test_confirm_plan_independent_seed_stream():
+    c, meta, out, r = _tripped()
+    arms = confirm_plan(c, r, meta)
+    assert [a["key"] for a in arms] == ["null-confirm:full", "null-confirm:half"]
+    assert [a["half"] for a in arms] == [False, True]
+    for a, tag in zip(arms, ("full", "half")):
+        assert len(a["seeds"]) == 5
+        assert a["seeds"] != meta["seeds"][f"null:{tag}"]
+        assert a["seeds"] == gate_seeds("sha256:00|c.syn", "null-confirm", 64 if tag == "full" else 32, 5)
+    assert r.seeds["null-confirm:full"] == arms[0]["seeds"]
+
+
+def test_trip_then_confirm_trip_is_dead_end():
+    c, meta, out, r = _tripped()
+    confirm_plan(c, r, meta)
+    neg = [-1 * x for x in TRIP]  # opposite sign still counts (either sign)
+    apply_confirmation(c, r, out, {"null-confirm:full": _rows(neg, "k"), "null-confirm:half": _rows(CLEAN, "k")})
     assign_labels([r], {"fam": 1})
-    assert r.null_trip and r.label == "DEAD-END"
+    assert r.null_confirmed is True and r.null_trip and r.label == "DEAD-END"
+    assert r.null_full["z"] > 3 and r.null_full_confirm["z"] < -3
+
+
+def test_trip_then_confirm_pass_proceeds():
+    c, meta, out, r = _tripped()
+    confirm_plan(c, r, meta)
+    apply_confirmation(c, r, out, {"null-confirm:full": _rows(CLEAN, "k"), "null-confirm:half": _rows(CLEAN, "k")})
+    assign_labels([r], {"fam": 1})
+    assert r.null_confirmed is False and not r.null_trip
+    assert r.null_full["z"] > 3 and abs(r.null_full_confirm["z"]) <= 3  # both z values recorded
+    assert r.label == "DIFFERS"
+
+
+def test_deterministic_null_trip_needs_no_confirmation():
+    c = _card()
+    _, meta = build_plan(c, 5)
+    out = _out([5.0] * 5, [1.0] * 5, [2.0] * 5)
+    r = evaluate(c, out, meta)
+    assert r.null_pending == [] and r.null_trip and r.null_confirmed is None
+    assert confirm_plan(c, r, meta) == []
+    assign_labels([r], {"fam": 1})
+    assert r.label == "DEAD-END" and r.null_full["deterministic"]
+
+
+def test_no_trip_no_confirmation():
+    c = _card()
+    _, meta = build_plan(c, 5)
+    r = evaluate(c, _out(TEST, CTRL, CLEAN), meta)
+    assert r.null_pending == [] and r.null_confirmed is None and confirm_plan(c, r, meta) == []
 
 
 def test_evaluate_repro_mismatch_rejected():

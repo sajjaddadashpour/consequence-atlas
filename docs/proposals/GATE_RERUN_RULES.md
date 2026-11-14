@@ -11,7 +11,9 @@ Only card.json + pinned engine (by sha256). Never the submitted outputs, except 
 ## Null arm
 - Preferred: control settings with the changed factor replaced by its shuffled/randomized version, when the engine defines one.
 - Fallback: control settings with fresh independent seeds (statistics check only); card must say which.
-- If the null arm itself shows |z| > 3 vs control -> DEAD-END (artifact), regardless of test result. Prototype checks the deciding measure at both sizes (2 tests per card). Caution: at 3σ uncorrected that is about 0.5% false DEAD-ENDs per card; see the prototype notes below.
+- Null threshold: the null arm is compared with control on the deciding measure at both sizes; it trips when |z| > z_crit_null = 3 (uncorrected 3σ).
+- LOCKED (Pass 31b): confirming rerun. If the null trips at some size, the gate runs ONE confirming null rerun at that same size, same seed count, with an independent seed stream (arm tag `null-confirm` in the seed derivation: sha256("lock.hash|card_id|null-confirm|size|i")). DEAD-END only if the confirmation also trips, either sign (|z| > z_crit_null). If the confirmation passes, the null counts as passed: both z values and `null_confirmed: false` are recorded in the result and attestation, and the normal label logic continues. `null_confirmed: true` means a confirmed trip (DEAD-END); absent/null means no trip.
+- Deterministic nulls (sd = 0 in both arms, exact compare against min_effect): a trip is already exact and reruns cannot change it, so no confirmation is run; a deterministic trip -> DEAD-END directly.
 
 ## Statistics
 - Effect = mean(test) - mean(control); SE from per-seed values (Welch).
@@ -43,4 +45,4 @@ Only card.json + pinned engine (by sha256). Never the submitted outputs, except 
 - Family BH counts every card in the family (cards/ and dead-ends/); cards the gate did not rerun count as p = 1 (conservative).
 - Deterministic min_effect: hypothesis.min_effect when declared, else 1e-3 relative to the control mean (the F1 lock's value).
 - Signatures use a LOCAL TEST KEY (key_id local-test-key-NOT-AUTHORITATIVE, payload authoritative=false). The private key is never committed. The prototype never writes the card `gate` field.
-- First run (98 CONJECTURE cards, fresh gate seeds, 100% reproduction): 92 DIFFERS, 5 FAILED (half size no longer passes with new seeds), 1 DEAD-END (null |z| = 4.18 at full size). One null trip in 196 null tests is what chance predicts at 3σ (expected about 0.5), so this single DEAD-END is probably a false alarm. Open question for v1: correct the null threshold for the 2 sizes, or rerun the null with fresh seeds once before labelling DEAD-END.
+- First run (98 CONJECTURE cards, fresh gate seeds, 100% reproduction): 92 DIFFERS, 5 FAILED (half size no longer passes with new seeds), 1 DEAD-END (null |z| = 4.18 at full size). One null trip in 196 null tests is what chance predicts at 3σ (expected about 0.5), so this single DEAD-END is probably a false alarm. Resolved in Pass 31b by the locked confirming-rerun rule above (no threshold change).

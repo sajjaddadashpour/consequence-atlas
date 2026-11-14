@@ -65,7 +65,7 @@ def main(argv: list[str] | None = None) -> int:
     for r, p in zip(results, cards):
         card = json.loads(p.read_text())
         payload = {"card_id": r.card_id, "lock_hash": card["lock"]["hash"], "engine_sha256": esha, "label": r.label,
-                   "result": {"measure": r.measure, "full": r.full, "half": r.half, "null_full": r.null_full, "null_half": r.null_half,
+                   "result": {"measure": r.measure, "full": r.full, "half": r.half, "null_full": r.null_full, "null_half": r.null_half, "null_full_confirm": r.null_full_confirm, "null_half_confirm": r.null_half_confirm, "null_confirmed": r.null_confirmed,
                               "q": r.q, "repro": [r.repro_matched, r.repro_checked], "status": r.status},
                    "seeds": r.seeds, "timestamp": ts,
                    "notice": "LOCAL TEST SIGNATURE - NON-AUTHORITATIVE. Does not promote this card."}
@@ -77,10 +77,10 @@ def main(argv: list[str] | None = None) -> int:
                                                  "repro_fraction": a.repro_fraction, "seeds": a.seeds,
                                                  "results": [asdict(r) for r in results]}, indent=1, default=str))
     with open(out / "labels.tsv", "w") as f:
-        f.write("card_id\tfamily\tmeasure\tz_full\tz_half\tz_null_full\tz_null_half\tq\trepro\tstatus\tgate_label\n")
+        f.write("card_id\tfamily\tmeasure\tz_full\tz_half\tz_null_full\tz_null_half\tz_null_confirm\tnull_confirmed\tq\trepro\tstatus\tgate_label\n")
         for r in results:
             z = lambda d: "" if not d else ("det" if d["z"] is None else f"{d['z']:.2f}")  # noqa: E731
-            f.write(f"{r.card_id}\t{r.family}\t{r.measure}\t{z(r.full)}\t{z(r.half)}\t{z(r.null_full)}\t{z(r.null_half)}\t"
+            f.write(f"{r.card_id}\t{r.family}\t{r.measure}\t{z(r.full)}\t{z(r.half)}\t{z(r.null_full)}\t{z(r.null_half)}\t{z(r.null_full_confirm) or z(r.null_half_confirm)}\t{'' if r.null_confirmed is None else str(r.null_confirmed).lower()}\t"
                     f"{'' if r.q is None else f'{r.q:.3g}'}\t{r.repro_matched}/{r.repro_checked}\t{r.status}\t{r.label}\n")
     counts: dict[str, int] = {}
     for r in results:

@@ -9,7 +9,9 @@ Pipeline per card:
   4. Per declared measure (hypothesis.measure + extra_measures): Welch z, Bonferroni z_crit(k);
      deterministic arms (sd = 0) use an exact compare against min_effect.
   5. INERT: test and control outputs byte-identical at every gate seed at both sizes.
-  6. Null: deciding measure, null vs control at both sizes, |z| > 3 (or exact difference if deterministic) -> DEAD-END.
+  6. Null: deciding measure, null vs control at both sizes, |z| > 3. A stochastic trip gets ONE confirming rerun at that size
+     with an independent seed stream (arm tag 'null-confirm'); DEAD-END only if the confirmation also trips (either sign).
+     A deterministic trip (exact compare) is final: no confirmation.
 Family pass: Benjamini-Hochberg q = 0.05 over every card in the family (cards not rerun count as p = 1).
 """
 from __future__ import annotations
@@ -88,6 +90,10 @@ class CardResult:
     full_pass: bool = False
     half_pass: bool = False
     null_trip: bool = False
+    null_pending: list = field(default_factory=list)  # sizes whose stochastic null tripped, awaiting confirmation
+    null_full_confirm: dict | None = None
+    null_half_confirm: dict | None = None
+    null_confirmed: bool | None = None  # None: no stochastic trip; False: trip not confirmed (null passes); True: confirmed trip
     p_adj: float = 1.0
     q: float | None = None
     label: str = "CONJECTURE"
@@ -138,7 +144,7 @@ def build_plan(card: dict, n_seeds: int, repro_fraction: float = 1.0) -> tuple[l
         arm, is_half = keymap[k]
         arms.append({"key": f"repro:{k}", "settings": cfgs[arm], "half": is_half, "seeds": [s for _, s, _ in rows]})
         want[f"repro:{k}"] = [h for _, _, h in rows]
-    return arms, {"seeds": seeds, "want": want}
+    return arms, {"seeds": seeds, "want": want, "null_settings": N, "n_seeds": n_seeds}
 
 
 def run_engine(arms: list[dict], timeout_s: float) -> dict:
@@ -206,7 +212,50 @@ def evaluate(card: dict, out: dict, meta: dict) -> CardResult:
         n = stats.compare(m, na, nc, stats.NULL_Z, min_eff)
         setattr(res, f"null_{tag}", asdict(n))
         if n.differs:
-            res.null_trip = True
+            if n.deterministic:
+                res.null_trip = True  # exact compare: a rerun cannot change it, no confirmation
+                res.reasons.append(f"Deterministic null differs exactly at {tag} size (no confirmation needed).")
+            else:
+                res.null_pending.append(tag)
+    return res
+
+
+def confirm_plan(card: dict, res: CardResult, meta: dict) -> list[dict]:
+    """Arms for the ONE confirming null rerun per tripped size: same size, same seed count, seed tag 'null-confirm'."""
+    sizes = card["hypothesis"]["sizes"]
+    arms = []
+    for tag in res.null_pending:
+        size = int(sizes[0] if tag == "full" else sizes[1])
+        sd = gate_seeds(f"{card['lock']['hash']}|{card['id']}", "null-confirm", size, meta["n_seeds"])
+        meta["seeds"][f"null-confirm:{tag}"] = sd
+        res.seeds[f"null-confirm:{tag}"] = sd
+        arms.append({"key": f"null-confirm:{tag}", "settings": meta["null_settings"], "half": tag == "half", "seeds": sd})
+    return arms
+
+
+def apply_confirmation(card: dict, res: CardResult, out: dict, conf: dict) -> CardResult:
+    """DEAD-END only if the confirmation also trips (|z| > 3, either sign). Otherwise the null passes, flagged null_confirmed=False."""
+    if not res.null_pending:
+        return res
+    m = res.measure
+    min_eff = card["hypothesis"].get("min_effect")
+    confirmed = False
+    for tag in res.null_pending:
+        na, nc = _vals(conf[f"null-confirm:{tag}"], m), _vals(out[f"control:{tag}"], m)
+        if na is None or nc is None:
+            confirmed = True  # cannot confirm a pass: treat conservatively as confirmed trip
+            res.reasons.append(f"Confirming null at {tag} size has undefined {m}.")
+            continue
+        n = stats.compare(m, na, nc, stats.NULL_Z, min_eff)
+        setattr(res, f"null_{tag}_confirm", asdict(n))
+        if n.differs:
+            confirmed = True
+    res.null_confirmed = confirmed
+    if confirmed:
+        res.null_trip = True
+    else:
+        res.reasons.append("Null tripped once but the independent confirming rerun passed: null counts as passed (null_confirmed=false).")
+    res.null_pending = []
     return res
 
 
@@ -231,8 +280,10 @@ def decide(r: CardResult) -> str:
     if r.inert:
         r.reasons.append("Test and control outputs are byte-identical at every gate seed at both sizes.")
         return "INERT-BY-CONSTRUCTION"
+    if r.null_pending:
+        raise ValueError("null trip awaiting confirmation: call apply_confirmation first")
     if r.null_trip:
-        r.reasons.append(f"Null arm differs from control on {r.measure}: artifact of the statistic.")
+        r.reasons.append(f"Null arm differs from control on {r.measure}" + (" and the confirming rerun also tripped" if r.null_confirmed else "") + ": artifact of the statistic.")
         return "DEAD-END"
     if r.full_pass and r.half_pass and r.q is not None and r.q <= FDR_Q:
         return "DIFFERS"
@@ -260,5 +311,14 @@ def check_card(path: Path, n_seeds: int = 5, repro_fraction: float = 1.0, timeou
         r.runtime_s = time.time() - t0
         return r
     r = evaluate(card, out, meta)
+    if r.null_pending:
+        try:
+            conf = run_engine(confirm_plan(card, r, meta), timeout_s)
+        except subprocess.TimeoutExpired:
+            r.status = "HELD"
+            r.reasons.append(f"Budget guard: confirming null exceeded {timeout_s}s (held, not failed).")
+            r.runtime_s = time.time() - t0
+            return r
+        apply_confirmation(card, r, out, conf)
     r.runtime_s = time.time() - t0
     return r
