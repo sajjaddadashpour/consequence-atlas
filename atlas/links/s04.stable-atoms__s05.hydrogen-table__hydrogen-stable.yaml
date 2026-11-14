@@ -1,0 +1,18 @@
+id: l.s05.hydrogen-stable
+from: s04.stable-atoms
+to: s05.hydrogen-table
+label: DERIVED-UNDER-ASSUMPTION
+condition: (2.52 - 0.294) + (-1.00 - 0.157)*(alpha/0.0072973525693) > beta*938.272
+assumptions:
+- The electromagnetic part of the neutron-proton mass difference scales linearly with alpha (leading order).
+- Quark masses (and so the QCD part Q) are held fixed while alpha changes.
+- Errors on Q and E are treated as independent 1-sigma intervals.
+window:
+  dial: alpha
+  lo: 0.01082
+  hi: 0.01993
+sources:
+- borsanyi2015
+- derive.d9
+status: active
+notes: m_n - m_p = Q + E*(alpha/alpha0), Q = 2.52 +/- 0.29 MeV (QCD), E = -1.00 +/- 0.16 MeV (QED) (Borsanyi et al. 2015). Hydrogen is stable against electron capture iff m_n - m_p > m_e = beta * 938.272 MeV. PASS if stable over the whole 1-sigma box, FAIL if unstable over all of it, else CONTESTED. At beta = ours the central critical alpha is 2.01 x ours (0.01466); band 1.48-2.73 x ours.

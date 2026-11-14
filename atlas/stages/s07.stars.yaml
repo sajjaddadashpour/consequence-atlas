@@ -1,0 +1,7 @@
+id: s07.stars
+name: Stars
+order: 8
+requires:
+- s03.orbits-atoms-gravity
+- s04.stable-atoms
+- s07g.galaxies

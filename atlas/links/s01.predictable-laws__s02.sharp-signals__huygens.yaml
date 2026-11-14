@@ -1,0 +1,10 @@
+id: l.s02.huygens
+from: s01.predictable-laws
+to: s02.sharp-signals
+label: IMPORTED
+condition: dimensions == 3 or dimensions == 5
+sources:
+- courant-hilbert
+- barrow1983
+status: active
+notes: 'PASS: odd n >= 3, Huygens'' principle holds (sharp signals). WEAK: n = 1 (no spreading, no inverse-square law) or even n (signals leave a tail inside the light cone).'

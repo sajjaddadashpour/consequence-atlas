@@ -1,0 +1,8 @@
+{
+  "id": "prr.a1-directional-alphabet",
+  "symbol": "A1 (±1)",
+  "definition": "PRR A1 (ASSUMED): a registered distinction is an orientation; the primitive values are +1 and -1, and neither is the absence of the other. {0,1} as presence/absence is the wrong alphabet.",
+  "formal": "BOUND: Starter engine setting alphabet='pm' (matter m_i in {-1,0,+1}); contrast alphabet='bin'.",
+  "author": "sajjad (PRR); transcribed by physicist",
+  "created_at": "2026-11-14T19:30:00Z"
+}

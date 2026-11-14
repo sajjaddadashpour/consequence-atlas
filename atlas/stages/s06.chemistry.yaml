@@ -1,0 +1,5 @@
+id: s06.chemistry
+name: Ordered chemistry (molecules, water)
+order: 6
+requires:
+- s05.hydrogen-table

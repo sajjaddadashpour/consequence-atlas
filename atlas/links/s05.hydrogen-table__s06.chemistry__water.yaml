@@ -1,0 +1,9 @@
+id: l.s06.water
+from: s05.hydrogen-table
+to: s06.chemistry
+label: IMPORTED
+condition: alpha <= 10*0.0072973525693
+sources:
+- adams2019
+status: active
+notes: 'PASS: water energetics shift well under 10%. WEAK alpha > 10 x ours: O-H bond weakens (about 7 kcal/mol at 7x), roughly a 10% shift (Adams 2019 benchmark).'

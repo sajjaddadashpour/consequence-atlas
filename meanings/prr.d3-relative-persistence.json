@@ -1,0 +1,8 @@
+{
+  "id": "prr.d3-relative-persistence",
+  "symbol": "D3",
+  "definition": "PRR D3 (ASSUMED): a mirrored pair 'still is' only relative to a further registration that takes it as the same pair; being-thus is being-thus-for-a-reading.",
+  "formal": "BOUND: Starter engine setting d3=true: a record not re-read in a step is erased with probability forget (records maintained only by reading).",
+  "author": "sajjad (PRR); transcribed by physicist",
+  "created_at": "2026-11-14T19:30:00Z"
+}

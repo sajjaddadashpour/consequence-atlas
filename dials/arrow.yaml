@@ -1,0 +1,12 @@
+id: arrow
+name: Arrow of time and records
+symbol: arrow
+units: 0 = reversible laws, equilibrium start; 1 = reversible laws, low-entropy start (ours); 2 = irreversible laws
+ours: 1
+range:
+- 0
+- 2
+scale: discrete
+sources:
+- rovelli2020
+- wolpert1992

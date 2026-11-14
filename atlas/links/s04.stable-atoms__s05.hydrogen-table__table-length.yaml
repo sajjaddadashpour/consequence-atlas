@@ -1,0 +1,10 @@
+id: l.s05.table-length
+from: s04.stable-atoms
+to: s05.hydrogen-table
+label: DERIVED
+condition: min(floor(1.24/alpha), Z_fission(alpha, strong)) >= 26
+sources:
+- derive.d5
+- zeldovich-popov1972
+status: active
+notes: 'Periodic table ends at min(relativistic limit Z ~ 1.24/alpha, liquid-drop fission limit Z^2/A = 2*17.8*(1+s)/(0.711*alpha/alpha0)). PASS end >= 26 (iron); WEAK 8 <= end < 26 (C and O exist, heavier missing); FAIL end < 8. Liquid-drop coefficients are scaled naively: a DERIVED-UNDER-ASSUMPTION candidate.'

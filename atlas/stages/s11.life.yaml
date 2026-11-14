@@ -1,0 +1,9 @@
+id: s11.life
+name: Life
+order: 12
+requires:
+- s06.chemistry
+- s08.fusion-hoyle
+- s09.planets
+- s10.records
+notes: 'Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).'

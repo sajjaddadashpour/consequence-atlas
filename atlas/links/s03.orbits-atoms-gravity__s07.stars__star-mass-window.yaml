@@ -1,0 +1,12 @@
+id: l.s07.star-mass-window
+from: s03.orbits-atoms-gravity
+to: s07.stars
+label: DERIVED
+condition: beta/alpha**2 >= 1/100
+sources:
+- derive.d6
+- adams2019
+- tegmark1998
+- barnes2012
+status: contested
+notes: 'PASS beta/alpha^2 >= 1/100 (above all three published limits 1/464, 1/200, 1/100). CONTESTED between 10^(-8/3) (1/464, Adams 2019) and 1/100 (Barnes 2012). FAIL below 10^(-8/3): smallest star outweighs the largest stable one. The scaling is derived; the thresholds are imported.'

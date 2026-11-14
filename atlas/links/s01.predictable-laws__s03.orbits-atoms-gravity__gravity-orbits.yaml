@@ -1,0 +1,9 @@
+id: l.s03.gravity-orbits
+from: s01.predictable-laws
+to: s03.orbits-atoms-gravity
+label: IMPORTED
+condition: dimensions == 3
+sources:
+- tegmark1997
+status: active
+notes: 'FAIL n < 3: no gravitational force (Tegmark 1997). FAIL n > 3: no stable planetary orbits and no traditional atoms (Ehrenfest 1917, via Tegmark 1997).'

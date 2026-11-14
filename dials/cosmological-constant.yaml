@@ -1,0 +1,13 @@
+id: cosmological-constant
+name: Cosmological constant
+symbol: Λ
+units: rho_Lambda / rho_Lambda,ours (positive values only in v0)
+ours: 1
+range:
+- 0.001
+- 1000.0
+scale: log
+sources:
+- weinberg1987
+- msw1998
+- planck2018

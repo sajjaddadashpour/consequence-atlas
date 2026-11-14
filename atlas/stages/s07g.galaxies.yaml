@@ -1,0 +1,6 @@
+id: s07g.galaxies
+name: Galaxies (gravitationally bound structures)
+order: 7
+requires:
+- s03.orbits-atoms-gravity
+notes: Added in v0.1 for the cosmological-constant dial; not in the Atlas v0 page.

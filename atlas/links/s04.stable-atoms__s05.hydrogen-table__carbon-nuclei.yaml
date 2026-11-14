@@ -1,0 +1,9 @@
+id: l.s05.carbon-nuclei
+from: s04.stable-atoms
+to: s05.hydrogen-table
+label: IMPORTED
+condition: 0.1*(1 + strong) >= 0.3*sqrt(alpha)
+sources:
+- tegmark1998
+status: active
+notes: Carbon and heavier nuclei hold together iff alpha_s >= 0.3*sqrt(alpha), with alpha_s = 0.1 scaled by the strong dial (Tegmark 1998, citing Barrow & Tipler).

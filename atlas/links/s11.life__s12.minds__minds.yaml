@@ -1,0 +1,9 @@
+id: l.s12.minds
+from: s11.life
+to: s12.minds
+label: CONJECTURE
+condition: "true"
+sources:
+- rovelli2020
+status: active
+notes: OPEN. Memory and a model of the future are physically possible; with arrow = 2 the past is lost faster, so minds may lean harder on records.

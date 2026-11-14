@@ -1,0 +1,9 @@
+id: l.s01.hyperbolic-laws
+from: s00.rules
+to: s01.predictable-laws
+label: IMPORTED
+condition: "true"
+sources:
+- tegmark1997
+status: active
+notes: 'One time dimension (fixed in v0): field equations are hyperbolic, so the present predicts the future. PASS always in v0.'

@@ -1,0 +1,6 @@
+id: s12.minds
+name: Minds
+order: 13
+requires:
+- s11.life
+notes: 'Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).'

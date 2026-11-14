@@ -1,0 +1,10 @@
+id: l.s10.landauer
+from: s01.predictable-laws
+to: s10.records
+label: DERIVED
+condition: "true"
+sources:
+- landauer1961
+- derive.d7
+status: active
+notes: Each erased record bit costs at least k_B T ln 2 = 0.018 eV at 300 K. Always PASS; a cost, not a gate.

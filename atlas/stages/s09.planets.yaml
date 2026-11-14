@@ -1,0 +1,6 @@
+id: s09.planets
+name: Planets with long stable climates
+order: 10
+requires:
+- s03.orbits-atoms-gravity
+- s07.stars

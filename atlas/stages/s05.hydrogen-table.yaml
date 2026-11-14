@@ -1,0 +1,5 @@
+id: s05.hydrogen-table
+name: Hydrogen and a periodic table with C and O
+order: 5
+requires:
+- s04.stable-atoms

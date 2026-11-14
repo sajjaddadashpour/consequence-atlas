@@ -1,0 +1,5 @@
+id: s01.predictable-laws
+name: Predictable laws
+order: 1
+requires:
+- s00.rules

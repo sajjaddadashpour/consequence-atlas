@@ -1,0 +1,9 @@
+id: l.s03.orbit-stability
+from: s01.predictable-laws
+to: s03.orbits-atoms-gravity
+label: DERIVED
+condition: dimensions == 3
+sources:
+- derive.d1
+status: active
+notes: PASS n = 3 (circular orbit at a minimum of the effective potential). FAIL n = 4 (no extremum), n = 5 (only a maximum, at r = 3 test units), n = 1 (no sideways direction). WEAK n = 2 (log potential orbits stable, but see gravity link).

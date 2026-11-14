@@ -1,0 +1,20 @@
+id: l.s07g.lambda-galaxies
+from: s03.orbits-atoms-gravity
+to: s07g.galaxies
+label: DERIVED-UNDER-ASSUMPTION
+condition: cosmological_constant < 57.5
+assumptions:
+- Earliest galaxies at redshift z ~ 4, as used by Martel, Shapiro & Weinberg 1998.
+- Primordial fluctuation amplitude Q and dark-matter-to-photon ratio held at our values (Tegmark et al. 2006 show the bound scales with Q^3).
+- Our density ratio Omega_Lambda/Omega_m = 0.685/0.315 (Planck 2018).
+- Only positive Lambda is covered; negative Lambda (recollapse time) is not in v0.
+window:
+  dial: cosmological-constant
+  hi: 57.5
+sources:
+- weinberg1987
+- msw1998
+- planck2018
+- derive.d10
+status: active
+notes: 'Weinberg 1987: a positive vacuum energy much larger than the matter density at the epoch of galaxy formation stops galaxies forming. MSW 1998: a galaxy at z ~ 4 formed when the mass density was (1+z)^3 ~ 125 x today''s, so rho_Lambda < ~125 rho_m0. With Omega_m = 0.315 (Planck 2018) and Omega_Lambda = 0.685, rho_Lambda,ours = 2.17 rho_m0, so the bound is ~57.5 in dial units. MSW also find the observed-typical value is much smaller than this bound (comparable to the matter density when typical galaxies form). FAIL above the bound; PASS below.'

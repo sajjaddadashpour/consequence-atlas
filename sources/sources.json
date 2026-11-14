@@ -1,0 +1,362 @@
+[
+  {
+    "id": "tegmark1997",
+    "title": "On the dimensionality of spacetime",
+    "authors": [
+      "M. Tegmark"
+    ],
+    "year": 1997,
+    "identifier": "arxiv:gr-qc/9702052",
+    "verified": true
+  },
+  {
+    "id": "tegmark1998",
+    "title": "Is \"the theory of everything\" merely the ultimate ensemble theory?",
+    "authors": [
+      "M. Tegmark"
+    ],
+    "year": 1998,
+    "identifier": "arxiv:gr-qc/9704009",
+    "verified": true
+  },
+  {
+    "id": "adams2008",
+    "title": "Stars in other universes: stellar structure with different fundamental constants",
+    "authors": [
+      "F. C. Adams"
+    ],
+    "year": 2008,
+    "identifier": "arxiv:0807.3697",
+    "verified": true
+  },
+  {
+    "id": "adams2019",
+    "title": "The degree of fine-tuning in our universe -- and others",
+    "authors": [
+      "F. C. Adams"
+    ],
+    "year": 2019,
+    "identifier": "arxiv:1902.03928",
+    "verified": true
+  },
+  {
+    "id": "barnes2012",
+    "title": "The fine-tuning of the universe for intelligent life",
+    "authors": [
+      "L. A. Barnes"
+    ],
+    "year": 2012,
+    "identifier": "arxiv:1112.4647",
+    "verified": true
+  },
+  {
+    "id": "hogan2000",
+    "title": "Why the universe is just so",
+    "authors": [
+      "C. J. Hogan"
+    ],
+    "year": 2000,
+    "identifier": "arxiv:astro-ph/9909295",
+    "verified": true
+  },
+  {
+    "id": "tarw2006",
+    "title": "Dimensionless constants, cosmology and other dark matters",
+    "authors": [
+      "M. Tegmark",
+      "A. Aguirre",
+      "M. J. Rees",
+      "F. Wilczek"
+    ],
+    "year": 2006,
+    "identifier": "arxiv:astro-ph/0511774",
+    "verified": true
+  },
+  {
+    "id": "carr-rees1979",
+    "title": "The anthropic principle and the structure of the physical world",
+    "authors": [
+      "B. J. Carr",
+      "M. J. Rees"
+    ],
+    "year": 1979,
+    "identifier": "doi:10.1038/278605a0",
+    "verified": true
+  },
+  {
+    "id": "press-lightman1983",
+    "title": "Dependence of macrophysical phenomena on the values of the fundamental constants",
+    "authors": [
+      "W. H. Press",
+      "A. P. Lightman"
+    ],
+    "year": 1983,
+    "identifier": "doi:10.1098/rsta.1983.0094",
+    "verified": true
+  },
+  {
+    "id": "barrow1983",
+    "title": "Dimensionality",
+    "authors": [
+      "J. D. Barrow"
+    ],
+    "year": 1983,
+    "identifier": "doi:10.1098/rsta.1983.0095",
+    "verified": true
+  },
+  {
+    "id": "carter1983",
+    "title": "The anthropic principle and its implications for biological evolution",
+    "authors": [
+      "B. Carter"
+    ],
+    "year": 1983,
+    "identifier": "doi:10.1098/rsta.1983.0096",
+    "verified": true
+  },
+  {
+    "id": "oberhummer2000",
+    "title": "Stellar production rates of carbon and its abundance in the universe",
+    "authors": [
+      "H. Oberhummer",
+      "A. Csoto",
+      "H. Schlattl"
+    ],
+    "year": 2000,
+    "identifier": "arxiv:astro-ph/0007178",
+    "verified": true
+  },
+  {
+    "id": "epelbaum2013",
+    "title": "Viability of carbon-based life as a function of the light quark mass",
+    "authors": [
+      "E. Epelbaum",
+      "H. Krebs",
+      "T. A. Lahde",
+      "D. Lee",
+      "U.-G. Meissner"
+    ],
+    "year": 2013,
+    "identifier": "arxiv:1212.4181",
+    "verified": true
+  },
+  {
+    "id": "kragh2010",
+    "title": "An anthropic myth: Fred Hoyle's carbon-12 resonance level",
+    "authors": [
+      "H. Kragh"
+    ],
+    "year": 2010,
+    "identifier": "doi:10.1007/s00407-010-0068-8",
+    "verified": true
+  },
+  {
+    "id": "macdonald-mullan2009",
+    "title": "Big bang nucleosynthesis: the strong nuclear force meets the weak anthropic principle",
+    "authors": [
+      "J. MacDonald",
+      "D. J. Mullan"
+    ],
+    "year": 2009,
+    "identifier": "doi:10.1103/PhysRevD.80.043507",
+    "verified": true
+  },
+  {
+    "id": "borsanyi2015",
+    "title": "Ab initio calculation of the neutron-proton mass difference",
+    "authors": [
+      "Sz. Borsanyi",
+      "et al. (BMW collaboration)"
+    ],
+    "year": 2015,
+    "identifier": "arxiv:1406.4088",
+    "verified": true
+  },
+  {
+    "id": "zeldovich-popov1972",
+    "title": "Electronic structure of superheavy atoms",
+    "authors": [
+      "Ya. B. Zeldovich",
+      "V. S. Popov"
+    ],
+    "year": 1972,
+    "identifier": "doi:10.1070/PU1972v014n06ABEH004735",
+    "verified": true
+  },
+  {
+    "id": "courant-hilbert",
+    "title": "Methods of Mathematical Physics, vol. II",
+    "authors": [
+      "R. Courant",
+      "D. Hilbert"
+    ],
+    "year": 1962,
+    "identifier": "doi:10.1002/9783527617234",
+    "verified": true
+  },
+  {
+    "id": "wolpert1992",
+    "title": "Memory systems, computation, and the second law of thermodynamics",
+    "authors": [
+      "D. H. Wolpert"
+    ],
+    "year": 1992,
+    "identifier": "doi:10.1007/BF00670829",
+    "verified": true
+  },
+  {
+    "id": "rovelli2020",
+    "title": "Memory and entropy",
+    "authors": [
+      "C. Rovelli"
+    ],
+    "year": 2020,
+    "identifier": "arxiv:2003.06687",
+    "verified": true
+  },
+  {
+    "id": "landauer1961",
+    "title": "Irreversibility and heat generation in the computing process",
+    "authors": [
+      "R. Landauer"
+    ],
+    "year": 1961,
+    "identifier": "doi:10.1147/rd.53.0183",
+    "verified": true
+  },
+  {
+    "id": "bhkp2007",
+    "title": "Predicting the cosmological constant from the causal entropic principle",
+    "authors": [
+      "R. Bousso",
+      "R. Harnik",
+      "G. D. Kribs",
+      "G. Perez"
+    ],
+    "year": 2007,
+    "identifier": "arxiv:hep-th/0702115",
+    "verified": true
+  },
+  {
+    "id": "weinberg1987",
+    "title": "Anthropic bound on the cosmological constant",
+    "authors": [
+      "S. Weinberg"
+    ],
+    "year": 1987,
+    "identifier": "doi:10.1103/PhysRevLett.59.2607",
+    "verified": true
+  },
+  {
+    "id": "msw1998",
+    "title": "Likely values of the cosmological constant",
+    "authors": [
+      "H. Martel",
+      "P. R. Shapiro",
+      "S. Weinberg"
+    ],
+    "year": 1998,
+    "identifier": "arxiv:astro-ph/9701099",
+    "verified": true
+  },
+  {
+    "id": "planck2018",
+    "title": "Planck 2018 results. VI. Cosmological parameters",
+    "authors": [
+      "Planck Collaboration"
+    ],
+    "year": 2020,
+    "identifier": "arxiv:1807.06209",
+    "verified": true
+  },
+  {
+    "id": "derive.d1",
+    "title": "D1 orbit stability vs number of space dimensions (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d1",
+    "verified": true
+  },
+  {
+    "id": "derive.d2",
+    "title": "D2 hydrogen-like ground state vs dimensions (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d2",
+    "verified": true
+  },
+  {
+    "id": "derive.d3",
+    "title": "D3 atomic size and Rydberg scale vs alpha, beta (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d3",
+    "verified": true
+  },
+  {
+    "id": "derive.d5",
+    "title": "D5 periodic-table end: relativistic and fission limits (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d5",
+    "verified": true
+  },
+  {
+    "id": "derive.d6",
+    "title": "D6 stellar mass window vs beta/alpha^2 (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d6",
+    "verified": true
+  },
+  {
+    "id": "derive.d7",
+    "title": "D7 Landauer cost of erasing one bit (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d7",
+    "verified": true
+  },
+  {
+    "id": "derive.d9",
+    "title": "D9 hydrogen stability vs alpha (n-p mass difference) (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d9",
+    "verified": true
+  },
+  {
+    "id": "derive.d10",
+    "title": "D10 cosmological-constant galaxy bound in dial units (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d10",
+    "verified": true
+  },
+  {
+    "id": "derive.us27",
+    "title": "US27 Universe Starter lattice-gas arrow-of-time toy (Pass 27) (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#us27",
+    "verified": true
+  }
+]

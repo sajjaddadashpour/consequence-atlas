@@ -1,0 +1,9 @@
+id: l.s03.hydrogen-ground-state
+from: s01.predictable-laws
+to: s03.orbits-atoms-gravity
+label: DERIVED
+condition: dimensions == 3
+sources:
+- derive.d2
+status: active
+notes: 'PASS n = 3: numeric E = -0.2500 test units (exact -1/4). FAIL n = 4 (1/r^2 at the collapse threshold) and n = 5 (energy falls without bound as the core shrinks). WEAK n <= 2: everything binds; chemistry unrecognisable (no source; flagged).'
