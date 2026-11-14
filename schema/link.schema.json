@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/link.schema.json",
+  "title": "Atlas link",
+  "type": "object",
+  "required": [
+    "id",
+    "from",
+    "to",
+    "label",
+    "condition",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "from": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "to": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "label": {
+      "$ref": "label.schema.json#/$defs/atlasLabel"
+    },
+    "condition": {
+      "type": "string",
+      "description": "machine-checkable expression over dial ids, e.g. 'alpha < 0.0146'"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "lo": {
+          "type": "number"
+        },
+        "hi": {
+          "type": "number"
+        },
+        "dial": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+      }
+    },
+    "status": {
+      "enum": [
+        "active",
+        "contested",
+        "retracted"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "label": {
+            "const": "DERIVED-UNDER-ASSUMPTION"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "assumptions"
+        ],
+        "properties": {
+          "assumptions": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "label": {
+            "const": "IMPORTED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "sources": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

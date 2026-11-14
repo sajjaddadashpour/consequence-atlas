@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/label.schema.json",
+  "title": "Labels",
+  "$defs": {
+    "cardLabel": {
+      "enum": [
+        "CONJECTURE",
+        "REPRODUCED",
+        "DIFFERS",
+        "ROBUST",
+        "KNOWN-MECHANISM",
+        "NOVEL-CANDIDATE",
+        "FAILED",
+        "DEAD-END",
+        "INERT-BY-CONSTRUCTION"
+      ]
+    },
+    "atlasLabel": {
+      "enum": [
+        "DERIVED",
+        "DERIVED-UNDER-ASSUMPTION",
+        "IMPORTED",
+        "ASSUMED",
+        "CONJECTURE",
+        "CONTESTED"
+      ]
+    }
+  },
+  "description": "Card labels are set only by verify/. Ladder: CONJECTURE<REPRODUCED<DIFFERS<ROBUST<{KNOWN-MECHANISM|NOVEL-CANDIDATE}. FAILED, DEAD-END, INERT-BY-CONSTRUCTION are terminal and kept."
+}

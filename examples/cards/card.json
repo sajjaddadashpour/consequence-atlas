@@ -1,0 +1,37 @@
+{
+  "id": "c.example-0001",
+  "schema_version": "0.1.0",
+  "author": "physicist",
+  "engine": {
+    "name": "starter",
+    "version": "3.0.0"
+  },
+  "family": "starter-3.0.0/short-range-attraction",
+  "rules": {
+    "settings": "kind=particles;attract=short"
+  },
+  "start": {
+    "kind": "scattered"
+  },
+  "hypothesis": {
+    "measure": "clustering",
+    "direction": "greater",
+    "sizes": [
+      64,
+      128
+    ],
+    "n_seeds": 5
+  },
+  "control": {
+    "changed_factor": "attract",
+    "settings": "kind=particles;attract=off",
+    "null_settings": "kind=particles;attract=shuffled",
+    "budget_matched": true
+  },
+  "lock": {
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "server_timestamp": "2026-11-14T19:00:00Z"
+  },
+  "label": "CONJECTURE",
+  "label_set_by": "verify"
+}

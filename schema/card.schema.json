@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/card.schema.json",
+  "title": "Experiment card",
+  "type": "object",
+  "required": [
+    "id",
+    "schema_version",
+    "author",
+    "engine",
+    "rules",
+    "start",
+    "hypothesis",
+    "control",
+    "lock",
+    "label"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+      }
+    },
+    "author": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "object",
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "family": {
+      "type": "string",
+      "description": "engine.version + changed factor; FDR is computed per family"
+    },
+    "meanings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+      }
+    },
+    "rules": {
+      "type": "object",
+      "required": [
+        "settings"
+      ],
+      "properties": {
+        "settings": {
+          "type": "string"
+        },
+        "code_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "start": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object"
+        }
+      }
+    },
+    "hypothesis": {
+      "type": "object",
+      "required": [
+        "measure",
+        "direction",
+        "sizes",
+        "n_seeds"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "measure": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "greater",
+            "less",
+            "two-sided",
+            "equal"
+          ]
+        },
+        "min_effect": {
+          "type": "number"
+        },
+        "sizes": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 2
+        },
+        "steps": {
+          "type": "integer"
+        },
+        "n_seeds": {
+          "type": "integer",
+          "minimum": 5
+        },
+        "extra_measures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "required": [
+        "changed_factor",
+        "settings",
+        "null_settings"
+      ],
+      "properties": {
+        "changed_factor": {
+          "type": "string"
+        },
+        "settings": {
+          "type": "string"
+        },
+        "null_settings": {
+          "type": "string"
+        },
+        "budget_matched": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "lock": {
+      "type": "object",
+      "required": [
+        "hash",
+        "server_timestamp"
+      ],
+      "properties": {
+        "hash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "server_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "seed",
+          "size",
+          "output_hash"
+        ],
+        "properties": {
+          "seed": {
+            "type": "integer"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "steps": {
+            "type": "integer"
+          },
+          "output_uri": {
+            "type": "string"
+          },
+          "output_hash": {
+            "type": "string"
+          },
+          "arm": {
+            "enum": [
+              "test",
+              "control",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "effect": {
+          "type": "number"
+        },
+        "se": {
+          "type": "number"
+        },
+        "z": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "half_size_z": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "double_size_z": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fdr_q": {
+          "type": "number"
+        }
+      }
+    },
+    "replications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "agent",
+          "lineage",
+          "match"
+        ],
+        "properties": {
+          "agent": {
+            "type": "string"
+          },
+          "lineage": {
+            "type": "string"
+          },
+          "match": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "novelty": {
+      "type": "object",
+      "properties": {
+        "nearest_cards": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+          }
+        },
+        "known_mechanism": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "label": {
+      "$ref": "label.schema.json#/$defs/cardLabel"
+    },
+    "label_set_by": {
+      "const": "verify"
+    },
+    "dead_end_reason": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

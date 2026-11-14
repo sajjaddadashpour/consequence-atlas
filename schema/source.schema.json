@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/source.schema.json",
+  "title": "Source",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "year",
+    "identifier",
+    "verified"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "year": {
+      "type": "integer"
+    },
+    "identifier": {
+      "type": "string",
+      "pattern": "^(doi:|arxiv:|isbn:|url:).+"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  }
+}

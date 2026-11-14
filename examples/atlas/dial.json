@@ -1,0 +1,15 @@
+{
+  "id": "cosmological-constant",
+  "name": "Cosmological constant",
+  "symbol": "Λ",
+  "units": "rho_Lambda / rho_Lambda,ours",
+  "ours": 1,
+  "range": [
+    0.001,
+    1000.0
+  ],
+  "scale": "log",
+  "sources": [
+    "weinberg1987"
+  ]
+}
