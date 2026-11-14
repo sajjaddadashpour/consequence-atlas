@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -226,14 +227,17 @@ def build_index(root: Path) -> dict:
     kind_counts = dict(Counter(item["kind"] for item in cards))
     return {
         "format": "consequence-atlas-site-index",
-        "format_version": "0.1.0",
+        "format_version": "0.2.0",
         "generated_at": generated_at,
         "source_commit": commit,
         "repository": GITHUB_REPO,
         "note": (
-            "Generated from cards/ and dead-ends/ (card.json only) and atlas/links/. "
-            "examples/ are excluded. The repository files are the source of record. "
-            "Runs and outputs.json are omitted from this compact index."
+            "Generated from cards/ and dead-ends/ (card.json only), atlas/links/, "
+            "atlas/stages/, and dials/*.yaml. examples/ are excluded. "
+            "The repository files are the source of record. "
+            "Runs and outputs.json are omitted from this compact index. "
+            "Dial records are copied, not evaluated. The playground does not decide "
+            "whether a dial setting passes a link."
         ),
         "counts": {
             "cards": sum(1 for item in cards if item["kind"] == "card"),
@@ -247,9 +251,39 @@ def build_index(root: Path) -> dict:
             "kinds": kind_counts,
         },
         "stages": list(stages.values()),
+        "dials": load_dials(root),
         "cards": cards,
         "links": links,
     }
+
+
+def load_dials(root: Path) -> list[dict]:
+    records: list[dict] = []
+    folder = root / "dials"
+    if not folder.is_dir():
+        return records
+    loader = _yaml()
+    for path in sorted(folder.glob("*.yaml")):
+        data = loader.load(path.read_text(encoding="utf-8")) or {}
+        if not isinstance(data, dict) or not data.get("id"):
+            continue
+        rel = str(path.relative_to(root)).replace("\\", "/")
+        rng = data.get("range") or [None, None]
+        records.append(
+            {
+                "id": data["id"],
+                "name": data.get("name") or data["id"],
+                "symbol": data.get("symbol"),
+                "units": data.get("units"),
+                "ours": data.get("ours"),
+                "range": [rng[0], rng[1]] if isinstance(rng, (list, tuple)) and len(rng) >= 2 else [],
+                "scale": data.get("scale"),
+                "sources": data.get("sources") or [],
+                "path": rel,
+                "github": f"{GITHUB_BLOB}/{rel}",
+            }
+        )
+    return records
 
 
 def render_count_pills(counts: dict[str, int], order: list[str]) -> str:
@@ -331,12 +365,51 @@ def copy_llms(root: Path, out: Path) -> None:
         "> Live site: https://toeatlas.si\n"
         "> Compact machine-readable index: https://toeatlas.si/data/index.json\n"
         "> Source repository: https://github.com/sajjaddadashpour/consequence-atlas\n\n"
-        "The index lists every real card and atlas link, excluding examples/. "
+        "The index lists every real card, atlas link, and dial, excluding examples/. "
         "The repository files are the source of record. Do not treat local verdicts "
         "in card notes as gate-signed promotions.\n\n"
+        "The front page is a playground. Modules under site/models/ that set "
+        "example: true are example pictures, not engine results and not claims. "
+        "How to add a model: site/MODELS.md.\n\n"
         "---\n\n"
     )
     (out / "llms.txt").write_text(header + src, encoding="utf-8")
+
+
+def copy_models(out: Path) -> None:
+    src_dir = SITE_DIR / "models"
+    dest = out / "models"
+    dest.mkdir(parents=True, exist_ok=True)
+    order = json.loads((src_dir / "order.json").read_text(encoding="utf-8"))
+    if not isinstance(order, list) or not order:
+        raise SystemExit("site/models/order.json must be a non-empty list of model ids")
+    manifest = []
+    for model_id in order:
+        if not isinstance(model_id, str) or not model_id:
+            raise SystemExit(f"bad model id in order.json: {model_id!r}")
+        filename = f"{model_id}.js"
+        file = src_dir / filename
+        if not file.is_file():
+            raise SystemExit(f"missing model module {file}")
+        text = file.read_text(encoding="utf-8")
+        if "mirror ratio" in text.lower():
+            raise SystemExit(f"{filename} must not label anything 'mirror ratio'")
+        (dest / filename).write_text(text, encoding="utf-8")
+        manifest.append(
+            {
+                "id": model_id,
+                "src": f"models/{filename}",
+                "title": _js_string(text, "title") or model_id,
+                "summary": _js_string(text, "summary"),
+                "family": _js_string(text, "family"),
+            }
+        )
+    (dest / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+
+def _js_string(text: str, name: str) -> str:
+    match = re.search(rf'const {name} = "([^"]*)"', text)
+    return match.group(1) if match else ""
 
 
 def write_site(root: Path, out: Path, cname: str | None) -> dict:
@@ -345,9 +418,12 @@ def write_site(root: Path, out: Path, cname: str | None) -> dict:
     (out / "data").mkdir(exist_ok=True)
     template = (SITE_DIR / "templates" / "index.html").read_text(encoding="utf-8")
     (out / "index.html").write_text(render_html(template, index), encoding="utf-8")
-    for name in ("styles.css", "app.js", "favicon.svg"):
+    registry = (SITE_DIR / "templates" / "registry.html").read_text(encoding="utf-8")
+    (out / "registry.html").write_text(render_html(registry, index), encoding="utf-8")
+    for name in ("styles.css", "app.js", "playground.js", "views.js", "favicon.svg"):
         src = SITE_DIR / "static" / name
         (out / name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+    copy_models(out)
     (out / "data" / "index.json").write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",

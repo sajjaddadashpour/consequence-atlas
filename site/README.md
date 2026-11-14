@@ -1,20 +1,34 @@
 # site/
 
-Static front page for the [TOE Consequences Atlas](https://toeatlas.si).
+Static site for the [TOE Consequences Atlas](https://toeatlas.si).
 
-The builder reads `cards/`, `dead-ends/` and `atlas/links/` (examples are excluded) and writes plain HTML, CSS, JS plus a compact `data/index.json`. It does not invent claims or results.
+The front page is a playground. The registry (the card and link table) is `registry.html`. The builder reads `cards/`, `dead-ends/`, `atlas/links/`, `atlas/stages/`, and `dials/` (examples are excluded) and writes plain HTML, CSS, JS, the model modules, and a compact `data/index.json`. It does not invent claims or results, and it does not evaluate atlas conditions.
 
 ```
 python3 -m pip install -r requirements.txt
 python3 site/build.py --out dist/site --cname toeatlas.si
+node site/check-models.mjs
 ```
 
-`make site` does the same, writing to `dist/site`. The generated tree is not committed on `main`; GitHub Pages serves it from the `gh-pages` branch. Keep the `CNAME` file (`toeatlas.si`) when publishing.
+`make site` writes `dist/site`. The generated tree is not committed on `main`. GitHub Pages serves it from the `gh-pages` branch. Keep the `CNAME` file (`toeatlas.si`) when publishing.
+
+How to add or replace a model: `site/MODELS.md`. Placeholders are example pictures. The lattice engine and the atlas maths are ported separately.
 
 Label wording is taken from `README.md` and `docs/CARD_SCHEMA_v0.md`.
 
-Automatic republishing (optional): GitHub Pages is updated by publishing the
-generated tree to the `gh-pages` branch. A workflow that does this on pushes
-to `main` is saved at `site/pages.workflow.yml`. Copy it to
-`.github/workflows/pages.yml` to enable it. That path could not be added in
-this branch because the GitHub token used here lacks the `workflow` scope.
+## Publish to GitHub Pages
+
+`site/pages.workflow.yml` is the workflow. It is not installed under `.github/workflows/` (the token that added the site could not write workflow files). To publish the playground:
+
+1. Copy `site/pages.workflow.yml` to `.github/workflows/pages.yml`.
+2. Push that file to `main`.
+
+The workflow builds with `python3 site/build.py --out dist/site --cname toeatlas.si` and publishes `dist/site` to the `gh-pages` branch. Merges to `main` still need an owner's approval; the workflow runs only after a commit lands there, or when someone dispatches it by hand.
+
+To publish once, without installing the workflow, build into a folder and push that folder to `gh-pages` (this replaces the branch's tree, so keep `CNAME` and `.nojekyll`, which the builder writes):
+
+```
+python3 site/build.py --out dist/site --cname toeatlas.si
+git checkout gh-pages
+# replace the published tree with dist/site, then commit and push
+```
