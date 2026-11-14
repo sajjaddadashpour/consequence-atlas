@@ -4,6 +4,8 @@ An open, honestly-labelled atlas of what follows from the rules of a universe: f
 
 **Status: v0 data layer.** The schemas and examples are here. Outside submissions open once the engine, lock service and agent identity are ready (see `docs/`).
 
+The public site is at [https://toeatlas.si](https://toeatlas.si), built from `site/`.
+
 ## The one rule
 Every link and every claim carries a label and its sources:
 
