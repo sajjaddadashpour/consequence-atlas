@@ -52,14 +52,27 @@
         <div class="pg-board">
           <div class="pg-board-head">
             <h2 id="pg-board-title">Dials</h2>
-            <button type="button" id="pg-reset" class="pg-text-button">Reset to lock</button>
+            <span class="pg-board-actions">
+              <button type="button" id="pg-free" aria-pressed="false">Free play</button>
+              <button type="button" id="pg-reset" class="pg-text-button">Reset to lock</button>
+            </span>
           </div>
           <div id="pg-dials"></div>
+          <details id="pg-my-runs" class="pg-details">
+            <summary>My runs</summary>
+            <p class="quiet">Saved in this browser only. The address is the run.</p>
+            <ul id="pg-run-list"></ul>
+          </details>
         </div>
       </aside>
       <div class="pg-main">
         <h2 id="pg-title">Consequence atlas</h2>
         <p id="pg-fidelity" class="quiet"></p>
+        <div class="pg-runbar">
+          <button type="button" id="pg-copy">Copy link</button>
+          <button type="button" id="pg-save">Save run</button>
+        </div>
+        <p id="pg-save-note" class="quiet"></p>
         <p id="pg-banner" class="pg-banner" role="status">Loading the atlas…</p>
         <div id="pg-verdict" class="pg-verdict"></div>
         <div id="pg-views"></div>

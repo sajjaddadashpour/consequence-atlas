@@ -8,11 +8,12 @@ The front page is a playground. The registry (the card and link table) is `regis
 python3 -m pip install -r requirements.txt
 python3 site/build.py --out dist/site --cname toeatlas.si
 node site/check-models.mjs
+node site/check-runs.mjs
 ```
 
 `make site` writes `dist/site`. The generated tree is not committed on `main`. GitHub Pages serves it from the `gh-pages` branch. Keep the `CNAME` file (`toeatlas.si`) when publishing.
 
-How to add or replace a model: `site/MODELS.md`. Placeholders are example pictures. The lattice engine and the atlas maths are ported separately.
+How to add or replace a model: `site/MODELS.md`. A shared run is the page address. Saved runs stay in the browser behind `saveRun` / `listRuns` / `getRun` (`site/RUNS.md`). Placeholders are example pictures. The lattice engine and the atlas maths are ported separately. There is no account and no server.
 
 Label wording is taken from `README.md` and `docs/CARD_SCHEMA_v0.md`.
 

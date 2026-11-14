@@ -420,7 +420,7 @@ def write_site(root: Path, out: Path, cname: str | None) -> dict:
     (out / "index.html").write_text(render_html(template, index), encoding="utf-8")
     registry = (SITE_DIR / "templates" / "registry.html").read_text(encoding="utf-8")
     (out / "registry.html").write_text(render_html(registry, index), encoding="utf-8")
-    for name in ("styles.css", "app.js", "playground.js", "views.js", "favicon.svg"):
+    for name in ("styles.css", "app.js", "playground.js", "views.js", "run-record.js", "storage.js", "favicon.svg"):
         src = SITE_DIR / "static" / name
         (out / name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     copy_models(out)

@@ -9,6 +9,7 @@ const summary = "Family P controls. The grid and curves are an example pattern, 
 const cardIds = ["c.v3o.019.sticky-symmetry"];
 const lockNote = "Locked dim, size, steps, start, attract, and temp follow c.v3o.019.sticky-symmetry. seed is 1, the card's first run. expand, light, and c are engine defaults because that card does not set them. The card also sets rho, ncons, a2, records, leak, and J, which are not on this board.";
 const fidelity = "example";
+const engine = { name: "example", version: "0" };
 
 const params = [
   {
@@ -29,6 +30,7 @@ const params = [
     label: "Size",
     min: 32,
     max: 128,
+    free: { min: 8, max: 160 },
     step: 1,
     default: 64,
     locked: 64,
@@ -42,6 +44,7 @@ const params = [
     label: "Steps",
     min: 100,
     max: 2000,
+    free: { min: 10, max: 8000 },
     step: 1,
     default: 400,
     locked: 400,
@@ -61,6 +64,7 @@ const params = [
     unit: "",
     type: "integer",
     scale: "discrete",
+    free: { min: 1, max: 999999 },
     help: "",
   },
   {
@@ -98,6 +102,7 @@ const params = [
     min: 0,
     max: 2,
     step: 0.01,
+    free: { min: 0, max: 10 },
     default: 0.4,
     locked: 0.4,
     unit: "",
@@ -129,6 +134,7 @@ const params = [
     symbol: "c",
     min: 1,
     max: 4,
+    free: { min: 1, max: 16 },
     step: 1,
     default: 1,
     locked: 1,
@@ -207,4 +213,4 @@ function run(params) {
   };
 }
 
-export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, params, views, run };
+export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run };

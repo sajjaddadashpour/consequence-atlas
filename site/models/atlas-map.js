@@ -10,6 +10,7 @@ const summary = "Six recorded dials. Patches and stage lights are example data; 
 const cardIds = [];
 const lockNote = "Locked values are the ours fields in dials/*.yaml. This module does not decide which stages survive.";
 const fidelity = "example";
+const engine = { name: "example", version: "0" };
 
 const params = [
   {
@@ -18,6 +19,7 @@ const params = [
     symbol: "α",
     min: 1.0e-6,
     max: 1.0,
+    free: { min: 1.0e-8, max: 10 },
     step: null,
     default: 0.0072973525693,
     locked: 0.0072973525693,
@@ -32,6 +34,7 @@ const params = [
     symbol: "β",
     min: 1.0e-5,
     max: 100.0,
+    free: { min: 1.0e-7, max: 1000 },
     step: null,
     default: 0.000544617021,
     locked: 0.000544617021,
@@ -46,6 +49,7 @@ const params = [
     symbol: "s",
     min: -0.2,
     max: 0.6,
+    free: { min: -1, max: 2 },
     step: 0.005,
     default: 0,
     locked: 0,
@@ -60,6 +64,7 @@ const params = [
     symbol: "Λ",
     min: -1000,
     max: 1000,
+    free: { min: -1e6, max: 1e6 },
     step: null,
     default: 1,
     locked: 1,
@@ -75,6 +80,7 @@ const params = [
     symbol: "n",
     min: 1,
     max: 5,
+    free: { min: 1, max: 10 },
     step: 1,
     default: 3,
     locked: 3,
@@ -134,4 +140,4 @@ function run() {
   };
 }
 
-export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, params, views, run };
+export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run };

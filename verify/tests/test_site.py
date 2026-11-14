@@ -63,3 +63,4 @@ def test_model_contract():
     if not node:
         pytest.skip("node is not installed")
     subprocess.check_call([node, "site/check-models.mjs"], cwd=REPO)
+    subprocess.check_call([node, "site/check-runs.mjs"], cwd=REPO)

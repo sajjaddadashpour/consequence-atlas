@@ -9,6 +9,7 @@ const summary = "Family F controls. The hue wheel and vortex marks are an exampl
 const cardIds = ["c.v3o.014.gauge-crystallization"];
 const lockNote = "Locked size, beta, gauge, and noise follow c.v3o.014.gauge-crystallization. seed is 1. disorder is the engine default 0; that card does not set it. The card also sets steps and temp, which are not on this board. beta here is the engine gauge field, not the dial β = m_e/m_p.";
 const fidelity = "example";
+const engine = { name: "example", version: "0" };
 
 const params = [
   {
@@ -16,6 +17,7 @@ const params = [
     label: "Size",
     min: 16,
     max: 96,
+    free: { min: 8, max: 128 },
     step: 1,
     default: 48,
     locked: 48,
@@ -30,6 +32,7 @@ const params = [
     symbol: "",
     min: 0,
     max: 4,
+    free: { min: 0, max: 12 },
     step: 0.05,
     default: 2,
     locked: 2,
@@ -67,6 +70,7 @@ const params = [
     min: 0,
     max: 2,
     step: 0.05,
+    free: { min: 0, max: 8 },
     default: 0,
     locked: 0,
     unit: "",
@@ -79,6 +83,7 @@ const params = [
     label: "Seed",
     min: 1,
     max: 999,
+    free: { min: 1, max: 999999 },
     step: 1,
     default: 1,
     locked: 1,
@@ -135,4 +140,4 @@ function run(params) {
   };
 }
 
-export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, params, views, run };
+export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run };

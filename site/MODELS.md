@@ -47,7 +47,15 @@ export function run(params) {
 
 `run` may return a promise. The shell passes a plain object of the current values, keyed by `name`.
 
-Optional exports the shell already understands: `summary`, `family`, `boardTitle`, `lockNote`, `fidelity`.
+Optional exports the shell already understands: `summary`, `family`, `boardTitle`, `lockNote`, `fidelity`, `engine`.
+
+```js
+export const engine = { name: "example", version: "0" };
+```
+
+Placeholders use `example@0`. A parity-checked port sets the real engine, such as `{ name: "starter", version: "3.0.0" }`, in the same change that sets `example: false`. The shell puts `engine`, every param, the seed, and free play into the URL. See `site/RUNS.md`.
+
+A param may set `free: { min, max }` wider than `min` / `max`. Free play uses that outer range and is always marked exploration. Leave `free` off a control whose values are a fixed vocabulary, such as the arrow of time.
 
 ## What `run` may return
 
@@ -84,7 +92,7 @@ The shell always draws the verdict strip. It is not a view name.
 
 - **This run.** If `example` is true, or `fidelity` is not `"engine"`, the strip says there is no verdict, even if `verdict` is set. If the module is a real port (`example: false`, `fidelity: "engine"`), the strip prints `verdict` exactly.
 - **Locked record.** The first `cardIds` entry, with its label, effect, standard error, and z from the index. Further ids are links. A model with no cards shows the recorded `ours` values instead.
-- **On the lock** means every param equals its `locked` value (numeric values within half a step, or 0.1% for log and symlog). Anything else is marked **Exploration** and is not the card.
+- **On the lock** means free play is off and every param equals its `locked` value (numeric values within half a step, or half a slider step for log and symlog). Anything else is marked **Exploration**. Free play is exploration even when every value sits on the lock.
 
 Card labels and engine verdicts are different words. The shell does not turn one into the other.
 

@@ -9,6 +9,7 @@ const summary = "Family C controls. The space-time diagram is an example picture
 const cardIds = ["c.v3o.035.sierpinski-seed.sf-rule"];
 const lockNote = "Locked rule and cstart follow c.v3o.035.sierpinski-seed.sf-rule. rev is the engine default false; that card does not set it. The card also sets size 1024 and steps 500, which are not on this board. The picture is not that rule.";
 const fidelity = "example";
+const engine = { name: "example", version: "0" };
 
 const params = [
   {
@@ -90,4 +91,4 @@ function run(params) {
   };
 }
 
-export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, params, views, run };
+export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run };

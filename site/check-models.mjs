@@ -41,6 +41,9 @@ for (const id of order) {
     if (mod[key] === undefined) fail(id + " is missing export " + key);
   }
   if (mod.id !== id) fail(id + " exports id " + mod.id);
+  if (!mod.engine || mod.engine.name !== "example" || String(mod.engine.version) !== "0") {
+    fail(id + " placeholder must export engine example@0 until a parity-checked port replaces it");
+  }
   if (!Array.isArray(mod.cardIds)) fail(id + " cardIds must be an array");
   if (typeof mod.run !== "function") fail(id + " run must be a function");
   const names = mod.params.map((param) => param && param.name);
