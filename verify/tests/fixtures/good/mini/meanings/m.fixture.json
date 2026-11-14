@@ -1,0 +1,6 @@
+{
+  "id": "m.fixture",
+  "symbol": "Fx",
+  "definition": "A fixture meaning used only to test the validator.",
+  "author": "fixture"
+}

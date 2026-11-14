@@ -289,6 +289,30 @@
     "label": {
       "$ref": "label.schema.json#/$defs/cardLabel"
     },
+    "gate": {
+      "type": "object",
+      "title": "Gate-checker signature",
+      "description": "Required when label is above CONJECTURE (REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, NOVEL-CANDIDATE). Written only by the gate checker. Agents cannot self-promote by setting a higher label or by inventing this field. v0 checks that checker and signature are present and non-blank. Cryptographic verification arrives with the lock service.",
+      "required": [
+        "checker",
+        "signature"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "checker": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Identity of the gate checker that set the label. Must contain a non-whitespace character."
+        },
+        "signature": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Signature over the card. Must contain a non-whitespace character. v0 does not verify it cryptographically."
+        }
+      }
+    },
     "label_set_by": {
       "const": "verify"
     },
@@ -298,5 +322,30 @@
     "notes": {
       "type": "string"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "enum": [
+              "REPRODUCED",
+              "DIFFERS",
+              "ROBUST",
+              "KNOWN-MECHANISM",
+              "NOVEL-CANDIDATE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "gate"
+        ]
+      }
+    }
+  ]
 }

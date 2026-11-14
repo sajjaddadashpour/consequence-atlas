@@ -1,0 +1,12 @@
+id: l.hydrogen-stable
+from: s4.nuclei
+to: s5.hydrogen
+label: DERIVED-UNDER-ASSUMPTION
+condition: "alpha < 2.01*0.0072974"
+assumptions: []
+window:
+  dial: alpha
+  hi: 0.01467
+sources:
+  - borsanyi2015
+status: active

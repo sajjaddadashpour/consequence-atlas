@@ -1,0 +1,7 @@
+id: l.good-imported
+from: s.from-node
+to: s.to-node
+label: IMPORTED
+condition: "fixture == 1"
+sources:
+  - src.fixture

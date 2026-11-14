@@ -1,0 +1,7 @@
+id: yaml-no-trap
+name: YAML no trap
+symbol: "x"
+units: no
+ours: 1
+range: [0, 1]
+scale: linear
