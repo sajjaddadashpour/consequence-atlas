@@ -565,7 +565,7 @@
    "v3_mapping_note": "",
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"measT\":20,\"size\":256}",
    "sweep_class": "DIFFERS",
-   "card": "cards/starter/meast/c.v3o.043.measurement-first/card.json",
+   "card": "cards/starter/measT/c.v3o.043.measurement-first/card.json",
    "label": "DIFFERS"
   },
   {
