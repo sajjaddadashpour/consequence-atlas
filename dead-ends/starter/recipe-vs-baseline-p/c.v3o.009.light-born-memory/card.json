@@ -224,8 +224,15 @@
   ],
   "label": "FAILED",
   "novelty": {
-    "nearest_cards": [],
+    "nearest_cards": [
+      "c.v3o.009.light-born-memory.sf-a2",
+      "c.v3o.009.light-born-memory.sf-c",
+      "c.v3o.009.light-born-memory.sf-leak",
+      "c.v3o.009.light-born-memory.sf-light",
+      "c.v3o.009.light-born-memory.sf-records",
+      "c.v3o.009.light-born-memory.sf-start"
+    ],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 9 ('Light-born Memory', v2 mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor. Differs at full size on density but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.)"
+  "notes": "Legacy conversion of origin idea 9 ('Light-born Memory', v2 mapping) from the v3 100-origin sweep. Best primary measure: density (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor. Differs at full size on density but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.) F1 follow-up (LOCKED_SINGLE_FACTOR_F1.md): this card's control changes 6 settings at once, so it is not a fair control. Single-factor children: 6; F1 local verdict DIFFERS (pending gate) for: none."
 }

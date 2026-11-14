@@ -2,7 +2,7 @@
 
 The Arrow: hand-edited YAML, checked against `schema/`.
 
-- `stages/` — one file per stage (`id`, `name`, `order`, `requires`). There is no committed stage schema yet; a proposal is in `docs/proposals/stage.schema.json`.
+- `stages/` — one file per stage (`id`, `name`, `order`, `requires`). Validated by `schema/stage.schema.json`.
 - `links/` — one file per link, named `<from>__<to>__<slug>.yaml` (several links can share a stage pair). Each carries its label, condition, sources and, when DERIVED-UNDER-ASSUMPTION, its assumptions. Validated by `schema/link.schema.json`.
 - `backward/` — the backward chain from "beings who can care", with every bridge premise labelled and the is/ought gap stated.
 - `derivations/` — the arithmetic behind `derive.*` sources.

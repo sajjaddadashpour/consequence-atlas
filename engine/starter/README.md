@@ -11,13 +11,13 @@ cd engine/starter
 npm install
 npx tsx cli/run-card.ts ../../cards/starter/dh/c.v3o.070.fittest-vacuum/card.json
 ```
-`run-card` rebuilds four arms from the card (test and control at full size and at half size), runs seeds 1–5, hashes each output as `sha256(JSON.stringify({verdict, m}))`, and compares against `runs[].output_hash`. It exits 0 only if every run matches. `--seeds 1,2` runs fewer seeds and `--out file.json` saves the outputs.
+`run-card` rebuilds four arms from the card, plus a null arm `N` (null_settings at full size, seeds 6–10, `--null-seeds` to change) when `control.null_settings` is a JSON settings object, (test and control at full size and at half size), runs seeds 1–5, hashes each output as `sha256(JSON.stringify({verdict, m}))`, and compares against `runs[].output_hash`. It exits 0 only if every run matches. `--seeds 1,2` runs fewer seeds and `--out file.json` saves the outputs.
 
 Half size follows the locked v3 sweep rule: Q halves `steps`, M halves `popN` (pop mode) or `steps`, and every other family halves `size`.
 
 Settings strings are JSON objects holding only the fields that differ from the engine defaults (`DEF` in `src/engine.ts`), plus `family`.
 
 ## Not here yet
-- No shuffled-null arm or double-size arm (the v0 card schema asks for both; the legacy cards have neither).
+- No double-size arm. The null arm is a seed-shuffled A/A null (same rules, fresh seeds), not a rule-level shuffle. Legacy cards with `null_settings` NOT-RUN have no null arm.
 - No sandbox for agent-written rules, and no server lock or rerun service. Those belong to the gate checker and the lock service.
 - Changing `src/engine.ts` means a new engine version and new hashes. Never edit it in place.

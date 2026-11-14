@@ -1,13 +1,15 @@
 id: cosmological-constant
 name: Cosmological constant
 symbol: Λ
-units: rho_Lambda / rho_Lambda,ours (positive values only in v0)
+units: rho_Lambda / rho_Lambda,ours (signed; negative = negative vacuum energy; UIs should use a symmetric-log axis)
 ours: 1
 range:
-- 0.001
+- -1000.0
 - 1000.0
-scale: log
+scale: linear
 sources:
 - weinberg1987
 - msw1998
 - planck2018
+- barrow-tipler1986
+- peacock2007

@@ -31,7 +31,7 @@
   "control": {
     "changed_factor": "grec",
     "settings": "{\"family\":\"G\",\"size\":96,\"steps\":400,\"echo\":false,\"gstart\":\"random\"}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"G\",\"size\":96,\"steps\":400,\"echo\":false,\"gstart\":\"random\"}"
   },
   "lock": {
     "hash": "sha256:017c3916a3ffb3c6e124f774a3d94f1e732654bf73221a8108a19560df3745c1",
@@ -197,6 +197,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:37e5f21fc88134f6f5b3b7b253c304a4252dd9530efca9e43e750f73c3ab6599"
+    },
+    {
+      "seed": 6,
+      "size": 96,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:77aa276208b15bda1cfbd243b350793c42b582d4ec870edb05bfbd3b87f57d0c"
+    },
+    {
+      "seed": 7,
+      "size": 96,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:719e5a37fa590378c04cc473d288bd0245a0d18991ead5da9737fcab1804b2a0"
+    },
+    {
+      "seed": 8,
+      "size": 96,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:3bc44c7420b5cbc000ed9e555f880aca3f96079aa59d844a09d5c07215d7a81d"
+    },
+    {
+      "seed": 9,
+      "size": 96,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:36c75e975a81299fe252cbd3bdeb05e60e079388290886d6b07641bafbf807df"
+    },
+    {
+      "seed": 10,
+      "size": 96,
+      "steps": 400,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:d69361e6c1716479e0f2f00ee2827d6db7f7b214fe7db71cd0ade573ebf1da05"
     }
   ],
   "result": {
@@ -220,5 +260,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 89 ('Observer Gas', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: SS (protocol: any of SS, dipRel; Bonferroni k = 2, |z| > 3.21). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result."
+  "notes": "Legacy conversion of origin idea 89 ('Observer Gas', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: SS (protocol: any of SS, dipRel; Bonferroni k = 2, |z| > 3.21). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. No primary measure beats the control by 3 sigma after the 2-measure correction: null result. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on SS = -0.51; BH recomputed in starter-3.0.0/grec including F1 children: q = 1. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

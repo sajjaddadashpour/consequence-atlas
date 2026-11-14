@@ -1,0 +1,20 @@
+id: l.s11.lambda-lifetime
+from: s09.planets
+to: s11.life
+label: CONTESTED
+condition: cosmological_constant >= -7.09
+assumptions:
+- Spatially flat universe dominated by matter after early times; radiation ignored. The lifetime then depends only on |Lambda|.
+- Observers need at least as long as they took here (13.787 Gyr, Planck 2018). This is a one-sample benchmark, not a derived requirement.
+- The heating-to-8 K cutoff that Peacock 2007 discusses is not modelled.
+window:
+  dial: cosmological-constant
+  lo: -7.09
+sources:
+- barrow-tipler1986
+- msw1998
+- peacock2007
+- planck2018
+- derive.d11
+status: contested
+notes: 'Negative Lambda makes a flat universe recollapse. Its total lifetime is t = (2*pi/3)/H_L with H_L = sqrt(8*pi*G*|rho_Lambda|/3), exact for flat matter + Lambda < 0 (derive.d11). With Planck 2018 H0 = 67.4 km/s/Mpc and Omega_Lambda = 0.685, t = 36.7 Gyr / sqrt(|x|) for dial value x < 0. The anthropic condition for negative Lambda is that the universe survives long enough for observers (Barrow & Tipler 1986, as stated by Martel, Shapiro & Weinberg 1998). The literature gives no agreed lifetime threshold: Peacock 2007 finds that structure forms readily while recollapsing, and that negative Lambda is disfavoured only if observers cannot form once the recollapsing universe heats above 8 K. The condition shown uses our own single sample as the benchmark (observers at 13.787 Gyr, Planck 2018), giving x >= -7.09. With a 5 Gyr benchmark it would be x >= -53.9. CONTESTED because the threshold is an assumption, not a result. PASS for every positive Lambda.'

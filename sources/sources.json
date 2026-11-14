@@ -260,6 +260,48 @@
     "verified": true
   },
   {
+    "id": "bohr-wheeler1939",
+    "title": "The mechanism of nuclear fission",
+    "authors": [
+      "N. Bohr",
+      "J. A. Wheeler"
+    ],
+    "year": 1939,
+    "identifier": "doi:10.1103/PhysRev.56.426",
+    "verified": true
+  },
+  {
+    "id": "rohlf1994",
+    "title": "Modern Physics from alpha to Z0",
+    "authors": [
+      "J. W. Rohlf"
+    ],
+    "year": 1994,
+    "identifier": "isbn:9780471572701",
+    "verified": true
+  },
+  {
+    "id": "barrow-tipler1986",
+    "title": "The Anthropic Cosmological Principle",
+    "authors": [
+      "J. D. Barrow",
+      "F. J. Tipler"
+    ],
+    "year": 1986,
+    "identifier": "isbn:9780198519492",
+    "verified": true
+  },
+  {
+    "id": "peacock2007",
+    "title": "Testing anthropic predictions for Lambda and the CMB temperature",
+    "authors": [
+      "J. A. Peacock"
+    ],
+    "year": 2007,
+    "identifier": "arxiv:0705.0898",
+    "verified": true
+  },
+  {
     "id": "planck2018",
     "title": "Planck 2018 results. VI. Cosmological parameters",
     "authors": [
@@ -347,6 +389,16 @@
     ],
     "year": 2026,
     "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d10",
+    "verified": true
+  },
+  {
+    "id": "derive.d11",
+    "title": "D11 lifetime of a flat universe with negative cosmological constant (in-repo derivation, not a publication)",
+    "authors": [
+      "physicist"
+    ],
+    "year": 2026,
+    "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#d11",
     "verified": true
   },
   {

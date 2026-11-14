@@ -1,5 +1,6 @@
 // run-card: rerun an experiment card with the pinned Starter engine and compare output hashes.
-// Usage: npx tsx cli/run-card.ts <path/to/card.json> [--seeds 1,2,3] [--out outputs.json]
+// Usage: npx tsx cli/run-card.ts <path/to/card.json> [--seeds 1,2,3] [--null-seeds 6,7,8,9,10] [--out outputs.json]
+// Arms: A/Ah = test full/half, C/Ch = control full/half, N = null (control.null_settings, full size) when null_settings is a JSON settings object.
 import { makeSim, DEF } from "../src/engine";
 import * as fs from "fs";
 import * as crypto from "crypto";
@@ -19,14 +20,19 @@ const hash = (r: any): string => "sha256:" + crypto.createHash("sha256").update(
 const T = { ...DEF, ...JSON.parse(card.rules.settings) };
 const C = { ...DEF, ...JSON.parse(card.control.settings) };
 const arms: Record<string, any> = { A: T, Ah: half(T), C, Ch: half(C) };
+let nullCfg: any = null;
+try { const ns = JSON.parse(card.control.null_settings); if (ns && typeof ns === "object") nullCfg = { ...DEF, ...ns }; } catch { /* legacy: null arm not run */ }
+const nullSeeds = (opt("--null-seeds") ?? "6,7,8,9,10").split(",").map(Number);
 const out: Record<string, any[]> = {};
 let checked = 0, matched = 0;
-for (const [key, cfg] of Object.entries(arms)) {
+const plan: [string, any, number[]][] = Object.entries(arms).map(([k, c]) => [k, c, seeds]);
+if (nullCfg) plan.push(["N", nullCfg, nullSeeds]);
+for (const [key, cfg, sd] of plan) {
   out[key] = [];
-  for (const seed of seeds) {
+  for (const [idx, seed] of sd.entries()) {
     const r = run1({ ...cfg, seed });
     out[key].push(r);
-    const want = (card.runs ?? []).find((x: any) => x.output_uri === `outputs.json#/${key}/${seed - 1}`);
+    const want = (card.runs ?? []).find((x: any) => x.output_uri === `outputs.json#/${key}/${idx}`);
     const h = hash(r);
     if (want) { checked++; if (want.output_hash === h) matched++; else console.log(`MISMATCH ${key} seed ${seed}: ${h} != ${want.output_hash}`); }
   }

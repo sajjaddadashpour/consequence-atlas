@@ -12,7 +12,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":4096,\"steps\":4096,\"start\":\"paired\",\"rho\":0.002,\"d2\":true,\"a2\":true,\"pc\":0.001}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.001.mirror-from-potential/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 2,
@@ -25,7 +25,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.05,\"records\":true,\"pr\":0.8,\"d3\":true,\"forget\":0.02,\"ncons\":true,\"light\":false,\"a2\":false}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.002.the-first-reading/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 3,
@@ -38,7 +38,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.01,\"d2\":true,\"pc\":0.01,\"pa\":0.5}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.003.pair-rain/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 4,
@@ -51,7 +51,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":4096,\"start\":\"paired\",\"rho\":0.001,\"a2\":true,\"pc\":0.0005,\"d2\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.004.one-pair-endless-echo/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 5,
@@ -77,7 +77,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":2000,\"alphabet\":\"zn\",\"nval\":3,\"start\":\"light\",\"nlight\":400,\"lpair\":0.05}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.006.prism-split/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 7,
@@ -90,7 +90,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.2,\"records\":true,\"pr\":0.6,\"d3\":true,\"forget\":0.05,\"feedback\":\"gate\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.007.sustaining-chain/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 8,
@@ -103,7 +103,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.15,\"ncons\":true,\"records\":true,\"pr\":0.5,\"feedback\":\"bind\",\"jr\":2,\"temp\":0.3,\"light\":false,\"a2\":false,\"leak\":\"off\"}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.008.records-before-matter/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 9,
@@ -129,7 +129,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":4096,\"steps\":4096,\"records\":true,\"leak\":\"massive\",\"gamma\":0.1}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.010.leaky-beginning/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 11,
@@ -142,7 +142,7 @@
    "settings": "{\"family\":\"F\",\"size\":64,\"steps\":4000,\"noise\":\"uniform\",\"temp\":0.3}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-f/c.v3o.011.kibble-quench/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 12,
@@ -168,7 +168,7 @@
    "settings": "{\"family\":\"F\",\"size\":64,\"steps\":4000,\"fstart\":\"twist\",\"wind\":1,\"noise\":\"uniform\",\"temp\":0.3}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-f/c.v3o.013.chirality-seed/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 14,
@@ -181,7 +181,7 @@
    "settings": "{\"family\":\"F\",\"size\":48,\"steps\":2000,\"gauge\":true,\"beta\":2,\"noise\":\"uniform\",\"temp\":0.2}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-f/c.v3o.014.gauge-crystallization/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 15,
@@ -194,7 +194,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":800,\"steps\":400,\"rule\":30,\"rev\":false,\"cstart\":\"seed\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/cstart/c.v3o.015.broken-time-reversal/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 16,
@@ -246,7 +246,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":400,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"start\":\"scattered\",\"rho\":0.1,\"ncons\":true,\"attract\":\"short\",\"J\":1.5,\"temp\":0.4}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.019.sticky-symmetry/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 20,
@@ -272,7 +272,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":2000,\"steps\":1000,\"rule\":110,\"cstart\":\"seed\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-c/c.v3o.021.rule-110-genesis/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 22,
@@ -306,7 +306,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":1000,\"leak\":\"uniform\",\"gamma\":0.02,\"rcode\":3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.023.error-correcting-birth/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 24,
@@ -345,7 +345,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.2,\"ncons\":true,\"records\":true,\"pr\":1,\"leak\":\"uniform\",\"gamma\":0.01,\"light\":false,\"a2\":false}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.026.copy-cascade/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 27,
@@ -384,7 +384,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":48,\"steps\":1200,\"start\":\"hot\",\"expand\":true,\"H\":0.01,\"grow\":4,\"pc\":0.002}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.029.inflating-lattice/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 30,
@@ -462,7 +462,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":1024,\"steps\":500,\"rule\":90,\"cstart\":\"seed\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-c/c.v3o.035.sierpinski-seed/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 36,
@@ -488,7 +488,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":48,\"steps\":1500,\"start\":\"paired\",\"rho\":0.5,\"expand\":true,\"H\":0.005,\"grow\":3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.037.expansion-freeze-out/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 38,
@@ -501,7 +501,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.001,\"pc\":0.005,\"d2\":true,\"a2\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.038.vacuum-fluctuation/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 39,
@@ -527,7 +527,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"deph\":0.3,\"disorder\":0,\"echo\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/deph/c.v3o.040.decoherence-dawn/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 41,
@@ -540,7 +540,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"deph\":0,\"disorder\":1.5}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/disorder/c.v3o.041.anderson-cradle/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 42,
@@ -566,7 +566,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"measT\":20,\"size\":256}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/measT/c.v3o.043.measurement-first/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 44,
@@ -579,7 +579,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":800,\"deph\":0.05,\"disorder\":0}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/deph/c.v3o.044.middle-world/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 45,
@@ -616,7 +616,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":48,\"steps\":500,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"ncons\":true,\"start\":\"blob\",\"rho\":0.2}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.047.past-hypothesis/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 48,
@@ -629,7 +629,7 @@
    "settings": "{\"family\":\"G\",\"size\":96,\"steps\":400,\"gstart\":\"blob\",\"echo\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/gstart/c.v3o.048.packed-gas/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 49,
@@ -668,7 +668,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":400,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"ncons\":true,\"start\":\"scattered\",\"rho\":0.2,\"attract\":\"short\",\"J\":1,\"temp\":0.25}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.051.cooling-clumps/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 52,
@@ -681,7 +681,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":96,\"steps\":600,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"ncons\":true,\"start\":\"scattered\",\"rho\":0.08,\"attract\":\"long\",\"gs\":1.5,\"temp\":0.3}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.052.gravity-from-uniform/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 53,
@@ -694,7 +694,7 @@
    "settings": "{\"family\":\"G\",\"size\":96,\"steps\":400,\"gstart\":\"blob\",\"gnoise\":0.02,\"echo\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-g/c.v3o.053.noisy-reversible/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 54,
@@ -707,7 +707,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":2000,\"records\":true,\"pr\":0.5,\"leak\":\"massive\",\"gamma\":0.05}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.054.entropy-ratchet/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 55,
@@ -720,7 +720,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":400,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"ncons\":true,\"start\":\"scattered\",\"rho\":0.1,\"attract\":\"short\",\"J\":2,\"temp\":0.05}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.055.cold-start/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 56,
@@ -746,7 +746,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":1024,\"steps\":1500,\"start\":\"scattered\",\"rho\":0.3,\"expand\":true,\"sched\":\"ccc\",\"grow\":2,\"ncyc\":3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.057.conformal-cycles/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 58,
@@ -759,7 +759,7 @@
    "settings": "{\"family\":\"G\",\"size\":96,\"steps\":300,\"gstart\":\"blob\",\"echo\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/gstart/c.v3o.058.echo-universe/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 59,
@@ -811,7 +811,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":800,\"steps\":400,\"rule\":51,\"cstart\":\"random\",\"rho\":0.4}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-c/c.v3o.062.flip-flop-rule/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 63,
@@ -837,7 +837,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":4096,\"steps\":4096,\"start\":\"scattered\",\"rho\":0.1,\"pc\":0.01,\"pa\":0.5,\"d2\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.064.steady-state/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 65,
@@ -957,7 +957,7 @@
    "settings": "{\"family\":\"C\",\"dim\":2,\"size\":96,\"steps\":400,\"cmode\":\"potts\",\"qs\":4,\"dh\":0.1,\"temp\":0.5}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/dh/c.v3o.070.fittest-vacuum/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 71,
@@ -970,7 +970,7 @@
    "settings": "{\"family\":\"F\",\"size\":48,\"steps\":2000,\"gauge\":true,\"beta\":1,\"noise\":\"uniform\",\"temp\":0.3}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-f/c.v3o.071.gauge-fitness/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 72,
@@ -983,7 +983,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":48,\"steps\":1200,\"start\":\"hot\",\"expand\":true,\"H\":0.01,\"grow\":3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.072.expansion-lottery/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 73,
@@ -996,7 +996,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":400,\"records\":true,\"light\":false,\"leak\":\"off\",\"a2\":false,\"start\":\"scattered\",\"rho\":0.1,\"ncons\":true,\"pr\":0.5,\"feedback\":\"bind\",\"jr\":2,\"temp\":0.5}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.073.binding-selection/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 74,
@@ -1085,7 +1085,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":4096,\"steps\":4096,\"alphabet\":\"bin\",\"start\":\"scattered\",\"rho\":0.2,\"d2\":true,\"pc\":0.005}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.078.parity-law-first/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 79,
@@ -1098,7 +1098,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"records\":false,\"light\":false,\"leak\":\"off\",\"a2\":false,\"start\":\"scattered\",\"rho\":0.3,\"ncons\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/ncons/c.v3o.079.counting-begins/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 80,
@@ -1111,7 +1111,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":800,\"steps\":400,\"rule\":4,\"cstart\":\"random\",\"rho\":0.3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-c/c.v3o.080.fixed-point-universe/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 81,
@@ -1124,7 +1124,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":2000,\"alphabet\":\"s3\",\"start\":\"scattered\",\"rho\":0.3}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.081.permutation-seed/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 82,
@@ -1182,7 +1182,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.3,\"ncons\":true,\"records\":true,\"pr\":0.9,\"leak\":\"off\",\"light\":false,\"a2\":false}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.085.many-readers/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 86,
@@ -1221,7 +1221,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":64,\"steps\":600,\"start\":\"scattered\",\"rho\":0.2,\"records\":true,\"d3\":true,\"forget\":0.1,\"feedback\":\"gate\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.088.forgetful-cosmos/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 89,
@@ -1247,7 +1247,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"deph\":1,\"disorder\":0,\"echo\":true}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/deph/c.v3o.090.watching-as-dephasing/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 91,
@@ -1260,7 +1260,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":4096,\"steps\":4096,\"records\":true,\"pr\":0.5,\"feedback\":\"gate\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.091.gatekeeper-records/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 92,
@@ -1286,7 +1286,7 @@
    "settings": "{\"family\":\"C\",\"dim\":2,\"size\":128,\"steps\":300,\"life\":\"B2/S\",\"cstart\":\"blob\"}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-c/c.v3o.093.explosive-seeds/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 94,
@@ -1299,7 +1299,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":1000,\"records\":true,\"rsp\":4}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.094.two-clocks/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 95,
@@ -1325,7 +1325,7 @@
    "settings": "{\"family\":\"P\",\"dim\":1,\"size\":2048,\"steps\":1500,\"start\":\"light\",\"nlight\":400,\"lpair\":0.05}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.096.rain-of-light/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   },
   {
    "n": 97,
@@ -1338,7 +1338,7 @@
    "settings": "{\"family\":\"C\",\"dim\":2,\"size\":128,\"steps\":500,\"life\":\"B3678/S34678\",\"cstart\":\"random\",\"rho\":0.5}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/life/c.v3o.097.day-and-night/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 98,
@@ -1351,7 +1351,7 @@
    "settings": "{\"family\":\"C\",\"dim\":1,\"size\":800,\"steps\":400,\"rule\":232,\"cstart\":\"random\",\"rho\":0.5}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/rule/c.v3o.098.majority-mirror/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 99,
@@ -1364,7 +1364,7 @@
    "settings": "{\"family\":\"Q\",\"dim\":1,\"steps\":400,\"bath\":0.3,\"size\":256}",
    "sweep_class": "DIFFERS",
    "card": "cards/starter/bath/c.v3o.099.mixed-kingdom/card.json",
-   "label": "DIFFERS"
+   "label": "CONJECTURE"
   },
   {
    "n": 100,
@@ -1377,7 +1377,7 @@
    "settings": "{\"family\":\"P\",\"dim\":2,\"size\":48,\"steps\":1200,\"start\":\"hot\",\"expand\":true,\"H\":0.003,\"attract\":\"short\",\"J\":1,\"temp\":0.4,\"pc\":0.002}",
    "sweep_class": "STRUCTURE",
    "card": "cards/starter/recipe-vs-baseline-p/c.v3o.100.hot-sticky-inflation/card.json",
-   "label": "DIFFERS"
+   "label": "REPRODUCED"
   }
  ]
 }

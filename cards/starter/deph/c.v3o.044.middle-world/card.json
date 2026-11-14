@@ -32,7 +32,7 @@
   "control": {
     "changed_factor": "deph",
     "settings": "{\"family\":\"Q\",\"steps\":800}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"Q\",\"steps\":800}"
   },
   "lock": {
     "hash": "sha256:79cb948058aea6d48993e7c22e753cd438005523429440620eaff9c157069a2a",
@@ -198,6 +198,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 6,
+      "size": 800,
+      "steps": 800,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:3a993432be524c33539dd36a1814ce8b408d2a4b19969337a6286adc3995299a"
+    },
+    {
+      "seed": 7,
+      "size": 800,
+      "steps": 800,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:3a993432be524c33539dd36a1814ce8b408d2a4b19969337a6286adc3995299a"
+    },
+    {
+      "seed": 8,
+      "size": 800,
+      "steps": 800,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:3a993432be524c33539dd36a1814ce8b408d2a4b19969337a6286adc3995299a"
+    },
+    {
+      "seed": 9,
+      "size": 800,
+      "steps": 800,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:3a993432be524c33539dd36a1814ce8b408d2a4b19969337a6286adc3995299a"
+    },
+    {
+      "seed": 10,
+      "size": 800,
+      "steps": 800,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:3a993432be524c33539dd36a1814ce8b408d2a4b19969337a6286adc3995299a"
     }
   ],
   "result": {
@@ -216,10 +256,10 @@
       "match": true
     }
   ],
-  "label": "DIFFERS",
+  "label": "CONJECTURE",
   "novelty": {
     "nearest_cards": [],
     "known_mechanism": "Dephasing turns ballistic quantum-walk spreading into diffusion."
   },
-  "notes": "Legacy conversion of origin idea 44 ('Middle World', v2 mapping) from the v3 100-origin sweep. Best primary measure: sigma (protocol: any of beta, sigma, entropy; Bonferroni k = 3, |z| > 3.32). Size axis = steps. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life."
+  "notes": "Legacy conversion of origin idea 44 ('Middle World', v2 mapping) from the v3 100-origin sweep. Best primary measure: sigma (protocol: any of beta, sigma, entropy; Bonferroni k = 3, |z| > 3.32). Size axis = steps. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on sigma = n/a (deterministic); BH recomputed in starter-3.0.0/deph including F1 children: q = 0. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: DIFFERS. Label set to CONJECTURE: with a real null arm this card is no longer legacy, and only the gate checker may promote a non-legacy card; the gate checker should rerun and sign."
 }

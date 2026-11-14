@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/derived.schema.json",
+  "title": "Atlas derivation outputs (PROPOSAL, not yet adopted)",
+  "description": "Shape of atlas/derivations/derived.json, written by atlas/derivations/derive.py. Numbers are DERIVED arithmetic. Imported inputs are cited on the links that use them. Keys match the derive.* source ids (d1 = D1, and so on).",
+  "type": "object",
+  "required": [
+    "D1",
+    "D2_ground_vs_cutoff",
+    "D3",
+    "D5_ours",
+    "D6_ours",
+    "D7_eV",
+    "D9"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "num": {
+      "type": "number"
+    },
+    "orbit": {
+      "type": "object",
+      "required": [
+        "extrema",
+        "stable_circular_orbit"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "extrema": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "enum": [
+                  "min",
+                  "max"
+                ]
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "stable_circular_orbit": {
+          "type": "boolean"
+        }
+      }
+    },
+    "alphaMax": {
+      "type": "object",
+      "required": [
+        "finite_size",
+        "point"
+      ],
+      "properties": {
+        "finite_size": {
+          "type": "number"
+        },
+        "point": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "properties": {
+    "D1": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[1-9]$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/orbit"
+      }
+    },
+    "D2_ground_vs_cutoff": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[3-9]$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number"
+        }
+      }
+    },
+    "D3": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "alpha",
+          "a0_rel",
+          "Ry_rel",
+          "v_over_c"
+        ],
+        "additionalProperties": {
+          "type": "number"
+        }
+      }
+    },
+    "D5_ours": {
+      "type": "object",
+      "required": [
+        "alpha",
+        "s",
+        "Z_dirac",
+        "Z_cr",
+        "Z_fis",
+        "L"
+      ],
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "D5_grid": {
+      "type": "array"
+    },
+    "D5_alpha_max_for_O": {
+      "$ref": "#/$defs/alphaMax"
+    },
+    "D5_alpha_max_for_C": {
+      "$ref": "#/$defs/alphaMax"
+    },
+    "D5_alpha_max_for_Fe": {
+      "$ref": "#/$defs/alphaMax"
+    },
+    "D6_ours": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "number"
+        }
+      }
+    },
+    "D6_alpha_max_at_our_beta": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "D6_alpha_min_at_our_beta": {
+      "type": "number"
+    },
+    "beta_max_ordered": {
+      "type": "number"
+    },
+    "beta_margin_ordered": {
+      "type": "number"
+    },
+    "D7_landauer_300K_J": {
+      "type": "number"
+    },
+    "D7_eV": {
+      "type": "number"
+    },
+    "D9": {
+      "type": "object",
+      "required": [
+        "dQ",
+        "dE",
+        "r_crit_central",
+        "r_crit_lo",
+        "r_crit_hi",
+        "alpha_crit_central"
+      ],
+      "additionalProperties": {
+        "type": "number"
+      }
+    }
+  }
+}

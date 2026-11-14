@@ -32,7 +32,7 @@
   "control": {
     "changed_factor": "mutate",
     "settings": "{\"family\":\"C\",\"size\":600,\"steps\":600}",
-    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+    "null_settings": "{\"family\":\"C\",\"size\":600,\"steps\":600}"
   },
   "lock": {
     "hash": "sha256:08bb74c9657e3562224c974ce3473bdcc6210ba40cc9828b16f93d303d95e760",
@@ -198,6 +198,46 @@
       "arm": "control",
       "output_uri": "outputs.json#/Ch/4",
       "output_hash": "sha256:d5d9923316e6cd0e9c89c10c41f13ae46d4d663886684eded3aecf498fc42d10"
+    },
+    {
+      "seed": 6,
+      "size": 600,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/0",
+      "output_hash": "sha256:70668e03d3cd79bff29343e995baaf74e453579887d3fa15a98617282e4aa877"
+    },
+    {
+      "seed": 7,
+      "size": 600,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/1",
+      "output_hash": "sha256:2a2bc74481a97501e54713c3382d304345300854e032b64ae0ee4f3d24d876c5"
+    },
+    {
+      "seed": 8,
+      "size": 600,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/2",
+      "output_hash": "sha256:f4e0dfe31d4ea1b14b70b3708487a96b6dedfed0b28fee561ac34dd2a2641604"
+    },
+    {
+      "seed": 9,
+      "size": 600,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/3",
+      "output_hash": "sha256:b10c967883ac7247a84932ae25cc7a6afb0ef2fdccd3cd5826aa6b0d198fcdf5"
+    },
+    {
+      "seed": 10,
+      "size": 600,
+      "steps": 600,
+      "arm": "null",
+      "output_uri": "outputs.json#/N/4",
+      "output_hash": "sha256:d15d39924db262cc431362087d150db05a2a2e9ade4c273cf86cbb9967d5071e"
     }
   ],
   "result": {
@@ -221,5 +261,5 @@
     "nearest_cards": [],
     "known_mechanism": null
   },
-  "notes": "Legacy conversion of origin idea 69 ('Mutation Cascade', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: activity (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on activity but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.)"
+  "notes": "Legacy conversion of origin idea 69 ('Mutation Cascade', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: activity (protocol: any of density, activity, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Differs at full size on activity but not at half size after the 3-measure correction (or the sign flips): fails the half-size check. (The original v3 lock used plain 3 sigma per measure; v0 cards add the Bonferroni correction, which is stricter.) F1 follow-up: a seed-shuffled null arm (control settings, seeds 6-10) was added post hoc, after the legacy result was known, so it can only demote; null z on activity = -1.12; BH recomputed in starter-3.0.0/mutate including F1 children: q = 1.53e-36. F1 lock: LOCKED_SINGLE_FACTOR_F1.md (docs/locks/), stamped 2026-11-14 13:18:15 -0600 = 19:18:15Z before any F1 run; local author stamp, not a server stamp. F1 local verdict: FAILED."
 }

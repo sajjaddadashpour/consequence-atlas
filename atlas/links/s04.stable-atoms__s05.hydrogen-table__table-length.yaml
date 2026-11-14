@@ -1,10 +1,18 @@
 id: l.s05.table-length
 from: s04.stable-atoms
 to: s05.hydrogen-table
-label: DERIVED
+label: DERIVED-UNDER-ASSUMPTION
 condition: min(floor(1.24/alpha), Z_fission(alpha, strong)) >= 26
+assumptions:
+- The Coulomb coefficient a_c scales linearly with alpha and the surface coefficient a_s scales linearly with the strong-force change s; all other nuclear structure is held fixed.
+- Liquid-drop coefficients a_s = 17.8 MeV, a_c = 0.711 MeV (one published fit; other fits differ by a few percent).
+- Nuclei follow the valley-of-stability relation Z = A/2 - 0.2 A^2/(A + 200) (approximation used in derive.py, not separately sourced).
+- The table ends where spontaneous fission becomes barrier-free (Z^2/A at the Bohr-Wheeler limit) or where the 1s level dives into the Dirac sea (Z ~ 1.24/alpha); shell effects and islands of stability are ignored.
+- Electron masses and the proton mass are held fixed.
 sources:
 - derive.d5
 - zeldovich-popov1972
+- bohr-wheeler1939
+- rohlf1994
 status: active
-notes: 'Periodic table ends at min(relativistic limit Z ~ 1.24/alpha, liquid-drop fission limit Z^2/A = 2*17.8*(1+s)/(0.711*alpha/alpha0)). PASS end >= 26 (iron); WEAK 8 <= end < 26 (C and O exist, heavier missing); FAIL end < 8. Liquid-drop coefficients are scaled naively: a DERIVED-UNDER-ASSUMPTION candidate.'
+notes: 'Periodic table ends at min(relativistic limit Z ~ 1.24/alpha (Z_cr ~ 170 at our alpha, Zeldovich & Popov 1972), liquid-drop fission limit Z^2/A = 2*a_s*(1+s)/(a_c*alpha/alpha0) (Bohr & Wheeler 1939), with a_s = 17.8 MeV and a_c = 0.711 MeV (Rohlf 1994 fit)). PASS end >= 26 (iron); WEAK 8 <= end < 26 (C and O exist, heavier missing); FAIL end < 8. Z_fission(alpha, strong) = largest Z with Z^2/A(Z) below that limit, A(Z) from the valley-of-stability approximation in derive.py. Ours: relativistic 137 (Dirac) to 169 (finite nucleus), fission 134.'

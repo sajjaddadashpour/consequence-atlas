@@ -222,10 +222,19 @@
       "match": true
     }
   ],
-  "label": "DIFFERS",
+  "label": "REPRODUCED",
   "novelty": {
-    "nearest_cards": [],
+    "nearest_cards": [
+      "c.v3o.057.conformal-cycles.sf-a2",
+      "c.v3o.057.conformal-cycles.sf-expand",
+      "c.v3o.057.conformal-cycles.sf-grow",
+      "c.v3o.057.conformal-cycles.sf-leak",
+      "c.v3o.057.conformal-cycles.sf-light",
+      "c.v3o.057.conformal-cycles.sf-ncyc",
+      "c.v3o.057.conformal-cycles.sf-records",
+      "c.v3o.057.conformal-cycles.sf-sched"
+    ],
     "known_mechanism": "Expansion dilutes pairs and freezes out annihilation (freeze-out)."
   },
-  "notes": "Legacy conversion of origin idea 57 ('Conformal cycles', PROXY mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor."
+  "notes": "Legacy conversion of origin idea 57 ('Conformal cycles', PROXY mapping) from the v3 100-origin sweep. Best primary measure: dS (protocol: any of density, clustering, dS; Bonferroni k = 3, |z| > 3.32). Size axis = size. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor. F1 follow-up (LOCKED_SINGLE_FACTOR_F1.md): this card's control changes 8 settings at once, so it is not a fair control. Single-factor children: 8; F1 local verdict DIFFERS (pending gate) for: expand, grow. F1 relabel DIFFERS -> REPRODUCED: outputs reproduce exactly, but there is no fair control; fair claims live on the children."
 }
