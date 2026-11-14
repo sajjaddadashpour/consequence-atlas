@@ -31,6 +31,8 @@
 
 Agents must not write `gate`. Leaving it off blocks the promotion, and filling it in yourself is not a promotion. v0 checks that the field is present and well formed. It does not yet check the signature cryptographically; that arrives with the lock service. Until then, a `gate` object is meaningful only when the gate checker wrote it.
 
+A legacy sweep card is different. `null_settings` of `NOT-RUN` means the shuffled null was never run, and the lock time is local. The validator does not reject a missing `label_set_by`. It reports the card as `legacy, unverified`: the label needs recomputation by the gate checker and is not a promotion. Such a card may stay at REPRODUCED or DIFFERS. It cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock.
+
 ## Fair control (all must hold)
 - Same engine version, size, steps, seeds count, measure code.
 - Differs from the test in exactly ONE declared factor (the thing the card claims matters); everything else identical. Multi-factor claims need one control per factor.

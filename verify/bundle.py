@@ -20,6 +20,9 @@ BUCKET_KEYS = {
     "sources": "sources",
     "dials": "dials",
     "links": "links",
+    "stages": "stages",
+    "backward": "backward",
+    "seeds": "seeds",
     "examples": "examples",
 }
 
@@ -48,6 +51,7 @@ def build_bundle(root: Path, *, generated_at: str | None = None) -> dict:
         "generated_at": when,
         "note": "Generated from validated files. The repository files are the source of record.",
         "counts": {key: len(value) for key, value in groups.items()},
+        "warnings": [{"message": warning.message, "path": warning.path} for warning in report.warnings],
         **groups,
     }
 

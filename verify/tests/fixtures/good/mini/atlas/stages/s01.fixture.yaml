@@ -1,0 +1,5 @@
+id: s01.fixture
+name: Fixture stage that follows another
+order: 1
+requires:
+  - s00.fixture

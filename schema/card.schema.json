@@ -342,10 +342,71 @@
         }
       },
       "then": {
-        "required": [
-          "gate"
+        "anyOf": [
+          {
+            "required": [
+              "gate"
+            ]
+          },
+          {
+            "description": "Legacy sweep cards may sit at REPRODUCED or DIFFERS without gate. They are unverified, not promotions, and cannot go higher while null_settings is NOT-RUN.",
+            "required": [
+              "label",
+              "control"
+            ],
+            "properties": {
+              "label": {
+                "enum": [
+                  "REPRODUCED",
+                  "DIFFERS"
+                ]
+              },
+              "control": {
+                "type": "object",
+                "required": [
+                  "null_settings"
+                ],
+                "properties": {
+                  "null_settings": {
+                    "type": "string",
+                    "pattern": "^NOT-RUN($|:| )"
+                  }
+                }
+              }
+            }
+          }
         ]
       }
+    },
+    {
+      "if": {
+        "required": [
+          "label",
+          "control"
+        ],
+        "properties": {
+          "label": {
+            "enum": [
+              "ROBUST",
+              "KNOWN-MECHANISM",
+              "NOVEL-CANDIDATE"
+            ]
+          },
+          "control": {
+            "type": "object",
+            "required": [
+              "null_settings"
+            ],
+            "properties": {
+              "null_settings": {
+                "type": "string",
+                "pattern": "^NOT-RUN($|:| )"
+              }
+            }
+          }
+        }
+      },
+      "then": false
     }
   ]
 }

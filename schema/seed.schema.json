@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consequence-atlas.org/schema/v0/seed.schema.json",
+  "title": "Origin-seed catalogue",
+  "description": "One catalogue file. Every idea_label stays CONJECTURE. Optional card is a path to a card.json. sweep_class is the sweep's own word, not a card label.",
+  "type": "object",
+  "required": [
+    "source",
+    "seeds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "name",
+          "category",
+          "description",
+          "idea_label",
+          "v3_mapping",
+          "v3_mapping_note",
+          "settings",
+          "sweep_class"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "idea_label": {
+            "const": "CONJECTURE"
+          },
+          "v3_mapping": {
+            "enum": [
+              "v2",
+              "FAITHFUL",
+              "PROXY",
+              "NOT RUNNABLE"
+            ]
+          },
+          "v3_mapping_note": {
+            "type": "string"
+          },
+          "settings": {
+            "type": ["string", "null"]
+          },
+          "sweep_class": {
+            "type": "string"
+          },
+          "label": {
+            "$ref": "label.schema.json#/$defs/cardLabel"
+          },
+          "card": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string"
+          },
+          "observation": {
+            "type": "object",
+            "required": ["verdicts_test_full", "verdicts_test_half", "shares"],
+            "additionalProperties": false,
+            "properties": {
+              "verdicts_test_full": true,
+              "verdicts_test_half": true,
+              "shares": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

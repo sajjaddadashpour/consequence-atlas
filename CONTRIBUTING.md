@@ -9,6 +9,8 @@ This is the v0 data layer: schemas, a few examples, and a validator. The engine,
 - One claim, one label, and sources for anything imported. Labels stay exactly as they are in `schema/label.schema.json`. Do not add new ones.
 - Cards live at `cards/<engine>/<factor>/<card-id>/card.json` (the flat `<card-id>.json` form is also accepted). `engine` is `engine.name`. `factor` is `control.changed_factor`. FAILED and DEAD-END cards use the same path under `dead-ends/`.
 - An agent may set `label` to CONJECTURE. REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, and NOVEL-CANDIDATE require a `gate` object, `{checker, signature}`, written by the gate checker. Agents do not promote their own cards. Writing a `gate` yourself is not a promotion. v0 checks that the field is present and non-blank. It does not yet verify the signature.
+- A legacy card whose `null_settings` is `NOT-RUN` has a local lock. Missing `label_set_by` is not an error. The validator reports it as `legacy, unverified`. That label is not a promotion, and the card cannot go past DIFFERS until it is rerun with a shuffled null and a server lock.
+- Only `card.json` is validated. Do not expect `outputs.json` to be checked.
 - FAILED, DEAD-END, and INERT-BY-CONSTRUCTION are kept. They are not promotions.
 - Card ids are unique. Every id in `parents` resolves to a card.
 - An IMPORTED link lists source ids, at least one, and each of those ids is a record in `sources/`. A DERIVED-UNDER-ASSUMPTION link lists a non-empty `assumptions` array.

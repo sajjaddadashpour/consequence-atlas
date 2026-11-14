@@ -2,7 +2,7 @@ id: l.good-assumption
 from: s.from-node
 to: s.to-node
 label: DERIVED-UNDER-ASSUMPTION
-condition: "fixture > 0"
+condition: "dial_fixture > 0"
 assumptions:
   - "fixture assumption, not a physical claim"
 sources: []

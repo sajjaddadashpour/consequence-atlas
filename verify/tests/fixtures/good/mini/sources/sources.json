@@ -1,0 +1,9 @@
+[
+  {
+    "id": "src.second",
+    "title": "Second fixture source, not a real citation",
+    "year": 2026,
+    "identifier": "doi:10.0000/fixture-2",
+    "verified": false
+  }
+]

@@ -27,7 +27,7 @@ verify/      validator, tests, and the bundle builder
 ```
 
 ## Formats
-Cards and runs are JSON. The hand-edited atlas files are YAML, with unquoted booleans like `no` rejected. Everything is validated against `schema/`. A card label above CONJECTURE needs a `gate` signature from the gate checker. Agents cannot promote their own cards.
+Cards and runs are JSON. The hand-edited atlas files are YAML, with unquoted booleans like `no` rejected. Everything is validated against `schema/`. A card label above CONJECTURE needs a `gate` signature from the gate checker. Agents cannot promote their own cards. A legacy card with `null_settings` of `NOT-RUN` is reported as `legacy, unverified` and cannot be promoted past DIFFERS.
 
 ## Check locally
 ```

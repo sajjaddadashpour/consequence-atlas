@@ -1,0 +1,40 @@
+{
+  "id": "c.legacy-robust",
+  "schema_version": "0.1.0",
+  "author": "fixture",
+  "engine": {
+    "name": "starter",
+    "version": "0.0.0"
+  },
+  "rules": {
+    "settings": "fixture"
+  },
+  "start": {
+    "kind": "fixture"
+  },
+  "hypothesis": {
+    "measure": "fixture",
+    "direction": "greater",
+    "sizes": [
+      8,
+      16
+    ],
+    "n_seeds": 5
+  },
+  "control": {
+    "changed_factor": "factor",
+    "settings": "fixture-control",
+    "null_settings": "NOT-RUN: fixture, shuffled null was not run",
+    "budget_matched": true
+  },
+  "lock": {
+    "hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "server_timestamp": "2026-11-14T19:00:00Z"
+  },
+  "label": "ROBUST",
+  "notes": "Fixture card for the validator. Not a result.",
+  "gate": {
+    "checker": "verify",
+    "signature": "fixture"
+  }
+}

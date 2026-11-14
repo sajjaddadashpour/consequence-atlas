@@ -1,0 +1,6 @@
+id: cosmological-constant
+name: Fixture dial for the underscore spelling
+units: "1"
+ours: 1
+range: [0, 2]
+scale: linear

@@ -15,7 +15,11 @@ Card labels, exactly: CONJECTURE, REPRODUCED, DIFFERS, ROBUST, KNOWN-MECHANISM, 
 
 Atlas labels, exactly: DERIVED, DERIVED-UNDER-ASSUMPTION, IMPORTED, ASSUMED, CONJECTURE, CONTESTED. DERIVED-UNDER-ASSUMPTION needs a non-empty `assumptions` array. IMPORTED needs at least one source id, and every cited id must exist under `sources/`.
 
-Card paths are `<engine>/<factor>/<card-id>/card.json` or `<engine>/<factor>/<card-id>.json`, using `engine.name` and `control.changed_factor`. Card ids are unique. Every `parents` id resolves.
+Card paths are `<engine>/<factor>/<card-id>/card.json`. `factor` is `control.changed_factor` when that is one path segment, and the slug in `family` when the changed factor lists several names. Only `card.json` is validated. `outputs.json` is not. Card ids are unique. Every `parents` id resolves.
+
+A legacy card has `null_settings` of `NOT-RUN` and a local lock. Do not reject it for a missing `label_set_by`. Report it as `legacy, unverified`. Its label needs recomputation by the gate checker. It cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock.
+
+In a link condition, a hyphenated dial id may be written with underscores (`cosmological_constant` for `cosmological-constant`). The helper `Z_fission` is allowed. `atlas/derivations/` has no schema yet and is skipped with a warning. Stages, backward chains, and the seed catalogue have schemas.
 
 In YAML, quote `yes`, `no`, `on`, `off`, `y`, and `n`. Unquoted, YAML 1.1 turns them into booleans. `true` and `false` are real booleans and may stay unquoted.
 

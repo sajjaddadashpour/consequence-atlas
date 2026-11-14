@@ -10,16 +10,30 @@ Rules enforced here, on top of JSON Schema:
   only; it does not verify the signature cryptographically.
 - IMPORTED links cite at least one source id, and every cited id exists in
   sources/. DERIVED-UNDER-ASSUMPTION links have a non-empty assumptions array.
-- Card ids are unique across cards/, dead-ends/, and examples/cards/. Every
-  parents entry resolves to one of those ids. The card path, relative to
-  that tree, is ``<engine.name>/<control.changed_factor>/<id>.json`` or
-  ``<engine.name>/<control.changed_factor>/<id>/card.json``.
+- A legacy card (``null_settings`` of ``NOT-RUN``, lock written locally) is
+  reported as ``legacy, unverified``. Missing ``label_set_by`` is not an error.
+  The label needs recomputation by the gate checker. It may sit at REPRODUCED
+  or DIFFERS without ``gate``, and it cannot be promoted past DIFFERS until it
+  is rerun with a shuffled null and a server lock.
+- IMPORTED links cite at least one source id, and every cited id exists in
+  sources/ (one object per file, or an array of them). DERIVED-UNDER-ASSUMPTION
+  links have a non-empty assumptions array.
+- Card ids are unique. Every ``parents`` id resolves. Only ``card.json`` is
+  read under cards/, dead-ends/, and examples/cards/; ``outputs.json`` is not
+  validated. The path is ``<engine>/<factor>/<card-id>/card.json`` (flat
+  ``.json`` is also accepted). ``factor`` is ``control.changed_factor`` when
+  that is one path segment, and the slug in ``family`` when the changed factor
+  lists several names.
+- A condition may spell a hyphenated dial id with underscores, and may call
+  ``Z_fission``.
+- atlas/derivations/ has no schema yet and is skipped with a warning.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -47,6 +61,14 @@ ABOVE_CONJECTURE = frozenset(
         "NOVEL-CANDIDATE",
     }
 )
+# Legacy NOT-RUN cards stop here. Higher labels need a shuffled null and a server lock.
+PAST_DIFFERS = frozenset({"ROBUST", "KNOWN-MECHANISM", "NOVEL-CANDIDATE"})
+# Names a condition may use besides dial ids. Z_fission is the table-length helper.
+CONDITION_HELPERS = frozenset(
+    {"min", "floor", "abs", "sqrt", "Z_fission", "true", "false", "and", "or", "not"}
+)
+# Don't treat the exponent in 2.62e-12 as a name.
+CONDITION_IDENT = re.compile(r"(?<![\d.])[A-Za-z_][A-Za-z0-9_-]*")
 
 JSON_TREES: tuple[tuple[str, str], ...] = (
     ("cards", "card"),
@@ -54,6 +76,7 @@ JSON_TREES: tuple[tuple[str, str], ...] = (
     ("meanings", "meaning"),
     ("sources", "source"),
     ("examples/cards", "card"),
+    ("seeds", "seed"),
 )
 YAML_TREES: tuple[tuple[str, str], ...] = (
     ("dials", "dial"),
@@ -87,6 +110,7 @@ class LoadedDocument:
 @dataclass
 class Report:
     issues: list[Issue] = field(default_factory=list)
+    warnings: list[Issue] = field(default_factory=list)
     documents: list[LoadedDocument] = field(default_factory=list)
     files_checked: int = 0
 
@@ -118,7 +142,9 @@ def validate_root(root: Path) -> Report:
 
     for path, kind in discovered:
         _validate_file(root, path, kind, validators, report)
-    report.issues.extend(cross_check(report.documents))
+    errors, warnings = cross_check(report.documents)
+    report.issues.extend(errors)
+    report.warnings.extend(warnings)
     return report
 
 
@@ -149,6 +175,9 @@ def load_validators(schema_dir: Path) -> dict[str, Draft202012Validator]:
         "source": "source.schema.json",
         "dial": "dial.schema.json",
         "link": "link.schema.json",
+        "stage": "stage.schema.json",
+        "backward": "backward.schema.json",
+        "seed": "seed.schema.json",
     }
     return {
         kind: Draft202012Validator(schemas[filename], registry=registry, format_checker=checker)
@@ -156,8 +185,9 @@ def load_validators(schema_dir: Path) -> dict[str, Draft202012Validator]:
     }
 
 
-def cross_check(documents: list[LoadedDocument]) -> list[Issue]:
+def cross_check(documents: list[LoadedDocument]) -> tuple[list[Issue], list[Issue]]:
     issues: list[Issue] = []
+    warnings: list[Issue] = []
     cards = [doc for doc in documents if doc.kind == "card"]
     issues.extend(_unique_card_ids(cards))
     known_ids = {
@@ -165,17 +195,36 @@ def cross_check(documents: list[LoadedDocument]) -> list[Issue]:
         for doc in cards
         if isinstance(doc.document.get("id"), str)
     }
+    card_paths = {doc.path for doc in cards}
     for doc in cards:
-        issues.extend(_card_rules(doc, known_ids))
+        card_issues, card_warnings = _card_rules(doc, known_ids)
+        issues.extend(card_issues)
+        warnings.extend(card_warnings)
     source_ids = {
         doc.document["id"]
         for doc in documents
         if doc.kind == "source" and isinstance(doc.document.get("id"), str)
     }
+    dial_ids = {
+        doc.document["id"]
+        for doc in documents
+        if doc.kind == "dial" and isinstance(doc.document.get("id"), str)
+    }
+    stage_ids = {
+        doc.document["id"]
+        for doc in documents
+        if doc.kind == "stage" and isinstance(doc.document.get("id"), str)
+    }
     for doc in documents:
         if doc.kind == "link":
-            issues.extend(_link_rules(doc, source_ids))
-    return issues
+            issues.extend(_link_rules(doc, source_ids, dial_ids))
+        elif doc.kind == "backward":
+            issues.extend(_citation_rules(doc, source_ids, "backward chain"))
+        elif doc.kind == "stage":
+            issues.extend(_stage_rules(doc, stage_ids))
+        elif doc.kind == "seed":
+            issues.extend(_seed_rules(doc, card_paths))
+    return issues, warnings
 
 
 def yaml11_bool_issues(text: str, path: str) -> list[Issue]:
@@ -221,12 +270,17 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = (args.root or repo_root()).resolve()
     report = validate_root(root)
+    for warning in report.warnings:
+        print(f"warning: {warning}")
     if report.issues:
         for issue in report.issues:
             print(issue, file=sys.stderr)
         print(f"{len(report.issues)} problem(s) in {root}", file=sys.stderr)
         return 1
-    print(f"valid ({report.files_checked} files)")
+    if report.warnings:
+        print(f"valid ({report.files_checked} files, {len(report.warnings)} warnings)")
+    else:
+        print(f"valid ({report.files_checked} files)")
     return 0
 
 
@@ -245,7 +299,14 @@ def _discover(
         rel = path.relative_to(root)
         if any(part.startswith(".") for part in rel.parts):
             continue
+        if kind == "card" and path.name == "outputs.json":
+            continue
         suffix = path.suffix.lower()
+        rel_posix = rel.as_posix()
+        if rel_posix.startswith("atlas/derivations/") and suffix in DATA_SUFFIXES:
+            report.files_checked += 1
+            report.warnings.append(Issue(rel_posix, "no schema yet; skipped"))
+            continue
         if suffix not in allowed:
             if suffix in DATA_SUFFIXES:
                 report.files_checked += 1
@@ -293,28 +354,32 @@ def _validate_file(
             report.issues.append(Issue(rel, f"JSON parse error: line {exc.lineno}: {exc.msg}"))
             return
 
+    if kind == "source" and isinstance(data, list):
+        _validate_source_list(rel, data, validators["source"], report)
+        return
+
     if not isinstance(data, dict):
         report.issues.append(Issue(rel, "document must be a JSON object"))
         return
 
     if kind == "atlas":
-        kind = _classify_atlas(data) or ""
-        if not kind:
-            report.issues.append(
-                Issue(
-                    rel,
-                    "no matching schema; atlas files must be a link (from, to) or a dial (range, scale)",
+        parts = Path(rel).parts
+        if "stages" in parts:
+            kind = "stage"
+        elif "backward" in parts:
+            kind = "backward"
+        else:
+            kind = _classify_atlas(data) or ""
+            if not kind:
+                report.issues.append(
+                    Issue(
+                        rel,
+                        "no matching schema; atlas files must be a link (from, to), a dial (range, scale), a stage, or a backward chain",
+                    )
                 )
-            )
-            return
+                return
 
-    validator = validators[kind]
-    for error in sorted(validator.iter_errors(data), key=lambda err: list(err.absolute_path)):
-        location = "/" + "/".join(str(part) for part in error.absolute_path)
-        if not location.strip("/"):
-            location = "(root)"
-        report.issues.append(Issue(rel, f"{location}: {error.message}"))
-
+    _schema_issues(validators[kind], data, rel, report)
     report.documents.append(
         LoadedDocument(path=rel, kind=kind, bucket=_bucket(rel, kind), document=data)
     )
@@ -347,13 +412,47 @@ def _bucket(path: str, kind: str) -> str:
         return "cards"
     if path.startswith("meanings/"):
         return "meanings"
-    if path.startswith("sources/"):
+    if path.startswith("sources/") or kind == "source":
         return "sources"
+    if path.startswith("seeds/") or kind == "seed":
+        return "seeds"
     if path.startswith("dials/") or kind == "dial":
         return "dials"
+    if kind == "stage":
+        return "stages"
+    if kind == "backward":
+        return "backward"
     if kind == "link":
         return "links"
     return "atlas"
+
+
+def _schema_issues(validator: Draft202012Validator, document: object, path: str, report: Report) -> None:
+    for error in sorted(validator.iter_errors(document), key=lambda err: list(err.absolute_path)):
+        location = "/" + "/".join(str(part) for part in error.absolute_path)
+        if not location.strip("/"):
+            location = "(root)"
+        report.issues.append(Issue(path, f"{location}: {error.message}"))
+
+
+def _validate_source_list(
+    path: str,
+    entries: list,
+    validator: Draft202012Validator,
+    report: Report,
+) -> None:
+    for index, item in enumerate(entries):
+        item_path = f"{path}#/{index}"
+        if not isinstance(item, dict):
+            report.issues.append(Issue(item_path, "source entry must be a JSON object"))
+            continue
+        source_id = item.get("id")
+        if isinstance(source_id, str):
+            item_path = f"{path}#/{source_id}"
+        _schema_issues(validator, item, item_path, report)
+        report.documents.append(
+            LoadedDocument(path=item_path, kind="source", bucket="sources", document=item)
+        )
 
 
 def _unique_card_ids(cards: list[LoadedDocument]) -> list[Issue]:
@@ -370,10 +469,13 @@ def _unique_card_ids(cards: list[LoadedDocument]) -> list[Issue]:
     return issues
 
 
-def _card_rules(doc: LoadedDocument, known_ids: set[str]) -> list[Issue]:
+def _card_rules(doc: LoadedDocument, known_ids: set[str]) -> tuple[list[Issue], list[Issue]]:
     issues: list[Issue] = []
+    warnings: list[Issue] = []
     data = doc.document
-    issues.extend(_gate_rule(doc))
+    gate_issues, gate_warnings = _gate_rule(doc)
+    issues.extend(gate_issues)
+    warnings.extend(gate_warnings)
     parents = data.get("parents", [])
     if isinstance(parents, list):
         for parent in parents:
@@ -382,15 +484,20 @@ def _card_rules(doc: LoadedDocument, known_ids: set[str]) -> list[Issue]:
                     Issue(doc.path, f"parent id {parent!r} does not resolve to a card")
                 )
     issues.extend(_path_rule(doc))
-    return issues
+    return issues, warnings
 
 
-def _gate_rule(doc: LoadedDocument) -> list[Issue]:
+def _gate_rule(doc: LoadedDocument) -> tuple[list[Issue], list[Issue]]:
     label = doc.document.get("label")
+    if _legacy_unverified(doc.document):
+        warning = Issue(doc.path, _legacy_message(label))
+        if label in PAST_DIFFERS:
+            return [Issue(doc.path, _past_differs_message(label))], [warning]
+        return [], [warning]
     if label not in ABOVE_CONJECTURE:
-        return []
+        return [], []
     if _gate_ok(doc.document.get("gate")):
-        return []
+        return [], []
     return [
         Issue(
             doc.path,
@@ -400,7 +507,34 @@ def _gate_rule(doc: LoadedDocument) -> list[Issue]:
                 "Agents cannot self-promote."
             ),
         )
-    ]
+    ], []
+
+
+def _legacy_unverified(card: dict) -> bool:
+    """A sweep card whose null arm was not run. Its lock is local, not a server lock."""
+    control = card.get("control")
+    if not isinstance(control, dict):
+        return False
+    null_settings = control.get("null_settings")
+    if not isinstance(null_settings, str):
+        return False
+    return null_settings == "NOT-RUN" or null_settings.startswith("NOT-RUN:") or null_settings.startswith("NOT-RUN ")
+
+
+def _legacy_message(label: object) -> str:
+    shown = label if isinstance(label, str) else "unset"
+    return (
+        f"legacy, unverified: label {shown!r} needs recomputation by the gate checker. "
+        "null_settings is NOT-RUN and the lock is local, so this label is not a promotion "
+        "and the card cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock."
+    )
+
+
+def _past_differs_message(label: object) -> str:
+    return (
+        f"label {label!r} is past DIFFERS, but null_settings is NOT-RUN and the lock is local. "
+        "This card cannot be promoted past DIFFERS until it is rerun with a shuffled null and a server lock."
+    )
 
 
 def _gate_ok(gate: object) -> bool:
@@ -422,25 +556,29 @@ def _path_rule(doc: LoadedDocument) -> list[Issue]:
         return [Issue(doc.path, "card is outside cards/, dead-ends/, and examples/cards/")]
     data = doc.document
     engine = _segment(data, ("engine", "name"))
-    factor = _segment(data, ("control", "changed_factor"))
+    raw_factor = _segment(data, ("control", "changed_factor"))
     card_id = data.get("id")
-    if not isinstance(engine, str) or not isinstance(factor, str) or not isinstance(card_id, str):
+    if not isinstance(engine, str) or not isinstance(raw_factor, str) or not isinstance(card_id, str):
         return [
             Issue(
                 doc.path,
                 "card path cannot be checked until id, engine.name, and control.changed_factor are strings",
             )
         ]
-    problems = [
-        name
-        for name, value in (("engine.name", engine), ("control.changed_factor", factor), ("id", card_id))
-        if not _single_segment(value)
-    ]
-    if problems:
+    if not _single_segment(engine) or not _single_segment(card_id):
         return [
             Issue(
                 doc.path,
-                f"{', '.join(problems)} must be a single path segment so the card can live at <engine>/<factor>/<card-id>",
+                "engine.name and id must each be a single path segment so the card can live at <engine>/<factor>/<card-id>",
+            )
+        ]
+    factor = _factor_segment(data)
+    if factor is None:
+        return [
+            Issue(
+                doc.path,
+                "card path needs one path segment for the factor: control.changed_factor, "
+                "or the slug after / in family when that factor lists several names",
             )
         ]
     expected = {
@@ -453,9 +591,32 @@ def _path_rule(doc: LoadedDocument) -> list[Issue]:
     return [
         Issue(
             doc.path,
-            f"card path must be {shown} (engine.name={engine!r}, control.changed_factor={factor!r}, id={card_id!r}); found {relative!r}",
+            (
+                f"card path must be {shown} "
+                f"(engine.name={engine!r}, factor={factor!r}, control.changed_factor={raw_factor!r}, id={card_id!r}); "
+                f"found {relative!r}"
+            ),
         )
     ]
+
+
+def _factor_segment(card: dict) -> str | None:
+    """Directory factor. A comma- or colon-separated changed_factor is not a path segment."""
+    raw = _segment(card, ("control", "changed_factor"))
+    if isinstance(raw, str) and _path_segment(raw):
+        return raw
+    family = card.get("family")
+    if isinstance(family, str) and "/" in family:
+        slug = family.split("/", 1)[1]
+        if _path_segment(slug):
+            return slug
+    return None
+
+
+def _path_segment(value: str) -> bool:
+    if not _single_segment(value):
+        return False
+    return not any(char in value for char in ",: \t")
 
 
 def _card_relative(path: str) -> str | None:
@@ -478,7 +639,7 @@ def _single_segment(value: str) -> bool:
     return bool(value) and value not in {".", ".."} and "/" not in value and "\\" not in value
 
 
-def _link_rules(doc: LoadedDocument, source_ids: set[str]) -> list[Issue]:
+def _link_rules(doc: LoadedDocument, source_ids: set[str], dial_ids: set[str]) -> list[Issue]:
     data = doc.document
     label = data.get("label")
     link_id = data.get("id")
@@ -495,6 +656,88 @@ def _link_rules(doc: LoadedDocument, source_ids: set[str]) -> list[Issue]:
             )
     if label == "IMPORTED":
         issues.extend(_imported_sources(doc.path, who, data.get("sources"), source_ids))
+    issues.extend(_condition_rules(doc, dial_ids))
+    return issues
+
+
+def _condition_rules(doc: LoadedDocument, dial_ids: set[str]) -> list[Issue]:
+    # examples/ may name a dial that is not shipped beside the illustration.
+    if doc.path.startswith("examples/"):
+        return []
+    condition = doc.document.get("condition")
+    if not isinstance(condition, str):
+        return []
+    allowed = set(dial_ids)
+    allowed.update(dial_id.replace("-", "_") for dial_id in dial_ids)
+    allowed.update(CONDITION_HELPERS)
+    unknown: list[str] = []
+    for name in CONDITION_IDENT.findall(condition):
+        if name not in allowed and name not in unknown:
+            unknown.append(name)
+    if not unknown:
+        return []
+    listed = ", ".join(repr(name) for name in unknown)
+    return [
+        Issue(
+            doc.path,
+            (
+                f"condition uses unknown name(s) {listed}. "
+                "A hyphenated dial id may be written with underscores. The helper Z_fission is allowed."
+            ),
+        )
+    ]
+
+
+def _citation_rules(doc: LoadedDocument, source_ids: set[str], kind: str) -> list[Issue]:
+    who = doc.document.get("id")
+    name = who if isinstance(who, str) else doc.path
+    sources = doc.document.get("sources")
+    if not isinstance(sources, list) or len(sources) == 0:
+        return [
+            Issue(
+                doc.path,
+                f"{kind} {name!r} must cite at least one source id that exists in sources/",
+            )
+        ]
+    unknown = [item for item in sources if not isinstance(item, str) or item not in source_ids]
+    if not unknown:
+        return []
+    listed = ", ".join(repr(item) for item in unknown)
+    return [
+        Issue(
+            doc.path,
+            f"{kind} {name!r} cites source ids that are not in sources/: {listed}",
+        )
+    ]
+
+
+def _stage_rules(doc: LoadedDocument, stage_ids: set[str]) -> list[Issue]:
+    requires = doc.document.get("requires")
+    if not isinstance(requires, list):
+        return []
+    issues: list[Issue] = []
+    for required in requires:
+        if isinstance(required, str) and required not in stage_ids:
+            issues.append(Issue(doc.path, f"stage requires {required!r}, which is not a stage id"))
+    return issues
+
+
+def _seed_rules(doc: LoadedDocument, card_paths: set[str]) -> list[Issue]:
+    seeds = doc.document.get("seeds")
+    if not isinstance(seeds, list):
+        return []
+    issues: list[Issue] = []
+    for seed in seeds:
+        if not isinstance(seed, dict):
+            continue
+        card = seed.get("card")
+        if isinstance(card, str) and card not in card_paths:
+            issues.append(
+                Issue(
+                    doc.path,
+                    f"seed {seed.get('n')!r} card path {card!r} does not resolve to a card.json",
+                )
+            )
     return issues
 
 

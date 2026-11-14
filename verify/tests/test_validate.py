@@ -23,6 +23,9 @@ BAD = {
     "bad-path": ("card path must be",),
     "imported-missing-source": ("src.missing", "sources/"),
     "imported-empty-sources": ("at least one source id",),
+    "legacy-past-differs": ("past DIFFERS", "shuffled null"),
+    "factor-case": ("measT", "card path must be"),
+    "unknown-condition": ("not_a_dial", "underscores"),
 }
 
 YAML11_WORDS = ["yes", "Yes", "YES", "no", "No", "NO", "on", "On", "off", "OFF", "y", "Y", "n", "N"]
@@ -68,6 +71,20 @@ def test_good_fixtures_pass():
     for root in roots:
         report = validate_root(root)
         assert report.issues == [], (root.name, _text(report))
+
+
+def test_legacy_card_is_unverified_and_not_rejected_for_missing_label_set_by():
+    report = validate_root(FIXTURES / "good" / "mini")
+    assert report.issues == [], _text(report)
+    text = "\n".join(str(warning) for warning in report.warnings)
+    assert "legacy, unverified" in text
+    assert "c.good-legacy" in text
+    assert "label_set_by" not in text
+    paths = {doc.path for doc in report.documents}
+    assert not any(path.endswith("outputs.json") for path in paths)
+    assert any(doc.kind == "stage" for doc in report.documents)
+    assert any(doc.kind == "backward" for doc in report.documents)
+    assert any(doc.kind == "seed" for doc in report.documents)
 
 
 @pytest.mark.parametrize("name", sorted(BAD))
@@ -209,8 +226,10 @@ def test_good_fixture_bundle_round_trip(tmp_path: Path):
     assert payload["generated_at"] == "2026-11-14T00:00:00Z"
     assert payload["counts"]["cards"] >= 1
     assert payload["counts"]["dead_ends"] >= 1
-    assert payload["counts"]["links"] == 2
-    assert payload["counts"]["sources"] == 1
+    assert payload["counts"]["links"] == 3
+    assert payload["counts"]["sources"] == 2
+    assert payload["counts"]["stages"] == 2
+    assert any("legacy, unverified" in warning["message"] for warning in payload["warnings"])
     promoted = next(
         item["document"]
         for item in payload["cards"]
