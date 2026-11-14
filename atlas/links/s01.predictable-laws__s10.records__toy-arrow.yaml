@@ -1,0 +1,9 @@
+id: l.s10.toy-arrow
+from: s01.predictable-laws
+to: s10.records
+label: DERIVED
+condition: arrow >= 1
+sources:
+- derive.us27
+status: active
+notes: 'Toy-model mechanism demonstration, not a prediction (lattice gas, 5 seeds): low-entropy start S 0.84 -> 3.26 of max 3.74 with an exact backward echo; equilibrium start stays at 1.965 (its maximum); with 2% noise S reaches 3.74 and the echo misses 21.6% of sites.'

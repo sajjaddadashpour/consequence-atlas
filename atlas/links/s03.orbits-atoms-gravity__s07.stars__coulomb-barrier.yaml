@@ -1,0 +1,10 @@
+id: l.s07.coulomb-barrier
+from: s03.orbits-atoms-gravity
+to: s07.stars
+label: IMPORTED
+condition: alpha**2*beta >= 2.62e-12
+sources:
+- adams2019
+- adams2008
+status: active
+notes: 'FAIL alpha^2*beta < 2.6e-12: Coulomb barrier too low, stars burn their fuel at once.'

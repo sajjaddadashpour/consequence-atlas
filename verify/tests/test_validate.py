@@ -39,11 +39,11 @@ def test_repository_is_valid():
     report = validate_root(REPO)
     assert report.issues == [], _text(report)
     paths = {doc.path for doc in report.documents}
-    assert paths == {
+    assert {
         "examples/atlas/dial.json",
         "examples/atlas/link.json",
         "examples/cards/starter/attract/c.example-0001/card.json",
-    }
+    } <= paths
     kinds = {doc.path: doc.kind for doc in report.documents}
     assert kinds["examples/atlas/link.json"] == "link"
     assert kinds["examples/atlas/dial.json"] == "dial"
@@ -202,8 +202,10 @@ def test_bundle_of_the_repository_keeps_examples_apart(tmp_path: Path):
     assert bundle_main(["--root", str(REPO), "--output", str(output)]) == 0
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["format"] == "consequence-atlas-bundle"
-    assert payload["cards"] == []
-    assert payload["links"] == []
+    example_paths = {item["path"] for item in payload["examples"]}
+    for section in ("cards", "links"):
+        assert all(not item["path"].startswith("examples/") for item in payload[section])
+        assert not example_paths & {item["path"] for item in payload[section]}
     assert payload["counts"]["examples"] == 3
     paths = {item["path"]: item["kind"] for item in payload["examples"]}
     assert paths["examples/atlas/link.json"] == "link"

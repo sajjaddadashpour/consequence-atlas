@@ -1,0 +1,9 @@
+{
+  "name": "consequence-atlas-starter-engine",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Universe Starter v3 headless engine, pinned for consequence-atlas cards",
+  "license": "MIT",
+  "scripts": { "run-card": "tsx cli/run-card.ts" },
+  "devDependencies": { "tsx": "^4.19.0", "@types/node": "^22.0.0" }
+}

@@ -1,0 +1,11 @@
+id: l.s10.past-traces
+from: s01.predictable-laws
+to: s10.records
+label: IMPORTED
+condition: arrow >= 1
+sources:
+- rovelli2020
+- wolpert1992
+- landauer1961
+status: active
+notes: 'arrow = 1: low-entropy past + separated systems + slow thermalisation leave traces of the past (Rovelli 2020). arrow = 0: no entropy gradient, no traces. arrow = 2: records form, but the past cannot be recovered even in principle.'

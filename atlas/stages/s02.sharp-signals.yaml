@@ -1,0 +1,5 @@
+id: s02.sharp-signals
+name: Sharp signals (light, sound)
+order: 2
+requires:
+- s01.predictable-laws

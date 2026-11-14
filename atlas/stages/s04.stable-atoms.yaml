@@ -1,0 +1,5 @@
+id: s04.stable-atoms
+name: Non-relativistic, stable atoms
+order: 4
+requires:
+- s03.orbits-atoms-gravity

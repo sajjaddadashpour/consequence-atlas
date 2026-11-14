@@ -1,0 +1,9 @@
+id: l.s04.atomic-scales
+from: s03.orbits-atoms-gravity
+to: s04.stable-atoms
+label: DERIVED
+condition: "true"
+sources:
+- derive.d3
+status: active
+notes: 'Informational, always PASS: atom size = (alpha0*beta0)/(alpha*beta) x ours; Rydberg energy scale = (alpha/alpha0)^2 * (beta/beta0) x ours (proton mass fixed).'

@@ -1,0 +1,12 @@
+id: beta
+name: Electron-to-proton mass ratio
+symbol: β = m_e/m_p
+units: dimensionless (proton mass held fixed)
+ours: 0.000544617021
+range:
+- 1.0e-05
+- 100.0
+scale: log
+sources:
+- barnes2012
+- tegmark1998

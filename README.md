@@ -16,13 +16,15 @@ Toy simulations show mechanisms. They never predict chemistry or life.
 ```
 schema/      JSON Schemas (draft 2020-12): card, meaning, source, dial, link, label
 examples/    valid example files
-cards/       experiment cards: <engine>/<factor>/<card-id>/
+cards/       experiment cards, by family: <engine>/<factor>/<card-id>/{card.json,outputs.json}
 dead-ends/   failed and dead-end cards, same format
+seeds/       the 100 origin ideas and where each one landed
 meanings/    glossary of invented symbols (each bound to a rule or measure, or labelled vocabulary)
 dials/       dials such as dimensions, α, m_e/m_p, the arrow of time, the cosmological constant
-atlas/       stages and links of the Arrow (YAML, hand-edited)
+atlas/       the Arrow (YAML, hand-edited): stages/, links/, backward/, derivations/
 sources/     one verified bibliography
-docs/        design docs
+engine/      pinned Universe Starter headless engine + run-card CLI
+docs/        design docs (proposals/ = schemas not yet adopted)
 verify/      validator, tests, and the bundle builder
 ```
 

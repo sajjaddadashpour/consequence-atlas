@@ -1,0 +1,12 @@
+id: l.s08.pp-chain
+from: s07.stars
+to: s08.fusion-hoyle
+label: IMPORTED
+condition: -0.04 <= strong <= 0.034
+sources:
+- barnes2012
+- adams2019
+- macdonald-mullan2009
+- tegmark1998
+status: contested
+notes: 'PASS: deuteron bound, diproton unbound. CONTESTED 0.034 < s < 0.5 (diproton may bind; threshold +3.4% to +17%, model dependent) or s < -0.04 (deuteron may unbind; -4% to -11%): classic papers say fatal, Adams 2019 finds working stars. FAIL s >= 0.5: most hydrogen burned in the Big Bang (MacDonald & Mullan 2009).'

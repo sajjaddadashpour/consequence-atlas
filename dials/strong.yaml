@@ -1,0 +1,12 @@
+id: strong
+name: Strong-force change
+symbol: s
+units: fractional change of the strong coupling (0 = ours)
+ours: 0
+range:
+- -0.2
+- 0.6
+scale: linear
+sources:
+- barnes2012
+- adams2019

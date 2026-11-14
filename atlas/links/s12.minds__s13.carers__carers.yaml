@@ -1,0 +1,8 @@
+id: l.s13.carers
+from: s12.minds
+to: s13.carers
+label: CONJECTURE
+condition: "true"
+sources: []
+status: active
+notes: OPEN. Caring needs memory, anticipation and a lasting self. At best no physical precondition above has failed (check for CONTESTED ones). The rest is biology and philosophy; no 'ought' is derived from any 'is' here.

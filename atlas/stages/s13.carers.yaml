@@ -1,0 +1,6 @@
+id: s13.carers
+name: Beings who can care
+order: 14
+requires:
+- s12.minds
+notes: 'Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).'

@@ -1,0 +1,12 @@
+id: dimensions
+name: Number of space dimensions
+symbol: "n"
+units: count (one time dimension fixed in v0)
+ours: 3
+range:
+- 1
+- 5
+scale: discrete
+sources:
+- tegmark1997
+- barrow1983

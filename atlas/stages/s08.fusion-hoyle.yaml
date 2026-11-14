@@ -1,0 +1,5 @@
+id: s08.fusion-hoyle
+name: Fusion chain and carbon/oxygen (Hoyle)
+order: 9
+requires:
+- s07.stars

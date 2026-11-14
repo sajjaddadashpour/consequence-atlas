@@ -1,0 +1,8 @@
+id: l.s11.life
+from: s10.records
+to: s11.life
+label: CONJECTURE
+condition: "true"
+sources: []
+status: active
+notes: OPEN. Requires S6, S8, S9, S10. Whether life follows from chemistry, stars, C/O (or substitutes), planets and records is not settled by physics.

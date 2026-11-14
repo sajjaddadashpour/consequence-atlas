@@ -1,0 +1,10 @@
+id: l.s09.planet-orbits
+from: s07.stars
+to: s09.planets
+label: IMPORTED
+condition: dimensions == 3
+sources:
+- tegmark1997
+- adams2019
+status: active
+notes: Stable orbits around long-lived stars only for n = 3.

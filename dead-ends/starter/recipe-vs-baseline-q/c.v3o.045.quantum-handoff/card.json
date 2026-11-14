@@ -1,0 +1,225 @@
+{
+  "id": "c.v3o.045.quantum-handoff",
+  "schema_version": "0.1.0",
+  "author": "physicist",
+  "engine": {
+    "name": "starter",
+    "version": "3.0.0"
+  },
+  "family": "starter-3.0.0/recipe-vs-baseline-q",
+  "rules": {
+    "settings": "{\"family\":\"Q\",\"size\":256,\"steps\":400,\"deph\":1,\"dephT\":200}",
+    "code_hash": "sha256:8487a8d2b8c7cfdd28a5487c32d7fac93c29e57b8f8bcd108a7141767264667d"
+  },
+  "start": {
+    "kind": "product",
+    "params": {}
+  },
+  "hypothesis": {
+    "measure": "beta",
+    "direction": "two-sided",
+    "sizes": [
+      400,
+      200
+    ],
+    "steps": 400,
+    "n_seeds": 5,
+    "extra_measures": [
+      "sigma",
+      "entropy"
+    ]
+  },
+  "control": {
+    "changed_factor": "recipe-vs-baseline: deph,dephT",
+    "settings": "{\"family\":\"Q\",\"size\":256,\"steps\":400}",
+    "null_settings": "NOT-RUN: the legacy v3 sweep had no shuffled-null arm"
+  },
+  "lock": {
+    "hash": "sha256:ba5b9aa2e72b143ca8bd49cc2d1e40700321b2bb90e71077ec1643b539bf7b56",
+    "server_timestamp": "2026-11-13T20:11:22Z"
+  },
+  "runs": [
+    {
+      "seed": 1,
+      "size": 400,
+      "steps": 400,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/0",
+      "output_hash": "sha256:4c42c14c169af160f7fb6a8b179fbcf497b4554ff7b26d92f014cd068b9afa3d"
+    },
+    {
+      "seed": 2,
+      "size": 400,
+      "steps": 400,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/1",
+      "output_hash": "sha256:07917e77608bb67accb60c745ee99bdbfc77d04b9cf1515ec4455fc7b8dcf55d"
+    },
+    {
+      "seed": 3,
+      "size": 400,
+      "steps": 400,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/2",
+      "output_hash": "sha256:4a56a8c058a79c355673065f37ea181fcc02982e6f5e1234c339201590053170"
+    },
+    {
+      "seed": 4,
+      "size": 400,
+      "steps": 400,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/3",
+      "output_hash": "sha256:f217eb5b91d9aad94f638641fae3624ad359c2c5829220717bf5512e5a419d23"
+    },
+    {
+      "seed": 5,
+      "size": 400,
+      "steps": 400,
+      "arm": "test",
+      "output_uri": "outputs.json#/A/4",
+      "output_hash": "sha256:1958014f3b39278b7789828dce496a6be0a7dcf496f3819d1e495f7fe4a13b57"
+    },
+    {
+      "seed": 1,
+      "size": 200,
+      "steps": 200,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/0",
+      "output_hash": "sha256:f46c6356b296954d04ac717a25371793196bd9e2e32dca4845c81da3508e19ae"
+    },
+    {
+      "seed": 2,
+      "size": 200,
+      "steps": 200,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/1",
+      "output_hash": "sha256:cf88c138b317c35301341afe504b821de07e5f7eed139e1cd3df3eef8138a4dd"
+    },
+    {
+      "seed": 3,
+      "size": 200,
+      "steps": 200,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/2",
+      "output_hash": "sha256:b639112f2c3be5b49c607c437cc346b6fe76e41fc3cefa77ac0eb6ee3ab0701b"
+    },
+    {
+      "seed": 4,
+      "size": 200,
+      "steps": 200,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/3",
+      "output_hash": "sha256:d9b6b2c6010b57c34f8f26de02e0f69074f2902ad2ec83bd1dfa4aa7698c2405"
+    },
+    {
+      "seed": 5,
+      "size": 200,
+      "steps": 200,
+      "arm": "test",
+      "output_uri": "outputs.json#/Ah/4",
+      "output_hash": "sha256:654f729e75eceeab72c2bf2074d8a702a2e0bb59315eb71680843b7c6614ecbf"
+    },
+    {
+      "seed": 1,
+      "size": 400,
+      "steps": 400,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/0",
+      "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 2,
+      "size": 400,
+      "steps": 400,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/1",
+      "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 3,
+      "size": 400,
+      "steps": 400,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/2",
+      "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 4,
+      "size": 400,
+      "steps": 400,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/3",
+      "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 5,
+      "size": 400,
+      "steps": 400,
+      "arm": "control",
+      "output_uri": "outputs.json#/C/4",
+      "output_hash": "sha256:013fd42283feec1d0fd67e1115c0ccee2077723244eba9422c1faeb23c0a281f"
+    },
+    {
+      "seed": 1,
+      "size": 200,
+      "steps": 200,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/0",
+      "output_hash": "sha256:aacd6289b2e612d2e35e3182437909540806db6754d7cabde17baf6f2f373a5f"
+    },
+    {
+      "seed": 2,
+      "size": 200,
+      "steps": 200,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/1",
+      "output_hash": "sha256:aacd6289b2e612d2e35e3182437909540806db6754d7cabde17baf6f2f373a5f"
+    },
+    {
+      "seed": 3,
+      "size": 200,
+      "steps": 200,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/2",
+      "output_hash": "sha256:aacd6289b2e612d2e35e3182437909540806db6754d7cabde17baf6f2f373a5f"
+    },
+    {
+      "seed": 4,
+      "size": 200,
+      "steps": 200,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/3",
+      "output_hash": "sha256:aacd6289b2e612d2e35e3182437909540806db6754d7cabde17baf6f2f373a5f"
+    },
+    {
+      "seed": 5,
+      "size": 200,
+      "steps": 200,
+      "arm": "control",
+      "output_uri": "outputs.json#/Ch/4",
+      "output_hash": "sha256:aacd6289b2e612d2e35e3182437909540806db6754d7cabde17baf6f2f373a5f"
+    }
+  ],
+  "result": {
+    "effect": -0.5206726997918799,
+    "se": 0.0040170533592766644,
+    "z": -129.61557968591075,
+    "deterministic": false,
+    "half_size_z": null,
+    "double_size_z": null,
+    "fdr_q": 0.0
+  },
+  "replications": [
+    {
+      "agent": "physicist-local-rerun",
+      "lineage": "physicist",
+      "match": true
+    }
+  ],
+  "label": "DEAD-END",
+  "novelty": {
+    "nearest_cards": [],
+    "known_mechanism": null
+  },
+  "notes": "Legacy conversion of origin idea 45 ('Quantum Handoff', FAITHFUL mapping) from the v3 100-origin sweep. Best primary measure: beta (protocol: any of beta, sigma, entropy; Bonferroni k = 3, |z| > 3.32). Size axis = steps. Label computed by the local legacy re-analysis (build/cards_build.py), NOT by the repo gate checker; label_set_by is deliberately absent. Ceiling is DIFFERS: no server lock, no shuffled null, no double size, no stranger replication. Lock: hash covers the locked protocol file, engine hash, settings, control, seeds and sizes; server_timestamp is the author's local lock stamp (2026-11-13 14:11:22 -0600) converted to UTC, not a server stamp. Reproduced: an independent local rerun on the same box gave byte-identical outputs at every seed (same lineage, so not a stranger replication). Toy universe: shows mechanisms, never predicts chemistry or life. Control is the family baseline, which changes several factors at once, so any difference belongs to the whole recipe, not one factor. Half-size check is invalid by construction: halving steps 400 -> 200 with dephT = 200 means dephasing never switches on in the half arm, so it equals the control. The full-size effect (dephasing -> diffusion) is a known mechanism; a fair rerun must scale dephT with steps."
+}
