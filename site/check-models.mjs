@@ -66,6 +66,23 @@ for (const id of order) {
   if (id === "atlas") {
     if (!result.atlas || !result.atlas.map || !result.atlas.stages) fail("atlas run missing views");
     if (result.verdict) fail("atlas run must not invent a single verdict");
+    if (typeof mod.stageAt !== "function" || typeof mod.explainSwitch !== "function") {
+      fail("atlas must export stageAt and explainSwitch");
+    }
+    const at4 = mod.stageAt(Object.assign({}, values, { dimensions: 4 }));
+    const records = at4.stages.find((stage) => stage.id === "s10.records");
+    if (!records || records.status !== "BLOCKED" || !/Records and memory/.test(records.name)) {
+      fail("at 4 dimensions Records and memory must be BLOCKED, got " + (records && records.status));
+    }
+    const explained = mod.explainSwitch(values, "dimensions", 3, 4, "s10.records");
+    if (!explained || explained.now !== "BLOCKED") fail("explainSwitch at n=4 must report BLOCKED for records");
+    if (!/not a range that unconditionally breaks/.test(explained.caveat || "")) {
+      fail("a dial-sensitivity explanation must say the range is not an unconditional break");
+    }
+    if (!/assumptions/.test(explained.caveat || "")) fail("sensitivity explanation must carry assumptions");
+    if (!(explained.links || []).some((link) => link.id && link.label)) {
+      fail("explainSwitch must name the link whose status changed, with its honesty label");
+    }
   }
   if (id === "starter") {
     if (!result.starter || !result.verdict) fail("starter run missing verdict or frames");

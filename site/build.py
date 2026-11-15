@@ -355,11 +355,53 @@ def render_html(template: str, index: dict) -> str:
             },
             separators=(",", ":"),
         ),
+        "{{PREVIEW_JSON}}": json.dumps(index.get("_preview") or {}, separators=(",", ":")).replace("<", "\\u003c"),
+        "{{FOOT_NOTE}}": _escape(index.get("_foot") or ""),
     }
     html = template
     for key, value in replacements.items():
         html = html.replace(key, value)
     return html
+
+
+def build_preview() -> dict:
+    """Cache of the locked-dial engine views. Not a stored claim."""
+    script = SITE_DIR / "precompute.mjs"
+    try:
+        raw = subprocess.check_output(
+            ["node", str(script)],
+            cwd=REPO_ROOT,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        sys.stderr.write(exc.stderr or "")
+        raise SystemExit("atlas preview precompute failed") from exc
+    except OSError as exc:
+        raise SystemExit(f"node is required to precompute the atlas map: {exc}") from exc
+    preview = json.loads(raw)
+    if preview.get("format") != "consequence-atlas-preview":
+        raise SystemExit("precompute.mjs did not return an atlas preview")
+    if not preview.get("maps") or not preview.get("stages"):
+        raise SystemExit("atlas preview is missing maps or stages")
+    return preview
+
+
+def foot_note(preview: dict) -> str:
+    stages = preview.get("stages") or []
+    first = stages[0]["name"] if stages else "Chosen rules"
+    last = stages[-1]["name"] if stages else "Beings who can care"
+    engine = preview.get("engine") or {}
+    token = f"{engine.get('name', 'atlas')}@{engine.get('version', '')}"
+    return (
+        f"Dials covered: fine-structure α, mass ratio β, strong-force change s, "
+        f"cosmological constant Λ, space dimensions n, arrow of time. "
+        f"Stages covered: {first} through {last}. "
+        f"Active engine: {token}. It reports stage status under the locked rules at the dials on this page. "
+        f"It cannot promote a card, and it is not a prediction of our universe's history. "
+        f"Live verdicts never promote cards. "
+        f"The map shows relative consequences under the stated assumptions."
+    )
 
 
 def copy_llms(root: Path, out: Path) -> None:
@@ -372,7 +414,9 @@ def copy_llms(root: Path, out: Path) -> None:
         "The index lists every real card, atlas link, and dial, excluding examples/. "
         "The repository files are the source of record. Do not treat local verdicts "
         "in card notes as gate-signed promotions. A DIFFERS or other result from the local gate prototype is an unsigned prototype check, not a label. The label is the one stored in the card file. The 98 gate-prototype cards, including both single-factor cards of 011, stay CONJECTURE until a real signature is on the card.\n\n"
-        "The front page is a playground. It calls the modules in site/engine/. "
+        "The front page is an atlas. It calls the modules in site/engine/. "
+        "data/preview.json is a build-time cache of that engine at the locked dials. "
+        "It is not a source of record and it does not promote a card. "
         "How to add a model: site/MODELS.md.\n\n"
         "---\n\n"
     )
@@ -426,21 +470,31 @@ def copy_engine(out: Path) -> None:
 
 def write_site(root: Path, out: Path, cname: str | None) -> dict:
     index = build_index(root)
+    preview = build_preview()
+    index["_preview"] = preview
+    index["_foot"] = foot_note(preview)
     out.mkdir(parents=True, exist_ok=True)
     (out / "data").mkdir(exist_ok=True)
     template = (SITE_DIR / "templates" / "index.html").read_text(encoding="utf-8")
     (out / "index.html").write_text(render_html(template, index), encoding="utf-8")
     registry = (SITE_DIR / "templates" / "registry.html").read_text(encoding="utf-8")
     (out / "registry.html").write_text(render_html(registry, index), encoding="utf-8")
-    for name in ("styles.css", "app.js", "playground.js", "views.js", "engine-views.js", "run-record.js", "storage.js", "favicon.svg"):
+    for name in ("styles.css", "app.js", "playground.js", "views.js", "engine-views.js", "atlas-shell.js", "run-record.js", "storage.js", "favicon.svg"):
         src = SITE_DIR / "static" / name
         (out / name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     copy_models(out)
     copy_engine(out)
+    preview = index.pop("_preview", None)
+    index.pop("_foot", None)
     (out / "data" / "index.json").write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    if preview is not None:
+        (out / "data" / "preview.json").write_text(
+            json.dumps(preview, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
     copy_llms(root, out)
     (out / ".nojekyll").write_text("", encoding="utf-8")
     if cname:

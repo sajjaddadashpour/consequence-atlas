@@ -81,11 +81,15 @@
     const kind = $("kind").value;
     const label = $("label").value;
     const topic = $("topic").value;
+    const stage = $("stage").value;
+    const engine = $("engine").value;
     const sort = $("sort").value;
     if (q) params.set("q", q);
     if (kind) params.set("kind", kind);
     if (label) params.set("label", label);
     if (topic) params.set("topic", topic);
+    if (stage) params.set("stage", stage);
+    if (engine) params.set("engine", engine);
     if (sort && sort !== "id") params.set("sort", sort);
     return params;
   }
@@ -93,15 +97,26 @@
   function applyParams(params) {
     $("q").value = params.get("q") || "";
     $("kind").value = params.get("kind") || "";
-    if (params.get("label")) $("label").value = params.get("label");
+    $("label").value = params.get("label") || "";
     if (params.get("topic")) $("topic").value = params.get("topic");
+    if ($("stage")) $("stage").value = params.get("stage") || "";
+    if ($("engine")) $("engine").value = params.get("engine") || "";
     $("sort").value = params.get("sort") || "id";
+    syncLabelChips();
   }
 
-  function matches(item, q, kind, label, topic) {
+  function matches(item, q, kind, label, topic, stage, engine) {
     if (kind && item.kind !== kind) return false;
     if (label && item.label !== label) return false;
     if (topic && topicOf(item) !== topic) return false;
+    if (stage) {
+      if (item.type !== "link") return false;
+      if (item.from !== stage && item.to !== stage) return false;
+    }
+    if (engine) {
+      if (item.type === "link") return false;
+      if (item.engine !== engine) return false;
+    }
     if (!q) return true;
     const hay = [
       item.id, item.label, item.kind, item.path, item.notes,
@@ -139,9 +154,11 @@
     const kind = $("kind").value;
     const label = $("label").value;
     const topic = $("topic").value;
+    const stage = $("stage") ? $("stage").value : "";
+    const engine = $("engine") ? $("engine").value : "";
     const sort = $("sort").value;
     const filtered = sortItems(
-      state.items.filter(function (item) { return matches(item, q, kind, label, topic); }),
+      state.items.filter(function (item) { return matches(item, q, kind, label, topic, stage, engine); }),
       sort
     );
     const status = $("status");
@@ -345,12 +362,71 @@
       opt.textContent = topic;
       topicSel.appendChild(opt);
     });
+    const stageSel = $("stage");
+    if (stageSel) {
+      (index.stages || []).slice().sort(function (a, b) {
+        return (a.order == null ? 0 : a.order) - (b.order == null ? 0 : b.order);
+      }).forEach(function (stage) {
+        const opt = document.createElement("option");
+        opt.value = stage.id;
+        opt.textContent = stage.name || stage.id;
+        stageSel.appendChild(opt);
+      });
+    }
+    const engineSel = $("engine");
+    if (engineSel) {
+      const engines = new Set();
+      index.cards.forEach(function (card) { if (card.engine) engines.add(card.engine); });
+      Array.from(engines).sort().forEach(function (engine) {
+        const opt = document.createElement("option");
+        opt.value = engine;
+        opt.textContent = engine;
+        engineSel.appendChild(opt);
+      });
+    }
+    const colors = $("label-colors");
+    if (colors && !colors.childElementCount) {
+      const all = document.createElement("button");
+      all.type = "button";
+      all.dataset.label = "";
+      all.innerHTML = '<span class="pill">All colours</span>';
+      all.addEventListener("click", function () {
+        $("label").value = "";
+        $("label").dispatchEvent(new Event("change"));
+      });
+      colors.appendChild(all);
+      Array.from(labels).sort(function (a, b) {
+        return LABEL_ORDER.indexOf(a) - LABEL_ORDER.indexOf(b);
+      }).forEach(function (label) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.label = label;
+        button.innerHTML = '<span class="' + pillClass(label) + '">' + escapeHtml(label) + "</span>";
+        button.addEventListener("click", function () {
+          $("label").value = label;
+          $("label").dispatchEvent(new Event("change"));
+        });
+        colors.appendChild(button);
+      });
+    }
+  }
+
+  function syncLabelChips() {
+    const colors = $("label-colors");
+    if (!colors || !$("label")) return;
+    const current = $("label").value || "";
+    colors.querySelectorAll("button").forEach(function (button) {
+      button.setAttribute("aria-pressed", (button.dataset.label || "") === current ? "true" : "false");
+    });
   }
 
   function bindFilters() {
-    ["q", "kind", "label", "topic", "sort"].forEach(function (id) {
+    ["q", "kind", "label", "topic", "stage", "engine", "sort"].forEach(function (id) {
+      const node = $(id);
+      if (!node) return;
       const ev = id === "q" ? "input" : "change";
-      $(id).addEventListener(ev, function () {
+      node.addEventListener(ev, function () {
+        if (id === "label") syncLabelChips();
         const route = parseHash();
         const view = (route.view === "card" || route.view === "link") ? route.view : "browse";
         const idVal = (view === "card" || view === "link") ? route.id : null;

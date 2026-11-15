@@ -511,14 +511,17 @@ function axisSelect(caption, id, dials, value, onChange) {
 
 function renderStarter(root, api) {
   const starter = api.result.starter;
-  const look = section("Lattice", "Played back from the finished run. Plus is one colour, minus the other. Phase uses the hue wheel. Vortices are marked.");
+  const look = document.createElement("div");
+  look.className = "lattice-play";
+  const kicker = document.createElement("p");
+  kicker.className = "live-kicker";
+  kicker.textContent = "Live output";
+  look.appendChild(kicker);
   const frame = document.createElement("div");
-  frame.className = "pg-frame";
+  frame.className = "pg-frame lattice-frame";
   const canvas = document.createElement("canvas");
   canvas.width = 640;
   canvas.height = 480;
-  canvas.style.width = "100%";
-  canvas.style.height = "auto";
   canvas.setAttribute("role", "img");
   canvas.setAttribute("aria-label", "Universe Starter lattice, recorded frames");
   frame.appendChild(canvas);
@@ -527,6 +530,14 @@ function renderStarter(root, api) {
   transport.className = "quiet pg-frame-caption";
   transport.dataset.role = "frame-caption";
   look.appendChild(transport);
+  root.appendChild(look);
+  paintEngineFrame(root, api);
+
+  const extra = document.createElement("details");
+  extra.className = "pg-details";
+  const summary = document.createElement("summary");
+  summary.textContent = "Frame legend, curves, and checks";
+  extra.appendChild(summary);
   const legend = document.createElement("ul");
   legend.className = "pg-region-list";
   (starter.legend || []).forEach((row) => {
@@ -534,18 +545,11 @@ function renderStarter(root, api) {
     li.textContent = Array.isArray(row) ? row.join(" — ") : String(row);
     legend.appendChild(li);
   });
-  look.appendChild(legend);
-  root.appendChild(look);
-  paintEngineFrame(root, api);
-
-  const curves = section("Curves", starter.ylabel || "Series returned with the verdict.");
-  const curveBody = document.createElement("div");
-  curves.appendChild(curveBody);
-  paintSeries(curveBody, api.result.series, api.result.seriesLabels);
-  root.appendChild(curves);
-
+  extra.appendChild(legend);
+  const curves = document.createElement("div");
+  extra.appendChild(curves);
+  paintSeries(curves, api.result.series, api.result.seriesLabels);
   if (starter.checks && starter.checks.length) {
-    const checks = section("Checks", "Returned with the verdict. They do not change the card label.");
     const ul = document.createElement("ul");
     ul.className = "pg-region-list";
     starter.checks.forEach((check) => {
@@ -553,9 +557,13 @@ function renderStarter(root, api) {
       li.textContent = check.name + ": " + check.detail;
       ul.appendChild(li);
     });
-    checks.appendChild(ul);
-    root.appendChild(checks);
+    extra.appendChild(ul);
   }
+  const note = document.createElement("p");
+  note.className = "quiet";
+  note.textContent = "Stars, halos, and twinkle in the Look legend are decoration. The checks come back with the verdict. They do not change the card label.";
+  extra.appendChild(note);
+  root.appendChild(extra);
 }
 
 function paintEngineFrame(root, api) {
@@ -572,8 +580,8 @@ function paintEngineFrame(root, api) {
   paintLook(canvas, frames[index]);
   if (caption) {
     caption.textContent = "Recorded frame " + (index + 1) + " of " + frames.length +
-      ". Verdict " + (starter.verdict || "—") + ".";
+      ". Engine verdict " + (starter.verdict || "—") + ". The card label is separate.";
   }
 }
 
-export { renderEngine, paintEngineFrame, paintMap };
+export { renderEngine, paintEngineFrame, paintMap, paintLambda, paintDimensions };
