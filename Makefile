@@ -4,10 +4,13 @@
 PYTHON ?= python3
 ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
-.PHONY: validate test bundle site
+.PHONY: validate test bundle site stages
 
 validate:
-	cd "$(ROOT)" && $(PYTHON) -m verify
+	cd "$(ROOT)" && $(PYTHON) -m verify && $(PYTHON) -m verify.gen_stages --check
+
+stages:
+	cd "$(ROOT)" && $(PYTHON) -m verify.gen_stages
 
 test:
 	cd "$(ROOT)" && $(PYTHON) -m pytest -q verify/tests

@@ -67,15 +67,16 @@ export const D2_TABLE = {
 };
 
 // ---- stages and links (repo yaml, locked) ----
+// BEGIN GENERATED STAGES (verify/gen_stages.py)
 export const STAGES = [
   { id: "s00.rules", name: "Chosen rules (dial settings)", order: 0, requires: [] },
   { id: "s01.predictable-laws", name: "Predictable laws", order: 1, requires: ["s00.rules"] },
   { id: "s02.sharp-signals", name: "Sharp signals (light, sound)", order: 2, requires: ["s01.predictable-laws"] },
   { id: "s03.orbits-atoms-gravity", name: "Stable orbits, atoms and gravity", order: 3, requires: ["s01.predictable-laws"] },
-  { id: "s07g.galaxies", name: "Galaxies (gravitationally bound structures)", order: 7, requires: ["s03.orbits-atoms-gravity"] },
   { id: "s04.stable-atoms", name: "Non-relativistic, stable atoms", order: 4, requires: ["s03.orbits-atoms-gravity"] },
   { id: "s05.hydrogen-table", name: "Hydrogen and a periodic table with C and O", order: 5, requires: ["s04.stable-atoms"] },
   { id: "s06.chemistry", name: "Ordered chemistry (molecules, water)", order: 6, requires: ["s05.hydrogen-table"] },
+  { id: "s07g.galaxies", name: "Galaxies (gravitationally bound structures)", order: 7, requires: ["s03.orbits-atoms-gravity"] },
   { id: "s07.stars", name: "Stars", order: 8, requires: ["s03.orbits-atoms-gravity", "s04.stable-atoms", "s07g.galaxies"] },
   { id: "s08.fusion-hoyle", name: "Fusion chain and carbon/oxygen (Hoyle)", order: 9, requires: ["s07.stars"] },
   { id: "s09.planets", name: "Planets with long stable climates", order: 10, requires: ["s03.orbits-atoms-gravity", "s07.stars"] },
@@ -84,6 +85,7 @@ export const STAGES = [
   { id: "s12.minds", name: "Minds", order: 13, requires: ["s11.life"] },
   { id: "s13.carers", name: "Beings who can care", order: 14, requires: ["s12.minds"] },
 ];
+// END GENERATED STAGES
 
 const RANK = { PASS: 0, OPEN: 1, WEAK: 2, CONTESTED: 3, FAIL: 4 };
 const VERDICT_OF = { PASS: "ok", OPEN: "ok", WEAK: "ok", CONTESTED: "CONTESTED", FAIL: "FAIL", BLOCKED: "BLOCKED" };
