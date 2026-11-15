@@ -333,6 +333,25 @@ function shownCardId(src) {
   return (src.cardIds || [])[0] || null;
 }
 
+function prototypeMentions(notes) {
+  if (!notes) return [];
+  var found = [];
+  var re = /F1 local verdict:?\s*([A-Z][A-Z-]*)/g;
+  var match;
+  while ((match = re.exec(notes))) {
+    if (found.indexOf(match[1]) < 0) found.push(match[1]);
+  }
+  return found;
+}
+
+function prototypeCallout(card) {
+  var mentions = prototypeMentions(card.notes);
+  if (!mentions.length) return "";
+  return '<p class="prototype-check">unsigned prototype check, not a label. The notes mention ' +
+    escapeHtml(mentions.join(", ")) +
+    ". The label on this card is " + escapeHtml(card.label) + ", the value stored in the card file.</p>";
+}
+
 function findCard(id) {
   return (state.index && state.index.cards || []).find(function (card) { return card.id === id; }) || null;
 }
@@ -379,6 +398,8 @@ function renderVerdict() {
       record =
         "<h3>Locked record" + legacy + "</h3>" +
         "<p>" + pill(card.label) + "</p>" +
+        '<p class="quiet">Label stored in the card file.</p>' +
+        prototypeCallout(card) +
         '<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '"><code>' + escapeHtml(card.id) + "</code></a></p>" +
         "<p class=\"quiet\">effect " + escapeHtml(formatNumber(effect.effect)) +
         " · se " + escapeHtml(formatNumber(effect.se)) +

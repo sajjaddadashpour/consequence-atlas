@@ -140,6 +140,8 @@ def load_cards(root: Path) -> list[dict]:
                     "type": "card",
                     "kind": kind,
                     "id": data["id"],
+                    # The card file is the only label. A gate-prototype
+                    # result (for example DIFFERS) is not copied here.
                     "label": data["label"],
                     "path": rel,
                     "github": f"{GITHUB_BLOB}/{rel}",
@@ -368,9 +370,8 @@ def copy_llms(root: Path, out: Path) -> None:
         "> Source repository: https://github.com/sajjaddadashpour/consequence-atlas\n\n"
         "The index lists every real card, atlas link, and dial, excluding examples/. "
         "The repository files are the source of record. Do not treat local verdicts "
-        "in card notes as gate-signed promotions.\n\n"
-        "The front page is a playground. Modules under site/models/ that set "
-        "example: true are example pictures, not engine results and not claims. "
+        "in card notes as gate-signed promotions. A DIFFERS or other result from the local gate prototype is an unsigned prototype check, not a label. The label is the one stored in the card file. The 98 gate-prototype cards, including both single-factor cards of 011, stay CONJECTURE until a real signature is on the card.\n\n"
+        "The front page is a playground. It calls the modules in site/engine/. "
         "How to add a model: site/MODELS.md.\n\n"
         "---\n\n"
     )

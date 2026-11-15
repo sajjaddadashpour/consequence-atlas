@@ -57,6 +57,28 @@ def test_site_build_copies_dials_and_pages(tmp_path: Path):
         assert "mirror ratio" not in path.read_text(encoding="utf-8").lower()
 
 
+def test_site_shows_card_file_labels_only(tmp_path: Path):
+    out = tmp_path / "site"
+    subprocess.check_call(
+        [sys.executable, "site/build.py", "--out", str(out), "--cname", "toeatlas.si"],
+        cwd=REPO,
+    )
+    index = json.loads((out / "data" / "index.json").read_text(encoding="utf-8"))
+    by_id = {card["id"]: card for card in index["cards"]}
+    for bucket in ("cards", "dead-ends"):
+        for path in (REPO / bucket).rglob("card.json"):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            listed = by_id[data["id"]]
+            assert listed["label"] == data["label"]
+            assert "gate_label" not in listed
+    assert by_id["c.v3o.011.kibble-quench.sf-noise"]["label"] == "CONJECTURE"
+    assert by_id["c.v3o.011.kibble-quench.sf-temp"]["label"] == "CONJECTURE"
+    phrase = "unsigned prototype check, not a label"
+    assert phrase in (out / "app.js").read_text(encoding="utf-8")
+    assert phrase in (out / "playground.js").read_text(encoding="utf-8")
+    assert phrase in (out / "registry.html").read_text(encoding="utf-8")
+
+
 def test_model_contract():
     node = shutil.which("node")
     if not node:
