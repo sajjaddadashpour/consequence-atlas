@@ -3,3 +3,4 @@ name: Records and memory (arrow of time)
 order: 11
 requires:
 - s01.predictable-laws
+- s04.stable-atoms
