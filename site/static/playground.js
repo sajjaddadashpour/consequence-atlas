@@ -1,7 +1,7 @@
 /* Playground shell. Loads model modules, draws controls, and keeps the locked record in view. */
 import { renderViews, paintDynamic, toSlider, fromSlider, formatNumber, frameCount } from "./views.js";
 import { renderEngine, paintEngineFrame, paintMap } from "./engine-views.js";
-import { activeBounds, applyQuery, buildRunRecord, clampToBounds, encodeHash, outsideLocked, parseHash } from "./run-record.js";
+import { activeBounds, applyQuery, buildRunRecord, clampToBounds, commitExact, encodeHash, encodeValue, outsideLocked, parseHash } from "./run-record.js";
 import { createLocalStorageAdapter, createMemoryStorage } from "./storage.js";
 
 const $ = (id) => document.getElementById(id);
@@ -155,6 +155,66 @@ function readControl(param, el) {
   return fromSlider(param, el.value);
 }
 
+function isSlider(param) {
+  if (param.type === "boolean" || param.type === "enum") return false;
+  if (param.options && param.scale === "discrete" && param.type !== "integer") return false;
+  if (param.options && param.type === "integer") return false;
+  return true;
+}
+
+function exactBox(param) {
+  return document.getElementById("exact-" + param.name);
+}
+
+function showExact(param, value) {
+  const box = exactBox(param);
+  if (!box || document.activeElement === box) return;
+  box.value = encodeValue(value);
+  box.classList.toggle("pg-offlock", !valuesEqual(param, value, param.locked) || outsideLocked(param, value));
+}
+
+function placeSlider(control, param, value) {
+  const live = activeParam(param);
+  control.dataset.writing = "1";
+  control.min = String(toSlider(live, live.min));
+  control.max = String(toSlider(live, live.max));
+  control.step = String(sliderStep(live));
+  control.value = String(toSlider(live, value));
+  control.dataset.writing = "";
+}
+
+function applyCommitted(param, committed) {
+  const freeChanged = committed.freePlay !== state.freePlay;
+  state.freePlay = committed.freePlay;
+  state.params[param.name] = committed.value;
+  const box = exactBox(param);
+  if (box) {
+    box.value = committed.canonical;
+    box.classList.toggle("pg-offlock", !valuesEqual(param, committed.value, param.locked) || outsideLocked(param, committed.value));
+  }
+  if (freeChanged) syncDialOutputs();
+  else {
+    const control = document.getElementById("dial-" + param.name);
+    const output = document.getElementById("out-" + param.name);
+    if (control && control.type === "range") placeSlider(control, param, committed.value);
+    if (output) {
+      output.textContent = formatParam(param, committed.value);
+      output.classList.toggle("pg-offlock", !valuesEqual(param, committed.value, param.locked) || outsideLocked(param, committed.value));
+    }
+  }
+  renderBanner();
+  scheduleRun();
+}
+
+function commitBox(param, raw, onlyWhenCanonical) {
+  const text = String(raw).trim();
+  const committed = commitExact(param, text, state.freePlay);
+  if (!committed) return false;
+  if (onlyWhenCanonical && committed.canonical !== text) return false;
+  applyCommitted(param, committed);
+  return true;
+}
+
 function formatParam(param, value) {
   if (typeof value === "boolean") return value ? "on" : "off";
   if (param.options) {
@@ -243,26 +303,52 @@ function renderDials() {
     } else {
       control = document.createElement("input");
       control.type = "range";
-      const min = toSlider(live, live.min);
-      const max = toSlider(live, live.max);
-      control.min = String(min);
-      control.max = String(max);
-      control.step = String(sliderStep(live));
-      control.value = String(toSlider(live, value));
+      placeSlider(control, param, value);
     }
     control.id = "dial-" + param.name;
     control.dataset.name = param.name;
     const output = row.querySelector("output");
     const onInput = function () {
+      if (control.dataset.writing === "1") return;
       state.params[param.name] = clampToBounds(param, readControl(live, control), state.freePlay);
       const next = state.params[param.name];
       output.textContent = formatParam(param, next);
-      output.classList.toggle("pg-offlock", !valuesEqual(param, next, param.locked));
+      output.classList.toggle("pg-offlock", !valuesEqual(param, next, param.locked) || outsideLocked(param, next));
+      showExact(param, next);
       scheduleRun();
     };
     control.addEventListener("input", onInput);
     control.addEventListener("change", onInput);
-    row.appendChild(control);
+    if (!isSlider(param)) {
+      row.appendChild(control);
+    } else {
+      const box = document.createElement("input");
+      box.type = "text";
+      box.inputMode = "decimal";
+      box.className = "pg-exact";
+      box.id = "exact-" + param.name;
+      box.setAttribute("aria-label", "Exact " + param.label);
+      box.autocomplete = "off";
+      box.spellcheck = false;
+      box.value = encodeValue(value);
+      box.classList.toggle("pg-offlock", off);
+      box.addEventListener("input", function () {
+        commitBox(param, box.value, true);
+      });
+      box.addEventListener("change", function () {
+        if (!commitBox(param, box.value, false)) box.value = encodeValue(state.params[param.name]);
+      });
+      box.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        box.blur();
+      });
+      const pair = document.createElement("div");
+      pair.className = "pg-dial-slider";
+      pair.appendChild(control);
+      pair.appendChild(box);
+      row.appendChild(pair);
+    }
     if (param.help) {
       const help = document.createElement("p");
       help.className = "quiet pg-help";
@@ -279,19 +365,14 @@ function syncDialOutputs() {
   src.params.forEach(function (param) {
     const control = document.getElementById("dial-" + param.name);
     const output = document.getElementById("out-" + param.name);
-    const live = activeParam(param);
     const value = state.params[param.name];
     if (!control || !output) return;
     if (control.type === "checkbox") control.checked = Boolean(value);
     else if (control.tagName === "SELECT") control.value = String(value);
-    else {
-      control.min = String(toSlider(live, live.min));
-      control.max = String(toSlider(live, live.max));
-      control.step = String(sliderStep(live));
-      control.value = String(toSlider(live, value));
-    }
+    else placeSlider(control, param, value);
     output.textContent = formatParam(param, value);
     output.classList.toggle("pg-offlock", !valuesEqual(param, value, param.locked) || outsideLocked(param, value));
+    showExact(param, value);
   });
 }
 
