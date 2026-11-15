@@ -79,6 +79,16 @@ def test_site_shows_card_file_labels_only(tmp_path: Path):
     assert phrase in (out / "registry.html").read_text(encoding="utf-8")
 
 
+def test_exact_typed_value_round_trips_through_the_url():
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node is not installed")
+    subprocess.check_call([node, "site/check-exact.mjs"], cwd=REPO)
+    source = (REPO / "site" / "static" / "playground.js").read_text(encoding="utf-8")
+    assert "commitExact" in source
+    assert "pg-exact" in source
+
+
 def test_model_contract():
     node = shutil.which("node")
     if not node:

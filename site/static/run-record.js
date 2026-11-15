@@ -121,6 +121,20 @@ function clampToBounds(param, value, freePlay) {
   return Math.min(bounds.max, Math.max(bounds.min, value));
 }
 
+/* A typed box commits the number the URL would store.
+   The slider's step and symlog axis are not applied here.
+   A value outside the locked range turns free play on, then clamps to that wider range. */
+function commitExact(param, raw, freePlay) {
+  const text = String(raw).trim();
+  if (!Number.isFinite(Number(text))) return null;
+  const decoded = decodeValue(param, text);
+  if (typeof decoded !== "number" || !Number.isFinite(decoded)) return null;
+  let nextFree = Boolean(freePlay);
+  if (outsideLocked(param, decoded)) nextFree = true;
+  const value = clampToBounds(param, decoded, nextFree);
+  return { value: value, freePlay: nextFree, canonical: encodeValue(value) };
+}
+
 /* Read a shared URL onto a model's defaults.
    A value outside the locked range turns free play on, so the link still reproduces. */
 function applyQuery(model, query, defaults) {
@@ -152,6 +166,7 @@ export {
   engineToken,
   stableString,
   sha256Hex,
+  encodeValue,
   encodeHash,
   parseHash,
   buildRunRecord,
@@ -160,4 +175,5 @@ export {
   clampToBounds,
   outsideLocked,
   decodeValue,
+  commitExact,
 };
