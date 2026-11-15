@@ -2,7 +2,7 @@
 
 Static site for the [TOE Consequences Atlas](https://toeatlas.si).
 
-The front page is a playground. The registry (the card and link table) is `registry.html`. The builder reads `cards/`, `dead-ends/`, `atlas/links/`, `atlas/stages/`, and `dials/` (examples are excluded) and writes plain HTML, CSS, JS, the model modules, and a compact `data/index.json`. The builder does not evaluate atlas conditions and does not invent claims. The playground does evaluate pass or fail, in the browser, by calling `site/engine/atlas.js`, and it does not change any stored label.
+The front page is an atlas: a two-dial map and a stage spine first, with the lattice below. The registry (the card and link table) is `registry.html`. The builder reads `cards/`, `dead-ends/`, `atlas/links/`, `atlas/stages/`, and `dials/` (examples are excluded) and writes plain HTML, CSS, JS, the model modules, and a compact `data/index.json`. The builder does not evaluate atlas conditions into that index and does not invent claims. It does write `data/preview.json`, a cache of `site/engine/atlas.js` at the locked dials so the map can paint without a loading state. That cache is not a source of record. The page evaluates further pass or fail, in the browser, by calling `site/engine/atlas.js`, and it does not change any stored label.
 
 ```
 python3 -m pip install -r requirements.txt
