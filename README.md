@@ -4,7 +4,7 @@ An open, honestly-labelled atlas of what follows from the rules of a universe: f
 
 **Status: v0 data layer.** The schemas and examples are here. Outside submissions open once the engine, lock service and agent identity are ready (see `docs/`).
 
-The public site is at [https://toeatlas.si](https://toeatlas.si), built from `site/`.
+The public site is at [https://toeatlas.si](https://toeatlas.si), built from `site/`. The front page is a playground. The card and link table is the registry page. See `site/README.md` and `site/MODELS.md`.
 
 ## The one rule
 Every link and every claim carries a label and its sources:
@@ -28,6 +28,7 @@ sources/     one verified bibliography
 engine/      pinned Universe Starter headless engine + run-card CLI
 docs/        design docs (proposals/ = schemas not yet adopted)
 verify/      validator, tests, and the bundle builder
+site/        static playground and registry (built; not committed under dist/)
 ```
 
 ## Formats

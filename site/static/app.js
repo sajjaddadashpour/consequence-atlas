@@ -194,6 +194,25 @@
     return '<a href="' + href + '"><code>' + escapeHtml(id) + "</code></a>";
   }
 
+  function prototypeMentions(notes) {
+    if (!notes) return [];
+    var found = [];
+    var re = /F1 local verdict:?\s*([A-Z][A-Z-]*)/g;
+    var match;
+    while ((match = re.exec(notes))) {
+      if (found.indexOf(match[1]) < 0) found.push(match[1]);
+    }
+    return found;
+  }
+
+  function prototypeCallout(item) {
+    var mentions = prototypeMentions(item.notes);
+    if (!mentions.length) return "";
+    return '<p class="prototype-check">unsigned prototype check, not a label. The notes mention ' +
+      escapeHtml(mentions.join(", ")) +
+      ". The label on this card is " + escapeHtml(item.label) + ", the value stored in the card file.</p>";
+  }
+
   function renderCard(item) {
     const result = item.result || {};
     const lock = item.lock || {};
@@ -207,6 +226,8 @@
       "<h3>" + escapeHtml(item.id) + legacy + "</h3>" +
       '<p class="lead"><span class="' + pillClass(item.label) + '">' + escapeHtml(item.label) + "</span> · " +
       escapeHtml(item.kind) + (item.family ? " · " + escapeHtml(item.family) : "") + "</p>" +
+      '<p class="quiet">Label stored in the card file.</p>' +
+      prototypeCallout(item) +
       '<table class="kv"><tbody>' +
       row("Source path", "<code>" + escapeHtml(item.path) + "</code><br>" + github) +
       textRow("Author", item.author) +

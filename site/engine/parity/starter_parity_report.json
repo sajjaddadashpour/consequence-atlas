@@ -1,0 +1,70 @@
+{
+  "engine_vs_js": [],
+  "sim2_vs_js": [
+    {
+      "label": "G:s1",
+      "verdict": [
+        "SPREADING",
+        "SPREADING"
+      ],
+      "m_diffs": [],
+      "series_diffs": [],
+      "frame_byte_mismatches": 41,
+      "strip_diffs": []
+    },
+    {
+      "label": "G:s2",
+      "verdict": [
+        "SPREADING",
+        "SPREADING"
+      ],
+      "m_diffs": [],
+      "series_diffs": [],
+      "frame_byte_mismatches": 41,
+      "strip_diffs": []
+    },
+    {
+      "label": "G:s7",
+      "verdict": [
+        "SPREADING",
+        "SPREADING"
+      ],
+      "m_diffs": [],
+      "series_diffs": [],
+      "frame_byte_mismatches": 41,
+      "strip_diffs": []
+    },
+    {
+      "label": "G:s42",
+      "verdict": [
+        "SPREADING",
+        "SPREADING"
+      ],
+      "m_diffs": [],
+      "series_diffs": [],
+      "frame_byte_mismatches": 41,
+      "strip_diffs": []
+    }
+  ],
+  "counts": {
+    "vs_engine_ts": {
+      "runs": 37,
+      "verdict_mismatches": 0,
+      "m_mismatches": 0,
+      "series_mismatches": 0,
+      "frame_byte_mismatches_runs": 0,
+      "errors": 0,
+      "note": "37/37 runs including one tiny M-pop: identical verdicts, measures to 1e-9, series, and frame bytes (including aux)."
+    },
+    "vs_sim2_ts": {
+      "runs": 36,
+      "verdict_mismatches": 0,
+      "m_mismatches": 0,
+      "series_mismatches": 0,
+      "frame_byte_mismatches_runs": 4,
+      "errors": 0,
+      "note": "The 4 frame-mismatch runs are family G, seeds 1,2,7,42. Frame payload data is byte-identical (0 data mismatches on a follow-up check of G:s1, 41 frames). v3 adds an aux channel (velocity bits for the Look/gas view) that sim2 does not have. Shared measures, series, and verdicts match. This is a v3 display addition, not a physics disagreement.",
+      "frame_payload_data_mismatches": 0
+    }
+  }
+}
