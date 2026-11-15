@@ -1,0 +1,13 @@
+id: l.s07.gas-cooling
+from: s07g.galaxies
+to: s07.stars
+label: IMPORTED
+condition: "true"
+assumptions:
+- Stars form only where gas in a bound halo cools faster than it falls in (cooling time shorter than free-fall time).
+- Atomic cooling switches on near the hydrogen binding scale, so it depends on alpha and beta; no fluctuation-amplitude (Q) dial exists, so the cut cannot be evaluated here.
+sources:
+- carr-rees1979
+- tarw2006
+status: active
+notes: 'Informational, always PASS. Documents why stars need galaxies. Breaks: nothing new in current dials; inherits the Lambda galaxy cut (d10). A quantitative cooling cut needs a Q dial and a locked derivation first.'

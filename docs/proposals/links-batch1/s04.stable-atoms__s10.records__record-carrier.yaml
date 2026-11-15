@@ -1,0 +1,15 @@
+id: l.s10.record-carrier
+from: s04.stable-atoms
+to: s10.records
+label: DERIVED-UNDER-ASSUMPTION
+condition: "true"
+assumptions:
+- A record is a physical state that stays distinguishable for longer than it is read; its lifetime grows like exp(barrier / kT) (Arrhenius-Kramers escape, IMPORTED).
+- The only barrier-providing carrier modelled is bound atomic and molecular matter, whose barrier scale is the Rydberg energy, proportional to alpha^2 * beta at fixed proton mass (derive.d3).
+- The atlas has no temperature dial, so no dial range is broken by this link beyond the ranges where S4 already fails; it explains the S4 requirement rather than adding a cut.
+sources:
+- derive.d3
+- landauer1961
+- press-lightman1983
+status: active
+notes: 'Informational, always PASS. Supplies the physics behind the s10 requires s04 rule (LOCKED_RECORDS_REQUIRE_ATOMS). Breaks: nothing new; inherits S4 cuts (dimensions != 3, alpha above the atomic bound).'
