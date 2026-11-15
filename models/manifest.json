@@ -1,0 +1,16 @@
+[
+  {
+    "id": "atlas",
+    "src": "models/atlas.js",
+    "title": "Consequence atlas",
+    "summary": "Six recorded dials. The map, strips, and stage lights are the locked atlas rules.",
+    "family": "atlas"
+  },
+  {
+    "id": "starter",
+    "src": "models/starter.js",
+    "title": "Universe Starter",
+    "summary": "Pinned Universe Starter. The page runs a modest lattice, then plays the recorded frames.",
+    "family": "starter"
+  }
+]

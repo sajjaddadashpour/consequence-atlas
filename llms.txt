@@ -4,7 +4,9 @@
 > Compact machine-readable index: https://toeatlas.si/data/index.json
 > Source repository: https://github.com/sajjaddadashpour/consequence-atlas
 
-The index lists every real card and atlas link, excluding examples/. The repository files are the source of record. Do not treat local verdicts in card notes as gate-signed promotions.
+The index lists every real card, atlas link, and dial, excluding examples/. The repository files are the source of record. Do not treat local verdicts in card notes as gate-signed promotions. A DIFFERS or other result from the local gate prototype is an unsigned prototype check, not a label. The label is the one stored in the card file. The 98 gate-prototype cards, including both single-factor cards of 011, stay CONJECTURE until a real signature is on the card.
+
+The front page is a playground. It calls the modules in site/engine/. How to add a model: site/MODELS.md.
 
 ---
 
