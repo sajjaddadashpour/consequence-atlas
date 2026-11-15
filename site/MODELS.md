@@ -2,9 +2,9 @@
 
 The public site is a static shell. Each model is one JavaScript module. The shell draws the controls, the honesty banner, the locked-record panel, and the pictures. A model supplies parameters and a `run` function. It does not touch `cards/`, `dead-ends/`, `dials/`, or `atlas/`.
 
-The Universe Starter lattice engine and the atlas condition evaluator are being ported separately and checked against the locked results. Until that module replaces a placeholder, `run` must set `example: true` and must not emit an engine verdict. The shell then stamps the picture **Example data** and refuses to present `verdict` as a result.
+The engine lives in `site/engine/` (`atlas.js`, `starter.js`, and `starter-engine.js`). A new model may only call that layer. It must not recompute whether a dial passes a link, and it must not recompute a lattice. A placeholder model, one that does not call the engine, must still set `example: true` and must not emit an engine verdict. The shell then stamps the picture **Example data** and refuses to present `verdict` as a result.
 
-`engine_canvas.ts` is not in this repository yet. Parameter names below follow `Cfg` in `engine/starter/src/engine.ts` and the ids in `dials/*.yaml`. When `engine_canvas.ts` lands, change `params[].name` to its names before replacing `run`. Do not invent a name. Do not label any control "mirror ratio"; there is no such parameter. Family F's `beta` is the engine gauge field. The dial `beta` is the electron-to-proton mass ratio. They are different controls on different models.
+Parameter names are the dial ids in `dials/*.yaml` and the `Cfg` fields in `engine/starter/src/engine.ts`. Do not invent a name. Do not label any control "mirror ratio"; there is no such parameter. On the atlas, `beta` is the electron-to-proton mass ratio. On the Starter, `beta` is the gauge coupling. Label them differently.
 
 ## Contract
 
@@ -86,7 +86,7 @@ The shell looks up `linkId` and `cardIds` in `data/index.json` and prints those 
 | `spacetime` | One space-time image. |
 | `series` | Line chart of every key in `series` except `t`. |
 
-An unknown view name is left visible as "no renderer yet" so a new module does not fail silently. Add the renderer in `site/static/views.js`.
+An unknown view name is left visible as "no renderer yet" so a new module does not fail silently. Add an engine-backed renderer in `site/static/engine-views.js`.
 
 The shell always draws the verdict strip. It is not a view name.
 
@@ -117,11 +117,11 @@ Check the contract without a browser:
 node site/check-models.mjs
 ```
 
-## How to replace a placeholder
+## How to add or replace a model
 
-Overwrite `run` in the existing file, or replace the file and keep the same `id`. Set `example: false` and `fidelity: "engine"` only when the numbers match the locked Python or TypeScript outputs. Return the same `series` keys the view already plots (`entropy`, `particles`, `clustering` for family P; `vortices` for family F; `entropy` for family C) so the chart does not need a shell change. Lattice frames stay row-major charges. Phase frames stay hue bytes plus fractional vortex marks.
+Overwrite `run` in the existing file, or replace the file and keep the same `id`. The new `run` must call `site/engine/` and must not recompute the atlas or the lattice. Set `example: false` and `fidelity: "engine"` only for that call. A placeholder that does not call the engine keeps `example: true`.
 
-Dial ranges for the atlas model are read again from `dials/*.yaml` at build time into `data/index.json`. The shell prefers those records over the numbers copied into `atlas-map.js`. A symmetric-log axis is used when the dial's `units` text says so, which is how `cosmological-constant` is written.
+Dial ranges for the atlas are the ones in `dials/*.yaml`. The builder copies them into `data/index.json`. The playground evaluates them in the browser with `site/engine/atlas.js`. A symmetric-log axis is used when the dial's `units` text says so, which is how `cosmological-constant` is written.
 
 ## Modules in this tree
 

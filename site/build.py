@@ -239,8 +239,9 @@ def build_index(root: Path) -> dict:
             "atlas/stages/, and dials/*.yaml. examples/ are excluded. "
             "The repository files are the source of record. "
             "Runs and outputs.json are omitted from this compact index. "
-            "Dial records are copied, not evaluated. The playground does not decide "
-            "whether a dial setting passes a link."
+            "Dial records are copied, not evaluated, by this index. "
+            "The playground evaluates pass or fail in the browser using site/engine/atlas.js "
+            "and does not change any stored label."
         ),
         "counts": {
             "cards": sum(1 for item in cards if item["kind"] == "card"),
