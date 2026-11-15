@@ -8,21 +8,15 @@ const root = dirname(fileURLToPath(import.meta.url));
 const order = JSON.parse(readFileSync(join(root, "models/order.json"), "utf8"));
 
 const required = {
-  "atlas-map": {
+  atlas: {
     params: ["alpha", "beta", "strong", "cosmological-constant", "dimensions", "arrow"],
-    views: ["map", "timeline", "lambda"],
+    views: ["map", "lambda", "strips", "dimensions", "stages"],
+    engine: "atlas",
   },
-  particles: {
-    params: ["dim", "size", "steps", "seed", "start", "attract", "temp", "expand", "light", "c"],
-    views: ["lattice", "series"],
-  },
-  "phase-field": {
-    params: ["size", "beta", "gauge", "noise", "disorder", "seed"],
-    views: ["phase", "series"],
-  },
-  "cellular-automaton": {
-    params: ["rule", "rev", "cstart"],
-    views: ["spacetime", "series"],
+  starter: {
+    params: ["family", "dim", "size", "steps", "seed", "start", "attract", "temp", "expand", "light", "c", "gauge", "beta", "noise", "rule", "rev", "cstart"],
+    views: ["look", "series"],
+    engine: "starter",
   },
 };
 
@@ -32,7 +26,7 @@ function fail(message) {
 }
 
 if (order.join(",") !== Object.keys(required).join(",")) {
-  fail("order.json must list atlas-map, particles, phase-field, cellular-automaton");
+  fail("order.json must list atlas, starter");
 }
 
 for (const id of order) {
@@ -41,8 +35,8 @@ for (const id of order) {
     if (mod[key] === undefined) fail(id + " is missing export " + key);
   }
   if (mod.id !== id) fail(id + " exports id " + mod.id);
-  if (!mod.engine || mod.engine.name !== "example" || String(mod.engine.version) !== "0") {
-    fail(id + " placeholder must export engine example@0 until a parity-checked port replaces it");
+  if (!mod.engine || mod.engine.name !== required[id].engine) {
+    fail(id + " must name engine " + required[id].engine);
   }
   if (!Array.isArray(mod.cardIds)) fail(id + " cardIds must be an array");
   if (typeof mod.run !== "function") fail(id + " run must be a function");
@@ -57,19 +51,26 @@ for (const id of order) {
     for (const key of ["name", "label", "default", "locked"]) {
       if (param[key] === undefined) fail(id + " param " + param.name + " missing " + key);
     }
-    const blob = JSON.stringify(param).toLowerCase();
-    if (blob.includes("mirror ratio")) fail(id + " labels a control 'mirror ratio'");
+    const blob = JSON.stringify(param);
+    if (/mirror ratio/i.test(blob)) fail(id + " labels a control mirror ratio");
+    if (param.name === "beta" && !/mass ratio|gauge coupling/i.test(param.label)) {
+      fail(id + " beta must be labelled mass ratio or gauge coupling, not left bare");
+    }
   }
   const values = {};
   for (const param of mod.params) values[param.name] = param.default;
   const result = await mod.run(values);
-  if (!result || result.example !== true || result.fidelity !== "example") {
-    fail(id + " placeholder must return example: true and fidelity: 'example'");
+  if (!result || result.example !== false || result.fidelity !== "engine") {
+    fail(id + " must call the site engine (example false, fidelity engine)");
   }
-  if (result.verdict) fail(id + " placeholder must not emit a verdict");
-  const edge = {};
-  for (const param of mod.params) edge[param.name] = param.min !== undefined && param.min !== null ? param.min : param.default;
-  await mod.run(edge);
+  if (id === "atlas") {
+    if (!result.atlas || !result.atlas.map || !result.atlas.stages) fail("atlas run missing views");
+    if (result.verdict) fail("atlas run must not invent a single verdict");
+  }
+  if (id === "starter") {
+    if (!result.starter || !result.verdict) fail("starter run missing verdict or frames");
+    if (!result.starter.frames || !result.starter.frames.length) fail("starter run must return recorded frames");
+  }
 }
 
 if (!process.exitCode) console.log("model contract ok (" + order.length + " modules)");

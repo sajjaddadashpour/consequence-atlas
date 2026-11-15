@@ -1,5 +1,6 @@
 /* Playground shell. Loads model modules, draws controls, and keeps the locked record in view. */
 import { renderViews, paintDynamic, toSlider, fromSlider, formatNumber, frameCount } from "./views.js";
+import { renderEngine, paintEngineFrame, paintMap } from "./engine-views.js";
 import { activeBounds, applyQuery, buildRunRecord, clampToBounds, encodeHash, outsideLocked, parseHash } from "./run-record.js";
 import { createLocalStorageAdapter, createMemoryStorage } from "./storage.js";
 
@@ -22,7 +23,18 @@ const state = {
   suppressHash: false,
   store: null,
   runs: [],
+  axisX: "alpha",
+  axisY: "beta",
+  refineSeq: 0,
 };
+
+const ALIAS = {
+  "atlas-map": "atlas",
+  particles: "starter",
+  "phase-field": "starter",
+  "cellular-automaton": "starter",
+};
+const ALIAS_FAMILY = { particles: "P", "phase-field": "F", "cellular-automaton": "C" };
 
 function escapeHtml(value) {
   return String(value)
@@ -296,8 +308,10 @@ function renderBanner() {
     text = "On the locked settings. The picture is still example data — not a rerun and not a claim.";
   } else if (example && !locked) {
     text = "Exploration. These settings are off the lock. Example data only — not a claim.";
+  } else if (!example && locked && model() && model().id === "atlas") {
+    text = "On our dials. The colours and statuses are the locked rules. Honesty labels stay the atlas records.";
   } else if (!example && locked) {
-    text = "On the locked settings. The live verdict is from the engine module. The card label beside it is the atlas record.";
+    text = "On the locked settings. The live verdict is the engine's. The card label beside it is the atlas record.";
   } else {
     text = "Exploration. These settings are off the lock. This run is not the locked card.";
   }
@@ -305,6 +319,18 @@ function renderBanner() {
   banner.textContent = text;
   const free = $("pg-free");
   if (free) free.setAttribute("aria-pressed", state.freePlay ? "true" : "false");
+}
+
+function shownCardId(src) {
+  if (!src) return null;
+  if (src.id === "starter") {
+    const family = state.params.family;
+    if (family === "P") return "c.v3o.019.sticky-symmetry";
+    if (family === "F") return "c.v3o.014.gauge-crystallization";
+    if (family === "C") return "c.v3o.035.sierpinski-seed.sf-rule";
+    return null;
+  }
+  return (src.cardIds || [])[0] || null;
 }
 
 function findCard(id) {
@@ -320,12 +346,16 @@ function renderVerdict() {
   let live;
   if (example) {
     live = "<h3>This run</h3><p class=\"pg-verdict-value\">Example — no verdict</p><p class=\"quiet\">No GROWS, CLUMPS, DECAYS, STEADY, or other engine verdict is being computed.</p>";
+  } else if (result && result.verdict) {
+    live = "<h3>This run</h3><p class=\"pg-verdict-value\">" + escapeHtml(result.verdict) + "</p>" +
+      (locked ? "<p class=\"quiet\">Engine verdict at the locked controls. The card label is separate.</p>"
+        : "<p class=\"quiet\">Engine verdict for these controls. It is not the card's label.</p>");
   } else {
-    live = "<h3>This run</h3><p class=\"pg-verdict-value\">" + escapeHtml(result && result.verdict ? result.verdict : "—") + "</p>" +
-      (locked ? "" : "<p class=\"quiet\">Off the locked settings. This is not the card's result.</p>");
+    live = "<h3>This run</h3><p class=\"pg-verdict-value\">Stage rules</p><p class=\"quiet\">The strip is the locked evaluation at these dials. It does not promote a card.</p>";
   }
   let record;
-  const ids = (src && src.cardIds) || [];
+  const primary = shownCardId(src);
+  const ids = primary ? [primary] : [];
   if (!ids.length) {
     const byId = {};
     ((state.index && state.index.dials) || []).forEach(function (dial) { byId[dial.id] = dial; });
@@ -401,7 +431,62 @@ function renderAllViews() {
   }
   renderBanner();
   renderVerdict();
-  renderViews($("pg-views"), viewApi());
+  const api = engineApi();
+  if (state.result && (state.result.atlas || state.result.starter)) renderEngine($("pg-views"), api);
+  else renderViews($("pg-views"), api);
+}
+
+function engineApi() {
+  const src = model();
+  const api = viewApi();
+  api.axisX = state.axisX;
+  api.axisY = state.axisY;
+  api.dials = ((src && src.params) || []).map(function (param) {
+    return {
+      id: param.name === "cosmological-constant" ? "cosmological_constant" : param.name,
+      label: param.label,
+    };
+  });
+  api.onAxisX = function (value) { setAxis("x", value); };
+  api.onAxisY = function (value) { setAxis("y", value); };
+  api.onFullMap = function () { scheduleFineMap(); };
+  return api;
+}
+
+function setAxis(which, value) {
+  if (which === "x") state.axisX = value;
+  else state.axisY = value;
+  if (state.axisX === state.axisY) {
+    const ids = engineApi().dials.map(function (dial) { return dial.id; });
+    const other = ids.find(function (id) { return id !== value; }) || "beta";
+    if (which === "x") state.axisY = other;
+    else state.axisX = other;
+  }
+  const src = model();
+  if (src && src.mapAt && state.result && state.result.atlas) {
+    state.result.atlas.map = src.mapAt(state.params, state.axisX, state.axisY, 15);
+    const body = document.querySelector('[data-view="map"]');
+    if (body) paintMap(body, state.result.atlas.map);
+    scheduleFineMap();
+    writeUrl();
+  }
+}
+
+function scheduleFineMap() {
+  const src = model();
+  if (!src || !src.mapAt) return;
+  const seq = ++state.refineSeq;
+  const params = Object.assign({}, state.params);
+  const x = state.axisX;
+  const y = state.axisY;
+  setTimeout(function () {
+    if (seq !== state.refineSeq) return;
+    const grid = src.mapAt(params, x, y, 41);
+    if (seq !== state.refineSeq || !state.result || !state.result.atlas) return;
+    state.result.atlas.map = grid;
+    const body = document.querySelector('[data-view="map"]');
+    if (body) paintMap(body, grid);
+  }, 60);
 }
 
 function stopLoop() {
@@ -422,7 +507,8 @@ function startLoop() {
     }
     if (time - last > 90) {
       state.frame = (state.frame + 1) % n;
-      paintDynamic($("pg-views"), viewApi());
+      if (state.result && state.result.starter) paintEngineFrame($("pg-views"), viewApi());
+      else paintDynamic($("pg-views"), viewApi());
       last = time;
     }
     state.timer = requestAnimationFrame(tick);
@@ -444,6 +530,12 @@ async function applyParams() {
     return;
   }
   if (seq !== state.seq) return;
+  if (result.appliedParams) {
+    Object.keys(result.appliedParams).forEach(function (key) {
+      if (state.params[key] !== result.appliedParams[key]) state.params[key] = result.appliedParams[key];
+    });
+    renderDials();
+  }
   state.result = result;
   state.frame = 0;
   state.playing = !state.reducedMotion && frameCount(result) > 1;
@@ -456,7 +548,13 @@ async function applyParams() {
 function writeUrl() {
   const src = model();
   if (!src) return;
-  const next = encodeHash(src, state.params, state.freePlay);
+  let next = encodeHash(src, state.params, state.freePlay);
+  if (src.id === "atlas") {
+    const query = new URLSearchParams(next.slice(next.indexOf("?") + 1));
+    query.set("x", state.axisX || "alpha");
+    query.set("y", state.axisY || "beta");
+    next = "atlas?" + query.toString();
+  }
   const current = (location.hash || "").replace(/^#/, "");
   if (current === next) return;
   state.suppressHash = true;
@@ -471,6 +569,10 @@ function hashMatchesState() {
   if (parsed.path !== state.currentId) return false;
   const applied = applyQuery(src, parsed.query, defaultsOf(src));
   if (applied.freePlay !== state.freePlay) return false;
+  if (src.id === "atlas") {
+    if ((parsed.query.get("x") || "alpha") !== state.axisX) return false;
+    if ((parsed.query.get("y") || "beta") !== state.axisY) return false;
+  }
   return src.params.every(function (param) {
     return applied.params[param.name] === state.params[param.name];
   });
@@ -502,6 +604,12 @@ async function loadModel(id, query) {
     state.params = applied.params;
     state.freePlay = applied.freePlay;
     state.engineNote = applied.engineNote;
+  }
+  if (src.id === "atlas") {
+    const x = query && query.get("x");
+    const y = query && query.get("y");
+    if (x) state.axisX = x;
+    if (y) state.axisY = y;
   }
   stopLoop();
   renderPicker();
@@ -559,7 +667,12 @@ function onHash() {
     location.replace("registry.html#" + (parsed.path === "top" ? "browse" : parsed.path));
     return;
   }
-  const id = parsed.path || "atlas-map";
+  let id = parsed.path || "atlas";
+  if (ALIAS[id]) {
+    const family = ALIAS_FAMILY[id];
+    id = ALIAS[id];
+    if (family && !parsed.query.has("family")) parsed.query.set("family", family);
+  }
   if (id === state.currentId && hashMatchesState()) return;
   loadModel(id, parsed.query).catch(function (err) {
     $("pg-banner").textContent = "Could not load that model. " + err.message;
@@ -646,8 +759,13 @@ async function boot() {
     location.replace("registry.html#" + (parsed.path === "top" ? "browse" : parsed.path));
     return;
   }
-  const id = parsed.path || "atlas-map";
-  if (!parsed.path) history.replaceState(null, "", "#atlas-map");
+  let id = parsed.path || "atlas";
+  if (ALIAS[id]) {
+    const family = ALIAS_FAMILY[id];
+    id = ALIAS[id];
+    if (family && !parsed.query.has("family")) parsed.query.set("family", family);
+  }
+  if (!parsed.path) history.replaceState(null, "", "#atlas");
   try {
     await loadModel(id, parsed.query);
   } catch (err) {

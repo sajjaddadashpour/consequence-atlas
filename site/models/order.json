@@ -1,6 +1,4 @@
 [
-  "atlas-map",
-  "particles",
-  "phase-field",
-  "cellular-automaton"
+  "atlas",
+  "starter"
 ]

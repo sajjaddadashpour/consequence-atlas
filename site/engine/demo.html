@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOE Atlas — physics-layer demo (reference)</title>
+  <style>
+    :root { --bg:#0b0d14; --ink:#e8ecf7; --muted:#9aa3b8; --line:#1c2233; --ok:#3dcf8e; --weak:#c9b44a; --cont:#e0a14a; --fail:#e25c6a; --block:#6b7386; --ours:#fff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font: 15px/1.45 "Source Serif 4", Georgia, serif; background:var(--bg); color:var(--ink); }
+    header { padding:1.2rem 1.5rem 0.6rem; }
+    header h1 { margin:0; font-size:1.5rem; font-weight:600; }
+    header p { margin:0.4rem 0 0; color:var(--muted); max-width:70ch; }
+    main { display:grid; grid-template-columns: 280px 1fr; gap:1rem; padding:0 1.5rem 2rem; }
+    @media (max-width: 900px) { main { grid-template-columns:1fr; } }
+    aside, section { background:#111522; border:1px solid var(--line); border-radius:12px; padding:0.9rem 1rem; }
+    h2 { margin:0 0 0.6rem; font-size:1.05rem; font-weight:600; }
+    label { display:block; margin:0.55rem 0 0.15rem; font-size:0.82rem; color:var(--muted); }
+    input[type=range] { width:100%; }
+    select, button { background:#0b0d14; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:0.3rem 0.5rem; }
+    button { cursor:pointer; margin-top:0.6rem; }
+    .val { float:right; color:var(--ink); }
+    .row { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.6rem; }
+    .pill { padding:0.15rem 0.5rem; border-radius:999px; font-size:0.75rem; border:1px solid var(--line); }
+    .ok { background:#153326; color:var(--ok); }
+    .weak { background:#2c2710; color:var(--weak); }
+    .contested, .CONTESTED { background:#2c1f0d; color:var(--cont); }
+    .fail, .FAIL { background:#2c1218; color:var(--fail); }
+    .blocked, .BLOCKED { background:#1b1e27; color:var(--block); }
+    .open { background:#1a2030; color:#9ec0ff; }
+    .plots { display:grid; grid-template-columns: 1fr 1fr; gap:1rem; }
+    @media (max-width: 1100px) { .plots { grid-template-columns:1fr; } }
+    svg, canvas { width:100%; height:auto; background:#0b0d14; border-radius:8px; }
+    .legend { font-size:0.75rem; color:var(--muted); display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.35rem; }
+    .sw { width:0.7rem; height:0.7rem; display:inline-block; border-radius:2px; margin-right:0.2rem; vertical-align:middle; }
+    #starterOut { font-size:0.85rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Consequence Atlas + Universe Starter — physics demo</h1>
+    <p>Reference page for Chief of Staff. The sliders call <code>atlas.js</code> and <code>starter.js</code> only. Every shaded region keeps its existing honesty label. No new physics. There is no “mirror ratio”.</p>
+  </header>
+  <main>
+    <aside>
+      <h2>Dials</h2>
+      <div id="dialBoard"></div>
+      <button id="reset">Reset to our universe</button>
+      <h2 style="margin-top:1.2rem">Universe Starter</h2>
+      <label>family <select id="fam"><option>P</option><option>F</option><option>C</option><option>G</option><option>Q</option></select></label>
+      <label>seed <input id="seed" type="number" value="1" min="0"></label>
+      <label>start <select id="start"><option>paired</option><option>scattered</option><option>blob</option><option>hot</option></select></label>
+      <button id="runStarter">Run lattice (64×64, 200 steps)</button>
+      <div id="starterOut"></div>
+    </aside>
+    <div>
+      <section>
+        <h2>What survives</h2>
+        <div class="row" id="strip"></div>
+      </section>
+      <div class="plots" style="margin-top:1rem">
+        <section>
+          <h2>Possible universes (any two dials)</h2>
+          <label>x <select id="axisX"></select> &nbsp; y <select id="axisY"></select></label>
+          <svg id="map" viewBox="0 0 420 360" role="img" aria-label="universe map"></svg>
+          <div class="legend">
+            <span><i class="sw" style="background:#3dcf8e"></i>ok</span>
+            <span><i class="sw" style="background:#c9b44a"></i>weak</span>
+            <span><i class="sw" style="background:#e0a14a"></i>contested</span>
+            <span><i class="sw" style="background:#e25c6a"></i>fail</span>
+            <span><i class="sw" style="background:#6b7386"></i>blocked</span>
+            <span>○ our universe</span>
+          </div>
+        </section>
+        <section>
+          <h2>Λ line</h2>
+          <svg id="lambda" viewBox="0 0 420 200" role="img" aria-label="lambda line"></svg>
+          <div class="legend" id="lambdaLeg"></div>
+        </section>
+        <section>
+          <h2>Where stages switch (α strip, others at current dials)</h2>
+          <svg id="strip1d" viewBox="0 0 420 200" role="img" aria-label="alpha strip"></svg>
+        </section>
+        <section>
+          <h2>Dimensions n — stable orbits and atoms only at n=3</h2>
+          <div id="dims"></div>
+        </section>
+      </div>
+      <section style="margin-top:1rem">
+        <h2>Live lattice (Look shapes)</h2>
+        <canvas id="lat" width="640" height="400"></canvas>
+      </section>
+    </div>
+  </main>
+  <script type="module">
+    import { run as atlasRun, dialPairGrid, lambdaLine, dimensionPanel, dialStrips, OURS, DIAL_DEFS, evaluate } from "./atlas.js";
+    import { run as starterRun, PALS } from "./starter.js";
+
+    const $ = (id) => document.getElementById(id);
+    const state = { ...OURS };
+    const fmt = (id, v) => {
+      if (id === "dimensions" || id === "arrow") return String(v);
+      if (id === "alpha" || id === "beta") return Number(v).toExponential(4);
+      return String(Math.round(v * 1000) / 1000);
+    };
+
+    const board = $("dialBoard");
+    for (const d of DIAL_DEFS) {
+      const lab = document.createElement("label");
+      lab.innerHTML = `${d.symbol} <span class="val" id="v-${d.id}"></span>`;
+      const inp = document.createElement("input");
+      inp.type = "range"; inp.id = "in-" + d.id; inp.min = 0; inp.max = 200; inp.value = 100;
+      inp.addEventListener("input", () => { state[d.id] = fromSlider(d, +inp.value); render(); });
+      board.append(lab, inp);
+    }
+
+    function toSlider(d, v) {
+      const [lo, hi] = d.range;
+      if (d.scale === "discrete") return ((v - lo) / (hi - lo)) * 200;
+      if (d.scale === "log") return (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * 200;
+      if (d.scale === "symlog") {
+        const f = (x) => { const s = Math.sign(x)||1, ax=Math.abs(x); return ax<=1?x:s*(1+Math.log10(ax)); };
+        return (f(v)-f(lo))/(f(hi)-f(lo))*200;
+      }
+      return (v - lo) / (hi - lo) * 200;
+    }
+    function fromSlider(d, t) {
+      const [lo, hi] = d.range, u = t / 200;
+      if (d.scale === "discrete") return Math.round(lo + u * (hi - lo));
+      if (d.scale === "log") return Math.exp(Math.log(lo) + u * (Math.log(hi) - Math.log(lo)));
+      if (d.scale === "symlog") {
+        const f = (x) => { const s = Math.sign(x)||1, ax=Math.abs(x); return ax<=1?x:s*(1+Math.log10(ax)); };
+        const inv = (z) => { const s=Math.sign(z)||1, az=Math.abs(z); return az<=1?z:s*10**(az-1); };
+        return inv(f(lo) + u * (f(hi) - f(lo)));
+      }
+      return lo + u * (hi - lo);
+    }
+
+    const axisX = $("axisX"), axisY = $("axisY");
+    for (const d of DIAL_DEFS) {
+      axisX.append(new Option(d.symbol + " (" + d.id + ")", d.id));
+      axisY.append(new Option(d.symbol + " (" + d.id + ")", d.id));
+    }
+    axisX.value = "alpha"; axisY.value = "beta";
+    axisX.onchange = axisY.onchange = render;
+
+    $("reset").onclick = () => { Object.assign(state, OURS); render(); };
+
+    const COL = { ok:"#3dcf8e", weak:"#c9b44a", open:"#9ec0ff", contested:"#e0a14a", fail:"#e25c6a", blocked:"#6b7386" };
+    function col(region) { return COL[region] || "#333"; }
+
+    function drawMap(grid) {
+      const svg = $("map"); svg.innerHTML = "";
+      const pad = 36, W = 420, H = 360, pw = W - pad * 1.2, ph = H - pad * 1.4;
+      const xs = grid.x.values, ys = grid.y.values;
+      const nx = xs.length, ny = ys.length;
+      const cw = pw / nx, ch = ph / ny;
+      const pos = (i, j) => [pad + i * cw, pad * 0.4 + (ny - 1 - j) * ch];
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      for (const c of grid.cells) {
+        const [x, y] = pos(c.i, c.j);
+        const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        r.setAttribute("x", x); r.setAttribute("y", y);
+        r.setAttribute("width", cw + 0.4); r.setAttribute("height", ch + 0.4);
+        r.setAttribute("fill", col(c.region)); r.setAttribute("fill-opacity", "0.85");
+        r.setAttribute("data-label", c.label || "");
+        g.appendChild(r);
+      }
+      svg.appendChild(g);
+      if (grid.ours.on_plane) {
+        const xi = xs.reduce((b, v, i) => Math.abs(v - grid.ours.x) < Math.abs(xs[b] - grid.ours.x) ? i : b, 0);
+        const yi = ys.reduce((b, v, i) => Math.abs(v - grid.ours.y) < Math.abs(ys[b] - grid.ours.y) ? i : b, 0);
+        const [x, y] = pos(xi, yi);
+        const o = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        o.setAttribute("cx", x + cw / 2); o.setAttribute("cy", y + ch / 2);
+        o.setAttribute("r", 4); o.setAttribute("fill", "none"); o.setAttribute("stroke", "#fff"); o.setAttribute("stroke-width", "1.5");
+        svg.appendChild(o);
+      }
+    }
+
+    function drawLambda(line) {
+      const svg = $("lambda"); svg.innerHTML = "";
+      const pad = 28, W = 420, H = 200, pw = W - pad * 2, ph = H - pad * 1.6;
+      const n = line.values.length;
+      for (let i = 0; i < n; i++) {
+        const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        r.setAttribute("x", pad + (i / n) * pw);
+        r.setAttribute("y", pad);
+        r.setAttribute("width", pw / n + 0.4);
+        r.setAttribute("height", ph);
+        r.setAttribute("fill", col(line.points[i].region));
+        r.setAttribute("fill-opacity", "0.9");
+        svg.appendChild(r);
+      }
+      const fwd = (x) => { const s = Math.sign(x)||1, ax=Math.abs(x); return ax<=1?x:s*(1+Math.log10(ax)); };
+      const lo = fwd(-1000), hi = fwd(1000);
+      const xpix = (x) => pad + ((fwd(x) - lo) / (hi - lo)) * pw;
+      for (const t of line.thresholds) {
+        const ln = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        ln.setAttribute("x1", xpix(t.x)); ln.setAttribute("x2", xpix(t.x));
+        ln.setAttribute("y1", pad - 4); ln.setAttribute("y2", pad + ph + 4);
+        ln.setAttribute("stroke", "#fff"); ln.setAttribute("stroke-dasharray", "3 3");
+        svg.appendChild(ln);
+      }
+      const o = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      o.setAttribute("cx", xpix(1)); o.setAttribute("cy", pad + ph / 2); o.setAttribute("r", 4);
+      o.setAttribute("fill", "none"); o.setAttribute("stroke", "#fff");
+      svg.appendChild(o);
+      $("lambdaLeg").textContent = "Dashed: galaxy bound Λ=57.5 (DERIVED-UNDER-ASSUMPTION); recollapse −7.09 and −53.9 (CONTESTED). ○ ours (Λ=1).";
+    }
+
+    function drawStrip(strips) {
+      const svg = $("strip1d"); svg.innerHTML = "";
+      const alpha = strips.strips.find((s) => s.id === "alpha");
+      if (!alpha) return;
+      const featured = ["s03.orbits-atoms-gravity","s05.hydrogen-table","s07.stars","s07g.galaxies"];
+      const pad = 28, W = 420, H = 200, rowH = 28;
+      const n = alpha.values.length;
+      featured.forEach((id, k) => {
+        for (let i = 0; i < n; i++) {
+          const st = alpha.points[i].stages[id];
+          const region = st === "PASS" ? "ok" : st === "WEAK" ? "weak" : st === "OPEN" ? "open" : st === "CONTESTED" ? "contested" : st === "FAIL" ? "fail" : "blocked";
+          const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          r.setAttribute("x", pad + (i / n) * (W - pad * 2));
+          r.setAttribute("y", 18 + k * (rowH + 8));
+          r.setAttribute("width", (W - pad * 2) / n + 0.4);
+          r.setAttribute("height", rowH);
+          r.setAttribute("fill", col(region));
+          svg.appendChild(r);
+        }
+        const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        t.setAttribute("x", 4); t.setAttribute("y", 36 + k * (rowH + 8));
+        t.setAttribute("fill", "#9aa3b8"); t.setAttribute("font-size", "9");
+        t.textContent = id.split(".")[0];
+        svg.appendChild(t);
+      });
+    }
+
+    function render() {
+      for (const d of DIAL_DEFS) {
+        $("in-" + d.id).value = toSlider(d, state[d.id]);
+        $("v-" + d.id).textContent = fmt(d.id, state[d.id]);
+      }
+      const out = atlasRun(state);
+      const strip = $("strip"); strip.innerHTML = "";
+      for (const s of out.stageStrip.stages) {
+        const p = document.createElement("span");
+        p.className = "pill " + (s.status === "CONTESTED" ? "contested" : s.status.toLowerCase());
+        p.textContent = s.name + " · " + s.status;
+        p.title = (s.honesty || []).join(", ") + " " + (s.sources || []).join(", ");
+        strip.appendChild(p);
+      }
+      const x = axisX.value, y = axisY.value;
+      const nx = DIAL_DEFS.find((d) => d.id === x).scale === "discrete" ? 5 : 41;
+      const ny = DIAL_DEFS.find((d) => d.id === y).scale === "discrete" ? 5 : 41;
+      drawMap(dialPairGrid(x, y, { hold: state, nx, ny }));
+      drawLambda(lambdaLine({ hold: state, n: 161 }));
+      drawStrip(dialStrips({ hold: state, n: 81 }));
+      const dim = dimensionPanel({ hold: state });
+      const box = $("dims"); box.innerHTML = "";
+      for (const row of dim.rows) {
+        const p = document.createElement("div");
+        const st = row.s03.status;
+        p.className = "pill " + (st === "CONTESTED" ? "contested" : st.toLowerCase());
+        p.style.margin = "0.2rem 0.2rem 0 0";
+        p.textContent = `n=${row.n}: orbits ${row.orbit_stability.status}, atoms ${row.hydrogen_ground_state.status}, gravity ${row.gravity_orbits.status} → ${row.s03.status}`;
+        box.appendChild(p);
+      }
+    }
+
+    function drawLattice(rd) {
+      const cv = $("lat"); const g = cv.getContext("2d");
+      const pal = PALS[0];
+      g.fillStyle = pal.bg; g.fillRect(0, 0, cv.width, cv.height);
+      const look = rd.look;
+      if (!look) return;
+      if (look.glyphs) {
+        g.strokeStyle = pal.bond; g.lineWidth = 1;
+        for (const b of look.bonds || []) {
+          const x = look.ox + (b.x + 0.5) * look.cell, y = look.oy + (b.y + 0.5) * look.cell;
+          g.beginPath(); g.moveTo(x, y);
+          g.lineTo(x + (b.to === "e" ? look.cell : 0), y + (b.to === "s" ? look.cell : 0)); g.stroke();
+        }
+        for (const gl of look.glyphs) {
+          g.fillStyle = gl.glyph === "tri" ? pal.plus : gl.glyph === "sq" ? pal.minus : gl.glyph === "dia" ? pal.record : gl.glyph === "spark" ? pal.light : pal.neutral;
+          g.beginPath();
+          const k = gl.glyph === "tri" ? 3 : 4;
+          const rot = gl.glyph === "sq" || gl.glyph === "tile" ? Math.PI / 4 : gl.rot;
+          for (let i = 0; i < k; i++) {
+            const a = rot + (i * 2 * Math.PI) / k;
+            const px = gl.cx + gl.s * Math.cos(a), py = gl.cy + gl.s * Math.sin(a);
+            if (i === 0) g.moveTo(px, py); else g.lineTo(px, py);
+          }
+          g.closePath(); g.fill();
+        }
+      } else if (look.vortices) {
+        const { w, h, ox, oy, cell, phase } = look;
+        for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+          const th = phase[y * w + x];
+          const hue = ((th / (2 * Math.PI)) % 1 + 1) % 1 * 360;
+          g.fillStyle = `hsl(${hue}, 70%, 30%)`;
+          g.fillRect(ox + x * cell, oy + y * cell, cell + 0.5, cell + 0.5);
+        }
+        for (const v of look.vortices) {
+          g.strokeStyle = v.sign > 0 ? pal.plus : pal.minus; g.lineWidth = 1.6;
+          g.beginPath();
+          for (let j = 0; j <= 24; j++) {
+            const r = (v.r * j) / 24, a = v.sign * j * 0.45;
+            const px = v.x + r * Math.cos(a), py = v.y + r * Math.sin(a);
+            if (j === 0) g.moveTo(px, py); else g.lineTo(px, py);
+          }
+          g.stroke();
+        }
+      } else if (look.streaks) {
+        g.lineWidth = 2;
+        for (const s of look.streaks) {
+          g.strokeStyle = pal.plus;
+          g.beginPath(); g.moveTo(s.x - s.dx * look.cell * 0.8, s.y - s.dy * look.cell * 0.8); g.lineTo(s.x, s.y); g.stroke();
+        }
+      } else if (look.scalar) {
+        const { w, h, ox, oy, cell, scalar } = look;
+        for (let i = 0; i < w * h; i++) {
+          const v = scalar[i]; if (v < 0.02) continue;
+          g.fillStyle = `rgba(255,122,182,${Math.min(1, v)})`;
+          g.fillRect(ox + (i % w) * cell, oy + Math.floor(i / w) * cell, cell, cell);
+        }
+      }
+    }
+
+    $("runStarter").onclick = () => {
+      $("starterOut").textContent = "running…";
+      const family = $("fam").value;
+      setTimeout(() => {
+        const rd = starterRun({ family, dim: family === "Q" ? 1 : 2, size: family === "Q" ? 40 : 64, steps: family === "Q" ? 40 : 200, seed: +$("seed").value, start: $("start").value });
+        $("starterOut").textContent = `${rd.lattice.family} verdict ${rd.lattice.verdict} · ${rd.lattice.frames.length} frames`;
+        drawLattice(rd.lattice);
+      }, 10);
+    };
+
+    render();
+    window.__demoReady = true;
+    window.__evaluateOurs = () => evaluate(OURS);
+  </script>
+</body>
+</html>

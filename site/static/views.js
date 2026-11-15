@@ -127,6 +127,7 @@ function fitCanvas(canvas, cssW, cssH) {
 
 function frameCount(result) {
   if (!result) return 1;
+  if (result.starter && result.starter.frames) return result.starter.frames.length;
   if (result.lattice && result.lattice.frames) return result.lattice.frames.length;
   if (result.phase && result.phase.frames) return result.phase.frames.length;
   return 1;

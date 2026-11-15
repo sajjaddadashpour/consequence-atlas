@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 from collections import Counter
@@ -412,6 +413,15 @@ def _js_string(text: str, name: str) -> str:
     return match.group(1) if match else ""
 
 
+def copy_engine(out: Path) -> None:
+    """Copy the physicist's site/engine tree as-is. Do not rewrite those files."""
+    src = SITE_DIR / "engine"
+    dest = out / "engine"
+    if dest.exists():
+        shutil.rmtree(dest)
+    shutil.copytree(src, dest)
+
+
 def write_site(root: Path, out: Path, cname: str | None) -> dict:
     index = build_index(root)
     out.mkdir(parents=True, exist_ok=True)
@@ -420,10 +430,11 @@ def write_site(root: Path, out: Path, cname: str | None) -> dict:
     (out / "index.html").write_text(render_html(template, index), encoding="utf-8")
     registry = (SITE_DIR / "templates" / "registry.html").read_text(encoding="utf-8")
     (out / "registry.html").write_text(render_html(registry, index), encoding="utf-8")
-    for name in ("styles.css", "app.js", "playground.js", "views.js", "run-record.js", "storage.js", "favicon.svg"):
+    for name in ("styles.css", "app.js", "playground.js", "views.js", "engine-views.js", "run-record.js", "storage.js", "favicon.svg"):
         src = SITE_DIR / "static" / name
         (out / name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     copy_models(out)
+    copy_engine(out)
     (out / "data" / "index.json").write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",

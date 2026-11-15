@@ -1,0 +1,17 @@
+{
+  "grid_points": 3150,
+  "T-A": {
+    "derived_json_vs_python": 0,
+    "derived_json_vs_js": 0,
+    "js_vs_python_tables": 0
+  },
+  "T-B": {
+    "points": 3150,
+    "stage_status_mismatches": 0,
+    "stage_verdict_mismatches": 0,
+    "link_status_mismatches": 0,
+    "table_mismatches": 0,
+    "box_mismatches": 0
+  },
+  "examples": []
+}

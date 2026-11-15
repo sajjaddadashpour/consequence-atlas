@@ -46,13 +46,12 @@ def test_site_build_copies_dials_and_pages(tmp_path: Path):
     assert (out / "llms.txt").is_file()
     assert (out / "CNAME").read_text(encoding="utf-8").strip() == "toeatlas.si"
     manifest = json.loads((out / "models" / "manifest.json").read_text(encoding="utf-8"))
-    assert [item["id"] for item in manifest] == [
-        "atlas-map",
-        "particles",
-        "phase-field",
-        "cellular-automaton",
-    ]
+    assert [item["id"] for item in manifest] == ["atlas", "starter"]
+    assert (out / "engine" / "atlas.js").is_file()
+    assert (out / "engine" / "starter.js").is_file()
     for path in (REPO / "site").rglob("*"):
+        if "engine" in path.parts:
+            continue
         if path.suffix.lower() not in {".js", ".html", ".css"}:
             continue
         assert "mirror ratio" not in path.read_text(encoding="utf-8").lower()

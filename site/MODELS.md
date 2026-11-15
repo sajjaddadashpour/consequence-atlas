@@ -123,13 +123,15 @@ Overwrite `run` in the existing file, or replace the file and keep the same `id`
 
 Dial ranges for the atlas model are read again from `dials/*.yaml` at build time into `data/index.json`. The shell prefers those records over the numbers copied into `atlas-map.js`. A symmetric-log axis is used when the dial's `units` text says so, which is how `cosmological-constant` is written.
 
-## Placeholders in this tree
+## Modules in this tree
 
-| Module | Card | Status |
+`site/engine/` is the physicist's browser layer (`atlas.js`, `starter.js`, `starter-engine.js`). Those files are not edited here. `site/models/atlas.js` and `site/models/starter.js` are the playground adapters: they call that layer and do not reimplement it.
+
+| Adapter | Engine | What it draws |
 | --- | --- | --- |
-| `atlas-map` | none (dials and links) | Example patches and example stage lights. Dots, ranges, labels, and Lambda ticks are records. No condition is evaluated. |
-| `particles` | `c.v3o.019.sticky-symmetry` | Example specks and example curves. `makeP` is not called. |
-| `phase-field` | `c.v3o.014.gauge-crystallization` | Example hue field. `makeF` is not called. `beta` is gauge beta. |
-| `cellular-automaton` | `c.v3o.035.sierpinski-seed.sf-rule` | Example image. The rule table is not applied. `makeC` is not called. |
+| `atlas` | `site/engine/atlas.js` | Any two dials as map axes, a Lambda line, a strip per dial, the dimensions panel, and the stage list with each link's honesty label and sources. |
+| `starter` | `site/engine/starter.js` at engine `3.0.0` | A modest lattice, run to completion, then the recorded frames. The live verdict is the engine verdict. Card labels stay the atlas records. |
 
-Toy pictures show the shell. They never predict chemistry or life, and they are not claims about the cards.
+`beta` on the atlas adapter is labelled "Mass ratio m_e/m_p". `beta` on the starter adapter is labelled "Gauge coupling beta".
+
+Toy runs are not claims about chemistry or life.
