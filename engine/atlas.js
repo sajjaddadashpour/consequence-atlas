@@ -79,7 +79,7 @@ export const STAGES = [
   { id: "s07.stars", name: "Stars", order: 8, requires: ["s03.orbits-atoms-gravity", "s04.stable-atoms", "s07g.galaxies"] },
   { id: "s08.fusion-hoyle", name: "Fusion chain and carbon/oxygen (Hoyle)", order: 9, requires: ["s07.stars"] },
   { id: "s09.planets", name: "Planets with long stable climates", order: 10, requires: ["s03.orbits-atoms-gravity", "s07.stars"] },
-  { id: "s10.records", name: "Records and memory (arrow of time)", order: 11, requires: ["s01.predictable-laws"] },
+  { id: "s10.records", name: "Records and memory (arrow of time)", order: 11, requires: ["s01.predictable-laws", "s04.stable-atoms"] },
   { id: "s11.life", name: "Life", order: 12, requires: ["s06.chemistry", "s08.fusion-hoyle", "s09.planets", "s10.records"] },
   { id: "s12.minds", name: "Minds", order: 13, requires: ["s11.life"] },
   { id: "s13.carers", name: "Beings who can care", order: 14, requires: ["s12.minds"] },
