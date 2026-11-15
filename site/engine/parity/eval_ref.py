@@ -54,7 +54,7 @@ STAGES = [
     ("s07.stars", 8, ["s03.orbits-atoms-gravity", "s04.stable-atoms", "s07g.galaxies"]),
     ("s08.fusion-hoyle", 9, ["s07.stars"]),
     ("s09.planets", 10, ["s03.orbits-atoms-gravity", "s07.stars"]),
-    ("s10.records", 11, ["s01.predictable-laws"]),
+    ("s10.records", 11, ["s01.predictable-laws", "s04.stable-atoms"]),
     ("s11.life", 12, ["s06.chemistry", "s08.fusion-hoyle", "s09.planets", "s10.records"]),
     ("s12.minds", 13, ["s11.life"]),
     ("s13.carers", 14, ["s12.minds"]),
