@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -66,7 +66,7 @@
             <li><span class="pill pill-contested"><span class="pill-n">1</span> CONTESTED</span></li>
           </ul>
         </div>
-        <p class="meta">Built from commit <a href="https://github.com/sajjaddadashpour/consequence-atlas/tree/38062024f41f7f5dc4936b98787b3f449db000bd"><code>3806202</code></a> at 2026-11-15T04:06:35Z. Examples are excluded. The repository files are the source of record.</p>
+        <p class="meta">Built from commit <a href="https://github.com/sajjaddadashpour/consequence-atlas/tree/54635ec6f8e62497c1eab3eee5976d84e41785f6"><code>54635ec</code></a> at 2026-11-15T21:50:04Z. Examples are excluded. The repository files are the source of record.</p>
       </div>
     </section>
 
@@ -153,6 +153,18 @@
             </select>
           </label>
           <label>
+            <span>Stage</span>
+            <select id="stage">
+              <option value="">All stages</option>
+            </select>
+          </label>
+          <label>
+            <span>Engine</span>
+            <select id="engine">
+              <option value="">All engines</option>
+            </select>
+          </label>
+          <label>
             <span>Sort</span>
             <select id="sort">
               <option value="id">Id</option>
@@ -162,6 +174,7 @@
             </select>
           </label>
         </form>
+        <div class="label-colors" id="label-colors" role="group" aria-label="Label colour"></div>
         <p class="list-status" id="status" aria-live="polite">Loading index…</p>
         <div class="browse-layout">
           <ol class="results" id="results"></ol>
@@ -193,11 +206,11 @@ make test</code></pre>
   <footer class="site-footer">
     <div class="wrap">
       <p>TOE Consequences Atlas · <a href="https://github.com/sajjaddadashpour/consequence-atlas">sajjaddadashpour/consequence-atlas</a> · <a href="llms.txt">llms.txt</a> · <a href="data/index.json">data/index.json</a></p>
-      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-15T04:06:35Z from <code>3806202</code>. This site does not invent results; it only displays repository records.</p>
+      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-15T21:50:04Z from <code>54635ec</code>. This page is the stored record. Live verdicts on the atlas never promote these labels. A DIFFERS line in a card note is an unsigned prototype check, not a label.</p>
     </div>
   </footer>
 
-  <script type="application/json" id="boot">{"generated_at":"2026-11-15T04:06:35Z","source_commit":"38062024f41f7f5dc4936b98787b3f449db000bd","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
+  <script type="application/json" id="boot">{"generated_at":"2026-11-15T21:50:04Z","source_commit":"54635ec6f8e62497c1eab3eee5976d84e41785f6","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
   <script src="app.js" defer></script>
 </body>
 </html>

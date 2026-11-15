@@ -42,15 +42,16 @@ D2_TABLE = {
 RANK = {"PASS": 0, "OPEN": 1, "WEAK": 2, "CONTESTED": 3, "FAIL": 4}
 VERDICT_OF = {"PASS": "ok", "OPEN": "ok", "WEAK": "ok", "CONTESTED": "CONTESTED", "FAIL": "FAIL", "BLOCKED": "BLOCKED"}
 
+# BEGIN GENERATED STAGES (verify/gen_stages.py)
 STAGES = [
     ("s00.rules", 0, []),
     ("s01.predictable-laws", 1, ["s00.rules"]),
     ("s02.sharp-signals", 2, ["s01.predictable-laws"]),
     ("s03.orbits-atoms-gravity", 3, ["s01.predictable-laws"]),
-    ("s07g.galaxies", 7, ["s03.orbits-atoms-gravity"]),
     ("s04.stable-atoms", 4, ["s03.orbits-atoms-gravity"]),
     ("s05.hydrogen-table", 5, ["s04.stable-atoms"]),
     ("s06.chemistry", 6, ["s05.hydrogen-table"]),
+    ("s07g.galaxies", 7, ["s03.orbits-atoms-gravity"]),
     ("s07.stars", 8, ["s03.orbits-atoms-gravity", "s04.stable-atoms", "s07g.galaxies"]),
     ("s08.fusion-hoyle", 9, ["s07.stars"]),
     ("s09.planets", 10, ["s03.orbits-atoms-gravity", "s07.stars"]),
@@ -59,6 +60,7 @@ STAGES = [
     ("s12.minds", 13, ["s11.life"]),
     ("s13.carers", 14, ["s12.minds"]),
 ]
+# END GENERATED STAGES
 
 
 def A_of_Z(Z):

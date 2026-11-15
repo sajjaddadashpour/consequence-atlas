@@ -143,14 +143,110 @@ function axisCount(dialId, n) {
   return n;
 }
 
-function mapAt(params, xDial, yDial, n) {
+function mapAt(params, xDial, yDial, n, featured) {
   const x = xDial === "cosmological-constant" ? "cosmological_constant" : xDial;
   const y = yDial === "cosmological-constant" ? "cosmological_constant" : yDial;
-  return dialPairGrid(x, y, {
+  const opts = {
     hold: holdOf(params),
     nx: axisCount(x, n),
     ny: axisCount(y, n),
-  });
+  };
+  if (featured && featured.length) opts.featured = featured;
+  return dialPairGrid(x, y, opts);
+}
+
+function stageAt(params) {
+  return evaluate(holdOf(params));
+}
+
+function stripsAt(params, n) {
+  return dialStrips({ hold: holdOf(params), n: n || 41 });
+}
+
+function lambdaAt(params) {
+  return lambdaLine({ hold: holdOf(params), n: 81 });
+}
+
+function dimensionsAt(params) {
+  return dimensionPanel({ hold: holdOf(params) });
+}
+
+// Display copy for the sensitivity bar. The statuses themselves come from the engine.
+const SENSITIVITY_CAVEAT =
+  "Holds only while the other dials stay at the values on this board, under the locked atlas rules. A change of status is not a range that unconditionally breaks a stage. The link keeps the honesty label and the assumptions stored on that link.";
+
+function dialKey(dialId) {
+  return dialId === "cosmological-constant" ? "cosmological_constant" : dialId;
+}
+
+function diffLinks(leftLinks, rightLinks) {
+  const prev = new Map(leftLinks.map((link) => [link.id, link]));
+  const out = [];
+  for (const link of rightLinks) {
+    const before = prev.get(link.id);
+    if (before && before.status === link.status) continue;
+    out.push({
+      id: link.id,
+      label: link.label,
+      from: link.from,
+      to: link.to,
+      was: before ? before.status : null,
+      now: link.status,
+      sources: link.sources || [],
+    });
+  }
+  return out;
+}
+
+function linkBrief(link) {
+  return {
+    id: link.id,
+    label: link.label,
+    from: link.from,
+    to: link.to,
+    status: link.status,
+    sources: link.sources || [],
+  };
+}
+
+// Which links moved between two samples, according to evaluate().
+// via "stage" means a link into the stage changed status.
+// via "upstream" means the stage status moved because an earlier stage did.
+function explainSwitch(params, dialId, from, to, stageId) {
+  const id = dialKey(dialId);
+  const hold = holdOf(params);
+  const left = evaluate({ ...hold, [id]: from });
+  const right = evaluate({ ...hold, [id]: to });
+  const stage = right.stages.find((item) => item.id === stageId) || null;
+  const before = left.stages.find((item) => item.id === stageId) || null;
+  const changes = diffLinks(left.links, right.links);
+  let relevant = changes.filter((link) => link.to === stageId);
+  let via = "stage";
+  if (!relevant.length) {
+    const upstream = new Set();
+    const pending = ((stage && stage.requires) || []).slice();
+    const byId = new Map(right.stages.map((item) => [item.id, item]));
+    while (pending.length) {
+      const id = pending.pop();
+      if (upstream.has(id)) continue;
+      upstream.add(id);
+      const earlier = byId.get(id);
+      (earlier && earlier.requires || []).forEach((parent) => pending.push(parent));
+    }
+    relevant = changes.filter((link) => upstream.has(link.to));
+    via = "upstream";
+  }
+  return {
+    caveat: SENSITIVITY_CAVEAT,
+    stageId,
+    from,
+    to,
+    was: before ? before.status : null,
+    now: stage ? stage.status : null,
+    via,
+    links: relevant,
+    stageLinks: ((stage && stage.links) || []).map(linkBrief),
+  };
 }
 
 function run(params) {
@@ -174,4 +270,7 @@ function run(params) {
   };
 }
 
-export { id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run, mapAt, LABEL, DIAL_DEFS };
+export {
+  id, title, family, boardTitle, summary, cardIds, lockNote, fidelity, engine, params, views, run,
+  mapAt, stageAt, stripsAt, lambdaAt, dimensionsAt, explainSwitch, SENSITIVITY_CAVEAT, LABEL, DIAL_DEFS,
+};
