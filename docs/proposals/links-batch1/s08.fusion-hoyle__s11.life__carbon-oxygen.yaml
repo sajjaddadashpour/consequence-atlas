@@ -1,0 +1,11 @@
+id: l.s11.carbon-oxygen
+from: s08.fusion-hoyle
+to: s11.life
+label: CONJECTURE
+condition: "true"
+assumptions:
+- Life as modelled needs carbon and oxygen made in stars, or an unmodelled substitute. Physics does not certify this.
+sources:
+- barnes2012
+status: active
+notes: 'OPEN. Makes the s11 requires s08 edge visible on the spine. Breaks: nothing new; inherits the Hoyle and pp-chain cuts (strong, alpha).'

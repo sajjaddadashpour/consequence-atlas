@@ -1,0 +1,10 @@
+id: l.s11.chemistry-for-life
+from: s06.chemistry
+to: s11.life
+label: CONJECTURE
+condition: "true"
+assumptions:
+- Life needs ordered chemistry (bridge B3 in atlas/backward/carers.yaml). Physics does not certify this.
+sources: []
+status: active
+notes: 'OPEN. Makes the s11 requires s06 edge visible on the spine. Breaks: nothing new; inherits S6 cuts.'
