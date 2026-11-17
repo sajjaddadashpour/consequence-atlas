@@ -7,4 +7,4 @@ sources:
 - adams2019
 - adams2008
 status: active
-notes: 'FAIL alpha^2*beta < 2.6e-12: Coulomb barrier too low, stars burn their fuel at once.'
+notes: 'FAIL alpha^2*beta < 2.6e-12: Coulomb barrier too low, stars burn their fuel at once. SOURCE CHECK (2026-11-16, papers re-read): Adams 2019 eq. (24), p.26 gives alpha^2 beta >~ 2.62e-12 ~ 9.03e-5 alpha0^2 beta0: VERIFIED. Adams 2008 eq. (44), p.15-16 (ours a factor ~11,000 inside the burning limit, kappa0 ∝ alpha^2, particle masses fixed) gives alpha_min = alpha0/sqrt(11000) = 0.00953 alpha0 vs 0.00950 alpha0 here: AGREES. Adams 2008 holds m_e fixed, so the beta dependence rests on Adams 2019.'
