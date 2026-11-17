@@ -35,7 +35,7 @@ Other imported numbers, already in `derived.json` or the derivations README / li
 - Star-mass k: Adams 2019 `10**(-8/3)`, Tegmark 1998 `1/200`, Barnes 2012 `1/100`.
 - Hydrogen (Borsanyi 2015, as in derive.py / page): `Q=2.52`, `E=-1.00`, `dQ=hypot(0.17,0.24)`, `dE=hypot(0.07,0.14)`; page/yaml rounded box uses `0.294` and `0.157`. Proton mass `938.272` MeV.
 - Landauer: `k_B=1.380649e-23`, `e=1.602176634e-19`, T=300 K.
-- Λ galaxy bound: `57.5` in dial units (derive.d10 / link).
+- Λ galaxy bound: `189` in dial units (derive.d10 / link). Was `57.5` until atlas@locked-2026-11-16a; see docs/locks/LOCKED_LAMBDA_GALAXY_189.md.
 - Λ recollapse: `t = 36.7 / sqrt(|x|)` Gyr for `x<0`; benchmarks `x>=-7.09` (13.787 Gyr) and `x>=-53.9` (5 Gyr) (derive.d11 / link).
 - Water: `alpha <= 10 * A0_DIAL`.
 - Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.02` PASS (Epelbaum 2013 alpha +/-2%; strong +/-0.5% Oberhummer 2000); `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` CONTESTED alpha 2-4%: outside Epelbaum 2013, inside Oberhummer 2000; else CONTESTED.
@@ -77,7 +77,7 @@ Per-link test: the yaml `condition` is the PASS predicate only. The richer PASS 
 | l.s04.nonrelativistic-atoms | α<0.2 | | 0.2≤α<1/3 | α≥1/3 | |
 | l.s07.coulomb-barrier | α²β≥2.62e-12 | | | else | |
 | l.s07.star-mass-window | β/α² ≥ 1/100 | | 10^(-8/3) ≤ β/α² < 1/100 | β/α² < 10^(-8/3) | |
-| l.s07g.lambda-galaxies | Λ<57.5 (including Λ≤0) | | | Λ≥57.5 | |
+| l.s07g.lambda-galaxies | Λ<189 (including Λ≤0) | | | Λ≥189 | |
 | l.s05.carbon-nuclei | 0.1(1+s)≥0.3√α | | | else | |
 | l.s05.hydrogen-stable | whole 1-σ box above m_e | | box straddles m_e | whole box below m_e | |
 | l.s05.table-length | L≥26 | 8≤L<26 | | L<8 | |
@@ -110,7 +110,7 @@ Coarse `verdict` (for the UI contract):
 
 `evaluate` also returns, at the given dials and at ours:
 - numeric windows and margins already in `derived.json` (D3 scales, D5 L and α maxima for C/O/Fe, D6 β minima and α bounds at our β, D7, D9 band, `beta_max_ordered=1/81` and its margin)
-- Λ: galaxy threshold 57.5, lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 57.5
+- Λ: galaxy threshold 189 (57.5 before 2026-11-16a), lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 57.5
 - each link and stage carries `label` + `sources`
 
 ## 4. Plot data (no new claims; shading uses existing labels)
@@ -121,7 +121,7 @@ All plots take the same dial object; unused axes are held at ours unless the cal
 
 Featured stages for the default "possible universes" map: s03 (atoms/orbits), s05 (hydrogen + table), s07 (stars), s07g (galaxies). The stage-strip can request others.
 
-(b) `lambdaLine`: Λ sample (default 161 points, symmetric-log on [−1000,1000]), `t(Λ)` for Λ<0, thresholds at 57.5 (galaxy formation; l.s07g.lambda-galaxies, DERIVED-UNDER-ASSUMPTION) and −7.09 / −53.9 (recollapse lifetime; l.s11.lambda-lifetime, CONTESTED), plus the evaluate verdict at each point with other dials at ours (or caller). Our point Λ=1.
+(b) `lambdaLine`: Λ sample (default 161 points, symmetric-log on [−1000,1000]), `t(Λ)` for Λ<0, thresholds at 189 (galaxy formation; 57.5 before 2026-11-16a; l.s07g.lambda-galaxies, DERIVED-UNDER-ASSUMPTION) and −7.09 / −53.9 (recollapse lifetime; l.s11.lambda-lifetime, CONTESTED), plus the evaluate verdict at each point with other dials at ours (or caller). Our point Λ=1.
 
 (c) `dialStrips`: for each of the six dials, a 1D sweep (default 81 points, or the discrete values for n and arrow) with the other dials held at ours (or caller). At each sample, every stage's status. Report the switch points (adjacent samples where a given stage's status changes).
 

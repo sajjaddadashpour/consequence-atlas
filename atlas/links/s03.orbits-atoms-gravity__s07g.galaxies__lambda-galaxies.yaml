@@ -2,19 +2,20 @@ id: l.s07g.lambda-galaxies
 from: s03.orbits-atoms-gravity
 to: s07g.galaxies
 label: DERIVED-UNDER-ASSUMPTION
-condition: cosmological_constant < 57.5
+condition: cosmological_constant < 189
 assumptions:
 - Earliest galaxies at redshift z ~ 4, as used by Martel, Shapiro & Weinberg 1998.
 - Primordial fluctuation amplitude Q and dark-matter-to-photon ratio held at our values (Tegmark et al. 2006 show the bound scales with Q^3).
 - Our density ratio Omega_Lambda/Omega_m = 0.685/0.315 (Planck 2018).
+- Spherical top-hat collapse with the linear growing mode (MSW 1998 eq. 4 and eq. 57); collapse at z = 4 means linear overdensity 1.686 (Einstein-de Sitter value, IMPORTED); Lambda negligible before z = 4.
 - Applies to positive Lambda. For negative Lambda, structure forms readily in the recollapsing phase (Peacock 2007), so this link PASSes; the negative-Lambda limit is the lifetime link l.s11.lambda-lifetime.
 window:
   dial: cosmological-constant
-  hi: 57.5
+  hi: 189
 sources:
 - weinberg1987
 - msw1998
 - planck2018
 - derive.d10
 status: active
-notes: 'Weinberg 1987: a positive vacuum energy much larger than the matter density at the epoch of galaxy formation stops galaxies forming. MSW 1998: a galaxy at z ~ 4 formed when the mass density was (1+z)^3 ~ 125 x today''s, so rho_Lambda < ~125 rho_m0. With Omega_m = 0.315 (Planck 2018) and Omega_Lambda = 0.685, rho_Lambda,ours = 2.17 rho_m0, so the bound is ~57.5 in dial units. MSW also find the observed-typical value is much smaller than this bound (comparable to the matter density when typical galaxies form). FAIL above the bound; PASS below.'
+notes: 'Weinberg 1987 and MSW 1998 eq. (4), p.6: a spherical fluctuation recollapses iff rho_V <= (500/729) delta^3 rhobar, with delta the linear growing-mode overdensity at recombination (MSW use the growing-mode sigma, eq. 57). A galaxy at z ~ 4 has linear overdensity 1.686 at z = 4, and delta^3 rhobar is invariant under linear growth, so rho_V <= (500/729) 1.686^3 (1+z)^3 rho_m0 = 411 rho_m0. With Omega_m = 0.315 (Planck 2018) and Omega_Lambda = 0.685, rho_Lambda,ours = 2.17 rho_m0, so the bound is 189 in dial units. Until atlas@locked-2026-11-16a this link used 57.5 = 125/2.17, treating (1+z)^3 rho_m0 = 125 rho_m0 as the bound; MSW p.3 and Weinberg 1996 p.3 state 125 rho_m0 only as a value the bound cannot be much less than (docs/locks/LOCKED_LAMBDA_GALAXY_189.md). MSW also find the observed-typical value is much smaller than this bound. FAIL above the bound; PASS below.'
