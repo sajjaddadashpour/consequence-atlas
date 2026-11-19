@@ -1,0 +1,18 @@
+id: x.hist.samalas-1257
+a:
+  field: climate
+  pattern: "Volcanology: the c.1257 ice-core sulfate spike (largest volcanic sulfur release to the stratosphere in the past 7,000 years) comes from Samalas, Lombok; eruption between May and October 1257, column up to 43 km, at least 40 km3 DRE (Lavigne et al. 2013)."
+b:
+  field: history
+  pattern: "History: the English food crisis of 1258, with bad weather, failed harvests, famine refugees in London and mass graves at St Mary Spital (Campbell 2017)."
+connection: "Stratospheric sulfate -> cooling and unstable weather -> harvest failure -> famine. Lavigne et al. report that tree rings, medieval chronicles and models corroborate worldwide climatic effects."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "Documentary price and harvest records show the English harvest failure starting before any climatic effect of a May-October 1257 eruption could arrive (i.e. the 1256 or early-1257 harvests already failed at crisis level). High-resolution proxies attribute the 1257-58 weather anomaly to solar forcing, with no volcanic cooling signal in England's growing season."
+sources:
+- lavigne2013
+- campbell2017
+status: contested
+proposed_by: historian
+notes: "Overall label as filed: established for the volcanology and climate steps; CONTESTED for the climate -> 1258 English famine step. The schema allows only one evidence label per record; MAINSTREAM-HYPOTHESIS is the label for the historical step of the chain (the cross-field claim), and status is contested. Per-step labels, exactly as written: Samalas = source of the 1257/58 sulfate spike, established; eruption -> global climatic effects, established (corroborated by tree rings, chronicles, models); eruption -> English famine of 1258, mainstream hypothesis, open: Campbell 2017 weighs Samalas against strong solar forcing and says the answer depends on the precise chronology."

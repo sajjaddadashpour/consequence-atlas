@@ -1,0 +1,19 @@
+id: x.hist.zipf-gibrat
+a:
+  field: history
+  pattern: "Cities: the number of cities larger than S is roughly proportional to 1/S (Zipf's law, exponent 1) in many countries (Gabaix 1999)."
+b:
+  field: physics
+  pattern: "Other fields: proportional ('size-independent') growth processes give skew, power-law-like size distributions; Simon 1955 derives this class and applies it to word frequencies, city sizes, incomes and biological genera by species number."
+connection: "Gabaix 1999: if, at least in the upper tail, all cities grow by the same proportional random process (Gibrat's law: growth rate independent of size), the size distribution converges to Zipf's law. Same mathematics as Simon's 1955 proportional-growth model; the link across fields is the shared stochastic process, not a shared cause."
+label: MAINSTREAM-HYPOTHESIS
+support: mathematics
+claim: pattern
+breaks_if: "City growth rates measured to depend systematically on size in the upper tail, in a country where Zipf still holds (Gibrat fails, Zipf holds: the explanation is wrong). Gibrat holds in the upper tail but the size distribution is far from exponent 1 (explanation insufficient). Soo's political-economy dependence of the exponent is already partial evidence of this."
+sources:
+- gabaix1999
+- soo2005
+- simon1955
+status: contested
+proposed_by: historian
+notes: "Overall label as filed: Zipf regularity: mainstream, empirically contested (estimator-dependent); Gibrat explanation: mainstream hypothesis; cross-field identity: same mathematics only. Shared form only. Do not claim cities, firms and genera share a cause. support=mathematics, claim=pattern: this is not a cause link. Soo 2005 (73 countries): Zipf's law rejected for 53 of 73 countries with OLS and for 30 of 73 with the Hill estimator (abstract, identical in the published RePEc record and the CEP DP 641 version). With Hill, 43 of 73 (59%) are not significantly different from 1; 24 significantly above and 6 below (CEP DP 641 text). Exponent variation is better explained by political-economy than economic-geography variables. Correction to an earlier room claim: Historian said in the room that Zipf 'holds in fewer than half of the 73 countries'. That is true only with OLS (not rejected in 20/73). With the Hill estimator, which Soo treats as having the correct standard errors, it is not rejected in 43/73. The honest statement: rejected far more often than chance under both estimators. Left Philosopher's existing x.zipf-gibrat record in place; this is Historian's filed record, including Simon 1955."

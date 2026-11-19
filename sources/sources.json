@@ -476,5 +476,171 @@
     "year": 1966,
     "identifier": "isbn:0268001820",
     "verified": true
+  },
+  {
+    "id": "oppenheimer2003",
+    "title": "Climatic, environmental and human consequences of the largest known historic eruption: Tambora volcano (Indonesia) 1815",
+    "authors": [
+      "C. Oppenheimer"
+    ],
+    "year": 2003,
+    "identifier": "doi:10.1191/0309133303pp379ra",
+    "verified": true
+  },
+  {
+    "id": "raible2016",
+    "title": "Tambora 1815 as a test case for high impact volcanic eruptions: Earth system effects",
+    "authors": [
+      "C. C. Raible",
+      "S. Brönnimann",
+      "R. Auchmann",
+      "P. Brohan",
+      "T. L. Frölicher",
+      "H.-F. Graf",
+      "et al."
+    ],
+    "year": 2016,
+    "identifier": "doi:10.1002/wcc.407",
+    "verified": true
+  },
+  {
+    "id": "broennimann-kraemer2016",
+    "title": "Tambora and the \"Year Without a Summer\" of 1816. A Perspective on Earth and Human Systems Science (Geographica Bernensia G90)",
+    "authors": [
+      "S. Brönnimann",
+      "D. Krämer"
+    ],
+    "year": 2016,
+    "identifier": "doi:10.4480/GB2016.G90.01",
+    "verified": true
+  },
+  {
+    "id": "simon1955",
+    "title": "On a class of skew distribution functions",
+    "authors": [
+      "H. A. Simon"
+    ],
+    "year": 1955,
+    "identifier": "doi:10.1093/biomet/42.3-4.425",
+    "verified": true
+  },
+  {
+    "id": "lavigne2013",
+    "title": "Source of the great A.D. 1257 mystery eruption unveiled, Samalas volcano, Rinjani Volcanic Complex, Indonesia",
+    "authors": [
+      "F. Lavigne",
+      "J.-P. Degeai",
+      "J.-C. Komorowski",
+      "S. Guillet",
+      "V. Robert",
+      "P. Lahitte",
+      "et al."
+    ],
+    "year": 2013,
+    "identifier": "doi:10.1073/pnas.1307520110",
+    "verified": true
+  },
+  {
+    "id": "campbell2017",
+    "title": "Global climates, the 1257 mega-eruption of Samalas volcano, Indonesia, and the English food crisis of 1258",
+    "authors": [
+      "B. M. S. Campbell"
+    ],
+    "year": 2017,
+    "identifier": "doi:10.1017/S0080440117000056",
+    "verified": true
+  },
+  {
+    "id": "sigl2015",
+    "title": "Timing and climate forcing of volcanic eruptions for the past 2,500 years",
+    "authors": [
+      "M. Sigl",
+      "M. Winstrup",
+      "J. R. McConnell",
+      "et al."
+    ],
+    "year": 2015,
+    "identifier": "doi:10.1038/nature14565",
+    "verified": true
+  },
+  {
+    "id": "toohey2016",
+    "title": "Climatic and societal impacts of a volcanic double event at the dawn of the Middle Ages",
+    "authors": [
+      "M. Toohey",
+      "K. Krüger",
+      "M. Sigl",
+      "F. Stordal",
+      "H. Svensen"
+    ],
+    "year": 2016,
+    "identifier": "doi:10.1007/s10584-016-1648-7",
+    "verified": true
+  },
+  {
+    "id": "buentgen2016",
+    "title": "Cooling and societal change during the Late Antique Little Ice Age from 536 to around 660 AD",
+    "authors": [
+      "U. Büntgen",
+      "V. S. Myglan",
+      "F. C. Ljungqvist",
+      "M. McCormick",
+      "N. Di Cosmo",
+      "M. Sigl",
+      "et al."
+    ],
+    "year": 2016,
+    "identifier": "doi:10.1038/ngeo2652",
+    "verified": true
+  },
+  {
+    "id": "kestemont2022",
+    "title": "Forgotten books: The application of unseen species models to the survival of culture",
+    "authors": [
+      "M. Kestemont",
+      "F. Karsdorp",
+      "E. de Bruijn",
+      "M. Driscoll",
+      "K. A. Kapitan",
+      "P. Ó Macháin",
+      "D. Sawyer",
+      "R. Sleiderink",
+      "A. Chao"
+    ],
+    "year": 2022,
+    "identifier": "doi:10.1126/science.abl7655",
+    "verified": true
+  },
+  {
+    "id": "kestemont2022-data",
+    "title": "Forgotten books: supplementary materials (data and code), GitHub mikekestemont/forgotten-books commit 5726755d1fb7547fcb2cddcb6ed924690646f527",
+    "authors": [
+      "M. Kestemont",
+      "F. Karsdorp",
+      "et al."
+    ],
+    "year": 2022,
+    "identifier": "doi:10.5281/zenodo.5947206",
+    "verified": true
+  },
+  {
+    "id": "kendall1948",
+    "title": "On the Generalized \"Birth-and-Death\" Process",
+    "authors": [
+      "D. G. Kendall"
+    ],
+    "year": 1948,
+    "identifier": "doi:10.1214/aoms/1177730285",
+    "verified": true
+  },
+  {
+    "id": "eigen1971",
+    "title": "Selforganization of matter and the evolution of biological macromolecules",
+    "authors": [
+      "M. Eigen"
+    ],
+    "year": 1971,
+    "identifier": "doi:10.1007/BF00623322",
+    "verified": true
   }
 ]

@@ -1,0 +1,19 @@
+id: x.hist.lalia-536
+a:
+  field: climate
+  pattern: "Volcanology/climate: a cluster of large eruptions in 536, 540 and 547 CE (re-dated ice cores, Sigl et al. 2015); the 536/540 'double event' gave the largest decadal NH extratropical radiative forcing in 1,200 years and simulated NH mean cooling of more than 2 C at peak (Toohey et al. 2016)."
+b:
+  field: history
+  pattern: "History: an unprecedented, long, synchronized cooling from 536 to about 660 CE, named the Late Antique Little Ice Age, proposed as an additional factor in the Justinian plague, the transformation of the eastern Roman Empire, the collapse of the Sasanian Empire, steppe and Arabian migrations and upheavals in China (Buentgen et al. 2016)."
+connection: "Sulfate forcing -> multi-year cooling, prolonged by ocean and sea-ice feedbacks and a solar minimum (Buentgen et al. 2016) -> high likelihood of multiple years of significant crop losses, e.g. in Scandinavia (Toohey et al. 2016) -> famine and stress on states."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "Independent tree-ring networks show no NH summer cooling in 536-545 beyond normal variability. Societal events attributed to the LALIA are shown to start before 536, or to be equally frequent in comparable unforced centuries. Dated grain or settlement evidence for Scandinavia shows no decline in the decade after 536/540."
+sources:
+- sigl2015
+- toohey2016
+- buentgen2016
+status: contested
+proposed_by: historian
+notes: "Overall label as filed: established for eruption -> cooling; mainstream hypothesis for crop losses; contested for the large societal outcomes. The schema allows only one evidence label per record; MAINSTREAM-HYPOTHESIS is the label for the crop-loss step, and status is contested because of the large societal outcomes. Per-step labels, exactly as written: 536/540/547 eruptions dated, established; eruptions -> NH cooling 536-c.660, established; cooling -> crop losses, mainstream hypothesis (model-based, Toohey et al. 2016); cooling -> plague, imperial transformation, migrations, mainstream hypothesis / contested; the authors themselves say 'additional environmental factor'."
