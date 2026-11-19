@@ -27,6 +27,14 @@ Rules enforced here, on top of JSON Schema:
 - A condition may spell a hyphenated dial id with underscores, and may call
   ``Z_fission``.
 - atlas/derivations/ has no schema yet and is skipped with a warning.
+- Cross-field links live in atlas/crosslinks/ and use schema/crosslink.schema.json.
+  A link with claim=cause must have support=mechanism and cite at least one
+  source id that exists in sources/ with verified: true. A link with
+  support=analogy must be labelled ANALOGY-ONLY with claim=pattern. Every cited
+  id must exist in sources/.
+- Crosslink ``steps`` must chain (steps[i].to == steps[i+1].from). Under
+  claim=cause every step needs support=mechanism (a step without support
+  inherits the link's) and a verified source.
 """
 
 from __future__ import annotations
@@ -178,6 +186,7 @@ def load_validators(schema_dir: Path) -> dict[str, Draft202012Validator]:
         "stage": "stage.schema.json",
         "backward": "backward.schema.json",
         "seed": "seed.schema.json",
+        "crosslink": "crosslink.schema.json",
     }
     return {
         kind: Draft202012Validator(schemas[filename], registry=registry, format_checker=checker)
@@ -215,8 +224,17 @@ def cross_check(documents: list[LoadedDocument]) -> tuple[list[Issue], list[Issu
         for doc in documents
         if doc.kind == "stage" and isinstance(doc.document.get("id"), str)
     }
+    verified_source_ids = {
+        doc.document["id"]
+        for doc in documents
+        if doc.kind == "source"
+        and isinstance(doc.document.get("id"), str)
+        and doc.document.get("verified") is True
+    }
     for doc in documents:
-        if doc.kind == "link":
+        if doc.kind == "crosslink":
+            issues.extend(_crosslink_rules(doc, source_ids, verified_source_ids))
+        elif doc.kind == "link":
             issues.extend(_link_rules(doc, source_ids, dial_ids))
         elif doc.kind == "backward":
             issues.extend(_citation_rules(doc, source_ids, "backward chain"))
@@ -364,7 +382,9 @@ def _validate_file(
 
     if kind == "atlas":
         parts = Path(rel).parts
-        if "stages" in parts:
+        if "crosslinks" in parts:
+            kind = "crosslink"
+        elif "stages" in parts:
             kind = "stage"
         elif "backward" in parts:
             kind = "backward"
@@ -424,6 +444,8 @@ def _bucket(path: str, kind: str) -> str:
         return "backward"
     if kind == "link":
         return "links"
+    if kind == "crosslink":
+        return "crosslinks"
     return "atlas"
 
 
@@ -657,6 +679,122 @@ def _link_rules(doc: LoadedDocument, source_ids: set[str], dial_ids: set[str]) -
     if label == "IMPORTED":
         issues.extend(_imported_sources(doc.path, who, data.get("sources"), source_ids))
     issues.extend(_condition_rules(doc, dial_ids))
+    return issues
+
+
+def _crosslink_rules(
+    doc: LoadedDocument, source_ids: set[str], verified_source_ids: set[str]
+) -> list[Issue]:
+    """claim=cause needs a mechanism and a verified source; analogy stays a pattern.
+
+    The schema enforces the same shape. This repeats it in plain words and adds
+    the checks a schema cannot do: cited ids must exist in sources/, and a cause
+    link needs at least one of them marked verified.
+    """
+    data = doc.document
+    link_id = data.get("id")
+    who = link_id if isinstance(link_id, str) else doc.path
+    claim = data.get("claim")
+    support = data.get("support")
+    label = data.get("label")
+    sources = data.get("sources")
+    cited = [item for item in sources if isinstance(item, str)] if isinstance(sources, list) else []
+    issues: list[Issue] = []
+    unknown = [item for item in cited if item not in source_ids]
+    if unknown:
+        listed = ", ".join(repr(item) for item in unknown)
+        issues.append(
+            Issue(doc.path, f"crosslink {who!r} cites source ids that are not in sources/: {listed}")
+        )
+    if claim == "cause":
+        if support != "mechanism":
+            issues.append(
+                Issue(
+                    doc.path,
+                    (
+                        f"crosslink {who!r} has claim=cause but support={support!r}; "
+                        "a cause link needs support=mechanism (shared mathematics or analogy "
+                        "shows a pattern, not a cause)"
+                    ),
+                )
+            )
+        if not any(item in verified_source_ids for item in cited):
+            issues.append(
+                Issue(
+                    doc.path,
+                    (
+                        f"crosslink {who!r} has claim=cause but cites no source id that exists "
+                        "in sources/ with verified: true"
+                    ),
+                )
+            )
+    if support == "analogy" and (label != "ANALOGY-ONLY" or claim != "pattern"):
+        issues.append(
+            Issue(
+                doc.path,
+                (
+                    f"crosslink {who!r} has support=analogy, so it must be label ANALOGY-ONLY "
+                    f"with claim=pattern (found label={label!r}, claim={claim!r})"
+                ),
+            )
+        )
+    steps = data.get("steps")
+    if isinstance(steps, list) and steps:
+        rank = {"ESTABLISHED": 0, "MAINSTREAM-HYPOTHESIS": 1, "CONJECTURE": 2, "ANALOGY-ONLY": 3}
+        step_ranks = [rank[s.get("label")] for s in steps if isinstance(s, dict) and s.get("label") in rank]
+        if step_ranks and label in rank and rank[label] < max(step_ranks):
+            weakest = [k for k, r in rank.items() if r == max(step_ranks)][0]
+            issues.append(
+                Issue(
+                    doc.path,
+                    (
+                        f"crosslink {who!r} has label={label!r} but its weakest step is {weakest!r}; "
+                        "a chain's label cannot be stronger than its weakest step"
+                    ),
+                )
+            )
+        for step in steps:
+            if isinstance(step, dict):
+                bad = [i for i in step.get("sources", []) if isinstance(i, str) and i not in source_ids]
+                if bad:
+                    issues.append(Issue(doc.path, f"crosslink {who!r} step cites unknown source ids: {bad}"))
+        dict_steps = [step for step in steps if isinstance(step, dict)]
+        for index in range(len(dict_steps) - 1):
+            end, start = dict_steps[index].get("to"), dict_steps[index + 1].get("from")
+            if end != start:
+                issues.append(
+                    Issue(
+                        doc.path,
+                        (
+                            f"crosslink {who!r} steps do not chain: step {index} ends at {end!r} "
+                            f"but step {index + 1} starts at {start!r}"
+                        ),
+                    )
+                )
+        if claim == "cause":
+            for index, step in enumerate(dict_steps):
+                step_support = step.get("support", support)
+                if step_support != "mechanism":
+                    issues.append(
+                        Issue(
+                            doc.path,
+                            (
+                                f"crosslink {who!r} has claim=cause but step {index} has "
+                                f"support={step_support!r}; every step of a cause chain needs support=mechanism"
+                            ),
+                        )
+                    )
+                cited = step.get("sources") if isinstance(step.get("sources"), list) else []
+                if not any(isinstance(item, str) and item in verified_source_ids for item in cited):
+                    issues.append(
+                        Issue(
+                            doc.path,
+                            (
+                                f"crosslink {who!r} has claim=cause but step {index} cites no source id "
+                                "that exists in sources/ with verified: true"
+                            ),
+                        )
+                    )
     return issues
 
 

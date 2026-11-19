@@ -1,0 +1,31 @@
+id: x.prism-split
+a:
+  field: prr
+  pattern: "PRR D5: familiar dimensions, times and physical pictures are readings of one ordered process under different slicings; the prism separates what was already co-defined."
+  refs:
+  - prr.d5-prism
+  - c.v3o.006.prism-split
+b:
+  field: physics
+  pattern: "A glass prism separates white light into colours that were already present in it; each colour refracts by a fixed amount (Newton 1672)."
+connection: "None. There is no shared mechanism or shared equation. The resemblance is 'a splitter reveals components that were already there'."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "Not breakable as a cause, because it claims none. It is retired if the negative analogy grows to cover the positive one, or upgraded only if someone writes a D5 dispersion relation that predicts a measurable split."
+analogy:
+  positive:
+  - "Both separate components that were already co-present; nothing new is created by the split."
+  - "Both give a different picture depending on how the splitting is done (prism angle and material; PRR slicing)."
+  negative:
+  - "Optical dispersion needs a medium whose refractive index depends on wavelength; D5 names no medium and no index."
+  - "The components of white light can be recombined into white light by a second prism; D5 states no recombination."
+  - "Dispersion is quantitative (Snell's law with n(lambda)); D5 is VOCABULARY, not bound to any operation."
+  neutral:
+  - "Whether D5 slicings have anything like a spectrum: an ordered parameter along which components separate."
+sources:
+- newton1672
+- hesse1966
+status: active
+proposed_by: philosopher
+notes: "The engine card c.v3o.006.prism-split tests a PROXY mapping whose known mechanism is reaction-diffusion bookkeeping, not optics, so it does not support this link either. The neutral row is where research would start."

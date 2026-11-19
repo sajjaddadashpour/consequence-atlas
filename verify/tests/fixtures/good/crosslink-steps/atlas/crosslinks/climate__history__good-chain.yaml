@@ -1,0 +1,12 @@
+id: x.good-chain
+label: MAINSTREAM-HYPOTHESIS
+a: {field: climate, pattern: "A large eruption cools the following summer."}
+b: {field: history, pattern: "Harvests fail and grain prices rise."}
+connection: "Sulfate aerosol lowers summer temperature, shortening the growing season."
+support: mechanism
+claim: cause
+breaks_if: "No cooling or no harvest shortfall after the eruption."
+sources: [src.fixture]
+steps:
+  - {from: eruption, to: cooling, support: mechanism, label: ESTABLISHED, sources: [src.fixture]}
+  - {from: cooling, to: harvest-failure, label: MAINSTREAM-HYPOTHESIS, contested: true, sources: [src.fixture]}

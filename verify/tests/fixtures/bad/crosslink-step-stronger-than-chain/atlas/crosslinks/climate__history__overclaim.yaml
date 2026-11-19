@@ -1,0 +1,12 @@
+id: x.overclaim
+a: {field: climate, pattern: "A large eruption cools the hemisphere."}
+b: {field: history, pattern: "An epidemic follows the famine."}
+connection: "Cooling, crop failure, famine, then epidemic."
+label: ESTABLISHED
+support: mechanism
+claim: cause
+breaks_if: "No cooling follows the eruption."
+sources: [src.fixture]
+steps:
+  - {from: eruption, to: famine, label: ESTABLISHED}
+  - {from: famine, to: epidemic, label: MAINSTREAM-HYPOTHESIS}
