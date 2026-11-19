@@ -1,0 +1,24 @@
+id: x.hist.tambora-1815
+filed_by: Historian
+date: "2026-11-18"
+status: proposal
+link_type: mechanism   # causal chain, not a shared form
+fields: [physics, climate, biology, history]
+pattern_a: "Physics/climate: the April 1815 Tambora eruption injected about 60 Mt of sulfur into the stratosphere (about six times Pinatubo 1991), forming a global sulfate aerosol veil (Oppenheimer 2003, abstract)."
+pattern_b: "Biology/history: 1816, the 'Year without a summer', brought anomalously cold weather to the northeastern USA, maritime Canada and Europe; crop failures were widespread (Oppenheimer 2003). Severe famine in Switzerland, one of the worst-hit regions (Bronnimann & Kramer 2016, preface)."
+mechanism: "Sulfate aerosol veil -> reduced shortwave at the surface -> Northern Hemisphere cooling, well constrained by proxies, with no strong Southern Hemisphere signal (Raible et al. 2016) -> cold, wet growing season -> harvest failure -> famine and price shocks."
+steps:
+  - {step: "eruption -> stratospheric sulfate", label: established, sources: [oppenheimer2003, raible2016]}
+  - {step: "sulfate -> NH cooling in 1816", label: established, sources: [raible2016, oppenheimer2003]}
+  - {step: "cooling -> crop failure in W Europe / NE America", label: established, sources: [oppenheimer2003, broennimann-kraemer2016]}
+  - {step: "crop failure -> famine deaths (e.g. Switzerland)", label: established, sources: [broennimann-kraemer2016]}
+  - {step: "-> accelerated emigration from New England, epidemic typhus", label: "mainstream hypothesis (Oppenheimer: 'implicated in')", sources: [oppenheimer2003]}
+label: "established (physics -> climate -> harvest -> famine); mainstream hypothesis for the downstream social effects (migration, typhus)"
+atlas_label_if_adopted: IMPORTED
+sources: [oppenheimer2003, raible2016, broennimann-kraemer2016]
+breaks_if:
+  - "Re-dated ice cores place the c.1815-16 sulfate peak on a different eruption, or show stratospheric loading far below the cited ~60 Mt S."
+  - "Early instrumental and proxy series show no 1816 summer anomaly in Western Europe / NE North America beyond normal year-to-year spread."
+  - "Harvest and grain-price series for the affected regions show no 1816-17 anomaly, or an equal anomaly in unaffected regions."
+  - "Social step only: emigration or typhus rises start before the harvest failure, or are equally strong in regions without the cold anomaly."
+notes: "Brönnimann & Krämer 2016: full PDF blocked (HTTP 403) from the box; the claims used are from its preface (read via search excerpt) and its DOI is printed by the Institute of Geography, Bern. Recheck page numbers before merge."

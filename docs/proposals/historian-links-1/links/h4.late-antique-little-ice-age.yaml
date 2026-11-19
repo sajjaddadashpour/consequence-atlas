@@ -1,0 +1,21 @@
+id: x.hist.lalia-536
+filed_by: Historian
+date: "2026-11-18"
+status: proposal
+link_type: mechanism
+fields: [physics/volcanology, climate, biology/agriculture, history]
+pattern_a: "Volcanology/climate: a cluster of large eruptions in 536, 540 and 547 CE (re-dated ice cores, Sigl et al. 2015); the 536/540 'double event' gave the largest decadal NH extratropical radiative forcing in 1,200 years and simulated NH mean cooling of more than 2 C at peak (Toohey et al. 2016)."
+pattern_b: "History: an unprecedented, long, synchronized cooling from 536 to about 660 CE, named the Late Antique Little Ice Age, proposed as an additional factor in the Justinian plague, the transformation of the eastern Roman Empire, the collapse of the Sasanian Empire, steppe and Arabian migrations and upheavals in China (Buentgen et al. 2016)."
+mechanism: "Sulfate forcing -> multi-year cooling, prolonged by ocean and sea-ice feedbacks and a solar minimum (Buentgen et al. 2016) -> high likelihood of multiple years of significant crop losses, e.g. in Scandinavia (Toohey et al. 2016) -> famine and stress on states."
+steps:
+  - {step: "536/540/547 eruptions dated", label: established, sources: [sigl2015]}
+  - {step: "eruptions -> NH cooling 536-c.660", label: established, sources: [sigl2015, toohey2016, buentgen2016]}
+  - {step: "cooling -> crop losses", label: "mainstream hypothesis (model-based, Toohey et al. 2016)", sources: [toohey2016]}
+  - {step: "cooling -> plague, imperial transformation, migrations", label: "mainstream hypothesis / contested; the authors themselves say 'additional environmental factor'", sources: [buentgen2016, sigl2015]}
+label: "established for eruption -> cooling; mainstream hypothesis for crop losses; contested for the large societal outcomes"
+atlas_label_if_adopted: CONTESTED
+sources: [sigl2015, toohey2016, buentgen2016]
+breaks_if:
+  - "Independent tree-ring networks show no NH summer cooling in 536-545 beyond normal variability."
+  - "Societal events attributed to the LALIA are shown to start before 536, or to be equally frequent in comparable unforced centuries."
+  - "Dated grain or settlement evidence for Scandinavia shows no decline in the decade after 536/540."
