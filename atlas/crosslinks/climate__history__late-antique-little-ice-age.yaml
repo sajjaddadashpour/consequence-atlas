@@ -18,27 +18,21 @@ status: contested
 proposed_by: historian
 steps:
 - from: 536/540/547 eruptions
-  to: dated ice-core sulfate
-  label: ESTABLISHED
-  sources:
-  - sigl2015
-- from: eruptions
   to: NH cooling 536-c.660
   label: ESTABLISHED
   sources:
   - sigl2015
   - toohey2016
   - buentgen2016
-- from: cooling
+- from: NH cooling 536-c.660
   to: crop losses
   label: MAINSTREAM-HYPOTHESIS
   sources:
   - toohey2016
-- from: cooling
+- from: crop losses
   to: plague and empire outcomes
   label: MAINSTREAM-HYPOTHESIS
   contested: true
   sources:
   - buentgen2016
-  - sigl2015
 notes: "Crop losses are a model-based mainstream hypothesis (Toohey et al. 2016). The plague and empire outcomes remain contested; Büntgen et al. 2016 themselves call the cooling an 'additional environmental factor'."
