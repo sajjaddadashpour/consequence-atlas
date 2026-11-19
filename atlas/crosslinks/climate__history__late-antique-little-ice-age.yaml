@@ -16,4 +16,29 @@ sources:
 - buentgen2016
 status: contested
 proposed_by: historian
-notes: "Overall label as filed: established for eruption -> cooling; mainstream hypothesis for crop losses; contested for the large societal outcomes. The schema allows only one evidence label per record; MAINSTREAM-HYPOTHESIS is the label for the crop-loss step, and status is contested because of the large societal outcomes. Per-step labels, exactly as written: 536/540/547 eruptions dated, established; eruptions -> NH cooling 536-c.660, established; cooling -> crop losses, mainstream hypothesis (model-based, Toohey et al. 2016); cooling -> plague, imperial transformation, migrations, mainstream hypothesis / contested; the authors themselves say 'additional environmental factor'."
+steps:
+- from: 536/540/547 eruptions
+  to: dated ice-core sulfate
+  label: ESTABLISHED
+  sources:
+  - sigl2015
+- from: eruptions
+  to: NH cooling 536-c.660
+  label: ESTABLISHED
+  sources:
+  - sigl2015
+  - toohey2016
+  - buentgen2016
+- from: cooling
+  to: crop losses
+  label: MAINSTREAM-HYPOTHESIS
+  sources:
+  - toohey2016
+- from: cooling
+  to: plague and empire outcomes
+  label: MAINSTREAM-HYPOTHESIS
+  contested: true
+  sources:
+  - buentgen2016
+  - sigl2015
+notes: "Crop losses are a model-based mainstream hypothesis (Toohey et al. 2016). The plague and empire outcomes remain contested; Büntgen et al. 2016 themselves call the cooling an 'additional environmental factor'."

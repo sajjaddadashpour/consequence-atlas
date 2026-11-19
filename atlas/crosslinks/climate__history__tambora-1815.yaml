@@ -6,7 +6,7 @@ b:
   field: history
   pattern: "Biology/history: 1816, the 'Year without a summer', brought anomalously cold weather to the northeastern USA, maritime Canada and Europe; crop failures were widespread (Oppenheimer 2003). Severe famine in Switzerland, one of the worst-hit regions (Bronnimann & Kramer 2016, preface)."
 connection: "Sulfate aerosol veil -> reduced shortwave at the surface -> Northern Hemisphere cooling, well constrained by proxies, with no strong Southern Hemisphere signal (Raible et al. 2016) -> cold, wet growing season -> harvest failure -> famine and price shocks."
-label: ESTABLISHED
+label: MAINSTREAM-HYPOTHESIS
 support: mechanism
 claim: cause
 breaks_if: "Re-dated ice cores place the c.1815-16 sulfate peak on a different eruption, or show stratospheric loading far below the cited ~60 Mt S. Early instrumental and proxy series show no 1816 summer anomaly in Western Europe / NE North America beyond normal year-to-year spread. Harvest and grain-price series for the affected regions show no 1816-17 anomaly, or an equal anomaly in unaffected regions. Social step only: emigration or typhus rises start before the harvest failure, or are equally strong in regions without the cold anomaly."
@@ -16,4 +16,33 @@ sources:
 - broennimann-kraemer2016
 status: active
 proposed_by: historian
-notes: "Overall label as filed: established (physics -> climate -> harvest -> famine); mainstream hypothesis for the downstream social effects (migration, typhus). The ESTABLISHED label is for the chain through famine; the migration and typhus steps are not part of that established claim. Per-step labels, exactly as written: eruption -> stratospheric sulfate, established; sulfate -> NH cooling in 1816, established; cooling -> crop failure in W Europe / NE America, established; crop failure -> famine deaths (e.g. Switzerland), established; -> accelerated emigration from New England, epidemic typhus, mainstream hypothesis (Oppenheimer: 'implicated in'). Brönnimann & Krämer 2016 can only be cited from its preface: the full PDF was blocked (HTTP 403) from the box; the claims used are from its preface (read via search excerpt) and its DOI is printed by the Institute of Geography, Bern. Recheck page numbers before merge."
+steps:
+- from: eruption
+  to: stratospheric sulfate
+  label: ESTABLISHED
+  sources:
+  - oppenheimer2003
+  - raible2016
+- from: stratospheric sulfate
+  to: 1816 cooling
+  label: ESTABLISHED
+  sources:
+  - raible2016
+  - oppenheimer2003
+- from: 1816 cooling
+  to: harvest failure
+  label: ESTABLISHED
+  sources:
+  - oppenheimer2003
+  - broennimann-kraemer2016
+- from: harvest failure
+  to: famine
+  label: ESTABLISHED
+  sources:
+  - broennimann-kraemer2016
+- from: famine
+  to: emigration and typhus
+  label: MAINSTREAM-HYPOTHESIS
+  sources:
+  - oppenheimer2003
+notes: "Kept as one record through to typhus, so the overall label is the weakest step (MAINSTREAM-HYPOTHESIS). Oppenheimer describes emigration and typhus as 'implicated in' the aftermath, not as a demonstrated consequence. Brönnimann & Krämer 2016 can only be cited from its preface: the full PDF was blocked (HTTP 403) from the box; the claims used are from its preface (read via search excerpt) and its DOI is printed by the Institute of Geography, Bern. Recheck page numbers before merge."

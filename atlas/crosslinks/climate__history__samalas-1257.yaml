@@ -15,4 +15,21 @@ sources:
 - campbell2017
 status: contested
 proposed_by: historian
-notes: "Overall label as filed: established for the volcanology and climate steps; CONTESTED for the climate -> 1258 English famine step. The schema allows only one evidence label per record; MAINSTREAM-HYPOTHESIS is the label for the historical step of the chain (the cross-field claim), and status is contested. Per-step labels, exactly as written: Samalas = source of the 1257/58 sulfate spike, established; eruption -> global climatic effects, established (corroborated by tree rings, chronicles, models); eruption -> English famine of 1258, mainstream hypothesis, open: Campbell 2017 weighs Samalas against strong solar forcing and says the answer depends on the precise chronology."
+steps:
+- from: Samalas eruption
+  to: 1257/58 sulfate spike
+  label: ESTABLISHED
+  sources:
+  - lavigne2013
+- from: eruption
+  to: global climatic effects
+  label: ESTABLISHED
+  sources:
+  - lavigne2013
+- from: climatic effects
+  to: 1258 English famine
+  label: MAINSTREAM-HYPOTHESIS
+  contested: true
+  sources:
+  - campbell2017
+notes: "The 1258 English famine step is contested: Campbell 2017 weighs Samalas against strong solar forcing and says the answer depends on the precise chronology. Lavigne et al. 2013 report that tree rings, medieval chronicles and models corroborate the climatic effects."
