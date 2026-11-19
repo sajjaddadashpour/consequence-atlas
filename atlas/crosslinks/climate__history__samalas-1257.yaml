@@ -26,7 +26,7 @@ steps:
   label: ESTABLISHED
   sources:
   - lavigne2013
-- from: climatic effects
+- from: global climatic effects
   to: 1258 English famine
   label: MAINSTREAM-HYPOTHESIS
   contested: true
