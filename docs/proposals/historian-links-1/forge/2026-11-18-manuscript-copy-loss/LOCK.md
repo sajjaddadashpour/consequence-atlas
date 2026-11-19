@@ -96,3 +96,27 @@ The error-threshold part (U_eff < ln(sigma)) remains NOT-TESTABLE-YET (§2). Whe
 5. No widening of "reading," no fitting of sigma from survival, and no use of f3+ before step 3.
 
 No code for those steps is included in this commit.
+
+## Amendment 1 (2026-11-18, pre-data)
+
+Dated 2026-11-18 20:18 America/Regina, before any analysis code has been run and before any f3+ counts have been computed. The text above is unchanged. This amendment drops MIXED and splits the shape test into two claims. Each claim receives exactly one of SURVIVED / KILLED / REDUCES-TO-KNOWN / NOT-TESTABLE-YET. Where this amendment and §6 conflict, this amendment wins. As in §5–§6, each claim is scored twice (full-sample check, and official blind k ≥ 3 test); the k ≥ 3 verdict is the one that may be called a test of unseen tail counts.
+
+A tradition that failed calibration, failed the k ≥ 3 minimum, or cannot return a finite profile CI or AIC is NOT-TESTABLE-YET and is not a vote. The six named traditions remain dutch, english, french, german, icelandic, irish. dAIC is still AIC(M0) − AIC(M1), as in §3.
+
+Claim A (the r test):
+
+- KILLED if the 95% profile CI for r excludes 1 in at least 4 of the 6 traditions.
+- SURVIVED if that CI contains 1 in at least 4 of the 6 traditions.
+- Otherwise NOT-TESTABLE-YET. That residual is the usual path when calibration (or the k ≥ 3 minimum) leaves too few traditions to reach 4 votes. It is also the score if all six remain testable but the split is short of 4 in either direction (for example 3 and 3).
+
+Claim B (M1 vs M0):
+
+- SURVIVED if M1 beats M0 by dAIC ≥ 10 in at least 4 of the 6 traditions.
+- KILLED if M0 beats M1 by dAIC ≥ 10 in at least 4 of the 6 traditions (that is, dAIC ≤ −10 in at least 4).
+- Otherwise NOT-TESTABLE-YET.
+
+A SURVIVED on claim A or claim B is still recorded as REDUCES-TO-KNOWN (Kendall 1948; Simon 1955, doi:10.1093/biomet/42.3-4.425). It does not count toward "same law" under 349ca7f. KILLED and NOT-TESTABLE-YET are recorded as such.
+
+The error-threshold part (U_eff < ln(sigma)) stays NOT-TESTABLE-YET, as in §2 and §6.
+
+MIXED is no longer a verdict for any claim in this lock.

@@ -113,3 +113,26 @@ Soo's rejected-in-53/73 (OLS) and 30/73 (Hill) results are already seen, so a lo
 4. Diagnostics only after the verdict: Soo-style uncorrected OLS, quadratic term, kernel densities of α̂.
 
 No code for those steps is included in this commit.
+
+## Amendment 1 (2026-11-18, pre-data)
+
+Dated 2026-11-18 20:18 America/Regina, before any city-size or growth statistic has been computed from the locked file. The text above is unchanged. This amendment drops MIXED and splits the lock into separate claims. Each claim receives exactly one of SURVIVED / KILLED / REDUCES-TO-KNOWN / NOT-TESTABLE-YET. Where this amendment and §6 conflict, this amendment wins.
+
+Claim Z (Zipf, mid-2020), among the N_Z eligible countries, using the two official estimators OLS-GI and Hill:
+
+- NOT-TESTABLE-YET if N_Z < 20, or if the file fails the identity check in §2.
+- KILLED if both estimators reject α = 1 (95% CI excludes 1) in at least half of eligible countries.
+- SURVIVED if both estimators reject in fewer than half of eligible countries and both median α̂ lie in [0.85, 1.15].
+- KILLED if both estimators reject in fewer than half but either median α̂ falls outside [0.85, 1.15].
+- NOT-TESTABLE-YET if the estimators disagree on the majority (one rejects in at least half, the other in fewer than half).
+
+Claim G (Gibrat, 2010–2020), among the N_G eligible units. The lock has one official estimator, HC1 OLS of log growth on log 2010 size, not two. The analogous median band is the one already locked in §6: median b̂ in [−0.05, 0.05] per log-point of 2010 size. There is no second official estimator, so estimator disagreement cannot arise.
+
+- NOT-TESTABLE-YET if N_G < 20.
+- KILLED if that estimator rejects b = 0 (95% CI excludes 0) in at least half of eligible units.
+- SURVIVED if it rejects in fewer than half and the median b̂ lies in [−0.05, 0.05].
+- KILLED if it rejects in fewer than half but the median b̂ falls outside [−0.05, 0.05].
+
+Claim E (Gibrat explains Zipf) is unchanged: KILLED at max(5, 25%) mismatches as written in §6; otherwise REDUCES-TO-KNOWN (Gabaix 1999); NOT-TESTABLE-YET if N_E < 20.
+
+MIXED is no longer a verdict for any claim in this lock.
