@@ -6,4 +6,4 @@ condition: dimensions == 3
 sources:
 - derive.d2
 status: active
-notes: 'PASS n = 3: numeric E = -0.2500 test units (exact -1/4). FAIL n = 4 (1/r^2 at the collapse threshold) and n = 5 (energy falls without bound as the core shrinks). WEAK n <= 2: everything binds; chemistry unrecognisable (no source; flagged).'
+notes: 'PASS n = 3: numeric E = -0.2500 test units (exact -1/4). FAIL n = 4 (1/r^2 at the collapse threshold) and n = 5 (energy falls without bound as the core shrinks). WEAK n <= 2: everything binds; chemistry unrecognisable (no source; flagged). PRE-EMPTED (slate A1, 2026-11-16): FAILs only when n >= 4, where l.s03.gravity-orbits FAILs in the same stage.'

@@ -7,4 +7,4 @@ sources:
 - tegmark1997
 - adams2019
 status: active
-notes: Stable orbits around long-lived stars only for n = 3.
+notes: 'Stable orbits around long-lived stars only for n = 3. PRE-EMPTED (slate A1, 2026-11-16): FAILs only when n != 3, where l.s03.gravity-orbits already FAILs and S9 is BLOCKED.'

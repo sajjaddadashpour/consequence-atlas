@@ -8,4 +8,4 @@ sources:
 - wolpert1992
 - landauer1961
 status: active
-notes: 'arrow = 1: low-entropy past + separated systems + slow thermalisation leave traces of the past (Rovelli 2020). arrow = 0: no entropy gradient, no traces. arrow = 2: records form, but the past cannot be recovered even in principle.'
+notes: 'arrow = 1: low-entropy past + separated systems + slow thermalisation leave traces of the past (Rovelli 2020). arrow = 0: no entropy gradient, no traces. arrow = 2: records form, but the past cannot be recovered even in principle. REDUNDANT PAIR (slate A1, 2026-11-16): same condition as l.s10.toy-arrow (arrow >= 1); either one alone never decides a verdict, the pair does.'
