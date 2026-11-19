@@ -642,5 +642,16 @@
     "year": 1971,
     "identifier": "doi:10.1007/BF00623322",
     "verified": true
+  },
+  {
+    "id": "adams-grohs2017",
+    "title": "On the habitability of universes without stable deuterium",
+    "authors": [
+      "F. C. Adams",
+      "E. Grohs"
+    ],
+    "year": 2017,
+    "identifier": "doi:10.1016/j.astropartphys.2017.03.009",
+    "verified": true
   }
 ]

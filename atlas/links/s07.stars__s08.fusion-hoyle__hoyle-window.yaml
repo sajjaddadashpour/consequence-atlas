@@ -2,11 +2,11 @@ id: l.s08.hoyle-window
 from: s07.stars
 to: s08.fusion-hoyle
 label: IMPORTED
-condition: abs(strong) <= 0.005 and abs(alpha/0.0072973525693 - 1) <= 0.025
+condition: abs(strong) <= 0.005 and abs(alpha/0.0072973525693 - 1) <= 0.02
 sources:
 - oberhummer2000
 - epelbaum2013
 - adams2019
 - kragh2010
 status: contested
-notes: 'PASS inside strong +/-0.5% and alpha +/-2.5% (Epelbaum 2013). CONTESTED alpha 2.5-4% (inside Oberhummer 2000''s window) or outside the window altogether: models predict C or O output drops by orders of magnitude; Adams 2019 argues viable universes remain. Kragh 2010 on the history of the Hoyle story.'
+notes: 'PASS inside strong +/-0.5% (Oberhummer, Csoto & Schlattl 2000) and alpha +/-2% (Epelbaum et al. 2013, PRL 110, 112502). CONTESTED alpha 2-4% (outside Epelbaum 2013, inside Oberhummer 2000''s Coulomb window) or outside the window altogether: models predict C or O output drops by orders of magnitude; Adams 2019 argues viable universes remain. Kragh 2010 on the history of the Hoyle story. Lock C1b (Chemist).'
