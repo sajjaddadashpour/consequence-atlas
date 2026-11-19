@@ -334,18 +334,17 @@ function linksOf(d) {
 
   add("l.s08.hoyle-window", "s07.stars", "s08.fusion-hoyle", "IMPORTED",
     ["oberhummer2000", "epelbaum2013", "adams2019", "kragh2010"],
-    ds <= 0.005 && da <= 0.025 ? "PASS" : "CONTESTED",
-    ds <= 0.005 && da <= 0.025 ? "PASS inside strong +/-0.5% and alpha +/-2.5% (Epelbaum 2013)."
-      : ds <= 0.005 && da <= 0.04 ? "CONTESTED alpha 2.5-4%: outside Epelbaum 2013's window, inside Oberhummer 2000's."
+    ds <= 0.005 && da <= 0.02 ? "PASS" : "CONTESTED",
+    ds <= 0.005 && da <= 0.02 ? "PASS inside strong +/-0.5% (Oberhummer 2000) and alpha +/-2% (Epelbaum 2013)."
+      : ds <= 0.005 && da <= 0.04 ? "CONTESTED alpha 2-4%: outside Epelbaum 2013's window, inside Oberhummer 2000's."
         : "CONTESTED outside the Hoyle window: models predict C or O output drops; Adams 2019 argues viable universes remain.");
 
   add("l.s08.pp-chain", "s07.stars", "s08.fusion-hoyle", "IMPORTED",
-    ["barnes2012", "adams2019", "macdonald-mullan2009", "tegmark1998"],
-    s >= 0.5 ? "FAIL" : (s > 0.034 || s < -0.04) ? "CONTESTED" : "PASS",
-    s >= 0.5 ? "FAIL s >= 0.5: most hydrogen burned in the Big Bang (MacDonald & Mullan 2009)."
-      : s > 0.034 ? "CONTESTED 0.034 < s < 0.5 (diproton may bind). Classic papers: fatal. Adams 2019: stars still work."
-        : s < -0.04 ? "CONTESTED s < -0.04 (deuteron may unbind). Classic papers: no pp chain. Adams 2019: stars still work."
-          : "PASS: deuteron bound, diproton unbound.");
+    ["adams2019", "adams-grohs2017", "macdonald-mullan2009", "barnes2012"],
+    (s > 0.06 || s < -0.04) ? "CONTESTED" : "PASS",
+    s > 0.06 ? "CONTESTED s > 0.06 (diproton may bind; edge +6% square well to +17% Yukawa, Adams 2019). Classic papers: fatal. MacDonald & Mullan 2009: hydrogen survives."
+      : s < -0.04 ? "CONTESTED s < -0.04 (deuteron may unbind; edge -4% square well to -6% Yukawa, Adams 2019). Classic papers: no pp chain. Adams & Grohs 2017: stars still work."
+        : "PASS: deuteron bound, diproton unbound.");
 
   add("l.s09.planet-orbits", "s07.stars", "s09.planets", "IMPORTED", ["tegmark1997", "adams2019"],
     n === 3 ? "PASS" : "FAIL",

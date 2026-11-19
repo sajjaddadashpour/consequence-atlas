@@ -2,11 +2,13 @@ id: l.s08.pp-chain
 from: s07.stars
 to: s08.fusion-hoyle
 label: IMPORTED
-condition: -0.04 <= strong <= 0.034
+condition: -0.04 <= strong <= 0.06
+assumptions:
+- 'ASSUMED: nuclear well depth scales linearly with alpha_s, so dial s = fractional change in alpha_s (MacDonald & Mullan 2009: V = G^2 V0, s = G^2 - 1).'
 sources:
-- barnes2012
 - adams2019
+- adams-grohs2017
 - macdonald-mullan2009
-- tegmark1998
+- barnes2012
 status: contested
-notes: 'PASS: deuteron bound, diproton unbound. CONTESTED 0.034 < s < 0.5 (diproton may bind; threshold +3.4% to +17%, model dependent) or s < -0.04 (deuteron may unbind; -4% to -11%): classic papers say fatal, Adams 2019 finds working stars. FAIL s >= 0.5: most hydrogen burned in the Big Bang (MacDonald & Mullan 2009).'
+notes: 'PASS: deuteron bound, diproton unbound (square-well edges -4% / +6%, Adams 2019 sec. 2.4, arXiv PDF p. 31, citing Davies 1972). Never FAIL. CONTESTED s > 0.06: diproton may bind (edge +6% square well to +17% Yukawa); classic claim (Dyson 1971) fatal, but MacDonald & Mullan 2009 find substantial primordial hydrogen survives for G < 1.5 (s < 1.25). CONTESTED s < -0.04: deuteron may unbind (edge -4% to -6% Yukawa); classic claim no pp chain, but Adams & Grohs 2017 find working stars. Lock C2b (Chemist).'

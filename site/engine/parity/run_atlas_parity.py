@@ -74,7 +74,8 @@ def build_grid():
             add("G1", alpha=a, beta=b)
     # G2
     a11 = logspace(1e-6, 1, 11, A0_DIAL)
-    s_must = [-0.2, -0.04, -0.005, 0, 0.005, 0.034, 0.5, 0.6]
+    # Amendment 1 (Physicist, 2026-11-18, post-C2-run, future runs only): 0.034 -> 0.06 and 0.5 -> 0.55 per LOCKED_C1b_C2b_ENGINE.md
+    s_must = [-0.2, -0.04, -0.005, 0, 0.005, 0.06, 0.55, 0.6]
     ss = linspace_inc(-0.2, 0.6, 11, s_must)
     # ensure required s values present: if 11 slots and 8 must + maybe 0 already
     for s in ss:
@@ -108,12 +109,14 @@ def build_grid():
     add("G6", dimensions=5)
     add("G6", arrow=0)
     add("G6", arrow=2)
+    # Amendment 1: a point inside the old 2-2.5% Hoyle alpha gap (C1b K1)
+    add("G8", alpha=1.022 * A0_DIAL)
     # G7
     for n in (1, 3, 5):
         for ar in (0, 1):
             for a in (1e-4, A0_DIAL, 0.02, 0.1, 0.2, 1 / 3, 0.5):
                 for b in (1e-5, B0_DIAL, 1 / 81, 1, 81):
-                    for s in (-0.2, 0, 0.034, 0.5):
+                    for s in (-0.2, 0, 0.06, 0.55):  # Amendment 1: was (-0.2, 0, 0.034, 0.5)
                         for L in (-53.9, 1, 57.5):
                             add("G7", dimensions=n, arrow=ar, alpha=a, beta=b, strong=s, cosmological_constant=L)
 
