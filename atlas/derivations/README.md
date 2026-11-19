@@ -31,8 +31,8 @@ Hydrogen stability: m_n − m_p = Q + E·(α/α₀), Q = 2.52 ± 0.29 MeV, E = �
 Critical α at β = ours: central 2.01 × ours (0.01466), 1σ band 1.48–2.73 × ours. Assumptions are listed on the link.
 
 ## d10
-Cosmological-constant galaxy bound in dial units. MSW 1998: earliest galaxies (z ≈ 4) need ρ_Λ < (1+z)³ ρ_m0 ≈ 125 ρ_m0.
-Planck 2018: Ω_m = 0.315, so Ω_Λ ≈ 0.685 and ρ_Λ,ours = 2.17 ρ_m0. Bound: 125 / 2.17 ≈ 57.5 × ours. Assumptions are listed on the link.
+Cosmological-constant galaxy bound in dial units. MSW 1998 eq. (4), p.6 (from Weinberg 1987): a fluctuation recollapses iff ρ_V ≤ (500/729) δ³ ρ̄, δ the linear growing-mode overdensity (MSW insert the growing-mode σ, eq. 57). The earliest galaxies (z ≈ 4) have δ_lin = 1.686 at z = 4; δ³ρ̄ is invariant under linear growth, so ρ_V ≤ (500/729)·1.686³·(1+z)³ ρ_m0 = 411 ρ_m0.
+Planck 2018: Ω_m = 0.315, so Ω_Λ ≈ 0.685 and ρ_Λ,ours = 2.17 ρ_m0. Bound: 411 / 2.17 ≈ 189 × ours. Before atlas@locked-2026-11-16a the bound was 125 / 2.17 ≈ 57.5, which used (1+z)³ ρ_m0 itself; MSW p.3 and Weinberg 1996 p.3 give 125 ρ_m0 only as a value the bound "cannot be much less than". Assumptions are listed on the link.
 
 ## us27
 Universe Starter v3, lattice-gas arrow-of-time toy, 5 seeds (log Pass 27). Low-entropy start: entropy 0.84 → 3.26 of a maximum 3.74, and the backward run recovers the start exactly. Equilibrium start: stays at 1.965, its maximum. With 2% noise: reaches 3.74 and the backward run misses 21.6% of sites. A mechanism demonstration in a toy, not a prediction about our universe.

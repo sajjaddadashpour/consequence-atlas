@@ -22,7 +22,7 @@ export const BARRIER = 2.62e-12;
 export const K_ADAMS = 10 ** (-8 / 3);
 export const K_TEGMARK = 1 / 200;
 export const K_BARNES = 1 / 100;
-export const LAMBDA_GALAXY = 57.5;
+export const LAMBDA_GALAXY = 189; // was 57.5 until atlas@locked-2026-11-16a (docs/locks/LOCKED_LAMBDA_GALAXY_189.md)
 export const LAMBDA_LIFE = -7.09;
 export const LAMBDA_LIFE_LOOSE = -53.9;
 export const LAMBDA_T0 = 36.7; // Gyr, t = 36.7 / sqrt(|x|) for x < 0
@@ -299,7 +299,7 @@ function linksOf(d) {
   add("l.s07g.lambda-galaxies", "s03.orbits-atoms-gravity", "s07g.galaxies", "DERIVED-UNDER-ASSUMPTION",
     ["weinberg1987", "msw1998", "planck2018", "derive.d10"],
     L < LAMBDA_GALAXY ? "PASS" : "FAIL",
-    L < LAMBDA_GALAXY ? "PASS below the z~4 galaxy-formation bound (57.5 in dial units), including negative Lambda."
+    L < LAMBDA_GALAXY ? "PASS below the z~4 galaxy-formation bound (189 in dial units; MSW 1998 eq. 4), including negative Lambda."
       : "FAIL above the bound: a positive vacuum energy too large stops galaxies forming.");
 
   add("l.s05.carbon-nuclei", "s04.stable-atoms", "s05.hydrogen-table", "IMPORTED", ["tegmark1998"],
@@ -549,7 +549,7 @@ function axisSamples(dialId, n, includeExtra) {
     return { id, scale: def.scale, values: xs, def };
   }
   if (id === "cosmological_constant") {
-    const must = [-1000, -53.9, -7.09, -1, 0, 1, 57.5, 100, 1000].concat(includeExtra || []);
+    const must = [-1000, -53.9, -7.09, -1, 0, 1, 57.5, 100, 189, 1000].concat(includeExtra || []);
     return { id, scale: "symlog", values: symlogspace(def.range[0], def.range[1], n, must), def };
   }
   if (def.scale === "log") {
