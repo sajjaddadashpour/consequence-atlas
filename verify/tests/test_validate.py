@@ -30,6 +30,7 @@ BAD = {
     "crosslink-cause-unverified-source": ("x.cause-unverified", "verified: true"),
     "crosslink-analogy-as-cause": ("x.analogy-cause", "ANALOGY-ONLY"),
     "crosslink-missing-source": ("x.missing-source", "src.missing"),
+    "crosslink-step-stronger-than-chain": ("x.overclaim", "weakest step"),
 }
 
 YAML11_WORDS = ["yes", "Yes", "YES", "no", "No", "NO", "on", "On", "off", "OFF", "y", "Y", "n", "N"]

@@ -735,6 +735,26 @@ def _crosslink_rules(
                 ),
             )
         )
+    steps = data.get("steps")
+    if isinstance(steps, list) and steps:
+        rank = {"ESTABLISHED": 0, "MAINSTREAM-HYPOTHESIS": 1, "CONJECTURE": 2, "ANALOGY-ONLY": 3}
+        step_ranks = [rank[s.get("label")] for s in steps if isinstance(s, dict) and s.get("label") in rank]
+        if step_ranks and label in rank and rank[label] < max(step_ranks):
+            weakest = [k for k, r in rank.items() if r == max(step_ranks)][0]
+            issues.append(
+                Issue(
+                    doc.path,
+                    (
+                        f"crosslink {who!r} has label={label!r} but its weakest step is {weakest!r}; "
+                        "a chain's label cannot be stronger than its weakest step"
+                    ),
+                )
+            )
+        for step in steps:
+            if isinstance(step, dict):
+                bad = [i for i in step.get("sources", []) if isinstance(i, str) and i not in source_ids]
+                if bad:
+                    issues.append(Issue(doc.path, f"crosslink {who!r} step cites unknown source ids: {bad}"))
     return issues
 
 

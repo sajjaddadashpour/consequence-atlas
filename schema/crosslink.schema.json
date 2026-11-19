@@ -4,69 +4,280 @@
   "title": "Atlas cross-field link",
   "description": "One edge of the cross-field causality map, in atlas/crosslinks/<fieldA>__<fieldB>__<slug>.yaml. Physicist's four-part record (a/b patterns, connection, label, breaks_if) plus two tags: support (mechanism | mathematics | analogy) and claim (cause | pattern). verify/validate.py adds: claim=cause needs support=mechanism and at least one cited, verified source id; support=analogy needs label ANALOGY-ONLY and claim=pattern; every cited id must exist in sources/.",
   "type": "object",
-  "required": ["id", "a", "b", "connection", "label", "support", "claim", "breaks_if", "sources"],
+  "required": [
+    "id",
+    "a",
+    "b",
+    "connection",
+    "label",
+    "support",
+    "claim",
+    "breaks_if",
+    "sources"
+  ],
   "additionalProperties": false,
   "$defs": {
-    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,80}$"
+    },
     "field": {
-      "enum": ["physics", "chemistry", "biology", "neuroscience", "history", "economics", "climate", "agriculture", "philosophy", "religion", "prr", "computing"]
+      "enum": [
+        "physics",
+        "chemistry",
+        "biology",
+        "neuroscience",
+        "history",
+        "economics",
+        "climate",
+        "agriculture",
+        "philosophy",
+        "religion",
+        "prr",
+        "computing"
+      ]
     },
     "side": {
       "type": "object",
-      "required": ["field", "pattern"],
+      "required": [
+        "field",
+        "pattern"
+      ],
       "additionalProperties": false,
       "properties": {
-        "field": { "$ref": "#/$defs/field" },
-        "pattern": { "type": "string", "minLength": 10, "description": "The pattern as it appears in this field, in that field's own terms." },
+        "field": {
+          "$ref": "#/$defs/field"
+        },
+        "pattern": {
+          "type": "string",
+          "minLength": 10,
+          "description": "The pattern as it appears in this field, in that field's own terms."
+        },
         "refs": {
           "type": "array",
           "description": "Optional atlas ids this side points at: an atlas link (l.*), a meaning (prr.*), or a card (c.*).",
-          "items": { "$ref": "#/$defs/id" }
+          "items": {
+            "$ref": "#/$defs/id"
+          }
         }
       }
     }
   },
   "properties": {
-    "id": { "type": "string", "pattern": "^x\\.[a-z0-9][a-z0-9._-]{2,78}$" },
-    "a": { "$ref": "#/$defs/side" },
-    "b": { "$ref": "#/$defs/side" },
-    "connection": { "type": "string", "minLength": 10, "description": "The mechanism, shared mathematics, or published result that connects a and b. For an analogy, say plainly that there is none." },
-    "label": { "$ref": "label.schema.json#/$defs/crossLabel" },
-    "support": { "enum": ["mechanism", "mathematics", "analogy"], "description": "mechanism: one causal process acts in both fields. mathematics: different systems obey the same equations or universality class. analogy: resemblance only." },
-    "claim": { "enum": ["cause", "pattern"], "description": "cause: something in a produces or constrains something in b. pattern: a and b share form; neither causes the other." },
-    "breaks_if": { "type": "string", "minLength": 10, "description": "The observation that would break this link." },
+    "id": {
+      "type": "string",
+      "pattern": "^x\\.[a-z0-9][a-z0-9._-]{2,78}$"
+    },
+    "a": {
+      "$ref": "#/$defs/side"
+    },
+    "b": {
+      "$ref": "#/$defs/side"
+    },
+    "connection": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The mechanism, shared mathematics, or published result that connects a and b. For an analogy, say plainly that there is none."
+    },
+    "label": {
+      "$ref": "label.schema.json#/$defs/crossLabel"
+    },
+    "support": {
+      "enum": [
+        "mechanism",
+        "mathematics",
+        "analogy"
+      ],
+      "description": "mechanism: one causal process acts in both fields. mathematics: different systems obey the same equations or universality class. analogy: resemblance only."
+    },
+    "claim": {
+      "enum": [
+        "cause",
+        "pattern"
+      ],
+      "description": "cause: something in a produces or constrains something in b. pattern: a and b share form; neither causes the other."
+    },
+    "breaks_if": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The observation that would break this link."
+    },
     "analogy": {
       "type": "object",
       "description": "Hesse (1966) analogy table. Required when support=analogy.",
-      "required": ["positive", "negative", "neutral"],
+      "required": [
+        "positive",
+        "negative",
+        "neutral"
+      ],
       "additionalProperties": false,
       "properties": {
-        "positive": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "negative": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-        "neutral": { "type": "array", "items": { "type": "string" } }
+        "positive": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "negative": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "neutral": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
-    "sources": { "type": "array", "items": { "$ref": "#/$defs/id" } },
-    "status": { "enum": ["active", "contested", "retracted"] },
-    "proposed_by": { "type": "string" },
-    "notes": { "type": "string" }
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "status": {
+      "enum": [
+        "active",
+        "contested",
+        "retracted"
+      ]
+    },
+    "proposed_by": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Optional per-step chain from a to b. Each step carries its own label. verify/validate.py enforces that the link's overall label is no stronger than its weakest step (a chain is only as certain as its least certain step).",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string",
+            "minLength": 2
+          },
+          "to": {
+            "type": "string",
+            "minLength": 2
+          },
+          "label": {
+            "$ref": "label.schema.json#/$defs/crossLabel"
+          },
+          "contested": {
+            "type": "boolean"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          }
+        }
+      }
+    }
   },
   "allOf": [
     {
-      "if": { "properties": { "claim": { "const": "cause" } }, "required": ["claim"] },
-      "then": { "properties": { "support": { "const": "mechanism" }, "sources": { "minItems": 1 } } }
+      "if": {
+        "properties": {
+          "claim": {
+            "const": "cause"
+          }
+        },
+        "required": [
+          "claim"
+        ]
+      },
+      "then": {
+        "properties": {
+          "support": {
+            "const": "mechanism"
+          },
+          "sources": {
+            "minItems": 1
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "support": { "const": "analogy" } }, "required": ["support"] },
-      "then": { "required": ["analogy"], "properties": { "label": { "const": "ANALOGY-ONLY" }, "claim": { "const": "pattern" } } }
+      "if": {
+        "properties": {
+          "support": {
+            "const": "analogy"
+          }
+        },
+        "required": [
+          "support"
+        ]
+      },
+      "then": {
+        "required": [
+          "analogy"
+        ],
+        "properties": {
+          "label": {
+            "const": "ANALOGY-ONLY"
+          },
+          "claim": {
+            "const": "pattern"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "label": { "const": "ANALOGY-ONLY" } }, "required": ["label"] },
-      "then": { "properties": { "support": { "const": "analogy" } } }
+      "if": {
+        "properties": {
+          "label": {
+            "const": "ANALOGY-ONLY"
+          }
+        },
+        "required": [
+          "label"
+        ]
+      },
+      "then": {
+        "properties": {
+          "support": {
+            "const": "analogy"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "label": { "enum": ["ESTABLISHED", "MAINSTREAM-HYPOTHESIS"] } }, "required": ["label"] },
-      "then": { "properties": { "sources": { "minItems": 1 } } }
+      "if": {
+        "properties": {
+          "label": {
+            "enum": [
+              "ESTABLISHED",
+              "MAINSTREAM-HYPOTHESIS"
+            ]
+          }
+        },
+        "required": [
+          "label"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sources": {
+            "minItems": 1
+          }
+        }
+      }
     }
   ]
 }
