@@ -41,7 +41,7 @@ Other imported numbers, already in `derived.json` or the derivations README / li
 - Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.025` PASS; `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` still inside Oberhummer, CONTESTED vs Epelbaum; else CONTESTED.
 - Nuclei-still: PASS `beta < 1/81`; CONTESTED `beta > 81`; else FAIL.
 - Non-relativistic atoms: PASS `alpha < 0.2`; CONTESTED `0.2 <= alpha < 1/3`; FAIL `alpha >= 1/3`.
-- pp-chain: PASS `-0.04 <= s <= 0.034`; CONTESTED `s < -0.04` or `0.034 < s < 0.5`; FAIL `s >= 0.5`.
+- pp-chain (Amendment 1, 2026-11-18): PASS `-0.04 <= s <= 0.06` (square-well edges, Adams 2019 §2.4); CONTESTED `s < -0.04` (deuteron may unbind; −4% square well to −6% Yukawa; dissent Adams & Grohs 2017) or `s > 0.06` (diproton may bind; +6% square well to +17% Yukawa; dissent MacDonald & Mullan 2009). Never FAIL.
 - Carbon nuclei: PASS iff `0.1*(1+s) >= 0.3*sqrt(alpha)`.
 
 Time dimensions are not a dial (fixed at one in v0). Gravity G is not a dial.
@@ -84,7 +84,7 @@ Per-link test: the yaml `condition` is the PASS predicate only. The richer PASS 
 | l.s06.nuclei-still | β<1/81 | | β>81 | 1/81≤β≤81 | |
 | l.s06.water | α≤10·A0_DIAL | α>10·A0_DIAL (never FAIL) | | | |
 | l.s08.hoyle-window | \|s\|≤0.005 and \|α/A0_DIAL−1\|≤0.025 | | otherwise (never FAIL) | | |
-| l.s08.pp-chain | −0.04≤s≤0.034 | | s<−0.04 or 0.034<s<0.5 | s≥0.5 | |
+| l.s08.pp-chain | −0.04≤s≤0.06 | | s<−0.04 or s>0.06 (Yukawa limits −0.06 / +0.17; dissents Adams & Grohs 2017, MacDonald & Mullan 2009) | never | |
 | l.s09.planet-orbits | n=3 | | | n≠3 | |
 | l.s11.lambda-lifetime | Λ≥−7.09 (so every Λ≥0) | | −53.9≤Λ<−7.09 (the two stated benchmarks disagree) | Λ<−53.9 (fails both stated benchmarks) | |
 | l.s10.landauer | always | | | | |
@@ -171,12 +171,12 @@ T-A. Numeric: `atlas.js` vs `derived.json` / a Python port of `derive.py` functi
 T-B. Verdicts: `atlas.js` `evaluate` vs a Python reference that implements §3, on a locked grid of at least 1000 dial points, listed below. Identical per-link statuses, identical per-stage statuses, floats in windows to 1e-9 relative. Report the real mismatch counts. Grid (other dials at ours unless named):
 
 - G1: 21 log α in [1e-6,1] (endpoints and A0_DIAL included by snapping the nearest of the 21 to A0_DIAL if not already exact) × 21 log β in [1e-5,100] (snap nearest to B0_DIAL). n=3,s=0,arrow=1,Λ=1. (441)
-- G2: 11 log α (snap ours) × 11 linear s in [−0.2,0.6] including {−0.2,−0.04,−0.005,0,0.005,0.034,0.5,0.6}. n=3,β=ours,arrow=1,Λ=1. (121)
+- G2: 11 log α (snap ours) × 11 linear s in [−0.2,0.6] including {−0.2,−0.04,−0.005,0,0.005,0.06,0.55,0.6} (Amendment 1; was 0.034, 0.5). n=3,β=ours,arrow=1,Λ=1. (121)
 - G3: 21 Λ samples on a symmetric-log of [−1000,1000] forced to include {−1000,−53.9,−7.09,−1,0,1,57.5,100,1000}. other dials ours. (21)
 - G4: n∈{1,2,3,4,5} × 11 log α (snap ours). β,s,arrow,Λ at ours. (55)
 - G5: arrow∈{0,1,2} at ours. (3)
 - G6: the 18 `D5_grid` (α,s) pairs at β=ours,n=3,arrow=1,Λ=1; plus each yaml range endpoint for every dial, one at a time. (18+12=30)
-- G7: n∈{1,3,5} × arrow∈{0,1} × α∈{1e-4,A0_DIAL,0.02,0.1,0.2,1/3,0.5} × β∈{1e-5,B0_DIAL,1/81,1,81} × s∈{−0.2,0,0.034,0.5} × Λ∈{−53.9,1,57.5}. (3*2*7*5*4*3=2520, but this is the fill; the required minimum is the union, deduplicated, which is well above 1000)
+- G7: n∈{1,3,5} × arrow∈{0,1} × α∈{1e-4,A0_DIAL,0.02,0.1,0.2,1/3,0.5} × β∈{1e-5,B0_DIAL,1/81,1,81} × s∈{−0.2,0,0.06,0.55} (Amendment 1; was 0.034, 0.5) × Λ∈{−53.9,1,57.5}. (3*2*7*5*4*3=2520, but this is the fill; the required minimum is the union, deduplicated, which is well above 1000)
 
 The Python reference is a test oracle written from this lock, not a second theory.
 
@@ -186,3 +186,10 @@ T-D. `demo.html` loads both modules. A node smoke test imports the modules and, 
 
 ## 7. Out of scope
 No new stages, dials, or thresholds. No gate signing. No push. No hosting. Usage kept modest (no large Starter sweeps).
+
+## Amendment 1 (Physicist, 2026-11-18 ~20:30 CST, America/Regina; written after the C2 run 87993ed, applies to future runs only)
+Follows Chemist's lock docs/locks/LOCKED_C1b_C2b_ENGINE.md (a2bd5c9). Earlier parity reports and verdicts are not re-scored by this amendment.
+- pp-chain thresholds above: PASS −0.04 ≤ s ≤ +0.06; CONTESTED outside, with the Yukawa limits (−0.06, +0.17) and both dissents named; never FAIL.
+- Parity grid: G2 and G7 strong values 0.034 → 0.06 and 0.5 → 0.55 (the C1b/C2b lock drops the +0.034 edge and the s ≥ 0.5 FAIL;
+  0.55 is its K6 point). New G8: α = 1.022·A0_DIAL, other dials ours (inside the old 2–2.5% Hoyle gap; C1b K1). Grid size is reported as run.
+- Not changed here: the Hoyle line (§ above, still 0.025 in this document); that belongs to C1b's own scope.
