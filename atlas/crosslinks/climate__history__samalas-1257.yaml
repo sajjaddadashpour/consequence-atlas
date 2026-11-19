@@ -21,7 +21,7 @@ steps:
   label: ESTABLISHED
   sources:
   - lavigne2013
-- from: eruption
+- from: 1257/58 sulfate spike
   to: global climatic effects
   label: ESTABLISHED
   sources:
