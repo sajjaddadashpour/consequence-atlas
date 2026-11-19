@@ -1,0 +1,12 @@
+id: x.unverified-step
+label: ESTABLISHED
+a: {field: climate, pattern: "A large eruption cools the following summer."}
+b: {field: history, pattern: "Harvests fail and grain prices rise."}
+connection: "Sulfate aerosol lowers summer temperature, shortening the growing season."
+support: mechanism
+claim: cause
+breaks_if: "No cooling or no harvest shortfall after the eruption."
+sources: [src.fixture]
+steps:
+  - {from: eruption, to: cooling, label: ESTABLISHED, sources: [src.fixture]}
+  - {from: cooling, to: famine, label: ESTABLISHED, sources: [src.unverified]}

@@ -31,6 +31,9 @@ BAD = {
     "crosslink-analogy-as-cause": ("x.analogy-cause", "ANALOGY-ONLY"),
     "crosslink-missing-source": ("x.missing-source", "src.missing"),
     "crosslink-step-stronger-than-chain": ("x.overclaim", "weakest step"),
+    "crosslink-steps-broken-chain": ("x.broken-chain", "do not chain", "'aerosol'", "'cooling'"),
+    "crosslink-steps-cause-math-step": ("x.math-step", "step 1", "every step of a cause chain needs support=mechanism"),
+    "crosslink-steps-cause-unverified-step": ("x.unverified-step", "step 1", "verified: true"),
 }
 
 YAML11_WORDS = ["yes", "Yes", "YES", "no", "No", "NO", "on", "On", "off", "OFF", "y", "Y", "n", "N"]
@@ -211,7 +214,8 @@ def test_bundle_of_the_repository_keeps_examples_apart(tmp_path: Path):
     for section in ("cards", "links"):
         assert all(not item["path"].startswith("examples/") for item in payload[section])
         assert not example_paths & {item["path"] for item in payload[section]}
-    assert payload["counts"]["examples"] == 3
+    assert payload["counts"]["examples"] == 4
+    assert "examples/atlas/crosslinks/history__physics__zipf-gibrat.yaml" in {item["path"] for item in payload["examples"]}
     paths = {item["path"]: item["kind"] for item in payload["examples"]}
     assert paths["examples/atlas/link.json"] == "link"
     assert "examples/cards/starter/attract/c.example-0001/card.json" in paths

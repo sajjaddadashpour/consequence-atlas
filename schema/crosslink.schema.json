@@ -177,6 +177,14 @@
           "label": {
             "$ref": "label.schema.json#/$defs/crossLabel"
           },
+          "support": {
+            "enum": [
+              "mechanism",
+              "mathematics",
+              "analogy"
+            ],
+            "description": "Optional. If absent, the step inherits the link's support. Under claim=cause every step must be mechanism."
+          },
           "contested": {
             "type": "boolean"
           },

@@ -1,0 +1,4 @@
+[
+  {"id": "src.fixture", "title": "Fixture source", "year": 2000, "identifier": "url:https://example.org/fixture", "verified": true},
+  {"id": "src.unverified", "title": "Unverified fixture source", "year": 2000, "identifier": "url:https://example.org/unverified", "verified": false}
+]

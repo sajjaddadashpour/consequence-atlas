@@ -32,6 +32,9 @@ Rules enforced here, on top of JSON Schema:
   source id that exists in sources/ with verified: true. A link with
   support=analogy must be labelled ANALOGY-ONLY with claim=pattern. Every cited
   id must exist in sources/.
+- Crosslink ``steps`` must chain (steps[i].to == steps[i+1].from). Under
+  claim=cause every step needs support=mechanism (a step without support
+  inherits the link's) and a verified source.
 """
 
 from __future__ import annotations
@@ -755,6 +758,43 @@ def _crosslink_rules(
                 bad = [i for i in step.get("sources", []) if isinstance(i, str) and i not in source_ids]
                 if bad:
                     issues.append(Issue(doc.path, f"crosslink {who!r} step cites unknown source ids: {bad}"))
+        dict_steps = [step for step in steps if isinstance(step, dict)]
+        for index in range(len(dict_steps) - 1):
+            end, start = dict_steps[index].get("to"), dict_steps[index + 1].get("from")
+            if end != start:
+                issues.append(
+                    Issue(
+                        doc.path,
+                        (
+                            f"crosslink {who!r} steps do not chain: step {index} ends at {end!r} "
+                            f"but step {index + 1} starts at {start!r}"
+                        ),
+                    )
+                )
+        if claim == "cause":
+            for index, step in enumerate(dict_steps):
+                step_support = step.get("support", support)
+                if step_support != "mechanism":
+                    issues.append(
+                        Issue(
+                            doc.path,
+                            (
+                                f"crosslink {who!r} has claim=cause but step {index} has "
+                                f"support={step_support!r}; every step of a cause chain needs support=mechanism"
+                            ),
+                        )
+                    )
+                cited = step.get("sources") if isinstance(step.get("sources"), list) else []
+                if not any(isinstance(item, str) and item in verified_source_ids for item in cited):
+                    issues.append(
+                        Issue(
+                            doc.path,
+                            (
+                                f"crosslink {who!r} has claim=cause but step {index} cites no source id "
+                                "that exists in sources/ with verified: true"
+                            ),
+                        )
+                    )
     return issues
 
 
