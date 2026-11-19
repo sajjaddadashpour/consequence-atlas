@@ -1,0 +1,9 @@
+id: x.cause-by-math
+a: {field: physics, pattern: "Random multiplicative growth gives a power law."}
+b: {field: history, pattern: "City sizes follow a rank-size power law."}
+connection: "Shared equations only, claimed here as a cause."
+label: MAINSTREAM-HYPOTHESIS
+support: mathematics
+claim: cause
+breaks_if: "Growth rates that depend on size."
+sources: [src.fixture]

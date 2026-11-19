@@ -1,0 +1,10 @@
+id: x.analogy-cause
+a: {field: prr, pattern: "The prism separates what was co-defined."}
+b: {field: physics, pattern: "A glass prism separates colours of light."}
+connection: "None; a resemblance only, but claimed here as a cause."
+label: CONJECTURE
+support: analogy
+claim: cause
+breaks_if: "Nothing; that is the problem."
+analogy: {positive: ["both split"], negative: ["no medium in PRR"], neutral: []}
+sources: [src.fixture]

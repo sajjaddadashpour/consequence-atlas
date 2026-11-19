@@ -6,6 +6,7 @@ The Arrow: hand-edited YAML, checked against `schema/`.
 - `links/` — one file per link, named `<from>__<to>__<slug>.yaml` (several links can share a stage pair). Each carries its label, condition, sources and, when DERIVED-UNDER-ASSUMPTION, its assumptions. Validated by `schema/link.schema.json`.
 - `backward/` — the backward chain from "beings who can care", with every bridge premise labelled and the is/ought gap stated.
 - `derivations/` — the arithmetic behind `derive.*` sources.
+- `crosslinks/` — the cross-field causality map: one file per link, named `<fieldA>__<fieldB>__<slug>.yaml`. Each carries Physicist's four-part record (`a`/`b` patterns, `connection`, `label`, `breaks_if`) plus `support` (mechanism | mathematics | analogy) and `claim` (cause | pattern). A `cause` link needs `support: mechanism` and a verified source. Validated by `schema/crosslink.schema.json` and `_crosslink_rules` in `verify/validate.py`.
 
 ## Conditions
 `condition` is the PASS condition, a Python-style expression over dial ids. Hyphens in dial ids become underscores (`cosmological-constant` → `cosmological_constant`). `true` means always PASS. WEAK, CONTESTED and FAIL bands are spelled out in `notes`, and `window` gives the main numeric edge.

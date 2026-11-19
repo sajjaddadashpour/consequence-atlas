@@ -1,0 +1,21 @@
+id: x.landauer-erasure
+a:
+  field: physics
+  pattern: "Logically irreversible erasure of one bit in a system at temperature T dissipates at least k_B T ln 2 of heat (0.018 eV at 300 K)."
+  refs:
+  - l.s10.landauer
+b:
+  field: biology
+  pattern: "A cell that resets a stored internal state (for example a receptor that forgets its last reading so it can sense again) must dissipate at least that bound per bit erased."
+connection: "Same physical process in both systems: the second law applied to a many-to-one map on a memory register. Landauer derived the bound; Berut et al. measured it with a colloidal bit; Mehta and Schwab apply the same thermodynamics to a cellular sensing network."
+label: ESTABLISHED
+support: mechanism
+claim: cause
+breaks_if: "A measured erasure, in any carrier, dissipating reliably less than k_B T ln 2 per bit with the full environment accounted for."
+sources:
+- landauer1961
+- berut2012
+- mehta-schwab2012
+status: active
+proposed_by: philosopher
+notes: "ESTABLISHED as a lower bound: erasure causes at least this heat. NOT claimed: that real cells operate near the bound (their dissipation is typically far above it; size of the gap UNVERIFIED here). Atlas link l.s10.landauer carries the physics side."

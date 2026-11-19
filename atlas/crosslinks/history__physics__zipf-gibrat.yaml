@@ -1,0 +1,18 @@
+id: x.zipf-gibrat
+a:
+  field: history
+  pattern: "City sizes within a country follow a rank-size power law (Zipf: exponent near 1), first noted by Auerbach in 1913."
+b:
+  field: physics
+  pattern: "Any quantity that grows by random multiplicative steps whose rate does not depend on its current size (Gibrat), with a floor that stops it vanishing, settles into a power-law size distribution."
+connection: "Same mathematics, different systems. Gabaix (1999) shows Zipf's law for cities follows if city growth obeys Gibrat's law (size-independent growth rates) with a lower barrier. The same random-growth result produces power laws in firm sizes and other systems; it is a statement about the equations, not one shared causal process."
+label: MAINSTREAM-HYPOTHESIS
+support: mathematics
+claim: pattern
+breaks_if: "City growth rates that depend systematically on city size, or rank-size exponents that differ reliably from 1. Soo (2005) rejected exponent 1 for 53 of 73 countries by OLS but only 30 of 73 with the Hill estimator, so the test itself is estimator-dependent."
+sources:
+- gabaix1999
+- soo2005
+status: contested
+proposed_by: philosopher
+notes: "The regularity is well documented; the Gibrat explanation is a mainstream hypothesis, and how widely the law holds is contested (see Soo 2005). claim=pattern: Gibrat growth in physics does not cause city sizes; cities and the equations share form."

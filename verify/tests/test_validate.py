@@ -26,6 +26,10 @@ BAD = {
     "legacy-past-differs": ("past DIFFERS", "shuffled null"),
     "factor-case": ("measT", "card path must be"),
     "unknown-condition": ("not_a_dial", "underscores"),
+    "crosslink-cause-without-mechanism": ("x.cause-by-math", "claim=cause", "support=mechanism"),
+    "crosslink-cause-unverified-source": ("x.cause-unverified", "verified: true"),
+    "crosslink-analogy-as-cause": ("x.analogy-cause", "ANALOGY-ONLY"),
+    "crosslink-missing-source": ("x.missing-source", "src.missing"),
 }
 
 YAML11_WORDS = ["yes", "Yes", "YES", "no", "No", "NO", "on", "On", "off", "OFF", "y", "Y", "n", "N"]

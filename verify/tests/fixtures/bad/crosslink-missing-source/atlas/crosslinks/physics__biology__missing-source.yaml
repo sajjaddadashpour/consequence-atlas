@@ -1,0 +1,9 @@
+id: x.missing-source
+a: {field: physics, pattern: "Erasing a bit dissipates heat."}
+b: {field: biology, pattern: "A cell resetting a receptor dissipates heat."}
+connection: "Same thermodynamic process."
+label: ESTABLISHED
+support: mechanism
+claim: cause
+breaks_if: "An erasure below the bound."
+sources: [src.missing]

@@ -410,5 +410,71 @@
     "year": 2026,
     "identifier": "url:https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/derivations/README.md#us27",
     "verified": true
+  },
+  {
+    "id": "berut2012",
+    "title": "Experimental verification of Landauer's principle linking information and thermodynamics",
+    "authors": [
+      "A. Bérut",
+      "A. Arakelyan",
+      "A. Petrosyan",
+      "S. Ciliberto",
+      "R. Dillenschneider",
+      "E. Lutz"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1038/nature10872",
+    "verified": true
+  },
+  {
+    "id": "mehta-schwab2012",
+    "title": "Energetic costs of cellular computation",
+    "authors": [
+      "P. Mehta",
+      "D. J. Schwab"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1073/pnas.1207814109",
+    "verified": true
+  },
+  {
+    "id": "gabaix1999",
+    "title": "Zipf's Law for Cities: An Explanation",
+    "authors": [
+      "X. Gabaix"
+    ],
+    "year": 1999,
+    "identifier": "doi:10.1162/003355399556133",
+    "verified": true
+  },
+  {
+    "id": "soo2005",
+    "title": "Zipf's Law for cities: a cross-country investigation",
+    "authors": [
+      "K. T. Soo"
+    ],
+    "year": 2005,
+    "identifier": "doi:10.1016/j.regsciurbeco.2004.04.004",
+    "verified": true
+  },
+  {
+    "id": "newton1672",
+    "title": "A letter of Mr. Isaac Newton ... containing his new theory about light and colors",
+    "authors": [
+      "I. Newton"
+    ],
+    "year": 1672,
+    "identifier": "doi:10.1098/rstl.1671.0072",
+    "verified": true
+  },
+  {
+    "id": "hesse1966",
+    "title": "Models and Analogies in Science",
+    "authors": [
+      "M. B. Hesse"
+    ],
+    "year": 1966,
+    "identifier": "isbn:0268001820",
+    "verified": true
   }
 ]
