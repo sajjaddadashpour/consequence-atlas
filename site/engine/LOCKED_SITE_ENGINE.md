@@ -38,7 +38,7 @@ Other imported numbers, already in `derived.json` or the derivations README / li
 - Λ galaxy bound: `57.5` in dial units (derive.d10 / link).
 - Λ recollapse: `t = 36.7 / sqrt(|x|)` Gyr for `x<0`; benchmarks `x>=-7.09` (13.787 Gyr) and `x>=-53.9` (5 Gyr) (derive.d11 / link).
 - Water: `alpha <= 10 * A0_DIAL`.
-- Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.025` PASS; `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` still inside Oberhummer, CONTESTED vs Epelbaum; else CONTESTED.
+- Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.02` PASS (Epelbaum 2013 alpha +/-2%; strong +/-0.5% Oberhummer 2000); `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` CONTESTED alpha 2-4%: outside Epelbaum 2013, inside Oberhummer 2000; else CONTESTED.
 - Nuclei-still: PASS `beta < 1/81`; CONTESTED `beta > 81`; else FAIL.
 - Non-relativistic atoms: PASS `alpha < 0.2`; CONTESTED `0.2 <= alpha < 1/3`; FAIL `alpha >= 1/3`.
 - pp-chain (Amendment 1, 2026-11-18): PASS `-0.04 <= s <= 0.06` (square-well edges, Adams 2019 §2.4); CONTESTED `s < -0.04` (deuteron may unbind; −4% square well to −6% Yukawa; dissent Adams & Grohs 2017) or `s > 0.06` (diproton may bind; +6% square well to +17% Yukawa; dissent MacDonald & Mullan 2009). Never FAIL.
@@ -83,7 +83,7 @@ Per-link test: the yaml `condition` is the PASS predicate only. The richer PASS 
 | l.s05.table-length | L≥26 | 8≤L<26 | | L<8 | |
 | l.s06.nuclei-still | β<1/81 | | β>81 | 1/81≤β≤81 | |
 | l.s06.water | α≤10·A0_DIAL | α>10·A0_DIAL (never FAIL) | | | |
-| l.s08.hoyle-window | \|s\|≤0.005 and \|α/A0_DIAL−1\|≤0.025 | | otherwise (never FAIL) | | |
+| l.s08.hoyle-window | \|s\|≤0.005 and \|α/A0_DIAL−1\|≤0.02 | | otherwise (never FAIL) | | |
 | l.s08.pp-chain | −0.04≤s≤0.06 | | s<−0.04 or s>0.06 (Yukawa limits −0.06 / +0.17; dissents Adams & Grohs 2017, MacDonald & Mullan 2009) | never | |
 | l.s09.planet-orbits | n=3 | | | n≠3 | |
 | l.s11.lambda-lifetime | Λ≥−7.09 (so every Λ≥0) | | −53.9≤Λ<−7.09 (the two stated benchmarks disagree) | Λ<−53.9 (fails both stated benchmarks) | |
@@ -193,3 +193,6 @@ Follows Chemist's lock docs/locks/LOCKED_C1b_C2b_ENGINE.md (a2bd5c9). Earlier pa
 - Parity grid: G2 and G7 strong values 0.034 → 0.06 and 0.5 → 0.55 (the C1b/C2b lock drops the +0.034 edge and the s ≥ 0.5 FAIL;
   0.55 is its K6 point). New G8: α = 1.022·A0_DIAL, other dials ours (inside the old 2–2.5% Hoyle gap; C1b K1). Grid size is reported as run.
 - Not changed here: the Hoyle line (§ above, still 0.025 in this document); that belongs to C1b's own scope.
+
+### Amendment (Physicist, 2026-11-18 ~20:27 CST, doc-only, future runs)
+- Lines 41 and 86: Hoyle alpha PASS cut 0.025 -> 0.02, matching the engine code already in c8d595d (atlas.js:337-339) and the C1b/C2b lock. No code change.
