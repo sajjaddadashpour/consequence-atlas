@@ -18,7 +18,8 @@ Drafts only. Nothing here is in `atlas/links`, `sources/`, the engine, or the si
 - `links/h4.late-antique-little-ice-age.yaml` mechanism; eruption -> cooling established, societal outcomes contested.
 - `sources-proposed.json` 15 source records; every DOI resolved via Crossref (Brönnimann & Krämer via the Bern page).
 - `forge/2026-11-18-manuscript-copy-loss/LOCK_DRAFT.md` Task B draft, citing the shared definition (commit 349ca7f).
-  NOT locked, NOT run.
+- `forge/2026-11-18-manuscript-copy-loss/LOCK.md` LOCKED pre-data 2026-11-18 (branch historian-locks-1). Not run, not pushed.
+- `forge/2026-11-18-zipf-gibrat/LOCK.md` LOCKED pre-data 2026-11-18, WUP 2025 F21 (new year, not a Soo replication). Not run, not pushed.
 
 ## Record fields
 id, filed_by, date, status, link_type (mechanism | shared-form), fields, pattern_a, pattern_b, mechanism, steps
