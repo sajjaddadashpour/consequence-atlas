@@ -20,3 +20,13 @@ s11 reached), at both the current Λ bound and 189. BW2: validate passes.
   - with the Λ = 189 revision: 140 points in both, 0 backward-only, 0 forward-only.
   Before the fix, the same comparison found 31 backward-only and 6 forward-only points (slate A5).
 - BW2 HELD: `python3 -m verify` valid (459 files, 71 warnings); gen_stages ok; pytest 87 passed. No engine file touched.
+
+
+## Amendment (Physicist, 2026-11-18, America/Regina; after PR #19)
+
+The 2026-11-16 lock, item 2, and the BW1 counts above were written against the pre-#19 engine, in which
+l.s08.pp-chain FAILed at s ≥ 0.5 and was CONTESTED outside −4% ≲ s ≲ +3.4%. After PR #19, pp-chain never
+FAILs: PASS for −0.04 ≤ s ≤ +0.06, CONTESTED outside that band. B5 in atlas/backward/carers.yaml is updated
+to match the current engine (the firm cut "s < +0.5" is removed; the contested band is −4% to +6%). Item 2
+is no longer a disagreement with the forward engine. The BW1 counts (3150-point grid, pre-#19 engine) are
+not re-scored here; the offline A5 comparison script is not in the repo.
