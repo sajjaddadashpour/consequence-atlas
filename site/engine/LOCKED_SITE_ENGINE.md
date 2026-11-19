@@ -110,7 +110,7 @@ Coarse `verdict` (for the UI contract):
 
 `evaluate` also returns, at the given dials and at ours:
 - numeric windows and margins already in `derived.json` (D3 scales, D5 L and α maxima for C/O/Fe, D6 β minima and α bounds at our β, D7, D9 band, `beta_max_ordered=1/81` and its margin)
-- Λ: galaxy threshold 189 (57.5 before 2026-11-16a), lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 57.5
+- Λ: galaxy threshold 189 (57.5 before 2026-11-16a), lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 189
 - each link and stage carries `label` + `sources`
 
 ## 4. Plot data (no new claims; shading uses existing labels)

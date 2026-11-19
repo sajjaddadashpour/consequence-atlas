@@ -43,3 +43,18 @@ U1e. Of the 10 Pass-33 site sets, only Λ = 99.9075 changes: galaxies FAIL→PAS
 - U1c HELD: Python and JS parity, 3150 points, 0 mismatches (stages, verdicts, links, tables, box). The derived-table check also shows 0 mismatches.
 - U1d HELD: `python3 -m verify` valid (459 files, 71 warnings, unchanged); gen_stages --check ok; pytest 87 passed; site builds.
 - U1e HELD: of the 10 Pass-33 sets, only "Lambda 100" (99.9075) changes. Galaxies go FAIL→PASS, stars, Hoyle and planets go to PASS, and life, minds and carers go to OPEN.
+
+
+## Amendment (Physicist, 2026-11-18 21:01 CST, America/Regina; after PR #19)
+
+The U1a–U1e results above were computed on the pre-#19 engine (atlas@locked-2026-11-16a on the 3150-point grid; pp-chain FAILed at s ≥ 0.5). Those numbers are not edited.
+
+The same old-vs-new Λ comparison was re-run on 2026-11-18 against main f9b9d9b plus this bound change, using `site/engine/parity/eval_ref.py` and `run_atlas_parity.build_grid()` (post-#19 grid). Grid size is 3151 points (the previous 3150 plus the new G8 point). The comparison set `LAMBDA_GALAXY` to 57.5 vs 189 and left every other engine constant unchanged.
+
+- U1a still HELD: `l.s07g.lambda-galaxies` goes FAIL→PASS at exactly the 841 grid points with 57.5 ≤ Λ < 189 (Λ = 57.5 at 840 points and Λ = 100 at 1 point). No other link changes; 0 table or box diffs.
+- Stage transitions at those 841 points:
+  - s07g FAIL→PASS 281 (unchanged from the 2026-11-16 run)
+  - s07: BLOCKED→PASS 177, BLOCKED→FAIL 24 (unchanged)
+  - s08: BLOCKED→PASS 11, BLOCKED→CONTESTED 166 (the 44 BLOCKED→FAIL counts at s ≥ 0.5 in the 2026-11-16 run are now BLOCKED→CONTESTED, because pp-chain never FAILs after PR #19; 122 + 44 = 166)
+  - s09 BLOCKED→PASS 177 (unchanged)
+  - s11, s12, s13 BLOCKED→OPEN 17 each (was 13 each on the pre-#19 engine)
