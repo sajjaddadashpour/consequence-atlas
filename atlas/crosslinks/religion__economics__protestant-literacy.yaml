@@ -1,0 +1,22 @@
+id: x.religion.protestant-literacy
+a:
+  field: religion
+  pattern: "Protestant Reformation practice: a mandate that ordinary Christians be able to read the Bible in the vernacular. Literacy is the intended religious means."
+b:
+  field: economics
+  pattern: "Literacy and late-nineteenth-century Prussian prosperity: county-level literacy and economic outcomes, and the gap between Protestant and Catholic counties."
+connection: "Luther required that ordinary Christians be able to read the Bible. Literacy was the intended religious means; higher economic productivity is, on this account, an unintended side-effect, not a work-ethic effect in Weber's sense. Numbers below are from Becker and Woessmann, IZA Discussion Paper 2886, June 2007 (working paper, full text opened); the typeset Quarterly Journal of Economics 2009 pages were not opened, so the figures may have been revised in print. Prussian county data, 1871 census: mean literacy 87.5%. An all-Protestant county has a literacy rate 9.9 percentage points higher than an all-Catholic county. In a horse race, literacy keeps its association with economic outcomes and the Protestant share drops to about zero: 'the whole economic lead of Protestant counties can be attributed to their higher human capital' (WP wording). Identification: roughly concentric spread of Lutheranism around Wittenberg, used as an instrument for the Protestant share. The published QJE abstract (Crossref) makes the same qualitative claims, including the Wittenberg instrumental variable and that literacy can account for the whole prosperity gap. The exclusion restriction (distance to Wittenberg affects prosperity only through Protestantism and literacy) is assumed and has been debated; it is not treated as settled."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "Distance to Wittenberg is shown not to shift later Protestant share, or the literacy gap between Protestant and Catholic Prussian counties disappears in the 1871 census data under the same design. The prosperity step is separately weakened if an alternative channel from Wittenberg distance to economic outcomes, other than Protestantism and literacy, accounts for the economic gap (the exclusion restriction fails)."
+sources:
+- becker-woessmann2009
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.protestant-literacy. Religion as cause. Numeric claims are from the IZA working paper and may have been revised in the typeset QJE; the published abstract, checked on Crossref, agrees qualitatively. The label stays short of ESTABLISHED because the exclusion restriction is assumed. This is not a verdict on any faith."
+evidence_rung: 2
+rung_basis: "The rung 2 rests on distance to Wittenberg used as an instrumental variable, with the exclusion restriction assumed. Distance to Wittenberg is a historical accident of where the 95 Theses were posted, used as a natural-experiment instrument for later Protestant share; literacy is the mediating outcome. The exclusion restriction (distance to Wittenberg affects prosperity only through Protestantism and literacy) is assumed and has been debated; it is not treated as settled, so the prosperity step is not promoted beyond this, and the label stays short of ESTABLISHED."
+model_exists: true
+model_refs:
+- becker-woessmann2009

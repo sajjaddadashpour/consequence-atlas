@@ -1,0 +1,24 @@
+id: x.religion.ramadan-fasting-growth
+a:
+  field: religion
+  pattern: "Longer stipulated daily Ramadan fasting: the daylight length of the fast in a given year, set by the interaction of the rotating lunar Islamic calendar with a country's latitude, not chosen by the economic outcome."
+b:
+  field: economics
+  pattern: "Output growth in Muslim-majority countries, and reported subjective well-being among Muslims, as they vary with the length of the stipulated fast."
+connection: "The Islamic calendar is lunar, so the daylight hours of Ramadan rotate through the solar year; at a given latitude that rotation changes how long a fast is stipulated to last. That interaction is not chosen by the countries in the sample. The published article was opened only as the Crossref abstract plus the identification design; numeric claims are treated as unverified until the typeset Quarterly Journal of Economics pages are opened. A December 2013 CID working paper was also opened as a completeness check; its mechanism write-up emphasises labour-supply preferences rather than club-good screening, so no numbers were taken from the working paper. Published abstract (Campante and Yanagizawa-Drott 2015): '(i) longer Ramadan fasting has a negative effect on output growth in Muslim countries, and (ii) it increases subjective well-being among Muslims. We find evidence that these patterns are consistent with a standard club good explanation ... increased strictness of fasting screens out the less committed members, while the more committed respond with an increase in their relative levels [of religiosity].' Identification, from the same abstract: 'variation in the length of daily fasting due to the interaction between the rotating Islamic calendar and a country's latitude.'"
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "Using the same calendar-by-latitude identification, longer stipulated Ramadan fasting is not associated with lower output growth in Muslim-majority countries, or is not associated with higher reported well-being among Muslims, once the typeset published estimates are opened and checked."
+sources:
+- campante-yanagizawa-drott2015
+- iannaccone1994
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.ramadan-fasting-growth. Religion as cause. Abstract-plus-design only for the published article; treat numeric claims as unverified until the typeset QJE is opened. The CID working paper's mechanism write-up differs from the published abstract (labour-supply preferences rather than club-good screening), so no numbers were taken from the WP. This is a natural experiment on a religious practice, not a judgement of the faith."
+evidence_rung: 2
+rung_basis: "The length of a given year's stipulated fast is set by the lunar calendar and by latitude, not by the economic outcome. This is a natural experiment on a religious practice, not a judgement of the faith."
+model_exists: true
+model_refs:
+- campante-yanagizawa-drott2015
+- iannaccone1994

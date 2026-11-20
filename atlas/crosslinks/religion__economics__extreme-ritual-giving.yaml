@@ -1,0 +1,19 @@
+id: x.religion.extreme-ritual-giving
+a:
+  field: religion
+  pattern: "High-ordeal collective religious ritual: a severe shared ordeal, such as Hindu Thaipusam Kavadi (body piercing, heavy loads, hours of walking), contrasted with a low-ordeal prayer gathering of the same group at the same venue. This is about ordeal and perceived pain, not about synchrony as such."
+b:
+  field: economics
+  pattern: "Charitable giving from an experimental endowment after the ritual, compared across high-ordeal performers, high-ordeal observers, and low-ordeal participants."
+connection: "Shared participation in a severe ritual, and the pain it involves (for performers and, by empathy, for observers), is claimed to raise generosity. Xygalatas et al. 2013 (full text): Hindu Thaipusam in Mauritius; Kavadi versus a low-ordeal prayer gathering at the same venue. n = 86 men of the same religious group: 19 high-ordeal performers, 32 high-ordeal observers, 35 low-ordeal participants. Mean donations from an endowment: 80.91 Mauritian rupees (SD 69.18) after the low-ordeal ritual; 161.25 (SD 65.04) among high-ordeal observers; 132.63 (SD 72.79) among high-ordeal performers. Group effect F(2, 83) = 11.78, p < .001; low versus combined high-ordeal t(84) = -4.61, p < .001; performers versus observers t(49) = 1.45, p = .15. Among the high-ordeal group, perceived pain correlated with donations (r = .36, p < .01). Who performs Kavadi is not randomly assigned, so this stays an association in a real ritual, not an intervention."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "In a comparable high-versus-low ordeal ritual setting, with giving measured the same way, charitable giving does not differ between the high-ordeal and low-ordeal groups, or the association between perceived pain and donations among the high-ordeal group does not replicate."
+sources:
+- xygalatas2013
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.extreme-ritual-giving. Religion as cause. Not a synchrony result; do not file it as one. Who performs Kavadi is not randomly assigned, so the row stays rung 1. This is not a verdict on any faith."
+evidence_rung: 1
+model_exists: false
