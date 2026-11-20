@@ -1,0 +1,96 @@
+PROSE SEARCH (whole volume, masked):
+  line 1370: .signed-out-dropdown-# .nav-container.signed-out-dropdown {
+  line 1374: .signed-out-dropdown-# nav.signed-out-dropdown {
+  line 1386: .signed-out-dropdown-# .initial.signed-out-dropdown,
+  line 1387: .signed-out-dropdown-# .closed.signed-out-dropdown {
+  line 1391: .signed-out-dropdown-# .closed.signed-out-dropdown {
+  line 1395: .signed-out-dropdown-# .open.signed-out-dropdown {
+  line 1400: .signed-out-dropdown-# h#.signed-out-dropdown {
+  line 1408: .signed-out-dropdown-# ul.signed-out-dropdown {
+  line 1418: .signed-out-dropdown-# .divider.signed-out-dropdown {
+  line 1423: .signed-out-dropdown-# a.signed-out-dropdown,
+  line 1424: .signed-out-dropdown-# .info-item.signed-out-dropdown {
+  line 1431: .signed-out-dropdown-# .info-item.signed-out-dropdown {
+  line 1436: .signed-out-dropdown-# .callout.signed-out-dropdown {
+  line 1447: .signed-out-dropdown-# a.mobile-upload.signed-out-dropdown {
+  line 1453: .signed-out-dropdown-# a.mobile-upload.signed-out-dropdown svg.signed-out-dropdown {
+  line 1461: .signed-out-dropdown-# nav.signed-out-dropdown {
+  line 1474: .signed-out-dropdown-# nav.signed-out-dropdown:after {
+  line 1488: .signed-out-dropdown-# h#.signed-out-dropdown {
+  line 1492: .signed-out-dropdown-# ul.signed-out-dropdown {
+  line 1496: .signed-out-dropdown-# .divider.signed-out-dropdown {
+  line 1500: .signed-out-dropdown-# a.signed-out-dropdown {
+  line 1506: .signed-out-dropdown-# .info-item.signed-out-dropdown {
+  line 1512: .signed-out-dropdown-# a.signed-out-dropdown:hover,
+  line 1513: .signed-out-dropdown-# a.signed-out-dropdown:active,
+  line 1514: .signed-out-dropdown-# a.signed-out-dropdown:focus {
+  line 1520: .signed-out-dropdown-# .initial.signed-out-dropdown,
+  line 1521: .signed-out-dropdown-# .closed.signed-out-dropdown {
+  line 1526: .signed-out-dropdown-# .open.signed-out-dropdown {
+  line 1531: .signed-out-dropdown-# a.mobile-upload.signed-out-dropdown {
+  line 1539: .signed-out-dropdown-# .initial.signed-out-dropdown,
+  line 1540: .signed-out-dropdown-# .closed.signed-out-dropdown,
+  line 1541: .signed-out-dropdown-# .open.signed-out-dropdown {
+  line 1549: .signed-out-dropdown-# .initial.signed-out-dropdown,
+  line 1550: .signed-out-dropdown-# .closed.signed-out-dropdown,
+  line 1551: .signed-out-dropdown-# .open.signed-out-dropdown {
+  line 3986: bon état et ne présente aucun signe d’affaissement ou de fissure, sauf sur la
+  line 4035: «Les noms de Syène et d’Éléphantine désignent, le premier une ville située
+  line 4359: suivantes sont effacés; la cinquième est marquée du nombre K. Ainsi l’ordre
+  line 4644: encore la marque d’une statue. Cette base portait une inscription qui fut effa¬
+  line 5093: elle fut étudiée par M. Borchardt, qui retrouva les marques de niveau gravées
+  line 5121: ##. Je n’ai pas remarqué d’autres chiffres.
+  line 5239: ainsi que le montre la marque du niveau de la crue de la meme annee au
+  line 6482: ## pics est un signe de fécondité et de biens; au-dessus de ##, cest la des¬
+  line 6816: sont marquées depuis la base jusqu’au haut du fût par des divisions transver¬
+  line 7313: Certes il y a en cela un signe.
+  line 8268: douze signes du Zodiaque, et de plusieurs hiéroglyphes. On prétend que sa
+  line 9087: vait le fleuve, ce qui permettait aux auteurs de les consigner dans leurs ouvrages,
+  line 9099: seignements, et nous devons nous résigner à supposer que cela a du etre
+  line 39367: «Depuis l’entrée du soleil dans le signe du Cancer jusqu’à ce qu’il passe
+  line 39753: sultats généraux de ces changements, et peut assigner l’ordre successif dans
+  line 39817: vertu des lois de la nature, ce fut pour eux le signe indubitable de la faveur
+  line 39877: certain d’assigner la quantité dont le fond du Nil s’est exhaussé depuis cette
+  line 40103: dont il s’agit; il nous sera facile d’assigner la quantité dont le fond du Nil s’est
+  line 40111: ment il peut servir à assigner la quantité d’exhaussement du lit du Nil au
+  line 40275: «En considérant de plus près le piédestal de cette statue, on remarque dis¬
+  line 40370: la place où elle fut originairement placée; il ne s’agit plus que d’assigner, s’il
+  line 40469: ment facile d'assigner son niveau par rapport à la surface actuelle de la plaine.
+  line 40572: serait celle que nous aurions besoin d’assigner.
+  line 40840: du sol de l’Egypte, mais encore elles nous ont conduits à assigner, avec le
+  line 41955: car, lorsque le soleil fut entré dans le signe du Bélier, l’air se corrompit, la
+  line 41997: cun à ses affaires; je n’aperçus en eux aucun signe d’étonnement ou d’hor¬
+  line 42428: raconté jusqu’ici, c’est que, malgré cet enchaînement de fléaux, signes de la
+  line 43909: étant au signe du Lion, c’est-à-dire hors de saison. ## manquait ## doigts au
+  line 44392: les céréales furent abondantes sous le signe de l’Épée. Le feddan produisit
+
+TABLE PAGES:
+p366: lines=970 hdr=['r SIÈCLE.', 'Hégire : Années # à ###', 'Ère chrétienne : — ### à ###'] other={'MINIM A,': 1, 'MAXIMA. I': 1, 'MÈTRES. |': 1, 'CENT. !': 1, '## I': 1, 'l#': 12, '*#': 67, '#?': 4, 'i': 1, '#a': 7, 'i#': 46, '#*': 2, '«#': 1, 'ûh': 1, 'X #': 1, 'I #': 1, '»': 4, 'l': 1, '#*#': 1, '#i': 5, '°#': 6, "o'i": 1, 'a#': 5, 't#': 1, '# )': 3, '# ANNÉES.': 1, 'M#NIMA.': 1, 'MAXIMA. |': 1, 'MÈTRES. I': 1, 'CENT. #': 1, 'y': 12, '• #': 1, 'J #': 2, 'î #': 1, 'o?': 1, 'i>#': 1, 'Î #': 1, 'ié': 1, 'l l': 1, '&#': 1, '#i I': 1, '#i B': 1, '#° I': 1, '## |': 1, '( #': 1, 'kl': 1, '‘#': 1, '-S ### —': 1, 'COUPÉES.': 1, 'POIGTS.': 1, 'MÈTHES. |': 1, 'a': 5, 'O?': 1, '# °': 1, 'la': 3, 'oa': 1, 'a #': 3, '!#': 1, '%': 1, 'i/a': 1, 'ai': 2, '# O': 1, 'îa': 1, 'ho': 1, '?#': 1, 'r-': 1, 'A #': 1, 'l #': 1, 'ao': 1, '#^': 1, 'Moyenne.': 1}
+p369: lines=290 hdr=['If SIÈCLE.', 'Hégire : Années ### à #Q#', 'Ère chrétienne : — ### à ###'] other={'COUPÉES.': 1, 'POIGTS.': 1, '•#': 1, 'T>': 1, 'J)': 1, '# >': 1, 't #': 1, '# )': 3, 'T)': 1, '»': 5, 'i#': 14, 'i/a': 1, 'a': 3, 'ao': 1, 'oa': 5, '°#': 1, 'Mémoires de VInstitut d’Égypte, t. IX.': 1, 'COUDÉES,': 1, 'a #': 3, '*#': 19, '#°': 1, '#i': 3, 'i l': 1, 'a#': 1, '#/#': 1, '#a': 2, '# a': 1, '^#': 1, '## |': 1, '## I': 1}
+p370: lines=343 hdr=[] other={'MtNIM A.': 1, 'maxima.': 1, '# a': 2, 'l#': 2, 'a #': 2, 'M #': 1, '*#': 23, '# r >': 1, 'r>': 1, 'Y)': 1, 'i#': 29, 'ao': 5, 'T)': 1, 'a': 13, 'Oi': 1, 'il': 1, '!#': 1, '°#': 1, 'îa': 1, 'î': 1, 'oa': 3, 'n': 1, '»': 3, 'i': 8, 'ai': 2, '#a': 3, 't#': 2, '»#': 1, '* ##': 1, 'aa': 2, '#/#': 1, 'a#': 1, '#*': 1, 'j)': 1}
+p371: lines=335 hdr=[] other={'ANNEES.': 1, 'MINI MA.': 1, 'MAXIMA. #': 1, 'l#': 5, 'oai': 1, '#l': 1, '*#': 28, '#)': 2, '#i': 3, 'i#': 23, '#a': 3, 'n': 1, 'a': 6, '## ]': 1, 'Y )': 2, 'a#': 1, 'ao': 4, '°#': 1, 'V': 2, 'oa': 1, '»': 3, '# *': 1, '#?': 1, 'ai': 1, '# a': 2, 'Y)': 1, '###.* .': 1, '■ ### .': 1, 'i Moyenne .': 1, '>##': 1, '# # *': 1}
+p372: lines=292 hdr=['III e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — ### à ###'] other={'MI N IM A.': 1, '* l#': 1, '°#': 1, 'l?': 1, 'l#': 2, '*#': 19, 'i#': 23, 'x #': 1, 'J #': 1, '»': 5, 'A #': 1, 'QO': 1, '?#': 1, 's': 1, 'l #': 1, 'O?': 1, 'w': 1}
+p373: lines=343 hdr=[] other={'MIN IM A.': 1, '»': 1, '#i': 3, 'i#': 18, 'l#': 1, '*#': 40, 'A': 1, 'l/#': 1, 'l #': 1, 'n': 1, '‘#': 1, 'Î #': 1, '°#': 2, 'V#': 1, 'X #': 1, 'q#': 1, 'J #': 2, '## ^': 1, '• #': 1, '## ‘#': 1, '#?': 1, '*# .': 1, '# )': 1, '## Jl': 1, 'I': 1}
+p374: lines=332 hdr=[] other={'! ANNÉES.': 1, 'PK#.': 1, 'CENT,': 1, 'l#': 8, '*#': 38, 'J #': 2, 'n': 2, 'l/ #': 1, '*#*': 1, '‘#': 2, '»': 5, '#i': 2, 'i#': 12, 'r >': 1, '## ■': 1, '■#': 1, '?#': 1, '#°': 1, '# )': 1, '# i': 1, '>#': 1, 'Moyenne.': 1}
+p375: lines=292 hdr=['IV e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — ### à ####'] other={'»': 2, '*#': 19, '°#': 3, 'J #': 1, 'i #': 1, 'i#': 18, '*# •': 1, '\\#': 1, '#*': 1, '?#': 1, '#i': 1, '#/#': 1, 'i?': 1, '# )': 1, 'l#': 1}
+p376: lines=344 hdr=[] other={'MINIMA,': 1, '. # ^': 1, 'l#': 4, '*#': 37, 'JD': 3, '# i': 2, 'O?': 1, '*##': 1, 'i #': 5, '»': 7, '•n': 1, '°#': 3, 'V #': 1, 'X #': 2, 'i#': 9, '<#': 1, 'l #': 1, 'n': 2, '#i': 4, 'i': 1, 'TJ': 1, 'J #': 1, 'A #': 1, '###.‘': 1, '# >': 1, 'î': 1, 'JJ': 1}
+p377: lines=335 hdr=[] other={'JD': 4, 'l#': 4, '*#': 31, '#l': 1, '# )': 4, 'i#': 8, '#?': 3, '°#': 6, '#°': 2, '#i': 2, '»': 2, 'X #': 1, '#%': 1, '#a': 1, 'Moyenne.': 1, '*’ |': 1, 'Mémoires de l’Institut d’Égypte, t. IX.': 1}
+p378: lines=291 hdr=['V e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — #### à ####'] other={'COUDEES.': 1, 'l#': 6, '#*': 1, '*#': 36, '#>': 1, '‘#': 1, '#i': 6, '*# .': 1, 'i#': 6, '»': 3, '**#T': 1, '^#': 1, '. *# .': 1, '°#': 2, '# l #': 1, '• *#': 1, '#*>': 1, '#)': 2}
+p381: lines=294 hdr=['VF SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — #### à ####'] other={'°#': 4, '#a': 1, 'l#': 4, '*#': 25, '»': 3, 'i#': 13, '#i': 4, 'T)': 1, 'y*': 1, 'J #': 1, '!#': 1, 'OO': 1, 'n': 3, '#*': 1, '?#': 1, 'J###.': 1, '#)': 3, '# a': 1}
+p382: lines=345 hdr=[] other={'MINI MA.': 1, 'METRES.': 1, 'COUDEES.': 1, '°#': 9, '*#': 52, '#°': 2, 'i#': 11, 'l#': 3, 'OÔ': 1, '# #*': 1, 'h #': 1, 'y >': 1, 'j)': 1, '«': 1, '?#': 1, '#i': 3, '»': 2, '#t': 1, 'J #': 1, '#*': 1, '- #a': 1, '\\': 1, 'a#': 1}
+p383: lines=341 hdr=[] other={'!': 1, 'MIN IM A.': 1, 'MAXIMA. I': 1, 'l#': 7, '*#': 34, 'J #': 3, '‘#': 1, '• ##': 1, '°#': 6, 'V#': 1, '?#': 1, '»': 4, '#i': 2, 'i#': 9, '#°': 2, 'X i#': 1, '#?': 1, '#)': 1, 'j': 1, 'y': 3, '## f': 1, 'oS': 1, 'A #': 1, '#### . !': 1, '»/ a': 1, '#/#': 1, 'Moyenne .': 1, '■##': 1, 'T': 1}
+p384: lines=638 hdr=['VII e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — #### à ####'] other={'°#': 7, '*#': 65, '. ‘/ a': 1, 'i/a': 1, 'ao': 1, '#°': 1, '# l': 1, '#a': 8, '»': 10, '‘#': 2, 'l/a': 1, '#)': 3, '#i': 3, 'i#': 11, '# )': 3, '#^': 1, '*# .': 1, 'là': 1, '# a': 2, 'n': 2, 'W': 1, 'mètres.': 1, 'l#': 4, 'J #': 1, 'l #': 1, '*# J': 1, '?#': 1, '#?': 2, 'A #': 1, 'T **’’': 1, '* l#': 1, '>#': 1, '#*': 1, '# >': 1, 'a#': 1, 'r': 1, '# Si': 1, '» ^': 1, '‘# I': 1, '*': 1, '! ## #': 1, '*# #': 1, 'Mémoires de VInstitut d ’ Egypte , t. IX.': 1, 'h': 1, "■■ ' > # ■■": 1}
+p386: lines=971 hdr=['VIII e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — #### à ####'] other={'## AX#MA.': 1, 'NIVEAU,': 1, 'ÔO': 1, '*#': 87, '»': 19, 'J #': 4, '#?': 2, '°#': 8, '# )': 8, 'i#': 22, 'î': 1, 'T)': 2, 'yy': 16, '#.>': 1, '#i': 8, 'r>': 1, '# >': 2, 'j #': 1, '«#': 1, '#/#': 2, 'V#': 1, 'D': 1, '• #': 1, 'x #': 1, 'â': 1, 'h #': 1, '#)': 1, '####.. r...': 1, 'OÔ': 3, 'l/#': 1, '#°': 1, '#}': 1, '• *#': 1, 'Moyenne.': 1, '— #S# —': 1, 'M#NIMA.': 1, 'MAXIMA. I': 1, 'NIVEAfr.': 1, '. CENT.': 1, 'A #': 1, 'X # ,': 1, 'B #': 1, '# q': 1, '# j': 1, '#a': 1, '## B': 1, '## J': 1, '* # -': 1, 'MIN IM A.': 1, 'MÈTRES,': 1, '# a': 1, 'OO': 1, 'l#': 8, '####./......': 1, '#l': 1, '###i.': 1, "' i#": 1, '#Ô': 1, 'c#': 1, 'oa': 1, '#^': 1, '# i': 1, 'n': 2, 'î a': 1, 'a#': 4, 'la': 1, 'to': 1, 'U': 1, '?#': 1, 'jî': 1, 'i a': 2, '°#{': 1, 'il': 1, 'l #': 1}
+p389: lines=333 hdr=[] other={'MI NI MA.': 1, 'MAXIMA. I': 1, 'MÈTRES. I': 1, 'CENT. H': 1, 'l #': 1, 'l#': 1, '*#': 24, 'i#': 1, 'i #': 7, '# l': 1, '»': 9, '* # >': 1, '## I': 3, 'a# I': 1, 'n': 3, 'J #': 1, '# °': 1, '# *': 1, 'â #': 1, '®#': 1, '«': 1, 'a #': 1, 'V': 2, '# i': 1, '°#': 1, '# )': 1, '# a': 2, '#### ..*...': 1, '# >': 1, 'Moyenne..': 1, '°# ?': 1}
+p390: lines=683 hdr=['IX e SIÈCLE.', 'Hégire : Années ### à ###', 'Ère chrétienne : — #### à ####'] other={"années'.": 1, "'MI PUMA.": 1, 'MAXIM A. f': 1, 'MÈTRES. I': 1, 'CENT. #': 1, '*#': 32, 'l#': 11, '# # I': 1, 'i#': 16, 'i# I': 1, '#°': 3, '#i': 3, 'i.#': 1, '## I': 4, '»': 7, '°#': 5, 'j#': 1, '#o„': 1, '# Q': 1, '#a': 1, '* y': 1, 'os': 1, '#^': 1, '*# ‘': 1, 'a#': 1, 'W': 8, 'A': 35, 'F': 20, '#?': 1, '* ##': 1, 'r >': 2, 'w': 13, '# )': 5, 'F *': 1, 'r A': 1, "' F": 1, 'A I': 5, 'y )': 1, 'y >': 2, 'T )': 1, 'n': 1, 'A J': 1, '##. J': 1, "A '": 1, 'À': 1, 'ai': 1, 'MINIM A.': 1, 'MÈTRES,': 1, 'QO': 1, '- w': 1, '‘##': 1, '####*..': 1, 'J #': 1, '####.\\': 1, 'g#': 2, 'Moyenne.': 1}
+p393: lines=294 hdr=['X e SIÈCLE.', 'Hégire : Années ### à ####', 'Ère chrétienne : — #### à ####'] other={'M#NIMA.': 1, 'COUDEES.': 1, '#l': 1, 'l#': 2, '»': 3, '#)': 2, '»> .': 1, '°#': 1, '• * ##': 1, '#»': 1, '• ##': 1, '» i': 1, 'Mémoires de l’Institut d’Egypte, t. IX,': 1}
+p394: lines=345 hdr=[] other={'MIN IM A.': 1, '.NIVEAU.': 1, 'METRES.': 1, '• MÈTRES.': 1, '#?': 1, '#)': 8, 'n': 2, 'y #': 1, '* ##': 1, 'f': 1, '# )': 1, 'i W': 1, '#),': 1, '• ##': 1, 'l#': 2, '#°': 2, '#a': 1, 'i#': 1, '*#': 1}
+p395: lines=335 hdr=[] other={'MAXIMA. |': 1, 'niveau.': 1, 'pics.': 1, 'MÈTRES. #': 1, '*#': 12, 'l#': 4, 'i#': 7, '#?': 2, '## j': 1, '#°': 2, '#i': 1, 'q#': 1, 'il': 1, '?#': 1, '■ ##': 1, '°#': 4, 't#': 1, 't #': 1, 's#': 1, '#)': 1, '#»': 1, 'w': 1, 'A': 2, 'F': 1, 'Moyenne.': 1, 'o # i': 1}
+p396: lines=293 hdr=['XI e SIÈCLE.', 'Hégire : Années #### à ####', 'Ère chrétienne : — #### à ####'] other={'COUDEES.': 1, 'i#': 2, '°#': 1, '*#': 4, '#^': 1, '#?': 12, '#)': 2, 'w': 1, 'A': 10, 'F': 4, 'W': 4, '## ’': 1, '• F': 1, 'i': 1, '#i': 1, '•####.': 1, '#? ‘': 1}
+p397: lines=342 hdr=[] other={'| ANNÉES.': 1, 'COÜDÉES.': 1, '>#': 1, '#?': 6, '°#': 1, '#)': 5, 'n': 1, 'jj': 3, '»': 1, 'l#': 1, '## •': 1, 'W': 1, 'A': 2, 'F': 1, '##’': 1, '’': 1, 'ij': 1, '## /': 1, '» #': 1}
+p398: lines=333 hdr=[] other={'MIN IM A.': 1, 'MÈTRES. #': 1, 'jj': 38, 'V': 1, 'JJ': 46, 'l#': 2, 'J)': 2, 'w': 3, 'A': 14, 'F': 7, '# )': 5, '»': 1, 'U': 1, "'j": 1, 'W': 4, '*#': 6, 'i#': 6, '#i': 2, '#a': 1, '## •': 1, 's#': 1, "'J": 1, "' °#": 1, '# J': 1, '# ?': 1, '# ^': 1, 'ij Moyenne .': 1, '°#': 1}
+p399: lines=292 hdr=['XIF SIÈCLE.', 'Hégire : Années #### à ####', 'Ère chrétienne : — #### à ####'] other={'MAXIMA. •': 1, 'MÈTRES. |': 1, 'CENT. I': 1, '#l': 2, '## I': 1, '####...*.': 1, 'JJ': 13, '*#': 13, '#i': 4, 'i#': 7, 'l#': 1, 'jj': 32, "jj'": 1, '# l': 1, 'o# •': 1, 'a#': 1, '##*': 1, 'jj.': 1, '##f#.': 1, 'j>': 1, '#*': 1, '°#': 1}
+p400: lines=343 hdr=[] other={'l#': 5, 'i#': 4, '*#': 18, '#l': 1, '°#': 3, 'r >': 1, '## B': 1, 's#': 1, 'OÔ': 1, '# h': 1, 'J #': 2, '•»': 1, '‘ i#': 1}
+p401: lines=631 hdr=['XIIF SIÈCLE.', 'Hégire :. Années #### à ####', 'Ère chrétienne ; — #### à ####'] other={'*#': 13, '»': 4, 'l#': 11, '#°': 2, 'i#': 10, '#i': 2, '°#': 6, '• #': 1, '#l': 1, '* ##': 1, '#)': 15, '»#': 1, '>#': 1, '• ##': 1, 'W': 1, 'A': 3, 'F': 1, '#?': 2, '## H': 1, 'Moyenne.': 1, 'J #': 1, 'O#': 1, 'Mémoires de l’Institut d ’ Egypte , t. IX.': 1, '/■': 1, 'm —': 1, 'M#NIMA.': 1, 'COUDEES.': 1, 'mètres.': 1, 'JJ': 1, 'T)': 1, '# )': 4, '%': 1, 'ia': 1, '♦': 1, 'l #': 1, 'i #': 2, 'a#': 11, 'Y)': 1, '#a': 3, 'p#': 1, 'là': 1, 'ai': 1, '# I': 1, 'OO': 1, '# l': 1, 'il': 2}
+p403: lines=344 hdr=[] other={'MI N JM A.': 1, 'pics .': 1, 'l#': 11, '°#': 8, '#l': 1, 'i#': 12, '■ #': 1, '#i': 2, '*#': 11, 'l #': 2, 'i #': 2, 'là': 1, '#°': 1, 'i l': 1, '»': 1, 'j #': 1, '*# (': 1, '#i.': 1}
+p404: lines=457 hdr=['SIÈCLES.', 'SIÈCLES.'] other={'MAXIM A.': 1, 'i#': 38, 'l#': 8, '# )': 3, '*#': 14, 'a#': 1, '#i': 3, '’ l# ■': 1, '#^': 2, '»': 5, 'îi': 1, '#?': 1, '°#': 1, 'CO': 1, '!i Moyenne.': 1, '*#,': 1, 'TABLEAU I.': 1, 'NOMBRE D’ANNÉES D’ETIAGE.': 1, 'EXISTANTES.': 2, 'MANQUANTES.': 2, 'TOTAL.': 2, '# er .': 1, 'T) •': 1, 'il # .': 1, 'III e ..': 1, 'IV e .': 1, 'V e .': 1, 'VI e ...': 1, 'VII e .': 2, 'VIII e .': 2, 'IX e .': 1, '* ###': 1, 'X e .': 1, 'XI e .': 2, 'XII e .': 1, 'XIII e ...': 1, 'i#oo': 2, 'TABLEAU II.': 1, 'NOMBRE D’ANNÉES DE CRUES.': 1, 'I er .': 1, 'Il # .': 1, 'III e ...': 1, 'IV e ...': 1, 'V e ...': 1, 'VI e -.': 1, 'V': 1, 'IX e .#. . .': 1, 'x° .': 1, 'xii e .': 1, 'XIII e .': 1}
