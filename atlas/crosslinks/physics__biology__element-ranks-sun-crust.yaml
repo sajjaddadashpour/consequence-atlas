@@ -1,0 +1,20 @@
+id: x.biology.element-ranks-sun-crust
+a:
+  field: physics
+  pattern: "Elemental rank order in the solar photosphere (Asplund, Amarsi and Grevesse 2021, Table 2), compared with the continental crust as a rival ranking (Rudnick and Gao 2003, Table 3)."
+b:
+  field: biology
+  pattern: "Elemental rank order in a whole organism. No E. coli table covering at least 15 of the 20 locked elements was found, so the lock's fallback is ICRP Publication 23 (1975) Reference Man, Table 110."
+connection: "The rank order of elements in the body (ICRP 23 Reference Man) tracks the Sun (Asplund 2021; ρ = 0.65) far better than the crust (Rudnick & Gao 2003; ρ = 0.05). With H and C dropped, the Sun still leads, 0.52 vs 0.41. A rank correlation cannot separate cosmic availability from chemistry and stars favouring the same light elements."
+label: CONJECTURE
+support: mechanism
+claim: pattern
+breaks_if: "On the locked 20-element set, Spearman ρ between body ranks and crust ranks is greater than or equal to ρ with the Sun, or ρ with the Sun falls below 0.5."
+sources:
+- asplund2021
+- rudnick-gao2003
+status: active
+proposed_by: physicist
+notes: "CH-G3 / inbox #18. Lock 97c6394, results 92a0999. Verdict SURVIVED (ρ_S = 0.651, ρ_C = 0.054, atom-number basis). Label CONJECTURE, evidence_rung 1, as in the card: a rank correlation cannot separate cosmic availability from chemistry and stars favouring the same light elements. Asplund 2021 doi:10.1051/0004-6361/202140445 was Crossref-verified; numbers were taken from the arXiv full text (2105.01661). Rudnick and Gao 2003 doi:10.1016/b0-08-043751-6/03016-4 was Crossref-verified as the 2003 Treatise on Geochemistry chapter (pp. 1-64); the publisher text was not opened, and crust values were read from a third-party copy (flagged). ICRP 23 (1975) Table 110 was opened as full text by the scorer; no Crossref work DOI for the 1975 report itself was found, only later notices and reviews, which are not used as the source and are not in sources/. Card text used verbatim as the connection."
+evidence_rung: 1
+model_exists: false
