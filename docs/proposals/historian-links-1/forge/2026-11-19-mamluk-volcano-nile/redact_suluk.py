@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Redact Nile-flood vocabulary from al-Maqrīzī's Sulūk, 648-844 AH.
 
-Locked by the Mamluk eruption-Nile-unrest test, Amendments 1, 4 and 5.
+Locked by the Mamluk eruption-Nile-unrest test, Amendments 1, 4, 5 and 6.
 Deletes every sentence that contains a locked keyword (Nile-flood vocabulary,
 Coptic month names, and the Amendment 5 patterns). Writes one file per Hijri year and a manifest.
 Does not code unrest. Does not print passage text.
@@ -111,7 +111,11 @@ LEFTOVER_STEMS = [
     "اصبع",
     "أصابع",
     "مقياس",
+    "المقياس",
     "خليج",
+    "استسقاء",
+    "استسقى",
+    "استسقوا",
     "زيادة",
     "زياده",
     "تحاريق",
@@ -148,6 +152,12 @@ WATER_SHIP_STEMS = (
 )
 ZIYADA_STEMS = ("زيادة", "زياده")
 ZIYADA_COWORDS = ("ماء", "بحر", "أصابع", "اصابع", "أذرع", "اذرع")
+
+# Amendment 6: rain-prayer stem (Form X) and Nilometer in any form/prefix.
+# Remainder must *begin with* one of these after at most one usual prefix.
+ISTISQA_STEMS = ("استسق", "يستسق", "تستسق", "نستسق", "أستسق", "مستسق")
+# مقياس plus broken plural مقاييس; prefixes/endings as in Amendment 5.
+MIQYAS_STEMS = ("مقياس", "مقاييس")
 
 
 def sha256_file(path: Path) -> str:
@@ -312,6 +322,18 @@ def any_stem(tokens: list[str], stems: tuple[str, ...]) -> bool:
     return any(token_matches_stem(tok, stems) for tok in tokens)
 
 
+def token_begins_with_stem(token: str, stems: tuple[str, ...]) -> bool:
+    for core in a5_cores(token):
+        for stem in stems:
+            if core.startswith(stem):
+                return True
+    return False
+
+
+def any_begins(tokens: list[str], stems: tuple[str, ...]) -> bool:
+    return any(token_begins_with_stem(tok, stems) for tok in tokens)
+
+
 def compile_keyword_res():
     parts = [word_pattern(k) for k in NILE_KEYWORDS + COPTIC_MONTHS]
     parts.extend(PHRASE_KEYWORDS)
@@ -371,6 +393,8 @@ def redact_sentence(sent: str) -> tuple[str, bool]:
     if any_stem(tokens, GHARAQ_STEMS) and any_stem(tokens, WATER_SHIP_STEMS):
         return BLANK_TOKEN, True
     if any_stem(tokens, ZIYADA_STEMS) and any_stem(tokens, ZIYADA_COWORDS):
+        return BLANK_TOKEN, True
+    if any_begins(tokens, ISTISQA_STEMS) or any_stem(tokens, MIQYAS_STEMS):
         return BLANK_TOKEN, True
     return sent, False
 
@@ -439,6 +463,12 @@ def leftover_counts(text: str) -> dict[str, int]:
     n = sum(1 for tok in tokens if token_matches_stem(tok, ZIYADA_STEMS))
     if n:
         counts["زيادة_all_forms"] = n
+    n = sum(1 for tok in tokens if token_begins_with_stem(tok, ISTISQA_STEMS))
+    if n:
+        counts["استسق_all_forms"] = n
+    n = sum(1 for tok in tokens if token_matches_stem(tok, MIQYAS_STEMS))
+    if n:
+        counts["مقياس_all_forms"] = n
     # Conditional leftovers should be zero if the new rules fired.
     sentences = split_sentences(probe) or ([probe] if probe else [])
     cond_g = cond_z = 0

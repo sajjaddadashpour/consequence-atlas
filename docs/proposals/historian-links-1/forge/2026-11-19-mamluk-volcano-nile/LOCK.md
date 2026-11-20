@@ -157,3 +157,20 @@ A token matches stem S if the token itself, or the token after removing at most 
 (b) زيادة is not added on its own, because it also marks price rises, which are evidence for the famine and unrest categories. A sentence containing a token that matches stem زيادة or زياده is blanked only if the same sentence also contains a token matching one of the water or measure stems ماء، بحر، أصابع، اصابع، أذرع، اذرع (the last four are the usual hamza-less spellings of أصابع and أذرع). Some زيادة sentences about the flood will remain, so the blinding stays labelled partial. بلاغ is left alone.
 
 (c) The heading at line 70518, `### | سنة ثلاثين وأربعين وثمانمائة` (raw parse 870), is hand-fixed as 843 AH, on the same order-based rule used for 841: it sits between 842 and 844, and ثلاثين is a defective ثلاث. 843 AH is therefore not missing. Its midpoint CE year, 1439, is scored. The heading-less years are now only 784 and 789 AH. The missing CE years are 1382 (784 AH) and 1387 (789 AH). N is unchanged at 191. N-usable = 189 (191 − 2). Headed Hijri years: 195 of 197. Unscored variant V2 remains withdrawn. The L2 verdict in Amendment 4(g) is unchanged: the scored window still ends at 1440 CE and is almost entirely inside Chaney 2013's 641–1437 period (the scored years after 1437 are now 1438, 1439 and 1440). L2 can only score REDUCES-TO-KNOWN. The card follows L3b.
+
+## Amendment 6 (2026-11-19 20:07 America/Regina; applies before any coding output is kept)
+
+Made after Priest's flag in the TOE room, and after seeing only leftover-word counts per stem in the redacted year-file folder. Those counts, and the year list 694, 705, 719, 722, 754, 775 and 823 AH, were seen by Historian. No passage was read. No eruption, Nilometer or Chaney year-level data were opened. Not driven by any scored result.
+
+Priest counted استسقاء 4 times, استسقى 3 times, and المقياس once, all in `/workspace/historian/mamluk-coding/redacted/`. The استسقاء / استسقى hits were in the year files for 694, 705, 719, 722, 754, 775 and 823 AH. In Mamluk Cairo the rain prayer, *ṣalāt al-istisqāʾ*, was held when the Nile rose too little, so a mention of it nearly codes a low flood directly. Those words were not on the redaction list. The one المقياس hit was in `MANIFEST.json` (the locked keyword list from earlier amendments), not in a year file; the year files already had zero. The exact-token matcher for مقياس still failed to cover suffixed or broken-plural forms, so it is tightened below.
+
+No coding had produced output to be kept. The first batch-1 coder (648–700 AH) was stopped within minutes; its partial output is discarded. `memory_prelist.txt` from that run is kept as `/workspace/historian/mamluk-coding/memory_prelist_discarded.txt`. The folder `/workspace/historian/mamluk-coding/coded/batch1/` is deleted.
+
+(a) The sentence-redaction list adds the following, applied mechanically after tashkeel is stripped, with the same usual prefixes and endings as Amendment 5, and with the unprefixed form tried first.
+
+- استسق (the rain-prayer stem, all forms): a sentence is blanked if any token, after at most one usual prefix is removed, has a remainder that begins with one of: استسق، يستسق، تستسق، نستسق، أستسق، مستسق. This covers استسقاء، الاستسقاء، استسقى، استسقوا، يستسقون and like forms. It does not cover the plain root سقي / سقى / سقاء / فسقية.
+- مقياس (in any form or prefix): a sentence is blanked if any token matches stem مقياس or stem مقاييس (the broken plural), using the Amendment 5 prefix/ending rule. This replaces the earlier exact-token match, which missed suffixed forms.
+
+(b) The counts and years named above are recorded as already seen. Because the batch-1 output is discarded, this amendment still applies before any kept coding.
+
+(c) Any further leaked flood word found after coding begins is handled by flagging the affected years in the results and reporting a sensitivity check without them. It is not handled by re-redacting.
