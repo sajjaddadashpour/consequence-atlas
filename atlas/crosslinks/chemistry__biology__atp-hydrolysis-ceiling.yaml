@@ -1,0 +1,20 @@
+id: x.chemistry.atp-hydrolysis-ceiling
+a:
+  field: chemistry
+  pattern: "Uncatalysed hydrolysis of labile biological phosphoanhydrides in dilute solution, especially Mg·ATP, with published k(25 °C) and ΔH‡ that can be Eyring-extrapolated to 122 °C (Stockbridge and Wolfenden 2009)."
+b:
+  field: biology
+  pattern: "Doubling time of a recorded high-temperature organism, Methanopyrus kandleri 116, at 122 °C and 20 MPa (Takai 2008)."
+connection: "At 122 °C, uncatalysed Mg·ATP hydrolysis (t½ ≈ 6 min, Stockbridge & Wolfenden 2009, extrapolated) is ~125× faster than M. kandleri 116's doubling (~12 h, Takai 2008 Fig. 2A, digitised). Life outruns this decay by upkeep, so bond lability does not set the ceiling. Fragility: the species was not fixed in the lock, and ATP⁴⁻ or Mg·ADP would fall inside the window. Rates were measured in dilute solution."
+label: CONJECTURE
+support: mechanism
+claim: cause
+breaks_if: "With the locked comparison at 122 °C / 20 MPa, t_min/t_d falls in the strict window [0.01, 100] (lability ceiling coincides with life's ceiling), or t_min > 100 t_d (bonds outlast the cell, so the ceiling is set by something else). The species was not fixed in the lock: substituting ATP4- or Mg·ADP would already move the present numbers inside that window, which is why the label stays short of a stronger grade."
+sources:
+- stockbridge-wolfenden2009
+- takai2008
+status: active
+proposed_by: physicist
+notes: "CH-G2 / inbox #17. Lock 97c6394, scorer correction 9ab566e (Amendment 1 clause 3: the 100× window is not loosened to 200×). Chemist checked the digitisation and agrees. Verdict KILLED on the 'life outruns uncatalysed decay by upkeep' branch: t_min/t_d = 0.0080, about 125×. The overall label is CONJECTURE because the hydrolysed species was not fixed in the lock and rates were measured in dilute solution. Wolfenden 2011 was not opened; numbers come from opened full texts of papers it cites. Card text used verbatim as the connection."
+evidence_rung: 1
+model_exists: false

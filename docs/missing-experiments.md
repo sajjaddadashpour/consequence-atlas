@@ -102,6 +102,26 @@ Nothing here is new scoring. Numbers are copied from filed locks and verdicts. R
 
 ---
 
+## T-B1 — ribozyme self-copy fidelity (own ~200-nt folded sequence)
+
+- **Filed by:** Biologist (test T-B1). Lock `3e54e77`, screen `d551d86`, score `c1cc472`. Scored 2026-11-19 ~20:15 America/Regina by Physicist in `forge/2026-11-19-2015-TB1-score`. The locked test **SURVIVED** on short-template e (Johnston 2001 R18 primary), but caveat (2) is a missing experiment and does not change that verdict.
+- **Hypothesis:** A published polymerase or replicase ribozyme can copy its own full, folded sequence (~200 nt) at a per-nucleotide error rate e such that e×L stays below Eigen's threshold at the lock's assumed σ=100 (line 4.6; NEAR band to 9.2).
+- **Why it is unscored as a self-copy test:** Every scored e in T-B1 was measured on short templates (Johnston's primary is an 11-nt mixed template). No ribozyme has copied its own ~200-nt folded sequence, so "below threshold for its own length" is an extrapolation. The short-template SURVIVED result does not fill this gap.
+- **Experiment that would decide it:** A primary measurement of overall per-nucleotide e, as defined in the T-B1 lock, for a polymerase or replicase ribozyme copying its own full active construct (or an equally long, comparably structured RNA of that ribozyme), with L the full assayed construct, reported in the same paper.
+- **Kill condition** (T-B1 lock rules, applied to that self-copy e): KILLED if the primary (lowest-e) such measurement is ABOVE (e×L ≥ 9.2) at σ=100; SURVIVED if it is BELOW (e×L < 4.6); NOT-TESTABLE-YET if it is NEAR, or if no paper reports both a usable e and L for a self-copy experiment.
+
+---
+
+## CH-G1 P2 — water-dimer H-bond / O–H ratio through α ≤ 10× (inbox #16)
+
+- **Filed by:** Chemist (GAP test G1 / inbox #16). Lock CHEM_CAUSAL_CHAIN.md @ `97c6394` (sha256 `b7469204…75ea5`, re-verified) and inbox item 16. Scored 2026-11-19 ~20:15 America/Regina by Physicist in `forge/2026-11-19-1930-chem-g1` @8d40dfd. P1 already **SURVIVED** / **REDUCES-TO-KNOWN**; P2 is **NOT-TESTABLE-YET**.
+- **Hypothesis:** The ratio of the water-dimer hydrogen-bond energy to the O–H bond energy does not move by ≥10% (lenient 2× end 20%) as α/α₀ goes from 1 to 10, in the locked sfX2C / CCSD(T) method.
+- **Why it is unscored:** The compute budget was hit. Both k=1 and k=10 dimer MP2 optimisations converged, but the 5 counterpoise CCSD(T) calculations had not finished by the pre-committed 45-minute wall (OOM kills on a shared box, and a slow intermolecular mode). The method was not changed.
+- **Experiment that would decide it:** A rerun of the same locked code (`run_k.py` at `ef3878b`), with the dimer CCSD(T) / counterpoise steps completed at k=1 and k=10. The scorer estimates about 1–1.5 h of wall time on a quieter box, or the same code with the dimer CCSD(T) run alone. Do not change the Hamiltonian, basis, or correlation method.
+- **Kill condition** (from the inbox-16 lock): KILLED if the H-bond / O–H ratio moves ≥10% by 10× (scored also at the lock's lenient 2× end of 20%); otherwise scored against that locked threshold once the missing energies exist.
+
+---
+
 ## Equanimity — three dials (proposed; not yet locked)
 
 - **Filed by:** Proposed in the room (Physicist, with Priest's kill noted below). **CONJECTURE.** There is no committed lock and no scored row. The meditator study described here was not found.

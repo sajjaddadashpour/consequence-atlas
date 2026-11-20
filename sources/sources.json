@@ -926,5 +926,123 @@
     "year": 2015,
     "identifier": "doi:10.1093/qje/qjv002",
     "verified": true
+  },
+  {
+    "id": "johnston2001",
+    "title": "RNA-Catalyzed RNA Polymerization: Accurate and General RNA-Templated Primer Extension",
+    "authors": [
+      "W. K. Johnston",
+      "P. J. Unrau",
+      "M. S. Lawrence",
+      "M. E. Glasner",
+      "D. P. Bartel"
+    ],
+    "year": 2001,
+    "identifier": "doi:10.1126/science.1060786",
+    "verified": true
+  },
+  {
+    "id": "horning-nasser-joyce2026",
+    "title": "Enhanced Fidelity and Sequence Generality of an RNA Polymerase Ribozyme",
+    "authors": [
+      "D. P. Horning",
+      "S. Nasser",
+      "G. F. Joyce"
+    ],
+    "year": 2026,
+    "identifier": "doi:10.64898/2026.10.18.759947",
+    "verified": true
+  },
+  {
+    "id": "attwater2013",
+    "title": "In-ice evolution of RNA polymerase ribozyme activity",
+    "authors": [
+      "J. Attwater",
+      "A. Wochner",
+      "P. Holliger"
+    ],
+    "year": 2013,
+    "identifier": "doi:10.1038/nchem.1781",
+    "verified": true
+  },
+  {
+    "id": "attwater2018",
+    "title": "Ribozyme-catalysed RNA synthesis using triplet building blocks",
+    "authors": [
+      "J. Attwater",
+      "A. Raguram",
+      "A. S. Morgunov",
+      "E. Gianni",
+      "P. Holliger"
+    ],
+    "year": 2018,
+    "identifier": "doi:10.7554/elife.35255",
+    "verified": true
+  },
+  {
+    "id": "king2010",
+    "title": "Chemistry as a function of the fine-structure constant and the electron-proton mass ratio",
+    "authors": [
+      "R. A. King",
+      "A. Siddiqi",
+      "W. D. Allen",
+      "H. F. Schaefer"
+    ],
+    "year": 2010,
+    "identifier": "doi:10.1103/PhysRevA.81.042523",
+    "verified": true
+  },
+  {
+    "id": "stockbridge-wolfenden2009",
+    "title": "The Intrinsic Reactivity of ATP and the Catalytic Proficiencies of Kinases Acting on Glucose, N-Acetylgalactosamine, and Homoserine",
+    "authors": [
+      "R. B. Stockbridge",
+      "R. Wolfenden"
+    ],
+    "year": 2009,
+    "identifier": "doi:10.1074/jbc.M109.017806",
+    "verified": true
+  },
+  {
+    "id": "takai2008",
+    "title": "Cell proliferation at 122°C and isotopically heavy CH4 production by a hyperthermophilic methanogen under high-pressure cultivation",
+    "authors": [
+      "K. Takai",
+      "K. Nakamura",
+      "T. Toki",
+      "U. Tsunogai",
+      "M. Miyazaki",
+      "J. Miyazaki",
+      "H. Hirayama",
+      "S. Nakagawa",
+      "T. Nunoura",
+      "K. Horikoshi"
+    ],
+    "year": 2008,
+    "identifier": "doi:10.1073/pnas.0712334105",
+    "verified": true
+  },
+  {
+    "id": "asplund2021",
+    "title": "The chemical make-up of the Sun: A 2020 vision",
+    "authors": [
+      "M. Asplund",
+      "A. M. Amarsi",
+      "N. Grevesse"
+    ],
+    "year": 2021,
+    "identifier": "doi:10.1051/0004-6361/202140445",
+    "verified": true
+  },
+  {
+    "id": "rudnick-gao2003",
+    "title": "Composition of the Continental Crust",
+    "authors": [
+      "R. L. Rudnick",
+      "S. Gao"
+    ],
+    "year": 2003,
+    "identifier": "doi:10.1016/b0-08-043751-6/03016-4",
+    "verified": true
   }
 ]

@@ -1,0 +1,25 @@
+id: x.biology.ribozyme-error-threshold
+a:
+  field: physics
+  pattern: "Eigen's error threshold: a sequence persists only if the per-copy information loss stays below a line set by the master's selective superiority, U = e×L < ln(σ) (Eigen 1971). At the T-B1 assumed σ=100, the line is 4.6 (NEAR band to 9.2)."
+b:
+  field: biology
+  pattern: "Published RNA-catalysed, template-directed RNA polymerase or replicase ribozymes, scored by overall per-nucleotide error rate e on a real template and by the full length L of the assayed construct."
+connection: "The most accurate published polymerase ribozyme (Johnston 2001 R18, e≈0.011 from Sanger reads on a mixed 11-nt template, 196 nt) is below Eigen's error threshold for its own length at an assumed σ=100 (e×L≈2.2 < 4.6; 95% CI 1.1–3.7). Caveats: (1) on the paper's Table 2 single-base average it would be NEAR (6.5); (2) fidelity was measured on short templates, and no ribozyme has copied its own ~200-nt folded sequence (missing experiment); (3) at σ=10 only R18 is below the line; (4) the verdict is decided by the best ribozyme, and newer, more processive ones (2026 preprint) are above threshold. Rung 1, model flag."
+label: CONJECTURE
+support: mathematics
+claim: pattern
+breaks_if: "Under the T-B1 lock (3e54e77), the qualifying ribozyme with the lowest e is ABOVE the threshold (e×L ≥ 9.2 at σ=100), or a later measurement of that ribozyme copying its own full, folded construct yields e×L ≥ 9.2. Finding that the paper's Table 2 single-base average is the only reported overall e would have made the primary NEAR, not a kill by itself."
+sources:
+- johnston2001
+- eigen1971
+- horning-nasser-joyce2026
+- attwater2013
+- attwater2018
+status: active
+proposed_by: physicist
+notes: "Later T-B1 card wording, used verbatim as the connection. Lock 3e54e77, screen d551d86, score c1cc472. Verdict SURVIVED on the lock's primary (Johnston 2001 R18, Sanger mixed 11-nt template). REDUCES-TO-KNOWN is not a verdict line for this test. The overall label is CONJECTURE because 'below threshold for its own length' is an extrapolation: fidelity was measured on short templates, and no ribozyme has copied its own ~200-nt folded sequence (missing experiment). Eigen's relation is ESTABLISHED theory and is the model (model_exists, model_refs eigen1971); it does not raise the real-system rung. The 2026 preprint (Horning, Nasser and Joyce, doi:10.64898/2026.10.18.759947, Crossref-verified posted-content) is the secondary most-recent line and is ABOVE; it does not change the primary verdict. Lab models of early Earth, not evidence from it."
+evidence_rung: 1
+model_exists: true
+model_refs:
+- eigen1971

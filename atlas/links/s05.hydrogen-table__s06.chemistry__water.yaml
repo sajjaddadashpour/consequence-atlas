@@ -6,4 +6,4 @@ condition: alpha <= 10*0.0072973525693
 sources:
 - adams2019
 status: active
-notes: 'PASS: water energetics shift well under 10%. WEAK alpha > 10 x ours: O-H bond weakens (about 7 kcal/mol at 7x), roughly a 10% shift (Adams 2019 benchmark).'
+notes: 'PASS: water energetics shift well under 10%. WEAK alpha > 10 x ours: O-H bond weakens (about 7 kcal/mol at 7x), roughly a 10% shift (Adams 2019 benchmark). CH-G1 P1 (Physicist, 2026-11-19, lock 97c6394, repo 8d40dfd): an independent locked CCSD(T) rerun gave ΔD_e(α×7)−ΔD_e(α×1) = −7.07 kcal/mol, SURVIVED / REDUCES-TO-KNOWN relative to that −7 value. P2 (H-bond/O–H ratio through 10×) is NOT-TESTABLE-YET (compute budget).'
