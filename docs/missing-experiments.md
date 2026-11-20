@@ -51,6 +51,18 @@ Nothing here is new scoring. Numbers are copied from filed locks and verdicts. R
 
 ---
 
+## B5 — chemotaxis dial (tumble bias vs spreading, and adaptation)
+
+- **Filed by:** Biologist. Lock `e0c9b86`, screen `e72dfc4`. Scored 2026-11-19 ~19:40 America/Regina by Physicist in `forge/2026-11-19-1940-B5-score` (commit `927429d`). Both halves are scored **NOT-TESTABLE-YET**. Inside biology both would count REDUCES-TO-KNOWN at best; no PRR support either way.
+- **Hypothesis:** Signals set a chaos–order dial in chemotaxis. B5-A: chemotactic performance vs steady-state tumble bias (TB) has an interior maximum, and both extremes are poor. B5-B: removing adaptation (cheR or cheB null, or a methylation-site mutant that blocks adaptation) collapses chemotactic performance, whatever the resulting TB.
+- **Why it is unscored:**
+  - **B5-A:** **NOT-TESTABLE-YET.** Partridge et al. 2019 (mBio, CheZ/IPTG, 7 levels) misses the locked tumble-bias range in both pairings. Design gate: at least one level at TB ≤ 0.05 and at least one at TB ≥ 0.5, same pairing. Swim (0.3%): lowest TB 0.07 ± 0.03, highest ≥ 0.5, fails the low end strictly. Swarm (0.5%): lowest 0.03–0.04, highest 0.42–0.44, fails the high end strictly. Strict gate: FAILS. Unscored observation: both pairings peak at an interior (middle) level, but the extremes keep 31–59% of the peak, not the ≤ 50% the lock requires at both ends. With the verdict cut-offs as written: swim peak 70, extremes 41/70 = 0.59 and 37/70 = 0.53; swarm peak 71, extremes 22/71 = 0.31 and 40/71 = 0.56. If the 2× tolerance is applied only to the TB gate (≤ 0.10, ≥ 0.25), both pairings qualify, but the ratio verdict is still NOT-TESTABLE-YET. The 2× tolerance is not applied to the 50%/80% ratio cut-offs (that would make them vacuous); disclosed as a judgment call.
+  - **B5-B:** **NOT-TESTABLE-YET.** Wolfe & Berg 1989 states only that cheR cheB cells migrated at “about half the rate of wild-type” cells, with no data shown. About 50% sits on the KILLED boundary (≥ 50%) and far above SURVIVED (≤ 20%); without values it cannot be placed. The one stated figure points against the prediction (about half of wild type, not ≤ 20%). Alon et al. 1999 is **UNSCORED** (could not be opened).
+- **Experiment that would decide it:**
+  - B5-A (from SCORE.md): one strain, in one medium, with at least 4 genetically set tumble-bias levels spanning ≤ 0.05 to ≥ 0.5.
+  - B5-B: a plotted comparison of non-adapting mutants against wild type in the same paper. SCORE.md records the gap (text only, no data shown; Alon unopened) but does not itself write this missing-experiment sentence.
+- **Kill condition** (from the lock, already fixed): B5-A is KILLED if P is monotonic in TB, or either extreme keeps ≥ 80% of peak; SURVIVED if the maximum is at an interior level and P at both extremes is ≤ 50% of the peak; anything in between is NOT-TESTABLE-YET. B5-B is KILLED if any non-adapting strain keeps P ≥ 50% of the wild type; SURVIVED if each non-adapting strain has P ≤ 20% of the wild type in the same paper; in between, NOT-TESTABLE-YET. A and B are scored separately. No MIXED.
+
 ## 7b — parchment lifetime (physical book)
 
 - **Filed by:** Historian's sourced note `/workspace/historian/parchment-row.md` (2026-11-18), for Philosopher's persistence lock row 7b (class B, barrier-held; SLOT to be filled only from measured kinetics). The D3 run recorded 7b as UNSCORED, slot EMPTY (`forge/2026-11-18-D3-run`, results `98e8dfc`).
