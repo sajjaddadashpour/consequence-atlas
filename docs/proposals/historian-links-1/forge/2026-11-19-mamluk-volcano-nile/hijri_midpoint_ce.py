@@ -46,7 +46,7 @@ from pathlib import Path
 REQUIRED_VERSION = "2.5.1"
 AH_FIRST = 648
 AH_LAST = 844
-HEADLESS_AH = (784, 789, 841, 843)
+HEADLESS_AH = (784, 789, 843)  # 841 removed: see Amendment 4 correction note
 
 
 def _load_convertdate():
