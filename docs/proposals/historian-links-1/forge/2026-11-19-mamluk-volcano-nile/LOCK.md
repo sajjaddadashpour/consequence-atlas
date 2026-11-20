@@ -139,3 +139,21 @@ Driven by a source failure found in the redaction step, before any text was code
 (g) The scored window ends at 1440 CE (midpoint of 844 AH). That falls almost entirely inside Chaney 2013's 641–1437 period (1437 is scored as a collision year; the only scored years after 1437 are 1438 and 1440; 1439 is missing). So L2 can only score REDUCES-TO-KNOWN. The card follows L3b, as before.
 
 Correction (2026-11-19 19:51 America/Regina): 841 AH is not missing — the heading at line 68428, printed إحدى وأربع وثمانمائة (raw parse 805), stands between 840 and 842 and is the heading for 841; 1437 CE is therefore a scored collision year, and the missing years are 784, 789 and 843 AH (CE 1382, 1387, 1439; N-usable = 188).
+
+## Amendment 5 (2026-11-19 19:58 America/Regina; applies before any coding or join)
+
+Made after seeing only leftover-stem counts per year from the Amendment 4 redaction pass, and the year lists attached to those counts. Those counts and year lists were seen by Historian. No passage was read. No unrest was coded. No eruption, Nilometer or Chaney year-level data were opened. Not driven by any scored result. This amendment supersedes the 843-as-missing statements in Amendment 4 and in the correction of 19:51, and it extends the sentence-redaction list.
+
+(a) The sentence-redaction list adds the following, applied mechanically after tashkeel is stripped.
+
+Usual prefixes, at most one, longest first: وال، فال، بال، كال، لل، ال، و، ف، ب، ك، ل.
+Usual endings, at most one, longest first: كما، هم، هن، كم، كن، ها، نا، ني، ات، ان، ين، ون، وا، ية، ة، ا، ه، ك، ي، ى.
+A token matches stem S if, after at most one usual prefix is removed, the remainder is S, or S plus one usual ending.
+
+- فيضان (all forms): a sentence is blanked if any token matches stem فيضان.
+- خليج (all forms): a sentence is blanked if any token matches stem خليج.
+- غريق / غرق: a sentence is blanked only if it has both (i) a token matching one of the stems غرق، غريق، غرقى، أغرق، اغرق، إغراق، اغراق، يغرق، تغرق، نغرق، مغرق, and (ii) a token matching one of the water, river or ship stems ماء، مياه، نهر، أنهار، انهار، انهر، بحر، بحار، سفينة، سفينه، سفن، مركب، مراكب.
+
+(b) زيادة is not added on its own, because it also marks price rises, which are evidence for the famine and unrest categories. A sentence containing a token that matches stem زيادة or زياده is blanked only if the same sentence also contains a token matching one of the water or measure stems ماء، بحر، أصابع، اصابع، أذرع، اذرع (the last four are the usual hamza-less spellings of أصابع and أذرع). Some زيادة sentences about the flood will remain, so the blinding stays labelled partial. بلاغ is left alone.
+
+(c) The heading at line 70518, `### | سنة ثلاثين وأربعين وثمانمائة` (raw parse 870), is hand-fixed as 843 AH, on the same order-based rule used for 841: it sits between 842 and 844, and ثلاثين is a defective ثلاث. 843 AH is therefore not missing. Its midpoint CE year, 1439, is scored. The heading-less years are now only 784 and 789 AH. The missing CE years are 1382 (784 AH) and 1387 (789 AH). N is unchanged at 191. N-usable = 189 (191 − 2). Headed Hijri years: 195 of 197. Unscored variant V2 remains withdrawn. The L2 verdict in Amendment 4(g) is unchanged: the scored window still ends at 1440 CE and is almost entirely inside Chaney 2013's 641–1437 period (the scored years after 1437 are now 1438, 1439 and 1440). L2 can only score REDUCES-TO-KNOWN. The card follows L3b.

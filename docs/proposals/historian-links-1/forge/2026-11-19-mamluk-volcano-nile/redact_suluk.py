@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Redact Nile-flood vocabulary from al-Maqrīzī's Sulūk, 648-844 AH.
 
-Locked by the Mamluk eruption-Nile-unrest test, Amendments 1 and 4.
-Deletes every sentence that contains a locked keyword (Nile-flood vocabulary
-plus Coptic month names). Writes one file per Hijri year and a manifest.
+Locked by the Mamluk eruption-Nile-unrest test, Amendments 1, 4 and 5.
+Deletes every sentence that contains a locked keyword (Nile-flood vocabulary,
+Coptic month names, and the Amendment 5 patterns). Writes one file per Hijri year and a manifest.
 Does not code unrest. Does not print passage text.
 
 Usage:
@@ -28,9 +28,9 @@ from zoneinfo import ZoneInfo
 
 AH_FIRST = 648
 AH_LAST = 844
-MISSING_HEADINGS = (784, 789, 843)  # 841 is present; see Amendment 4 correction
+MISSING_HEADINGS = (784, 789)  # 841 and 843 hand-fixed; see Amendments 4 and 5
 HANDFIX_841_LINE_HINT = "إحدى وأربع وثمانمائة"
-ANOMALY_843_HEADING = "ثلاثين وأربعين وثمانمائة"
+HANDFIX_843_LINE_HINT = "ثلاثين وأربعين وثمانمائة"
 
 # Locked keywords from the base lock and Amendment 4(c).
 # Variants are usual spellings of the same words, not new terms.
@@ -119,12 +119,35 @@ LEFTOVER_STEMS = [
     "بلاغ",
     "مستحرث",
     "غرقا",
+    "غرق",
     "غريق",
     "كسر",
+    "ماء",
+    "بحر",
 ] + COPTIC_MONTHS
 
 TASHKEEL_RE = re.compile(r"[\u064B-\u065F\u0670\u06D6-\u06ED]")
 PREFIX_RE = r"(?:و|ف|ب|ك|ل|ال|وال|فال|بال|كال|لل)?"
+
+# Amendment 5: mechanical prefix/ending and stem lists (locked).
+# Prefixes and endings are matched longest first; at most one of each.
+A5_PREFIXES = ("وال", "فال", "بال", "كال", "لل", "ال", "و", "ف", "ب", "ك", "ل")
+A5_ENDINGS = (
+    "كما", "هم", "هن", "كم", "كن", "ها", "نا", "ني",
+    "ات", "ان", "ين", "ون", "وا", "ية", "ة", "ا", "ه", "ك", "ي", "ى",
+)
+FAYADAN_STEMS = ("فيضان",)
+KHALIJ_STEMS = ("خليج",)
+GHARAQ_STEMS = (
+    "غرق", "غريق", "غرقى", "أغرق", "اغرق", "إغراق", "اغراق",
+    "يغرق", "تغرق", "نغرق", "مغرق",
+)
+WATER_SHIP_STEMS = (
+    "ماء", "مياه", "نهر", "أنهار", "انهار", "انهر",
+    "بحر", "بحار", "سفينة", "سفينه", "سفن", "مركب", "مراكب",
+)
+ZIYADA_STEMS = ("زيادة", "زياده")
+ZIYADA_COWORDS = ("ماء", "بحر", "أصابع", "اصابع", "أذرع", "اذرع")
 
 
 def sha256_file(path: Path) -> str:
@@ -238,7 +261,7 @@ def is_year_heading(line: str) -> bool:
 
 
 def apply_handfix(val, rest, prev):
-    """Apply the locked 841 hand-fix: raw parse 805, between 840 and 842."""
+    """Apply locked order-based heading fixes for 841 and 843."""
     if (
         "إحدى" in rest
         and re.search(r"وأربع(?!ين)", rest)
@@ -246,11 +269,44 @@ def apply_handfix(val, rest, prev):
         and prev == 840
     ):
         return 841, "handfix-841-from-805"
+    if (
+        "ثلاثين" in rest
+        and "أربعين" in rest
+        and "ثمانمائة" in rest
+        and prev == 842
+    ):
+        return 843, "handfix-843-from-870"
     return val, "ok" if val else "unparsed"
 
 
 def word_pattern(keyword: str) -> str:
     return rf"(?<![\u0621-\u064a]){PREFIX_RE}{re.escape(keyword)}(?![\u0621-\u064a])"
+
+
+def arabic_tokens(text: str) -> list[str]:
+    return re.findall(r"[\u0621-\u064a]+", text)
+
+
+def strip_a5_prefix(token: str) -> str:
+    for pref in A5_PREFIXES:
+        if token.startswith(pref) and len(token) > len(pref):
+            return token[len(pref):]
+    return token
+
+
+def token_matches_stem(token: str, stems: tuple[str, ...]) -> bool:
+    core = strip_a5_prefix(token)
+    for stem in stems:
+        if core == stem:
+            return True
+        for ending in A5_ENDINGS:
+            if core == stem + ending:
+                return True
+    return False
+
+
+def any_stem(tokens: list[str], stems: tuple[str, ...]) -> bool:
+    return any(token_matches_stem(tok, stems) for tok in tokens)
 
 
 def compile_keyword_res():
@@ -306,6 +362,13 @@ def redact_sentence(sent: str) -> tuple[str, bool]:
     probe = strip_tashkeel(sent)
     if KEYWORD_RE.search(probe):
         return BLANK_TOKEN, True
+    tokens = arabic_tokens(probe)
+    if any_stem(tokens, FAYADAN_STEMS) or any_stem(tokens, KHALIJ_STEMS):
+        return BLANK_TOKEN, True
+    if any_stem(tokens, GHARAQ_STEMS) and any_stem(tokens, WATER_SHIP_STEMS):
+        return BLANK_TOKEN, True
+    if any_stem(tokens, ZIYADA_STEMS) and any_stem(tokens, ZIYADA_COWORDS):
+        return BLANK_TOKEN, True
     return sent, False
 
 
@@ -356,10 +419,38 @@ def leftover_counts(text: str) -> dict[str, int]:
         n = len(pat.findall(probe))
         if n:
             counts[stem] = n
-    # phrase leftover
     n = len(re.findall(r"كسر\s+ال?خليج", probe))
     if n:
         counts["كسر الخليج"] = n
+    # Amendment 5: all-forms and conditional leftovers (counts only).
+    tokens = arabic_tokens(probe)
+    n = sum(1 for tok in tokens if token_matches_stem(tok, FAYADAN_STEMS))
+    if n:
+        counts["فيضان_all_forms"] = n
+    n = sum(1 for tok in tokens if token_matches_stem(tok, KHALIJ_STEMS))
+    if n:
+        counts["خليج_all_forms"] = n
+    n = sum(1 for tok in tokens if token_matches_stem(tok, GHARAQ_STEMS))
+    if n:
+        counts["غرق_غريق_all_forms"] = n
+    n = sum(1 for tok in tokens if token_matches_stem(tok, ZIYADA_STEMS))
+    if n:
+        counts["زيادة_all_forms"] = n
+    # Conditional leftovers should be zero if the new rules fired.
+    sentences = split_sentences(probe) or ([probe] if probe else [])
+    cond_g = cond_z = 0
+    for sent in sentences:
+        if sent == BLANK_TOKEN or "⟦REDACTED⟧" in sent:
+            continue
+        stoks = arabic_tokens(sent)
+        if any_stem(stoks, GHARAQ_STEMS) and any_stem(stoks, WATER_SHIP_STEMS):
+            cond_g += 1
+        if any_stem(stoks, ZIYADA_STEMS) and any_stem(stoks, ZIYADA_COWORDS):
+            cond_z += 1
+    if cond_g:
+        counts["غرق_with_water_ship_unblanked"] = cond_g
+    if cond_z:
+        counts["زيادة_with_water_measure_unblanked"] = cond_z
     return counts
 
 
@@ -396,24 +487,6 @@ def split_source(lines: list[str]):
         if is_year_heading(line):
             val, rest = parse_year_heading(line)
             val, why = apply_handfix(val, rest, prev_ah_in_book)
-            # Anomaly: raw 870 heading "ثلاثين وأربعين وثمانمائة" between 842 and 844.
-            # Not a locked hand-fix. Do not treat as a scored/headed year.
-            if rest.strip() == ANOMALY_843_HEADING or (
-                val == 870 and prev_ah_in_book == 842
-            ):
-                yield from flush(lineno - 1)
-                current_ah = "anomaly_after_0842"
-                bucket_start = lineno
-                bucket_lines = [line]
-                heading = line
-                note = (
-                    "heading raw-parses as 870 (ثلاثين وأربعين وثمانمائة) "
-                    "and stands between 842 and 844; not hand-fixed in "
-                    "Amendment 4; text held out of year files; 843 remains missing"
-                )
-                prev_ah_in_book = 870  # so 844 is not flagged non-mono in parser
-                i += 1
-                continue
             yield from flush(lineno - 1)
             current_ah = val
             bucket_start = lineno
