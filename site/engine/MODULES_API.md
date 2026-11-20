@@ -54,7 +54,7 @@ Missing keys in `run`/`evaluate` default to ours.
 - `evaluate(dials)` → `{ dials, stages, links, windows }`
   - each stage: `id, name, order, requires, status` (PASS / WEAK / OPEN / CONTESTED / FAIL / BLOCKED), coarse `verdict` (`ok` / `CONTESTED` / `FAIL` / `BLOCKED`), `upContested`, `links[]`, `honesty[]`, `sources[]`
   - each link: `id, from, to, label` (yaml honesty label, unchanged), `sources`, `status`, `reason`
-  - `windows`: derived tables (match `derived.json`), values at the current dials, margins at ours, locked thresholds (C/O/Fe α maxima, star bounds, Λ 57.5 / −7.09 / −53.9, …)
+  - `windows`: derived tables (match `derived.json`), values at the current dials, margins at ours, locked thresholds (C/O/Fe α maxima, star bounds, Λ 189 / −7.09 / −53.9, …)
 - `dialPairGrid(xDial, yDial, { hold, nx, ny, featured })` — **any two** of the six dials. Default 41×41 (discrete dials use their integer values). Each cell: `{ i, j, x, y, region, worst_status, label, governing, featured }`. `ours: { x, y, on_plane }`.
 - `alphaBetaGrid(opts)` — shorthand for `dialPairGrid("alpha","beta", opts)`
 - `lambdaLine({ hold, n })` — 161 symlog points, `t_Gyr` for Λ<0, thresholds with labels
