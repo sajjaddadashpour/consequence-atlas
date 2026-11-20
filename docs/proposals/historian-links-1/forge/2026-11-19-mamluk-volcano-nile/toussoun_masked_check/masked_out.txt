@@ -1,0 +1,150 @@
+page markers found: 208 range 266 540
+markers 360-406: [362, 364, 365, 366, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 381, 382, 383, 384, 386, 389, 390, 393, 394, 395, 396, 397, 398, 399, 400, 401, 403, 404, 406]
+
+=== page 364 (first 30 lines, digits masked) ===
+#. Voyage en Syrie et en Égypte, par Volney. 
+##. Description del’Égypte, par l’Expédition française. 
+##. Agaib El-Athar, par El-Gabarti. 
+## . Le Tableau de Mahmoud pacha El-Falaki. 
+##. El-Khitat El-Tewfkieh, par Ali Moubarek pacha. 
+##. El-TawJikat El-Ilhamieh, par Mohamed Moukhtar pacha. 
+##. Takwim El-Nil, par Amin Sami pacha. 
+##. Le Tableau du Physical Department. 
+Tous les records des niveaux que nous donnent les auteurs arabes sont par 
+années lunaires; mais comme les mouvements ascendants et descendants des 
+eaux d’un fleuve sont réglés d’après les saisons des années solaires, j’ai con¬ 
+verti les premières en années de la seconde catégorie. Ma liste est exactement 
+de i # oo années solaires ou de i # fto années lunaires : elle va donc de Tan¬ 
+née î à Tannée i ## o de THégire = ### — #### après J.-C.; dans toute cette 
+période, nous avons #### étiages, et il nous en manque ##A, nous avons 
+#### crues, et il nous en manque ###; je crois que c’est, sans contredit, la 
+liste la plus longue et la plus complète qui ait jamais été dressée des records 
+des niveaux du fleuve. 
+Gomme il était dans mes intentions de déterminer par les crues effectives 
+si le volume d’eau charrié par la crue du fleuve avait varié depuis l’antiquité 
+jusqu’à nos jours, ainsi que de traiter la question du rehaussement du sol (ces 
+d.eux sujets faisant Tobjet des deux chapitres suivants), je me suis vu dans 
+l’obligation de convertir aussi les niveaux coudéens en niveaux métriques, sans 
+lesquels l’établissement d’aucune moyenne n’était possible; ceci a été fait sur 
+la base des niveaux correspondants sur la planche X ; il est vrai que les cou¬ 
+dées au-dessus de ## ne représentent pas le coudéage réel de la colonne; mais 
+ainsi qu’il a été expliqué à la fin de la dernière partie de la description du 
+nilomètre de Rodah, du moment que pendant tout ce laps de temps les criées 
+de l’enregistrement se faisaient sur cette base, les chiffres de toute cette pé¬ 
+riode, au point de vue comparatif entre elles, conservent toute leur valeur. 
+
+=== page 365 (first 30 lines, digits masked) ===
+# # Tableau indiquant le nombre d’années des crues existantes et manquantes 
+par siècle. 
+# ° Tableau indiquant Tannée et le niveau minimum de Tétiage par siècle. 
+U° Tableau indiquant le niveau moyen de Tétiage par siècle. 
+# ° Tableau indiquant Tannée et le niveau maximum de Tétiage par siècle. 
+#° Tableau indiquant Tannée et le niveau minimum des crues par siècle. 
+# # Tableau indiquant le niveau moyen des crues par siècle. • 
+#° Tableau indiquant Tannée et le niveau maximum des crues par siècle. 
+# # Tableau indiquant Tannée et la valeur minimum des crues effectives 
+par siècle. 
+io° Tableau indiquant la valeur moyenne des crues effectives par siècle. 
+ii° Tableau indiquant Tannée et la valeur maximum des crues effectives 
+par siècle. 
+## # Tableau indiquant les différences en + et en — de la moyenne de Té¬ 
+tiage de chaque siècle avec celui qui le suit. 
+i # ° Tableau indiquant les différences en + et en — de la moyenne de la 
+crue de chaque siècle avec celui qui le suit. 
+/ 
+
+=== page 366 (first 30 lines, digits masked) ===
+r SIÈCLE. 
+Hégire : Années # à ### 
+Ère chrétienne : — ### à ### 
+ANNÉES. 
+MINIM A, 
+MAXIMA. I 
+NIVEAU. 
+PICS. 
+COUDÉES. 
+DOIGTS. 
+NIVEAU. 
+MÈTRES. 
+MÈTRES. 
+CENT. 
+NIVEAU. 
+PICS. 
+COUDÉES. 
+DOIGTS. 
+NIVEAU. 
+MÈTRES. 
+MÈTRES. | 
+CENT. ! 
+###.,. 
+# 
+o# 
+## 
+# # 
+## 
+## 
+## 
+
+=== page 404 (first 30 lines, digits masked) ===
+ANNÉES. 
+MINIMA. 
+MAXIM A. 
+NIVEAU. 
+PICS. 
+COUDÉES. 
+DOIGTS. 
+NIVEAU. 
+MÈTRES. 
+MÈTRES. 
+CENT. 
+NIVEAU. 
+PICS. 
+COUDÉES. 
+DOIGTS. 
+NIVEAU. 
+MÈTRES. 
+MÈTRES. 
+CENT. 
+####. 
+# 
+o# 
+i# 
+## 
+## 
+l# 
+l# 
+o# 
+####. 
+# 
+
+=== page 406 (first 30 lines, digits masked) ===
+TABLEAU III 
+INDIQUANT L’ANNÉE ET LE NIVEAU MINIMUM DE L’BTIAGE PAR SIECLE. 
+ANNÉES. 
+NIVEAU 
+COUDEE EN 
+METRIQUE. 
+# er .. 
+### 
+### 
+pics-doigts. 
+# ## 
+mèt.-cent. 
+#.## 
+#> # # 
+##° . 
+#,## 
+III e . 
+# ## 
+#,## 
+#< # # 
+IV e . 
+### 
+#, » 
+#,## 
+V e . .. 
+#### 
+#,o# 
+##, » 
+VI e . 
+#### 

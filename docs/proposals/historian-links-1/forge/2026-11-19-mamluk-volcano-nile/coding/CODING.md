@@ -16,3 +16,6 @@ Agreement on the 39 years: U_y 38/39 (0.974), Cohen's κ = 0.948, which passes t
 - Memory lists overlap the text in places (for example 651, 662, 694–695, 701, 754, 776, 806–808, 818). Physicist will report that overlap unscored, as agreed.
 - Known file defects that coders flagged: page gaps in 688, 699, 713 and 805; 745 contains a duplicated stretch of 750 text (not coded under 745); 783 contains a retrospective on the 767 sack of Alexandria (not coded); the 753 plague passage may be misplaced (coded under 753 as the file stands).
 - Sensitivity checks to report: U1 in 781 and 782 (crowds fighting inside amir factional wars), and U1 in 769 (a crowd raised by the sultan).
+
+## Note (2026-11-20 08:15 America/Regina): stale per-year hashes in MANIFEST.json
+MANIFEST.json still lists the pre-Amendment-7 per-year hashes for AH 783, 784, 788 and 789 (before 784 and 789 were split out of the 783 and 788 files). The redacted files themselves are unchanged since Amendment 7, and the manifest's own sha256 (d0191fc8e03ccd01970859bbd0bd1f3c3de30835b7b0f3c630fab5c6b6d2b1e3) still verifies. Those four per-year entries should be read as stale; the split script split_fix_784_789.py (sha256 6bb2b891…7b8) is the authority for those years. Flagged by Physicist during the item-19 scoring check.
