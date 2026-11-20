@@ -20,6 +20,8 @@ steps:
 - from: 536/540/547 eruptions
   to: NH cooling 536-c.660
   label: ESTABLISHED
+  evidence_rung: 2
+  rung_basis: "Eruption timing is exogenous (nobody chooses it), so the dated sulfate forcing works as a natural experiment; cooling follows forcing across many eruptions."
   sources:
   - sigl2015
   - toohey2016
@@ -27,12 +29,21 @@ steps:
 - from: NH cooling 536-c.660
   to: crop losses
   label: MAINSTREAM-HYPOTHESIS
+  evidence_rung: 1
+  model_exists: true
+  model_refs:
+  - toohey2016
   sources:
   - toohey2016
 - from: crop losses
   to: plague and empire outcomes
   label: MAINSTREAM-HYPOTHESIS
+  evidence_rung: 1
   contested: true
   sources:
   - buentgen2016
 notes: "Crop losses are a model-based mainstream hypothesis (Toohey et al. 2016). The plague and empire outcomes remain contested; Büntgen et al. 2016 themselves call the cooling an 'additional environmental factor'."
+evidence_rung: 1
+model_exists: true
+model_refs:
+- toohey2016

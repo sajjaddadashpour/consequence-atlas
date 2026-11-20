@@ -34,6 +34,8 @@ BAD = {
     "crosslink-steps-broken-chain": ("x.broken-chain", "do not chain", "'aerosol'", "'cooling'"),
     "crosslink-steps-cause-math-step": ("x.math-step", "step 1", "every step of a cause chain needs support=mechanism"),
     "crosslink-steps-cause-unverified-step": ("x.unverified-step", "step 1", "verified: true"),
+    "crosslink-rung-above-weakest-step": ("x.good-chain", "weakest step has rung 1"),
+    "crosslink-rung3-without-locked-prediction": ("x.good-chain", "evidence_rung=3 but no locked_prediction"),
 }
 
 YAML11_WORDS = ["yes", "Yes", "YES", "no", "No", "NO", "on", "On", "off", "OFF", "y", "Y", "n", "N"]
