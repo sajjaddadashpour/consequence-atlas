@@ -137,7 +137,7 @@ A5_ENDINGS = (
     "ات", "ان", "ين", "ون", "وا", "ية", "ة", "ا", "ه", "ك", "ي", "ى",
 )
 FAYADAN_STEMS = ("فيضان",)
-KHALIJ_STEMS = ("خليج",)
+KHALIJ_STEMS = ("خليج", "خلجان")
 GHARAQ_STEMS = (
     "غرق", "غريق", "غرقى", "أغرق", "اغرق", "إغراق", "اغراق",
     "يغرق", "تغرق", "نغرق", "مغرق",
@@ -287,21 +287,24 @@ def arabic_tokens(text: str) -> list[str]:
     return re.findall(r"[\u0621-\u064a]+", text)
 
 
-def strip_a5_prefix(token: str) -> str:
+def a5_cores(token: str) -> list[str]:
+    """Return the token and, if a usual prefix is present, the once-stripped form."""
+    cores = [token]
     for pref in A5_PREFIXES:
         if token.startswith(pref) and len(token) > len(pref):
-            return token[len(pref):]
-    return token
+            cores.append(token[len(pref):])
+            break
+    return cores
 
 
 def token_matches_stem(token: str, stems: tuple[str, ...]) -> bool:
-    core = strip_a5_prefix(token)
-    for stem in stems:
-        if core == stem:
-            return True
-        for ending in A5_ENDINGS:
-            if core == stem + ending:
+    for core in a5_cores(token):
+        for stem in stems:
+            if core == stem:
                 return True
+            for ending in A5_ENDINGS:
+                if core == stem + ending:
+                    return True
     return False
 
 

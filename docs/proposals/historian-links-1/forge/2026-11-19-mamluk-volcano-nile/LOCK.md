@@ -148,10 +148,10 @@ Made after seeing only leftover-stem counts per year from the Amendment 4 redact
 
 Usual prefixes, at most one, longest first: وال، فال، بال، كال، لل، ال، و، ف، ب، ك، ل.
 Usual endings, at most one, longest first: كما، هم، هن، كم، كن، ها، نا، ني، ات، ان، ين، ون، وا، ية، ة، ا، ه، ك، ي، ى.
-A token matches stem S if, after at most one usual prefix is removed, the remainder is S, or S plus one usual ending.
+A token matches stem S if the token itself, or the token after removing at most one usual prefix (longest first), is S or S plus one usual ending. The unprefixed form is tried first, so a stem that begins with و، ف، ب، ك or ل (فيضان, بحر, بحار) is not stripped.
 
 - فيضان (all forms): a sentence is blanked if any token matches stem فيضان.
-- خليج (all forms): a sentence is blanked if any token matches stem خليج.
+- خليج (all forms): a sentence is blanked if any token matches stem خليج or stem خلجان (the broken plural).
 - غريق / غرق: a sentence is blanked only if it has both (i) a token matching one of the stems غرق، غريق، غرقى، أغرق، اغرق، إغراق، اغراق، يغرق، تغرق، نغرق، مغرق, and (ii) a token matching one of the water, river or ship stems ماء، مياه، نهر، أنهار، انهار، انهر، بحر، بحار، سفينة، سفينه، سفن، مركب، مراكب.
 
 (b) زيادة is not added on its own, because it also marks price rises, which are evidence for the famine and unrest categories. A sentence containing a token that matches stem زيادة or زياده is blanked only if the same sentence also contains a token matching one of the water or measure stems ماء، بحر، أصابع، اصابع، أذرع، اذرع (the last four are the usual hamza-less spellings of أصابع and أذرع). Some زيادة sentences about the flood will remain, so the blinding stays labelled partial. بلاغ is left alone.
