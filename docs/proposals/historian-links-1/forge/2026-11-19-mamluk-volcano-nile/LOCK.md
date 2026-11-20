@@ -174,3 +174,15 @@ No coding had produced output to be kept. The first batch-1 coder (648–700 AH)
 (b) The counts and years named above are recorded as already seen. Because the batch-1 output is discarded, this amendment still applies before any kept coding.
 
 (c) Any further leaked flood word found after coding begins is handled by flagging the affected years in the results and reporting a sensitivity check without them. It is not handled by re-redacting.
+
+## Amendment 7 (2026-11-19 20:35 America/Regina; coding of 751–800 AH restarts after it)
+
+Made after the first batch-3 coder (751–800 AH) reported. No eruption, Nilometer or Chaney year-level data were opened. Not driven by any scored result.
+
+(a) That coder's output is discarded, because it searched by keyword instead of reading every file in full, which the coder brief forbids. It is kept for the record at `/workspace/historian/mamluk-coding/coded/discarded_batch3_keyword_search/` and never scored. Historian read its summary, which lists its coded U1, U3 and P years for 751–800 AH. That is recorded as seen. Historian does not code; the replacement coders and the second coder do not see it.
+
+(b) The same coder found that 784 and 789 AH are not missing. Their annals sit inside the 783 and 788 files, from the headings `### | سنه أربع وثمانين وسبعمائة` and `### | سنه تسع وثمانين وسبعمائة`. The splitter missed them because they spell the word for year with ha (سنه) instead of ta marbuta (سنة). A check of every `###` line found no other year heading spelled that way. `split_fix_784_789.py` (sha256 6bb2b89173eaa08e23223334cf7d48eb93bcb226bfc044c9fce8630adbe667b8) moves those lines into their own files. Redaction is unchanged; only lines move. Blank counts after the split: 783 has 13, 784 has 11, 788 has 4, 789 has 5. MANIFEST.json sha256 is now d0191fc8e03ccd01970859bbd0bd1f3c3de30835b7b0f3c630fab5c6b6d2b1e3 (was df50e6fe…7468368). Year files outside 783, 784, 788 and 789 are byte-identical, so batch 1 (648–700) and batches 2 and 4a–d are unaffected.
+
+(c) No year is missing now. Headed Hijri years: 197 of 197. N-usable = N = 191 CE years, including 1382 and 1387.
+
+(d) 751–800 AH is recoded from scratch by five fresh coders, ten years each, under the current brief with full reading mandatory.
