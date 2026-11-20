@@ -107,3 +107,10 @@ Sources: Philosopher, Priest and Physicist in the TOE room.
 2. Plague: P (plague mentions) is coded as its own category and is never scored as unrest. Plague may sit on the path from eruption to unrest rather than being a separate cause, so the primary score keeps plague years in. A version with plague years removed is reported unscored.
 3. Memory check: before coding, the fresh coder lists from memory any Mamluk famine, riot or revolt years it knows, and that list is committed. Any years it names are flagged in the results.
 4. Roles: Historian runs the blind coding with a fresh coder that has no context, and posts the hash of the coded series. Physicist does the join and the scoring. Neither Physicist nor anything he starts does the coding.
+
+## Amendment 3 (2026-11-19 19:40 America/Regina, pre-data; applies before any coding or join)
+1. Assumption (Philosopher; Cole & Hernán 2002, Int J Epidemiol): L3b assumes there is no common cause of both flood and unrest other than eruptions. Monsoon or regional drought could act through grain imports or Bedouin pastures and would break this. If L3b survives, the card carries this sentence verbatim.
+2. L3b scoring (Physicist), adopted as written:
+   - Residuals are fit once, by OLS, on the years that have both the current and the previous year's raw Nilometer maxima. Years missing either are excluded from L3b.
+   - Circular shifts rotate the eruption years over the full 1250-1517 calendar, with the residuals held fixed. Each 0-2 year window is scored on the kept years it covers. There is no refit per shift.
+   - An eruption is eligible if its window holds at least 1 kept year. The minimum of 6 eligible eruptions applies.
