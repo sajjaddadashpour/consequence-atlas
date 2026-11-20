@@ -1,7 +1,7 @@
 id: x.hist.tambora-1815
 a:
   field: climate
-  pattern: "Physics/climate: the April 1815 Tambora eruption injected about 60 Mt of sulfur into the stratosphere (about six times Pinatubo 1991), forming a global sulfate aerosol veil (Oppenheimer 2003, abstract)."
+  pattern: "Physics/climate: the April 1815 Tambora eruption injected about 28 Tg of sulfur into the stratosphere (eVolv2k ice-core composite, Toohey & Sigl 2017, ~16% uncertainty), about 3x Pinatubo 1991 (9 +/- 2 Tg S, Guo et al. 2004). Oppenheimer 2003 gave ~60 Tg S ('six times Pinatubo'); the newer value is about half that."
 b:
   field: history
   pattern: "Biology/history: 1816, the 'Year without a summer', brought anomalously cold weather to the northeastern USA, maritime Canada and Europe; crop failures were widespread (Oppenheimer 2003). Severe famine in Switzerland, one of the worst-hit regions (Bronnimann & Kramer 2016, preface)."
@@ -9,11 +9,14 @@ connection: "Sulfate aerosol veil -> reduced shortwave at the surface -> Norther
 label: MAINSTREAM-HYPOTHESIS
 support: mechanism
 claim: cause
-breaks_if: "Re-dated ice cores place the c.1815-16 sulfate peak on a different eruption, or show stratospheric loading far below the cited ~60 Mt S. Early instrumental and proxy series show no 1816 summer anomaly in Western Europe / NE North America beyond normal year-to-year spread. Harvest and grain-price series for the affected regions show no 1816-17 anomaly, or an equal anomaly in unaffected regions. Social step only: emigration or typhus rises start before the harvest failure, or are equally strong in regions without the cold anomaly."
+breaks_if: "Re-dated ice cores place the c.1815-16 sulfate peak on a different eruption, or show stratospheric loading far below the cited ~28 Tg S. Early instrumental and proxy series show no 1816 summer anomaly in Western Europe / NE North America beyond normal year-to-year spread. Harvest and grain-price series for the affected regions show no 1816-17 anomaly, or an equal anomaly in unaffected regions. Social step only: emigration or typhus rises start before the harvest failure, or are equally strong in regions without the cold anomaly. A dated proxy/instrumental NH summer series where 1816 is within 2 sigma of interannual noise."
 sources:
 - oppenheimer2003
 - raible2016
 - broennimann-kraemer2016
+- toohey-sigl2017-evolv2k
+- wilson2016-ntrend
+- guo2004-pinatubo
 status: active
 proposed_by: historian
 steps:
@@ -23,12 +26,16 @@ steps:
   sources:
   - oppenheimer2003
   - raible2016
+  - toohey-sigl2017-evolv2k
+  - guo2004-pinatubo
 - from: stratospheric sulfate
   to: 1816 cooling
   label: ESTABLISHED
+  support: mechanism
   sources:
   - raible2016
   - oppenheimer2003
+  - wilson2016-ntrend
 - from: 1816 cooling
   to: harvest failure
   label: ESTABLISHED
@@ -45,4 +52,4 @@ steps:
   label: MAINSTREAM-HYPOTHESIS
   sources:
   - oppenheimer2003
-notes: "Kept as one record through to typhus, so the overall label is the weakest step (MAINSTREAM-HYPOTHESIS). Oppenheimer describes emigration and typhus as 'implicated in' the aftermath, not as a demonstrated consequence. Full text of Brönnimann & Krämer 2016 (Geographica Bernensia G90, 48 pp.) was read from the Internet Archive copy of boris.unibe.ch/81880/1/tambora_e_A4l.pdf; the live BORIS portal returned an empty file. Step 3 (harvest failure -> famine) is supported on p. 11: 'the cold and rainy summers indeed led to poor harvests, which was one of the factors causing famine and the last subsistence crisis of the western world.'; p. 7: 'The reduction in harvest yield in Europe contributed to the \"last great subsistence crisis in the western world,\"'; p. 3 (preface): 'Switzerland was among the most severely affected regions: severe famine cost countless lives'; p. 28 records failed 1816 harvests setting off price inflation, while noting that 'the poor harvest was not the only reason for the crisis.'; pp. 32-33 treat the 1816-17 famine in Switzerland (thefts, mortality, baptisms; a 'true famine' in the east). Oppenheimer 2003 was not used as a full-text check for the famine step."
+notes: "Kept as one record through to typhus, so the overall label is the weakest step (MAINSTREAM-HYPOTHESIS). Oppenheimer describes emigration and typhus as 'implicated in' the aftermath, not as a demonstrated consequence. Full text of Brönnimann & Krämer 2016 (Geographica Bernensia G90, 48 pp.) was read from the Internet Archive copy of boris.unibe.ch/81880/1/tambora_e_A4l.pdf; the live BORIS portal returned an empty file. Step 3 (harvest failure -> famine) is supported on p. 11: 'the cold and rainy summers indeed led to poor harvests, which was one of the factors causing famine and the last subsistence crisis of the western world.'; p. 7: 'The reduction in harvest yield in Europe contributed to the \"last great subsistence crisis in the western world,\"'; p. 3 (preface): 'Switzerland was among the most severely affected regions: severe famine cost countless lives'; p. 28 records failed 1816 harvests setting off price inflation, while noting that 'the poor harvest was not the only reason for the crisis.'; pp. 32-33 treat the 1816-17 famine in Switzerland (thefts, mortality, baptisms; a 'true famine' in the east). Oppenheimer 2003 was not used as a full-text check for the famine step. Sulfur loading in pattern a updated from Oppenheimer 2003 (~60 Mt S) to 28.1 Tg S (eVolv2k, Toohey & Sigl 2017, 16% uncertainty); Guo et al. 2004 give Pinatubo as 9 +/- 2 Tg S (18 +/- 4 Mt SO2). Historian should confirm wording. Step stratospheric sulfate -> 1816 cooling quantitative check (Physicist forge 2026-11-19, lock f43523b): N-TREND (Wilson et al. 2016) NH extratropical May-Aug: 1816 is -0.66 K vs 1810-14, 3.7x interannual noise. Scaling note: Tambora/Pinatubo cooling ratio 2.0 vs sulfur ratio 3.1: cooling grows slower than sulfur (closer to M^(2/3), aerosol particle growth). Preference fragile to Pinatubo's sulfur uncertainty."

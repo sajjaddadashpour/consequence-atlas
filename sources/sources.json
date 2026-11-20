@@ -653,5 +653,43 @@
     "year": 2017,
     "identifier": "doi:10.1016/j.astropartphys.2017.03.009",
     "verified": true
+  },
+  {
+    "id": "toohey-sigl2017-evolv2k",
+    "title": "Volcanic stratospheric sulfur injections and aerosol optical depth from 500 BCE to 1900 CE",
+    "authors": [
+      "M. Toohey",
+      "M. Sigl"
+    ],
+    "year": 2017,
+    "identifier": "doi:10.5194/essd-9-809-2017",
+    "verified": true
+  },
+  {
+    "id": "wilson2016-ntrend",
+    "title": "Last millennium northern hemisphere summer temperatures from tree rings: Part I: The long term context",
+    "authors": [
+      "R. Wilson",
+      "K. Anchukaitis",
+      "K. R. Briffa",
+      "et al."
+    ],
+    "year": 2016,
+    "identifier": "doi:10.1016/j.quascirev.2015.12.005",
+    "verified": true
+  },
+  {
+    "id": "guo2004-pinatubo",
+    "title": "Re-evaluation of SO2 release of the 15 June 1991 Pinatubo eruption using ultraviolet and infrared satellite sensors",
+    "authors": [
+      "S. Guo",
+      "G. J. S. Bluth",
+      "W. I. Rose",
+      "I. M. Watson",
+      "A. J. Prata"
+    ],
+    "year": 2004,
+    "identifier": "doi:10.1029/2003GC000654",
+    "verified": true
   }
 ]
