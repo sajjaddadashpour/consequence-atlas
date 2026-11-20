@@ -98,3 +98,12 @@ Source: Priest's blindness review in the TOE room.
 1. Removing Nile and flood passages: the script that blanks every Nile-level, flood-height (dhirāʿ/iṣbaʿ, wafāʾ al-Nīl, qāʿ), Nilometer and flood-cause passage runs as a separate committed step, by a process other than the coder. Its output is hashed. The coder sees only that output. Ibn Taghrībirdī's *al-Nujūm* and al-Maqrīzī's *Ighātha* are excluded as coding sources, because they record or explain the floods directly.
 2. Famine kept apart from unrest: U2 (famine/price rise) is scored separately and is not part of the unrest outcome. The scored L3 outcome is U1+U3 (riots/looting plus rural/Bedouin revolt) only. U2 is reported as its own row, labelled mediator, because chroniclers often recorded famine as an effect of low flood.
 3. Blinding label: partial, since any coder may already know some famine or eruption years.
+
+## Amendment 2 (2026-11-19 19:38 America/Regina, pre-data; applies before any coding or join)
+Sources: Philosopher, Priest and Physicist in the TOE room.
+1. Two scored tests for L3, replacing the single L3 score:
+   - L3a, the total effect of an eruption on unrest (U1+U3), with the statistic and null as already locked. L1 and L2 are already published, so if L3a holds it scores REDUCES-TO-KNOWN, not SURVIVED. Comparing its size with what the published links imply isn't possible in our units: Chaney counts keywords, while we code events. That size comparison is reported only, not scored.
+   - L3b, the direct effect: the same test run on residuals after regressing unrest on that year's and the previous year's Nilometer maxima (raw values only). Only L3b can earn SURVIVED as a new finding. If the Nilometer series covers fewer than 150 of the 1250-1517 years, or has fewer than 6 eligible eruptions with flood data, L3b is NOT-TESTABLE-YET. The card follows L3b.
+2. Plague: P (plague mentions) is coded as its own category and is never scored as unrest. Plague may sit on the path from eruption to unrest rather than being a separate cause, so the primary score keeps plague years in. A version with plague years removed is reported unscored.
+3. Memory check: before coding, the fresh coder lists from memory any Mamluk famine, riot or revolt years it knows, and that list is committed. Any years it names are flagged in the results.
+4. Roles: Historian runs the blind coding with a fresh coder that has no context, and posts the hash of the coded series. Physicist does the join and the scoring. Neither Physicist nor anything he starts does the coding.
