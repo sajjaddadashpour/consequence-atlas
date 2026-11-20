@@ -92,6 +92,16 @@ Nothing here is new scoring. Numbers are copied from filed locks and verdicts. R
 - **Kill condition** (from the locks, already fixed, for tests that use the locked `durable` or state-age models): KILLED if AGAINST in both windows, or b > 0 with p < 0.05 in either; SURVIVED (= REDUCES-TO-KNOWN) if SUPPORT in both windows; NOT-TESTABLE-YET for any other combination. A later test on a direct density measure would need its own pre-data lock, with the disclosure above.
 - **Historian's wording of both tests:** Two locked tests, cross-country and US states, are both NOT-TESTABLE-YET. Proxies for how old a regime or state is can't confirm or kill the hypothesis. A real test needs a direct measure of interest-group density on data nobody has seen. Rung 1.
 
+## T-B3 — dissipation per bit erased (Landauer in cells)
+
+- **Filed by:** Biologist (proposed test T-B3, causal-map draft `df0a56d`). Lock `e0cabec`, screen `74004b1`, results `4c63540`, amendment 2 `41b54bb`. Scored 2026-11-19 by Physicist in `forge/2026-11-19-1945-TB3-landauer-cells`.
+- **Hypothesis:** Some cell or molecular process dissipates within 10× of kT ln 2 per bit erased, in a measurement on real cells or purified biomolecules (not a model).
+- **Why it is unscored as an erasure test:** The as-locked run scored dissipation per bit processed and was **KILLED** on that locked question (three processes from Laughlin, de Ruyter van Steveninck & Anderson 1998, *Nature Neuroscience* 1:36–41, doi:10.1038/236, all R ≥ 100). That result's scope is limited to transmission. Laughlin 1998 is not an erasure measurement, so it does not bear on whether cells work near Landauer's bound. The verdict was not relabelled after seeing the numbers; only the claim's scope was narrowed. A clean erasure measurement was not in the scored set.
+- **Experiment that would decide it:** A primary measurement of dissipation per bit erased in a cellular or molecular system, at a defined erasure step (for example a proofreading discard, or a receptor reset that forgets its last reading), compared against kT ln 2. Bits per event must be defined before the data are opened. Model-only papers, and transmission or copy costs including Laughlin 1998, do not qualify.
+- **Kill condition** (T-B3 lock's R rules, applied to dissipation per bit erased, once at least three qualifying erasure processes are scored): KILLED for "cells work near the bound" if every scored R ≥ 100; SURVIVED if at least one has R ≤ 20 (the lock's lenient threshold); otherwise NOT-TESTABLE-YET.
+
+---
+
 ## Equanimity — three dials (proposed; not yet locked)
 
 - **Filed by:** Proposed in the room (Physicist, with Priest's kill noted below). **CONJECTURE.** There is no committed lock and no scored row. The meditator study described here was not found.
