@@ -1,0 +1,21 @@
+id: x.religion.disaster-coping
+a:
+  field: physics
+  pattern: "Unpredictable geophysical disaster, especially a large earthquake whose timing is not chosen by the people whose religiosity is later measured. The 22 February 2011 Christchurch earthquake (Mw 6.3) is one such event; geological earthquake risk and the timing of recent nearby quakes are others."
+b:
+  field: religion
+  pattern: "Religiosity and religious affiliation as an outcome: people turning to religious faith to cope with shocks they cannot predict or prevent ('religious coping' / comfort)."
+connection: "People turn to religious faith to cope with shocks they cannot predict or prevent. Geological timing is not chosen by the people whose faith is measured. Sibley and Bulbulia 2012 (full text): NZAVS 2009 and 2011 waves, with the 22 February 2011 Christchurch earthquake (Mw 6.3) in between. Countrywide, net religious affiliation fell about 0.9% over two years (converts 214 / 5.7%, apostates 248 / 6.6%; Table 1). In Canterbury, converts 43 (8.6%) and apostates 26 (5.2%) in a regional n of 501, a net rise of 3.4%. Difference in change by region: chi-squared(3, N = 3740) = 12.39, p = .006. A parallel pattern holds for those who said they were personally affected. No evidence that having faith buffered subjective health; among the earthquake-affected, loss of faith went with health declines. Bentzen figures below are from the 6 September 2018 author PDF (working paper); the typeset Economic Journal 2019 pages were not opened, so those numbers may have been revised in print. A one-standard-deviation rise in earthquake risk is associated with an 8-11% of a standard deviation rise in religiosity (about 80% of the gender gap in religiosity, as stated there). Recent nearby quakes also raise religiosity; the effect fades with time but appears in children of immigrants. Volcanoes and tsunamis go the same way; more predictable storms do not. Coping is the author's preferred channel; mutual insurance and migration 'cannot be ruled out entirely' (published abstract, Crossref, same wording)."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "In a pre-registered panel whose pre-disaster wave is fixed before an unpredictable geophysical shock, religiosity does not rise in the affected region relative to comparison regions, or Bentzen's association between geological earthquake risk (or recent nearby quakes) and religiosity disappears in a replication that keeps the same identification. Finding that mutual insurance or migration fully accounts for the pattern would undermine the coping mechanism, but would not by itself remove the exogenous timing."
+sources:
+- sibley-bulbulia2012
+- bentzen2019
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.disaster-coping. Religion is the effect, not the cause. The atlas has no geology field, so the earthquake / unpredictable-disaster side is filed under physics; Bentzen also reports that volcanoes and tsunamis go the same way and that more predictable storms do not. Remaining caveats (insurance, migration, self-reported 'personally affected') do not remove the exogenous timing, so they do not drop the rung to 1, but they keep the label short of ESTABLISHED. This is not a verdict on any faith."
+evidence_rung: 2
+rung_basis: "The Christchurch earthquake's timing is exogenous to the pre-registered 2009 NZAVS wave, and Bentzen uses geological earthquake risk plus the timing of recent quakes, which people do not choose. Remaining caveats (insurance, migration, self-reported 'personally affected') do not remove the exogenous timing, so they do not drop the rung to 1, but they keep the label short of ESTABLISHED."
+model_exists: false

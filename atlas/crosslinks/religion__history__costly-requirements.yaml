@@ -1,0 +1,29 @@
+id: x.religion.costly-requirements
+a:
+  field: religion
+  pattern: "Costly membership requirements in religious communes: hard-to-fake ritual, dietary, or other obligations that a community imposes on its members."
+b:
+  field: history
+  pattern: "Longevity of nineteenth-century United States communes: how long a commune survives before dissolving, compared across religious and secular communities."
+connection: "Two published accounts predict the same survival pattern and are not identified by it. (i) Costly signaling: hard-to-fake costs display commitment (Sosis and Bressler, after Zahavi and Grafen). (ii) Free-rider screening: strictness pushes out the half-committed and raises participation among those who remain (Iannaccone). The cross-field link to biological handicaps is an analogy (rung 0) until a test distinguishes signaling from screening; it is not filed as a separate card. Sosis and Bressler 2003 (full text), already-seen sample, not re-scored: 83 nineteenth-century U.S. communes from Oved 1988 (30 religious, 53 secular). Mean duration 35.6 years (median 25) vs 7.7 (median 5). Religious communes imposed more requirements (mean 7.0 vs 3.0). In a logistic hazard on commune-years, Religious x Costly Requirements = -0.146 (SE 0.048, p = .002); Secular x Costly Requirements = 0.077 (SE 0.072, p = .286). Once those interactions are in, the religion dummy is no longer a predictor (-0.005, p = .991). Costly requirements did not predict dissolution from internal dispute or economic failure (Table 5, p = .387 and .551). Iannaccone 1994 was opened at abstract only: 'Strictness makes organizations stronger and more attractive because it reduces free riding. It screens out members who lack commitment and stimulates participation among those who remain.'"
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "In a coded sample of communes that was not the already-seen Sosis and Bressler 2003 / Oved 1988 set, costly requirements no longer predict longer survival among religious communes once the same style of covariates is held fixed, or they predict secular-commune survival as strongly as religious-commune survival. A mid-life rule a commune adds on its own is not a natural experiment and would not by itself raise or kill this row."
+sources:
+- sosis-bressler2003
+- sosis2000
+- iannaccone1994
+- zahavi1975
+- grafen1990
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.costly-requirements. Religion as cause; mechanism (signaling vs screening) open. Pattern label is MAINSTREAM-HYPOTHESIS; the biological parallel is analogy / conjecture and is recorded only here, not as a live ANALOGY-ONLY link. Inbox item 14; lock /workspace/priest/commune-screen/lock-v1.md at 221ffb0. Headline still OPEN / pre-data on an unseen sample; this card does not re-score the already-seen sample. A mid-life rule a commune adds on its own is not a natural experiment and does not raise the rung: communes often add rules because they are already in trouble. Only a mandate from outside (a parent church or a government) is a candidate for an exogenous change, listed separately, not scored in the headline. DOI correction: Sosis and Bressler 2003 is registered as 10.1177/1069397103037002003; the DOI printed on the PDF (10.1177/1069397103251426) 404s on Crossref and doi.org. Zahavi 1975 and Grafen 1990 were Crossref-metadata only; Iannaccone 1994 was abstract only. This is not a verdict on any faith."
+evidence_rung: 1
+rung_basis: "Seen together in an already-seen historical sample (Sosis and Bressler 2003). A mid-life rule a commune adds on its own is not a natural experiment and does not raise the rung."
+model_exists: true
+model_refs:
+- iannaccone1994
+- sosis-bressler2003
+- zahavi1975
+- grafen1990

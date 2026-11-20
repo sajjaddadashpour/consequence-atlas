@@ -1,0 +1,19 @@
+id: x.religion.moralistic-gods-impartiality
+a:
+  field: religion
+  pattern: "Belief that a moralistic god is punitive and knows human thoughts: ratings of a morally concerned god's punishment and knowledge, as measured rather than experimentally assigned."
+b:
+  field: economics
+  pattern: "Impartial allocations to distant co-religionists in a private random-allocation game (coins, a fair die, two cups), including self versus a distant co-religionist and a local co-religionist versus a distant one."
+connection: "If people think a morally concerned god knows what they do and punishes cheating, they should treat distant fellow-believers more fairly, even when no one else is watching. This is a claim about impartiality in a game, not a claim that such gods caused the rise of large states, and it must not be merged with the retracted moralizing-gods-and-complexity row (R6). Purzycki et al. 2016 (full text): n = 591 people (310 women; 35,400 coin allocations) in eight communities (Vanuatu, Fiji, Brazil, Mauritius, Tyva, Hadza), in a private random-allocation game (30 coins, a fair die, two cups). Two games: self versus a distant co-religionist, and a local co-religionist versus a distant one. Compared with people who said they did not know, those who said the moralistic god punishes allocated more to distant co-religionists: the paper reports factors of 4.8 (self game) and 5.3 (local-co-religionist game) on the quotient of deviations from an impartial 15-coin split. Ratings of the god's punishment and knowledge were associated with less bias against distant co-religionists across many specifications; divine rewards did not account for the pattern (authors' summary). A religious-priming arm in five sites had no overall effect. Beliefs were measured, not assigned, so this is not an intervention on faith."
+label: MAINSTREAM-HYPOTHESIS
+support: mechanism
+claim: cause
+breaks_if: "In comparable private random-allocation games, ratings of a moralistic god's punishment and knowledge are not associated with more impartial allocations to distant co-religionists, once the same style of specifications is used."
+sources:
+- purzycki2016
+status: active
+proposed_by: priest
+notes: "Proposed atlas id l.religion.moralistic-gods-impartiality. Religion as cause. Do not merge with R6 (moralizing gods and social complexity), which is not a live link: the 2019 Letter is retracted and the historical direction is contested. The games measure impartiality, but the cause is not experimentally assigned, and the priming arm did not move the outcome, so the row stays rung 1. model_exists is false in the formal-model sense used here (a stated cultural-evolution hypothesis, tested empirically). This is not a verdict on any faith."
+evidence_rung: 1
+model_exists: false

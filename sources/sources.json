@@ -797,5 +797,134 @@
     "year": 1979,
     "identifier": "doi:10.1016/0149-7189(79)90048-x",
     "verified": true
+  },
+  {
+    "id": "sibley-bulbulia2012",
+    "title": "Faith after an Earthquake: A Longitudinal Study of Religion and Perceived Health before and after the 2011 Christchurch New Zealand Earthquake",
+    "authors": [
+      "C. G. Sibley",
+      "J. Bulbulia"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1371/journal.pone.0049648",
+    "verified": true
+  },
+  {
+    "id": "bentzen2019",
+    "title": "Acts of God? Religiosity and Natural Disasters Across Subnational World Districts",
+    "authors": [
+      "J. S. Bentzen"
+    ],
+    "year": 2019,
+    "identifier": "doi:10.1093/ej/uez008",
+    "verified": true
+  },
+  {
+    "id": "sosis-bressler2003",
+    "title": "Cooperation and Commune Longevity: A Test of the Costly Signaling Theory of Religion",
+    "authors": [
+      "R. Sosis",
+      "E. R. Bressler"
+    ],
+    "year": 2003,
+    "identifier": "doi:10.1177/1069397103037002003",
+    "verified": true
+  },
+  {
+    "id": "sosis2000",
+    "title": "Religion and Intragroup Cooperation: Preliminary Results of a Comparative Analysis of Utopian Communities",
+    "authors": [
+      "R. Sosis"
+    ],
+    "year": 2000,
+    "identifier": "doi:10.1177/106939710003400105",
+    "verified": true
+  },
+  {
+    "id": "iannaccone1994",
+    "title": "Why Strict Churches Are Strong",
+    "authors": [
+      "L. R. Iannaccone"
+    ],
+    "year": 1994,
+    "identifier": "doi:10.1086/230409",
+    "verified": true
+  },
+  {
+    "id": "zahavi1975",
+    "title": "Mate selection—A selection for a handicap",
+    "authors": [
+      "A. Zahavi"
+    ],
+    "year": 1975,
+    "identifier": "doi:10.1016/0022-5193(75)90111-3",
+    "verified": true
+  },
+  {
+    "id": "grafen1990",
+    "title": "Biological signals as handicaps",
+    "authors": [
+      "A. Grafen"
+    ],
+    "year": 1990,
+    "identifier": "doi:10.1016/s0022-5193(05)80088-8",
+    "verified": true
+  },
+  {
+    "id": "becker-woessmann2009",
+    "title": "Was Weber Wrong? A Human Capital Theory of Protestant Economic History",
+    "authors": [
+      "S. O. Becker",
+      "L. Woessmann"
+    ],
+    "year": 2009,
+    "identifier": "doi:10.1162/qjec.2009.124.2.531",
+    "verified": true
+  },
+  {
+    "id": "xygalatas2013",
+    "title": "Extreme Rituals Promote Prosociality",
+    "authors": [
+      "D. Xygalatas",
+      "P. Mitkidis",
+      "R. Fischer",
+      "P. Reddish",
+      "J. Skewes",
+      "A. W. Geertz",
+      "A. Roepstorff",
+      "J. Bulbulia"
+    ],
+    "year": 2013,
+    "identifier": "doi:10.1177/0956797612472910",
+    "verified": true
+  },
+  {
+    "id": "purzycki2016",
+    "title": "Moralistic gods, supernatural punishment and the expansion of human sociality",
+    "authors": [
+      "B. G. Purzycki",
+      "C. Apicella",
+      "Q. D. Atkinson",
+      "E. Cohen",
+      "R. A. McNamara",
+      "A. K. Willard",
+      "D. Xygalatas",
+      "A. Norenzayan",
+      "J. Henrich"
+    ],
+    "year": 2016,
+    "identifier": "doi:10.1038/nature16980",
+    "verified": true
+  },
+  {
+    "id": "campante-yanagizawa-drott2015",
+    "title": "Does Religion Affect Economic Growth and Happiness? Evidence from Ramadan",
+    "authors": [
+      "F. Campante",
+      "D. Yanagizawa-Drott"
+    ],
+    "year": 2015,
+    "identifier": "doi:10.1093/qje/qjv002",
+    "verified": true
   }
 ]
