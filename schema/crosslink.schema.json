@@ -193,9 +193,93 @@
             "items": {
               "$ref": "#/$defs/id"
             }
+          },
+          "evidence_rung": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "description": "Strength of causal evidence about the REAL system (Pearl's ladder, Pearl & Mackenzie 2018): 0 = none (analogy only), 1 = seen together (association/pattern), 2 = shown by intervention (experiment or natural experiment with exogenous timing), 3 = counterfactual: a causal model made a locked prediction about the real system before the data were opened, and it held. A simulation alone never raises the rung; it sets model_exists."
+          },
+          "model_exists": {
+            "type": "boolean",
+            "description": "True if a formal or simulation model of the mechanism exists (cite it in model_refs). Says nothing about the real system."
+          },
+          "model_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "rung_basis": {
+            "type": "string",
+            "minLength": 10,
+            "description": "Required for rung >= 2: what intervention, natural experiment, or locked prediction earns the rung."
+          },
+          "locked_prediction": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicted_by",
+              "confirmed_by"
+            ],
+            "properties": {
+              "predicted_by": {
+                "$ref": "#/$defs/id"
+              },
+              "confirmed_by": {
+                "$ref": "#/$defs/id"
+              }
+            },
+            "description": "Required for rung 3: the source that made the prediction before the data, and the source that confirmed it."
           }
         }
       }
+    },
+    "evidence_rung": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "Strength of causal evidence about the REAL system (Pearl's ladder, Pearl & Mackenzie 2018): 0 = none (analogy only), 1 = seen together (association/pattern), 2 = shown by intervention (experiment or natural experiment with exogenous timing), 3 = counterfactual: a causal model made a locked prediction about the real system before the data were opened, and it held. A simulation alone never raises the rung; it sets model_exists."
+    },
+    "model_exists": {
+      "type": "boolean",
+      "description": "True if a formal or simulation model of the mechanism exists (cite it in model_refs). Says nothing about the real system."
+    },
+    "model_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "rung_basis": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Required for rung >= 2: what intervention, natural experiment, or locked prediction earns the rung."
+    },
+    "locked_prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicted_by",
+        "confirmed_by"
+      ],
+      "properties": {
+        "predicted_by": {
+          "$ref": "#/$defs/id"
+        },
+        "confirmed_by": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "description": "Required for rung 3: the source that made the prediction before the data, and the source that confirmed it."
     }
   },
   "allOf": [

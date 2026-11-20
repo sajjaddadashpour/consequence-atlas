@@ -18,4 +18,37 @@ sources:
 - mehta-schwab2012
 status: active
 proposed_by: philosopher
-notes: "ESTABLISHED as a lower bound: erasure causes at least this heat. NOT claimed: that real cells operate near the bound (their dissipation is typically far above it; size of the gap UNVERIFIED here). Atlas link l.s10.landauer carries the physics side."
+steps:
+- from: logically irreversible erasure of one bit
+  to: dissipation of at least k_B T ln 2 per bit
+  label: ESTABLISHED
+  support: mechanism
+  evidence_rung: 3
+  rung_basis: "Landauer (1961) derived the k_B T ln 2 bound as a prediction; Berut et al. (2012) confirmed it experimentally with a colloidal bit."
+  locked_prediction:
+    predicted_by: landauer1961
+    confirmed_by: berut2012
+  sources:
+  - landauer1961
+  - berut2012
+- from: dissipation of at least k_B T ln 2 per bit
+  to: cell computation is bounded below by kT ln2 per bit erased
+  label: ESTABLISHED
+  support: mechanism
+  evidence_rung: 3
+  rung_basis: "The bound is a universal inequality, predicted by Landauer in 1961 and confirmed by Berut et al. 2012, so it applies to cells as a lower bound. That does not require a separate cellular measurement."
+  locked_prediction:
+    predicted_by: landauer1961
+    confirmed_by: berut2012
+  sources:
+  - landauer1961
+  - berut2012
+notes: "ESTABLISHED as a lower bound: erasure causes at least this heat. Cell-side split: (a) 'Cell computation is bounded below by kT ln2 per bit erased' is evidence_rung 3 (a universal inequality, Landauer 1961, confirmed experimentally by Berut et al. 2012, so it applies to cells as a bound) and is the second chain step. (b) 'Cells operate near that bound' / 'cells work near the bound' is evidence_rung 0, with model_exists true and model_refs Mehta & Schwab 2012. (b) is not claimed and is therefore not a chain step: putting it in the chain would force the overall evidence_rung to 0 and the overall label off ESTABLISHED, understating the bound that is the actual claim. T-B3 (Biologist map df0a56d; Physicist lock e0cabec, screen 74004b1, results 4c63540) was KILLED for that claim and REDUCES-TO-KNOWN relative to Laughlin, de Ruyter van Steveninck & Anderson 1998, doi:10.1038/236: measured neural signalling is ~10^6–10^8 × kT ln2 per bit (Laughlin 1998); protein-synthesis estimate ~25–33× is from reviews only, unscored. Atlas link l.s10.landauer carries the physics side."
+evidence_rung: 3
+rung_basis: "Landauer (1961) predicted the k_B T ln 2 bound; Berut et al. (2012) confirmed it experimentally, and the same universal inequality applies to cells as a lower bound."
+locked_prediction:
+  predicted_by: landauer1961
+  confirmed_by: berut2012
+model_exists: true
+model_refs:
+- mehta-schwab2012

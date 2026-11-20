@@ -19,17 +19,23 @@ steps:
 - from: Samalas eruption
   to: 1257/58 sulfate spike
   label: ESTABLISHED
+  evidence_rung: 2
+  rung_basis: "Sulfate is the direct physical product of the eruption; the spike is fingerprinted to Samalas by tephra geochemistry and dating (Lavigne et al. 2013)."
   sources:
   - lavigne2013
 - from: 1257/58 sulfate spike
   to: global climatic effects
   label: ESTABLISHED
+  evidence_rung: 2
+  rung_basis: "Eruption timing is exogenous (nobody chooses it), so the dated sulfate forcing works as a natural experiment; cooling follows forcing across many eruptions."
   sources:
   - lavigne2013
 - from: global climatic effects
   to: 1258 English famine
   label: MAINSTREAM-HYPOTHESIS
+  evidence_rung: 1
   contested: true
   sources:
   - campbell2017
 notes: "The 1258 English famine step is contested: Campbell 2017 weighs Samalas against strong solar forcing and says the answer depends on the precise chronology. Lavigne et al. 2013 report that tree rings, medieval chronicles and models corroborate the climatic effects."
+evidence_rung: 1

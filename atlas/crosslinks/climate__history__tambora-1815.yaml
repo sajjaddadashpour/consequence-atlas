@@ -23,6 +23,8 @@ steps:
 - from: eruption
   to: stratospheric sulfate
   label: ESTABLISHED
+  evidence_rung: 2
+  rung_basis: "Sulfate is the direct physical product of the eruption, measured in ice cores (Oppenheimer 2003)."
   sources:
   - oppenheimer2003
   - raible2016
@@ -32,6 +34,8 @@ steps:
   to: 1816 cooling
   label: ESTABLISHED
   support: mechanism
+  evidence_rung: 2
+  rung_basis: "Eruption timing is exogenous (nobody chooses it), so the dated sulfate forcing works as a natural experiment; cooling follows forcing across many eruptions."
   sources:
   - raible2016
   - oppenheimer2003
@@ -39,17 +43,21 @@ steps:
 - from: 1816 cooling
   to: harvest failure
   label: ESTABLISHED
+  evidence_rung: 1
   sources:
   - oppenheimer2003
   - broennimann-kraemer2016
 - from: harvest failure
   to: famine
   label: ESTABLISHED
+  evidence_rung: 1
   sources:
   - broennimann-kraemer2016
 - from: famine
   to: emigration and typhus
   label: MAINSTREAM-HYPOTHESIS
+  evidence_rung: 1
   sources:
   - oppenheimer2003
 notes: "Kept as one record through to typhus, so the overall label is the weakest step (MAINSTREAM-HYPOTHESIS). Oppenheimer describes emigration and typhus as 'implicated in' the aftermath, not as a demonstrated consequence. Full text of Brönnimann & Krämer 2016 (Geographica Bernensia G90, 48 pp.) was read from the Internet Archive copy of boris.unibe.ch/81880/1/tambora_e_A4l.pdf; the live BORIS portal returned an empty file. Step 3 (harvest failure -> famine) is supported on p. 11: 'the cold and rainy summers indeed led to poor harvests, which was one of the factors causing famine and the last subsistence crisis of the western world.'; p. 7: 'The reduction in harvest yield in Europe contributed to the \"last great subsistence crisis in the western world,\"'; p. 3 (preface): 'Switzerland was among the most severely affected regions: severe famine cost countless lives'; p. 28 records failed 1816 harvests setting off price inflation, while noting that 'the poor harvest was not the only reason for the crisis.'; pp. 32-33 treat the 1816-17 famine in Switzerland (thefts, mortality, baptisms; a 'true famine' in the east). Oppenheimer 2003 was not used as a full-text check for the famine step. Sulfur loading in pattern a updated from Oppenheimer 2003 (~60 Mt S) to 28.1 Tg S (eVolv2k, Toohey & Sigl 2017, 16% uncertainty); Guo et al. 2004 give Pinatubo as 9 +/- 2 Tg S (18 +/- 4 Mt SO2). Step stratospheric sulfate -> 1816 cooling quantitative check (Physicist forge 2026-11-19, lock f43523b): N-TREND (Wilson et al. 2016) NH extratropical May-Aug: 1816 is -0.66 K vs 1810-14, 3.7x interannual noise. Scaling note: Tambora/Pinatubo cooling ratio 2.0 vs sulfur ratio 3.1: cooling grows slower than sulfur (closer to M^(2/3), aerosol particle growth). Preference fragile to Pinatubo's sulfur uncertainty."
+evidence_rung: 1
