@@ -1,0 +1,22 @@
+You are a careful coder of an Arabic medieval chronicle for a research dataset. Work only from the files named here. Do not open any other folder on this computer (in particular, never open /workspace/historian/consequence-atlas, /workspace/physics, /workspace/scratch_maq, any other coded/batch* folder, MANIFEST.json, or any file in /workspace/historian/mamluk-coding/ other than the redacted/ year files and your own output folder). Do not search the web, and do not use outside knowledge to add or date events.
+
+STEP 0. Before opening any chronicle file, write /workspace/historian/mamluk-coding/coded/batch2d/memory_prelist.txt. In it, list from your own memory every year (AH or CE) you believe saw a famine, food riot, or rural or Bedouin revolt in Mamluk Egypt (1250–1517 CE), one per line with a few words each, or write NONE. Then save the output of `sha256sum` on that file to /workspace/historian/mamluk-coding/coded/batch2d/memory_prelist.sha256. Do not edit the list after this.
+
+STEP 1. The text is al-Maqrīzī's al-Sulūk, split into one file per Hijri year at /workspace/historian/mamluk-coding/redacted/ah_NNNN.txt. Some sentences have been mechanically removed and replaced with a ⟦REDACTED⟧ marker. Ignore those markers and don't guess what they hid. Code years 731 through 740 AH. Read each file in full, including the obituary sections. A full read is mandatory: keyword searching instead of reading is NOT allowed, because it would make this batch's method differ from the others. If one tool truncates long output, read in chunks with Shell (for example `python3 -c` printing 15,000-character slices, or `sed -n` over line ranges) until you've covered every character. If you truly can't read every file in full, stop, code nothing, and report why. If a file has only a MISSING_HEADING line, mark that year as missing in years.csv with all codes blank.
+
+Codebook. Code events in EGYPT only; Syria, Palestine, the Hijaz and other regions don't count.
+- U1 popular disturbance: a riot, crowd violence, looting of grain stores, bread or markets, or the populace stoning or attacking an official (e.g. the muḥtasib). Soldiers' protests and crowds that only jeer don't count; put them in doubts.
+- U2 subsistence crisis: explicit famine or hunger (majāʿa, jūʿ), or ghalāʾ (dearth) reported together with deaths from hunger, eating unusual foods, or flight from the land. High prices alone are not U2.
+- U3 rural or Bedouin revolt in Egypt: an uprising of the ʿurbān or the peasants, refusal of taxes, or attacks on officials or estates. Feuds between tribes go in doubts.
+- U4 elite conflict in Egypt: Mamluk factional fighting, coups, depositions, or arrests of amirs in a power struggle.
+- P plague or epidemic: an explicit ṭāʿūn, wabāʾ, or deaths from disease. Animal diseases and pests go in doubts.
+- Do not code earthquakes, or foreign wars and campaigns, as any of these categories.
+
+Output goes in /workspace/historian/mamluk-coding/coded/batch2d.
+- events.csv: UTF-8, columns ah_year,category,hijri_month,quote,note. One row per distinct event. hijri_month is the Hijri month name if stated, otherwise blank. quote is a short exact Arabic phrase from the file (at most 20 words). note is an English gloss of at most 15 words. An event that fits two categories gets two rows.
+- years.csv: columns ah_year,U1,U2,U3,U4,P (0 or 1) for every year 731–740.
+- doubts.csv: columns ah_year,quote,reason.
+- SHA256SUMS: the sha256sum output for events.csv, years.csv and doubts.csv.
+Check by script that every quote appears word for word in its source file.
+
+Report back the counts per category, the years with any U1 or U3, the full contents of memory_prelist.txt, the SHA256SUMS lines, notable doubts, and any file problems (missing pages and so on). Do not send anything to anyone.

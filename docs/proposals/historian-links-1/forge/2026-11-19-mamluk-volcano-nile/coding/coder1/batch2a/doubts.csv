@@ -1,0 +1,26 @@
+ah_year,quote,reason
+701,أخرج الأمير بكتمر الحسامي من الأمير أخورية من حنق الأمراء عليه,"Dismissal of an amir from office due to amirs' anger; no arrest or fighting, not coded U4"
+702,وأقبل السواد الأعظم على الخزائن السلطانية فكسروها ونهبوا ما بها من الأموال,"Looting of treasury at Shaqhab battle: Syria and wartime rout, not coded"
+702,فدخلها أهل الدعارة وأخذوا ما أحبوا,"Looting of abandoned houses during earthquake panic; earthquake context, not coded U1"
+702,وفيها قدم الخبر بقحط بلاد تقطاي مدة ثلاث سنين,"Famine in Golden Horde lands, not Egypt"
+703,وفشا الموتان في خيول مصر أيضا فهلك كثير منها,"Horse epizootic in Egypt: animal disease, not P"
+703,فاستروح السلطان معه بالكلام وشكا إليه ما هو فيه من ضيق مع الأمراء,"Sultan-amir tension, no fighting or arrests yet; outcome coded under 704"
+704,فأخذ سيفه وعوق من بكرة النهار إلى الظهر,"Baybars al-Dawadar briefly detained and dismissed for striking katib al-sirr; personal, not power struggle"
+704,فثار به أهل مصر يريدون رجمه وسبوه,Coded U1 but borderline: crowd intended to stone and cursed; actual stoning not stated
+704,فثار به أهل مصر يريدون رجمه وسبوه,Coded U4 row for same year: Ibn al-Shaykhi was a tablkhana amir and wazir; arguably civil official
+704,وفيها أجدب الشام من الغور إلى العريش,"Drought and flight from land in Syria/Palestine, not Egypt"
+705,وارتفع سعر القمح من عشرين درهما الأردب إلى أربعين,"Price rise due to debased coinage; high prices alone, not U2"
+707,فتميز سعر الغلة وأبيع الأردب القمح بخمسين درهما ثم انحط,"Crop damage by wind and high grain price; no hunger deaths stated, not U2"
+707,بأن كراي ظلم فلاحيه بأدفو وأخذ دوابهم,Amir oppressing peasants in Upper Egypt; no revolt
+707,وجمعوا فوق الخمسمائة رجل وساروا إلى القلعة وتبعهم العامة,Sufi-led crowd march against Ibn Taymiyya; no violence reported
+708,فخرج عليهم العربان وأخذوا سائر ما معهم حتى صاروا عراة,"Bedouin robbery of envoys and pilgrims on western route; location likely outside Egypt, banditry not revolt"
+708,ونكل بكثير من مشايخ العربان,Bedouin shaykhs punished during dyke corvee; no revolt stated
+708,حتى هدم العامة من قوص ثلاثة عشرة كنيسة,Coded U1 though only in obituary and undated; may predate 708
+709,ونهب من بيوتهم أشياء لكثرة ما كان يجتمع من العامة,"Looting by crowds during official wine raids; not grain/market looting, not coded"
+709,صاحوا: لا {ما نريده} ووقع في القاهرة ضجة وحركة بسبب ذلك,Cairo crowd shouting at Friday sermon: jeering only
+709,وقبض في ليلة الجمعة ثاني عشره على جماعة من العوام وضربوا وشهروا لإعلانهم بسب الملك المظفر,Commoners punished for cursing sultan: verbal only
+709,فصاحت بهم العامة: يا فرحة لا تمت,Crowd jeering at newly promoted amirs
+709,ومنع الأمراء البيع من شونهم,"Amirs withholding grain; adjacent sentences redacted, no explicit famine visible"
+709,وكانت بنو هلال وبنو أسد قد كثرت حروبهم وعظم فسادهم,"Tribal warfare in Syria (Damascus region), not Egypt"
+710,فسلم كرجي ولم يقاتل فأخذ وقيد وسجن بالقلعة,Arrest of Aleppo governor Asandamur Kurji in Syria; Egyptian U4 already coded
+710,فلما أشفي برلغي على الموت قتل بعدما يبست أعضاؤه,"Barlaghi killed by starvation in prison; part of purge, not separate row"

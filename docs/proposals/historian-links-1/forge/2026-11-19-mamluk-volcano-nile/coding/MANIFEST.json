@@ -1,0 +1,4083 @@
+{
+ "generated": "2026-11-19 20:08 America/Regina",
+ "source": "/workspace/historian/mamluk-coding/source/0845Maqrizi.Suluk.Shamela0006667-ara1.mARkdown",
+ "source_sha256": "9424a9e1342135efa01af93b63b826fee806690e214469380499f95498c04588",
+ "script": "/workspace/historian/consequence-atlas/docs/proposals/historian-links-1/forge/2026-11-19-mamluk-volcano-nile/redact_suluk.py",
+ "script_sha256": "3db1195dc08242d70952b4b5883d3c22e1ffb49dcd398b25f9b58845b2bede0f",
+ "script_commit": "6eb01cc2839af1abf4afea4b0ad7912e822059d7",
+ "ah_first": 648,
+ "ah_last": 844,
+ "year_file_count": 197,
+ "headed_years": 197,
+ "missing_headings": [],
+ "nile_keywords": [
+  "النيل",
+  "نيل",
+  "وفاء",
+  "الوفاء",
+  "وفا",
+  "الوفا",
+  "القاع",
+  "قاع",
+  "ذراع",
+  "أذرع",
+  "اذرع",
+  "إصبع",
+  "اصبع",
+  "أصبع",
+  "أصابع",
+  "اصابع",
+  "المقياس",
+  "مقياس"
+ ],
+ "phrase_keywords": [
+  "كسر الخليج"
+ ],
+ "coptic_months_and_variants": [
+  "توت",
+  "بابه",
+  "بابا",
+  "بابة",
+  "هاتور",
+  "هتور",
+  "كيهك",
+  "كياك",
+  "كهك",
+  "طوبه",
+  "طوبة",
+  "طوبا",
+  "أمشير",
+  "امشير",
+  "برمهات",
+  "برمودة",
+  "برموده",
+  "برمودي",
+  "برمودى",
+  "بشنس",
+  "بؤونة",
+  "بئونة",
+  "باونة",
+  "بؤونه",
+  "أبيب",
+  "ابيب",
+  "مسرى",
+  "مسري",
+  "مصرى",
+  "النسيء",
+  "نسيء",
+  "النسىء",
+  "نسىء",
+  "النسيئ",
+  "نسيئ"
+ ],
+ "blank_token": "⟦REDACTED⟧",
+ "blank_stats_headed_years": {
+  "min": 0,
+  "max": 26,
+  "mean": 5.426,
+  "median": 3,
+  "pstdev": 5.684,
+  "total_blanks": 1058,
+  "zero_blank_years": [
+   649,
+   651,
+   652,
+   653,
+   657,
+   658,
+   660,
+   666,
+   667,
+   668,
+   669,
+   670,
+   672,
+   674,
+   675,
+   677,
+   683,
+   684,
+   691,
+   692,
+   712,
+   718,
+   757,
+   758,
+   759,
+   765,
+   771,
+   772
+  ],
+  "high_blank_threshold": 17,
+  "high_blank_years": [
+   {
+    "ah": 738,
+    "n_blanks": 22
+   },
+   {
+    "ah": 741,
+    "n_blanks": 18
+   },
+   {
+    "ah": 742,
+    "n_blanks": 23
+   },
+   {
+    "ah": 749,
+    "n_blanks": 26
+   },
+   {
+    "ah": 783,
+    "n_blanks": 24
+   },
+   {
+    "ah": 821,
+    "n_blanks": 17
+   },
+   {
+    "ah": 822,
+    "n_blanks": 21
+   },
+   {
+    "ah": 823,
+    "n_blanks": 23
+   },
+   {
+    "ah": 825,
+    "n_blanks": 17
+   },
+   {
+    "ah": 828,
+    "n_blanks": 17
+   },
+   {
+    "ah": 830,
+    "n_blanks": 20
+   },
+   {
+    "ah": 837,
+    "n_blanks": 26
+   }
+  ]
+ },
+ "leftover_stem_totals": {
+  "كسر": 33,
+  "بحر": 234,
+  "زيادة": 203,
+  "زيادة_all_forms": 206,
+  "غرق": 23,
+  "ماء": 174,
+  "غرق_غريق_all_forms": 40,
+  "غريق": 1,
+  "زياده": 3,
+  "بلاغ": 1
+ },
+ "leftover_years_with_hits": {
+  "648": 6,
+  "649": 2,
+  "651": 3,
+  "652": 5,
+  "654": 1,
+  "655": 1,
+  "657": 1,
+  "658": 2,
+  "659": 12,
+  "660": 3,
+  "661": 8,
+  "663": 7,
+  "665": 1,
+  "666": 2,
+  "667": 3,
+  "668": 2,
+  "669": 1,
+  "671": 5,
+  "672": 2,
+  "673": 1,
+  "674": 1,
+  "675": 1,
+  "678": 2,
+  "679": 1,
+  "680": 8,
+  "682": 4,
+  "683": 2,
+  "685": 4,
+  "688": 2,
+  "689": 3,
+  "690": 5,
+  "691": 1,
+  "692": 2,
+  "693": 4,
+  "694": 6,
+  "695": 1,
+  "696": 2,
+  "697": 7,
+  "698": 4,
+  "699": 2,
+  "700": 1,
+  "701": 1,
+  "702": 7,
+  "703": 4,
+  "704": 4,
+  "707": 3,
+  "708": 1,
+  "709": 3,
+  "710": 5,
+  "711": 3,
+  "712": 2,
+  "713": 4,
+  "715": 1,
+  "717": 2,
+  "718": 4,
+  "719": 2,
+  "720": 7,
+  "721": 9,
+  "723": 11,
+  "724": 5,
+  "725": 2,
+  "726": 6,
+  "727": 4,
+  "728": 1,
+  "729": 2,
+  "730": 4,
+  "731": 1,
+  "732": 2,
+  "733": 1,
+  "734": 4,
+  "735": 3,
+  "736": 1,
+  "737": 2,
+  "738": 9,
+  "739": 8,
+  "740": 15,
+  "741": 18,
+  "742": 4,
+  "743": 4,
+  "744": 13,
+  "745": 16,
+  "746": 1,
+  "747": 15,
+  "748": 10,
+  "749": 34,
+  "750": 9,
+  "751": 10,
+  "752": 4,
+  "753": 14,
+  "754": 1,
+  "755": 10,
+  "756": 2,
+  "757": 1,
+  "762": 1,
+  "763": 1,
+  "765": 2,
+  "766": 5,
+  "767": 8,
+  "768": 4,
+  "769": 5,
+  "770": 1,
+  "773": 1,
+  "776": 2,
+  "778": 1,
+  "779": 1,
+  "780": 1,
+  "782": 11,
+  "783": 32,
+  "785": 8,
+  "787": 3,
+  "788": 2,
+  "790": 6,
+  "791": 6,
+  "792": 5,
+  "793": 2,
+  "794": 1,
+  "795": 3,
+  "796": 6,
+  "797": 2,
+  "799": 1,
+  "800": 3,
+  "801": 3,
+  "802": 13,
+  "803": 9,
+  "804": 2,
+  "805": 9,
+  "806": 2,
+  "807": 5,
+  "808": 5,
+  "809": 7,
+  "810": 8,
+  "811": 6,
+  "812": 5,
+  "813": 4,
+  "814": 7,
+  "815": 14,
+  "816": 5,
+  "817": 1,
+  "818": 7,
+  "819": 5,
+  "820": 3,
+  "821": 5,
+  "822": 7,
+  "823": 6,
+  "824": 8,
+  "825": 7,
+  "826": 12,
+  "827": 11,
+  "828": 14,
+  "829": 12,
+  "830": 13,
+  "832": 6,
+  "833": 14,
+  "834": 8,
+  "835": 4,
+  "836": 11,
+  "837": 12,
+  "838": 12,
+  "839": 11,
+  "840": 3,
+  "841": 14,
+  "842": 24,
+  "843": 7,
+  "844": 13
+ },
+ "anomaly": [],
+ "skipped_outside_window_or_preamble": [
+  {
+   "start": 38,
+   "end": 913,
+   "n_lines": 876,
+   "note": "preamble"
+  },
+  {
+   "ah": 568,
+   "start": 914,
+   "end": 948,
+   "n_lines": 35,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 569,
+   "start": 949,
+   "end": 1050,
+   "n_lines": 102,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 570,
+   "start": 1051,
+   "end": 1105,
+   "n_lines": 55,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 571,
+   "start": 1106,
+   "end": 1132,
+   "n_lines": 27,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 72,
+   "start": 1133,
+   "end": 1167,
+   "n_lines": 35,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 573,
+   "start": 1168,
+   "end": 1202,
+   "n_lines": 35,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 574,
+   "start": 1203,
+   "end": 1419,
+   "n_lines": 217,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 578,
+   "start": 1420,
+   "end": 1522,
+   "n_lines": 103,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 580,
+   "start": 1523,
+   "end": 1635,
+   "n_lines": 113,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 581,
+   "start": 1636,
+   "end": 1676,
+   "n_lines": 41,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 582,
+   "start": 1677,
+   "end": 1703,
+   "n_lines": 27,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 583,
+   "start": 1704,
+   "end": 1815,
+   "n_lines": 112,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 584,
+   "start": 1816,
+   "end": 1851,
+   "n_lines": 36,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 585,
+   "start": 1852,
+   "end": 1889,
+   "n_lines": 38,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 586,
+   "start": 1890,
+   "end": 1919,
+   "n_lines": 30,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 587,
+   "start": 1920,
+   "end": 1974,
+   "n_lines": 55,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 588,
+   "start": 1975,
+   "end": 2041,
+   "n_lines": 67,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 589,
+   "start": 2042,
+   "end": 2110,
+   "n_lines": 69,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 590,
+   "start": 2111,
+   "end": 2241,
+   "n_lines": 131,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 591,
+   "start": 2242,
+   "end": 2353,
+   "n_lines": 112,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 592,
+   "start": 2354,
+   "end": 2530,
+   "n_lines": 177,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 593,
+   "start": 2531,
+   "end": 2547,
+   "n_lines": 17,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 594,
+   "start": 2548,
+   "end": 2600,
+   "n_lines": 53,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 595,
+   "start": 2601,
+   "end": 2705,
+   "n_lines": 105,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 596,
+   "start": 2706,
+   "end": 2795,
+   "n_lines": 90,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 597,
+   "start": 2796,
+   "end": 2889,
+   "n_lines": 94,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 598,
+   "start": 2890,
+   "end": 2923,
+   "n_lines": 34,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 599,
+   "start": 2924,
+   "end": 2957,
+   "n_lines": 34,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 600,
+   "start": 2958,
+   "end": 2982,
+   "n_lines": 25,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 601,
+   "start": 2983,
+   "end": 3005,
+   "n_lines": 23,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 602,
+   "start": 3006,
+   "end": 3015,
+   "n_lines": 10,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 603,
+   "start": 3016,
+   "end": 3034,
+   "n_lines": 19,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 604,
+   "start": 3035,
+   "end": 3089,
+   "n_lines": 55,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 605,
+   "start": 3090,
+   "end": 3107,
+   "n_lines": 18,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 606,
+   "start": 3108,
+   "end": 3129,
+   "n_lines": 22,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 607,
+   "start": 3130,
+   "end": 3164,
+   "n_lines": 35,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 608,
+   "start": 3165,
+   "end": 3194,
+   "n_lines": 30,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 609,
+   "start": 3195,
+   "end": 3218,
+   "n_lines": 24,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 610,
+   "start": 3219,
+   "end": 3248,
+   "n_lines": 30,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 611,
+   "start": 3249,
+   "end": 3273,
+   "n_lines": 25,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 612,
+   "start": 3274,
+   "end": 3335,
+   "n_lines": 62,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 613,
+   "start": 3336,
+   "end": 3353,
+   "n_lines": 18,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 614,
+   "start": 3354,
+   "end": 3395,
+   "n_lines": 42,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 615,
+   "start": 3396,
+   "end": 3634,
+   "n_lines": 239,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 616,
+   "start": 3635,
+   "end": 3707,
+   "n_lines": 73,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 617,
+   "start": 3708,
+   "end": 3743,
+   "n_lines": 36,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 618,
+   "start": 3744,
+   "end": 3872,
+   "n_lines": 129,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 619,
+   "start": 3873,
+   "end": 3890,
+   "n_lines": 18,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 620,
+   "start": 3891,
+   "end": 3905,
+   "n_lines": 15,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 621,
+   "start": 3906,
+   "end": 3916,
+   "n_lines": 11,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 622,
+   "start": 3917,
+   "end": 3993,
+   "n_lines": 77,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 623,
+   "start": 3994,
+   "end": 4029,
+   "n_lines": 36,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 624,
+   "start": 4030,
+   "end": 4090,
+   "n_lines": 61,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 625,
+   "start": 4091,
+   "end": 4168,
+   "n_lines": 78,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 626,
+   "start": 4169,
+   "end": 4313,
+   "n_lines": 145,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 627,
+   "start": 4314,
+   "end": 4362,
+   "n_lines": 49,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 628,
+   "start": 4363,
+   "end": 4386,
+   "n_lines": 24,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 629,
+   "start": 4387,
+   "end": 4426,
+   "n_lines": 40,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 630,
+   "start": 4427,
+   "end": 4458,
+   "n_lines": 32,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 631,
+   "start": 4459,
+   "end": 4493,
+   "n_lines": 35,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 632,
+   "start": 4494,
+   "end": 4515,
+   "n_lines": 22,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 633,
+   "start": 4516,
+   "end": 4560,
+   "n_lines": 45,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 634,
+   "start": 4561,
+   "end": 4613,
+   "n_lines": 53,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 635,
+   "start": 4614,
+   "end": 4827,
+   "n_lines": 214,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 636,
+   "start": 4828,
+   "end": 4956,
+   "n_lines": 129,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 637,
+   "start": 4957,
+   "end": 5229,
+   "n_lines": 273,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 638,
+   "start": 5230,
+   "end": 5360,
+   "n_lines": 131,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 639,
+   "start": 5361,
+   "end": 5406,
+   "n_lines": 46,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 640,
+   "start": 5407,
+   "end": 5451,
+   "n_lines": 45,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 641,
+   "start": 5452,
+   "end": 5488,
+   "n_lines": 37,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 642,
+   "start": 5489,
+   "end": 5565,
+   "n_lines": 77,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 643,
+   "start": 5566,
+   "end": 5631,
+   "n_lines": 66,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 644,
+   "start": 5632,
+   "end": 5703,
+   "n_lines": 72,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 645,
+   "start": 5704,
+   "end": 5727,
+   "n_lines": 24,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 646,
+   "start": 5728,
+   "end": 5777,
+   "n_lines": 50,
+   "note": "outside-648-844"
+  },
+  {
+   "ah": 647,
+   "start": 5778,
+   "end": 6166,
+   "n_lines": 389,
+   "note": "outside-648-844"
+  }
+ ],
+ "years": [
+  {
+   "ah": 648,
+   "path": "ah_0648.txt",
+   "sha256": "ecf14816e44003705acc0254a4334e5191f6cef70506d911015d94970bb565ee",
+   "bytes": 48928,
+   "heading_present": true,
+   "heading_line": 6167,
+   "end_line": 6602,
+   "heading_note": "ok",
+   "n_sentences": 181,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "كسر": 1,
+    "بحر": 5
+   }
+  },
+  {
+   "ah": 649,
+   "path": "ah_0649.txt",
+   "sha256": "e7e53d6d5f17d94c7f6a7dd46d0a40e2dce11a5bf2676fb22225311219d742df",
+   "bytes": 3237,
+   "heading_present": true,
+   "heading_line": 6603,
+   "end_line": 6636,
+   "heading_note": "ok",
+   "n_sentences": 19,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 2
+   }
+  },
+  {
+   "ah": 650,
+   "path": "ah_0650.txt",
+   "sha256": "63f8c8e91e79a652df79aaa972d2e2bdea08678959c8c405c4e9c7e57f2c1831",
+   "bytes": 4930,
+   "heading_present": true,
+   "heading_line": 6637,
+   "end_line": 6684,
+   "heading_note": "ok",
+   "n_sentences": 19,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 651,
+   "path": "ah_0651.txt",
+   "sha256": "bf88536f63a72964c9ebe4cdba707e007730ff3908bb95608db5df101fbe3837",
+   "bytes": 8248,
+   "heading_present": true,
+   "heading_line": 6685,
+   "end_line": 6760,
+   "heading_note": "ok",
+   "n_sentences": 35,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 652,
+   "path": "ah_0652.txt",
+   "sha256": "feb98b36ec324a2ffbb508bf876fab9577a6ffa37324be46f10a456bef44c14b",
+   "bytes": 11156,
+   "heading_present": true,
+   "heading_line": 6761,
+   "end_line": 6859,
+   "heading_note": "ok",
+   "n_sentences": 44,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "غرق": 1,
+    "ماء": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 653,
+   "path": "ah_0653.txt",
+   "sha256": "25075a8931073838ada9302183c334a70cb8a60ef4457c893b730daa498d16b7",
+   "bytes": 3101,
+   "heading_present": true,
+   "heading_line": 6860,
+   "end_line": 6890,
+   "heading_note": "ok",
+   "n_sentences": 13,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 654,
+   "path": "ah_0654.txt",
+   "sha256": "ff68c1152cfe7f4d63cb7ba4278670388fd6d4fa0ec547adfca33e6605ed3e80",
+   "bytes": 6625,
+   "heading_present": true,
+   "heading_line": 6891,
+   "end_line": 6955,
+   "heading_note": "ok",
+   "n_sentences": 26,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 655,
+   "path": "ah_0655.txt",
+   "sha256": "f9cefce766e462b2199ca557e3f731d50814061f6ea5b0a0b9bb0eeaeb722dee",
+   "bytes": 12295,
+   "heading_present": true,
+   "heading_line": 6956,
+   "end_line": 7070,
+   "heading_note": "ok",
+   "n_sentences": 58,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 656,
+   "path": "ah_0656.txt",
+   "sha256": "719143a3e2f04cb4ba953998b66a8d20639e169714e8f49cc1a3bceb79937e32",
+   "bytes": 9535,
+   "heading_present": true,
+   "heading_line": 7071,
+   "end_line": 7169,
+   "heading_note": "ok",
+   "n_sentences": 43,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 657,
+   "path": "ah_0657.txt",
+   "sha256": "4ee854f7c97d76072353daab40054547cbc5495576b5ef6ff03ed1a10600cdb7",
+   "bytes": 15837,
+   "heading_present": true,
+   "heading_line": 7170,
+   "end_line": 7312,
+   "heading_note": "ok",
+   "n_sentences": 68,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 658,
+   "path": "ah_0658.txt",
+   "sha256": "f3336089ab56036cf6bfb44eec5ca4d7f951cdbfae66276df18657c68154d96c",
+   "bytes": 40514,
+   "heading_present": true,
+   "heading_line": 7313,
+   "end_line": 7660,
+   "heading_note": "ok",
+   "n_sentences": 159,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 659,
+   "path": "ah_0659.txt",
+   "sha256": "1cced69538185585c60e01cdf70c003f083271fc074fae81c888a53f747611ce",
+   "bytes": 44320,
+   "heading_present": true,
+   "heading_line": 7661,
+   "end_line": 8040,
+   "heading_note": "ok",
+   "n_sentences": 163,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 3,
+    "بحر": 6,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 660,
+   "path": "ah_0660.txt",
+   "sha256": "25672d4eefcd99e224981799bc1da7d000ca7eeb40312b16f666fbcf6514bfaf",
+   "bytes": 15926,
+   "heading_present": true,
+   "heading_line": 8041,
+   "end_line": 8179,
+   "heading_note": "ok",
+   "n_sentences": 70,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "كسر": 2,
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 661,
+   "path": "ah_0661.txt",
+   "sha256": "8f10685305eedac7d3d94f116590b4db5479e2e4f31ab6208838bd4d15344822",
+   "bytes": 47377,
+   "heading_present": true,
+   "heading_line": 8180,
+   "end_line": 8590,
+   "heading_note": "ok",
+   "n_sentences": 197,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 4,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 662,
+   "path": "ah_0662.txt",
+   "sha256": "08dc3dd01d0fe78cdcdd09b7b2c8dd8753f5eb5dfc97c9f87689a8c9a9b98ffc",
+   "bytes": 34955,
+   "heading_present": true,
+   "heading_line": 8591,
+   "end_line": 8901,
+   "heading_note": "ok",
+   "n_sentences": 160,
+   "n_blanks": 4,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 663,
+   "path": "ah_0663.txt",
+   "sha256": "974d6dc0c658091d46e1928a297b1881b1f34bd26efd1b0434567e00fbd96cc1",
+   "bytes": 39608,
+   "heading_present": true,
+   "heading_line": 8902,
+   "end_line": 9242,
+   "heading_note": "ok",
+   "n_sentences": 134,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 5
+   }
+  },
+  {
+   "ah": 664,
+   "path": "ah_0664.txt",
+   "sha256": "b6401cdbce7e1bbc09ed9a67367549418b90ad5fdbf75d612a8c0ccfde98820d",
+   "bytes": 22997,
+   "heading_present": true,
+   "heading_line": 9243,
+   "end_line": 9449,
+   "heading_note": "ok",
+   "n_sentences": 87,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 665,
+   "path": "ah_0665.txt",
+   "sha256": "8b114e8e88f2bdc7e1516af38f549be0631190ecfe2ef98f5cd1195debffbd57",
+   "bytes": 14374,
+   "heading_present": true,
+   "heading_line": 9450,
+   "end_line": 9579,
+   "heading_note": "ok",
+   "n_sentences": 49,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 666,
+   "path": "ah_0666.txt",
+   "sha256": "507cbf4828281ef89fc79cdbcdff9ec7091d55f27680ea3712c204211303a8f9",
+   "bytes": 20406,
+   "heading_present": true,
+   "heading_line": 9580,
+   "end_line": 9759,
+   "heading_note": "ok",
+   "n_sentences": 55,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 2
+   }
+  },
+  {
+   "ah": 667,
+   "path": "ah_0667.txt",
+   "sha256": "cf0bed3fb084835b47d6465ccf66f8af1dc474b1a94754725ff040635154ad48",
+   "bytes": 22690,
+   "heading_present": true,
+   "heading_line": 9760,
+   "end_line": 9956,
+   "heading_note": "ok",
+   "n_sentences": 64,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 668,
+   "path": "ah_0668.txt",
+   "sha256": "466554727bfc2951ce9e414cf6a125a40d7d3936e3ea93e3b735edb44a9a771b",
+   "bytes": 14925,
+   "heading_present": true,
+   "heading_line": 9957,
+   "end_line": 10088,
+   "heading_note": "ok",
+   "n_sentences": 41,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "كسر": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 669,
+   "path": "ah_0669.txt",
+   "sha256": "9d873cf2347354737f4097b4a78385ce340b4263f772c7b53219b75aa0ce571a",
+   "bytes": 11710,
+   "heading_present": true,
+   "heading_line": 10089,
+   "end_line": 10194,
+   "heading_note": "ok",
+   "n_sentences": 44,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 670,
+   "path": "ah_0670.txt",
+   "sha256": "5839da798df9a99349836a9aef1cf20f1a2ffa6823220dd2a294d8efe9edffdd",
+   "bytes": 14913,
+   "heading_present": true,
+   "heading_line": 10195,
+   "end_line": 10324,
+   "heading_note": "ok",
+   "n_sentences": 49,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 671,
+   "path": "ah_0671.txt",
+   "sha256": "1cf878311033727542ed7ae3a792a8985a694315d7b9eb230afc68300efa71d8",
+   "bytes": 8364,
+   "heading_present": true,
+   "heading_line": 10325,
+   "end_line": 10404,
+   "heading_note": "ok",
+   "n_sentences": 30,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 2,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 672,
+   "path": "ah_0672.txt",
+   "sha256": "76d0d344e1a8b09b9d4f2ebac1d9d98de06a032068209b6d4f6bdc043e960a15",
+   "bytes": 11047,
+   "heading_present": true,
+   "heading_line": 10405,
+   "end_line": 10508,
+   "heading_note": "ok",
+   "n_sentences": 41,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 673,
+   "path": "ah_0673.txt",
+   "sha256": "1873ccda9eb1b768e13a10346d43ecc7ac7f8c812038387586e632fc4a9ddd36",
+   "bytes": 6346,
+   "heading_present": true,
+   "heading_line": 10509,
+   "end_line": 10572,
+   "heading_note": "ok",
+   "n_sentences": 25,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 674,
+   "path": "ah_0674.txt",
+   "sha256": "b317851ab032011f6aae4534db9996b21bf422fba9bd25b9422a6d7e037c8c00",
+   "bytes": 10292,
+   "heading_present": true,
+   "heading_line": 10573,
+   "end_line": 10665,
+   "heading_note": "ok",
+   "n_sentences": 34,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 675,
+   "path": "ah_0675.txt",
+   "sha256": "21cf3fd378b3754ca27bac84766d4fa2bdddc5536df4fa8ae846f0913e7420de",
+   "bytes": 18249,
+   "heading_present": true,
+   "heading_line": 10666,
+   "end_line": 10826,
+   "heading_note": "ok",
+   "n_sentences": 53,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 676,
+   "path": "ah_0676.txt",
+   "sha256": "38e7cdf311cf399295fbd331030f9b675e9801717ca9cd10d85ce8ec14fdd047",
+   "bytes": 26233,
+   "heading_present": true,
+   "heading_line": 10827,
+   "end_line": 11060,
+   "heading_note": "ok",
+   "n_sentences": 85,
+   "n_blanks": 2,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 677,
+   "path": "ah_0677.txt",
+   "sha256": "636e1008baf1705b5e253aa2de9506c540f70324a675166ada20ea18da1b5514",
+   "bytes": 6245,
+   "heading_present": true,
+   "heading_line": 11061,
+   "end_line": 11126,
+   "heading_note": "ok",
+   "n_sentences": 26,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 678,
+   "path": "ah_0678.txt",
+   "sha256": "a83e95a92a0e44186acad3e408f6a659b31ad16f7bf4926e70a4d829a700e384",
+   "bytes": 39477,
+   "heading_present": true,
+   "heading_line": 11127,
+   "end_line": 11467,
+   "heading_note": "ok",
+   "n_sentences": 131,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 679,
+   "path": "ah_0679.txt",
+   "sha256": "72dc141ff0c143ce6d015b08f1215559fdde58edd866859fb9a1e81cf87fe998",
+   "bytes": 21554,
+   "heading_present": true,
+   "heading_line": 11468,
+   "end_line": 11665,
+   "heading_note": "ok",
+   "n_sentences": 83,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 680,
+   "path": "ah_0680.txt",
+   "sha256": "45be1edfd9b74f0362579b0101390999e6015be97b802ad5156994199be8fb57",
+   "bytes": 45226,
+   "heading_present": true,
+   "heading_line": 11666,
+   "end_line": 12061,
+   "heading_note": "ok",
+   "n_sentences": 172,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "كسر": 1,
+    "غرق_غريق_all_forms": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 681,
+   "path": "ah_0681.txt",
+   "sha256": "2030d7ab420b80f3a8f9d08571c9c0bfa7e28f54335a5b2dad8f4b105eb7ea33",
+   "bytes": 10618,
+   "heading_present": true,
+   "heading_line": 12062,
+   "end_line": 12164,
+   "heading_note": "ok",
+   "n_sentences": 49,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 682,
+   "path": "ah_0682.txt",
+   "sha256": "45d6b7563934ef3aa711636d6f42c69610b48943773fef4043df8c8cab85e4d7",
+   "bytes": 19637,
+   "heading_present": true,
+   "heading_line": 12165,
+   "end_line": 12363,
+   "heading_note": "ok",
+   "n_sentences": 93,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 683,
+   "path": "ah_0683.txt",
+   "sha256": "5fcafbe3f6b3e2810957e4a91aec08a492f04fa54713ea7de7eefedcf5e84a0d",
+   "bytes": 13053,
+   "heading_present": true,
+   "heading_line": 12364,
+   "end_line": 12482,
+   "heading_note": "ok",
+   "n_sentences": 57,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "كسر": 1,
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 684,
+   "path": "ah_0684.txt",
+   "sha256": "8262fdb839d511c79e8cc229c5140d3491a7299a5218e47a162d1f9843858ea1",
+   "bytes": 4834,
+   "heading_present": true,
+   "heading_line": 12483,
+   "end_line": 12532,
+   "heading_note": "ok",
+   "n_sentences": 20,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 685,
+   "path": "ah_0685.txt",
+   "sha256": "c95c2d56a485d6a09f3eb6e97835e95db767a55bc663f359da8decd1e0a2061e",
+   "bytes": 7635,
+   "heading_present": true,
+   "heading_line": 12533,
+   "end_line": 12608,
+   "heading_note": "ok",
+   "n_sentences": 33,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 686,
+   "path": "ah_0686.txt",
+   "sha256": "3e90d3ab8d07686d9fe5c54d29e4fff0195d517dcebd27daa2321d775bf7db23",
+   "bytes": 11959,
+   "heading_present": true,
+   "heading_line": 12609,
+   "end_line": 12721,
+   "heading_note": "ok",
+   "n_sentences": 43,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 687,
+   "path": "ah_0687.txt",
+   "sha256": "bd5be2c53296a16767a71f1d1b19ec5bd3ff9909ad5b09f64bcbe3881c561710",
+   "bytes": 17904,
+   "heading_present": true,
+   "heading_line": 12722,
+   "end_line": 12881,
+   "heading_note": "ok",
+   "n_sentences": 72,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 688,
+   "path": "ah_0688.txt",
+   "sha256": "062556874ca617e37289ba1b4536830272f387245c29f6635ea01b3d29b4a3cb",
+   "bytes": 7530,
+   "heading_present": true,
+   "heading_line": 12882,
+   "end_line": 12954,
+   "heading_note": "ok",
+   "n_sentences": 34,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "بحر": 2
+   }
+  },
+  {
+   "ah": 689,
+   "path": "ah_0689.txt",
+   "sha256": "24d8aecf3ec297fb97f0fb92df1fedd5f909f605e4f27cef9544efdbbdfedc9a",
+   "bytes": 18917,
+   "heading_present": true,
+   "heading_line": 12955,
+   "end_line": 13119,
+   "heading_note": "ok",
+   "n_sentences": 79,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 690,
+   "path": "ah_0690.txt",
+   "sha256": "ad16b5be6226ea32774095ea23009f959ec16bae1560140f22bc2a7ecb34cdb3",
+   "bytes": 32996,
+   "heading_present": true,
+   "heading_line": 13120,
+   "end_line": 13425,
+   "heading_note": "ok",
+   "n_sentences": 90,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "كسر": 2,
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 691,
+   "path": "ah_0691.txt",
+   "sha256": "1c7ea44e9038219b768aec53f2ea415e4ef9aa866e82eb6aba431733a4607200",
+   "bytes": 10955,
+   "heading_present": true,
+   "heading_line": 13426,
+   "end_line": 13530,
+   "heading_note": "ok",
+   "n_sentences": 43,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 692,
+   "path": "ah_0692.txt",
+   "sha256": "c6fec64e3b03a440908f42193af0652ba4e1463853800991c9fe8b4cb355fe58",
+   "bytes": 12560,
+   "heading_present": true,
+   "heading_line": 13531,
+   "end_line": 13646,
+   "heading_note": "ok",
+   "n_sentences": 51,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 693,
+   "path": "ah_0693.txt",
+   "sha256": "36708549b7df0b982f518771bafe85ec44402d603941c6f1b4981062e0e3eb97",
+   "bytes": 39024,
+   "heading_present": true,
+   "heading_line": 13647,
+   "end_line": 13988,
+   "heading_note": "ok",
+   "n_sentences": 135,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 2,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 694,
+   "path": "ah_0694.txt",
+   "sha256": "e0c3facef3362a60990713ddef259b149479859d8921533047e8c5bab08bccf5",
+   "bytes": 12726,
+   "heading_present": true,
+   "heading_line": 13989,
+   "end_line": 14110,
+   "heading_note": "ok",
+   "n_sentences": 56,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 695,
+   "path": "ah_0695.txt",
+   "sha256": "e0da95013826ee26727ad64d34377ba7f9470a4223fefc97de47bc090de26528",
+   "bytes": 16105,
+   "heading_present": true,
+   "heading_line": 14111,
+   "end_line": 14263,
+   "heading_note": "ok",
+   "n_sentences": 61,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 696,
+   "path": "ah_0696.txt",
+   "sha256": "18b3813fc99af1a6d8d31564f918ce997e8972521045fff0a4d1a8fc71774971",
+   "bytes": 27401,
+   "heading_present": true,
+   "heading_line": 14264,
+   "end_line": 14506,
+   "heading_note": "ok",
+   "n_sentences": 102,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "كسر": 2
+   }
+  },
+  {
+   "ah": 697,
+   "path": "ah_0697.txt",
+   "sha256": "e21d228fbb7747e681e800327345d81c695a2aea831b6e6c9edfbaea74d4150d",
+   "bytes": 39010,
+   "heading_present": true,
+   "heading_line": 14507,
+   "end_line": 14850,
+   "heading_note": "ok",
+   "n_sentences": 138,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 2,
+    "كسر": 1,
+    "ماء": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 698,
+   "path": "ah_0698.txt",
+   "sha256": "2eb0798dc4afc574efc4228bdd45172ea8cffdd415203e128adf6a84bdd3d4fd",
+   "bytes": 61050,
+   "heading_present": true,
+   "heading_line": 14851,
+   "end_line": 15378,
+   "heading_note": "ok",
+   "n_sentences": 217,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 699,
+   "path": "ah_0699.txt",
+   "sha256": "336945c2376c64f5b34e2b5f66b91f4c7d72f9dca3d0b5a156cca2c4d14190ac",
+   "bytes": 48988,
+   "heading_present": true,
+   "heading_line": 15379,
+   "end_line": 15817,
+   "heading_note": "ok",
+   "n_sentences": 177,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 700,
+   "path": "ah_0700.txt",
+   "sha256": "64d3fd2ac0f5750f193709f9f794aeb7def9f707bcbdf41cfe657dfe4f6bfb0e",
+   "bytes": 24515,
+   "heading_present": true,
+   "heading_line": 15818,
+   "end_line": 16039,
+   "heading_note": "ok",
+   "n_sentences": 92,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 701,
+   "path": "ah_0701.txt",
+   "sha256": "4f3e116917ba6780e9fa475d6f9f967ea8751b2905baa27f4dce527cfd6c1db4",
+   "bytes": 17688,
+   "heading_present": true,
+   "heading_line": 16040,
+   "end_line": 16210,
+   "heading_note": "ok",
+   "n_sentences": 67,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 702,
+   "path": "ah_0702.txt",
+   "sha256": "7cf5b06a91efdf1239fcc71e10e1a7cdf53c426379cedb1cbb2a4d0b8e049bd7",
+   "bytes": 42796,
+   "heading_present": true,
+   "heading_line": 16211,
+   "end_line": 16631,
+   "heading_note": "ok",
+   "n_sentences": 172,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 5
+   }
+  },
+  {
+   "ah": 703,
+   "path": "ah_0703.txt",
+   "sha256": "4c115bee7b7a6a9b992df745bb34eecd410de81f1d348951f157f4a2de381ef0",
+   "bytes": 20346,
+   "heading_present": true,
+   "heading_line": 16632,
+   "end_line": 16823,
+   "heading_note": "ok",
+   "n_sentences": 77,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 2,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 704,
+   "path": "ah_0704.txt",
+   "sha256": "c86405707e432ad1864c2dc1d92213706d64517597e6c18cc50cf0e227b7d65c",
+   "bytes": 23875,
+   "heading_present": true,
+   "heading_line": 16824,
+   "end_line": 17053,
+   "heading_note": "ok",
+   "n_sentences": 86,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 2
+   }
+  },
+  {
+   "ah": 705,
+   "path": "ah_0705.txt",
+   "sha256": "e715d9f781fe7d67d187df749d5b843e6e32d62809e04e44acc77f4601864819",
+   "bytes": 15907,
+   "heading_present": true,
+   "heading_line": 17054,
+   "end_line": 17198,
+   "heading_note": "ok",
+   "n_sentences": 51,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 706,
+   "path": "ah_0706.txt",
+   "sha256": "a12842e30d9c1b94b5194fe02ea58034818f3488aecea0cb4ab76756bda083e5",
+   "bytes": 24157,
+   "heading_present": true,
+   "heading_line": 17199,
+   "end_line": 17425,
+   "heading_note": "ok",
+   "n_sentences": 82,
+   "n_blanks": 3,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 707,
+   "path": "ah_0707.txt",
+   "sha256": "3c7b3756b98e4543482e79726b2739e6309a321579d9030ee044585606acf9fc",
+   "bytes": 21245,
+   "heading_present": true,
+   "heading_line": 17426,
+   "end_line": 17617,
+   "heading_note": "ok",
+   "n_sentences": 80,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "غريق": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 708,
+   "path": "ah_0708.txt",
+   "sha256": "e9015b96914bf1ed0c86832cf7e82cc1002db216e381200f7b541c1c63bfec8a",
+   "bytes": 23077,
+   "heading_present": true,
+   "heading_line": 17618,
+   "end_line": 17833,
+   "heading_note": "ok",
+   "n_sentences": 88,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 709,
+   "path": "ah_0709.txt",
+   "sha256": "5277b3cf1094b34791ef668bd7c0d6507a7c792fb3ad727929b1dfc766a9e39a",
+   "bytes": 78987,
+   "heading_present": true,
+   "heading_line": 17834,
+   "end_line": 18525,
+   "heading_note": "ok",
+   "n_sentences": 295,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 710,
+   "path": "ah_0710.txt",
+   "sha256": "825c50bf7721e324a1887862b8f2491d8827831ff3d085f34874fac5b1fdc9d8",
+   "bytes": 31852,
+   "heading_present": true,
+   "heading_line": 18526,
+   "end_line": 18821,
+   "heading_note": "ok",
+   "n_sentences": 107,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 2,
+    "بحر": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 711,
+   "path": "ah_0711.txt",
+   "sha256": "f04f57d222400c641c11dd9747876dd8d96010bdf28d601d16dbd0e0b47f6cf5",
+   "bytes": 32130,
+   "heading_present": true,
+   "heading_line": 18822,
+   "end_line": 19127,
+   "heading_note": "ok",
+   "n_sentences": 133,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 712,
+   "path": "ah_0712.txt",
+   "sha256": "3c5e6a7ebf8a22cbf4c05d1be6b3a2ef7edcb04eccfa7869f1717b7be12cfd15",
+   "bytes": 17314,
+   "heading_present": true,
+   "heading_line": 19128,
+   "end_line": 19288,
+   "heading_note": "ok",
+   "n_sentences": 62,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 713,
+   "path": "ah_0713.txt",
+   "sha256": "5d2db694a2f28162429e4463d0d0638a183760de20c2da66470eb0def0300bcb",
+   "bytes": 24615,
+   "heading_present": true,
+   "heading_line": 19289,
+   "end_line": 19527,
+   "heading_note": "ok",
+   "n_sentences": 96,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 714,
+   "path": "ah_0714.txt",
+   "sha256": "9bb646cc7869b7b80b498842a99574e4f4b3e50133c8774276a0a4ce5cc5d892",
+   "bytes": 16325,
+   "heading_present": true,
+   "heading_line": 19528,
+   "end_line": 19683,
+   "heading_note": "ok",
+   "n_sentences": 67,
+   "n_blanks": 3,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 715,
+   "path": "ah_0715.txt",
+   "sha256": "d42cecc8457ab8cf60d40487c3b2f906fde5ce0a56ad48fd4b16e7c9a542ddf8",
+   "bytes": 36214,
+   "heading_present": true,
+   "heading_line": 19684,
+   "end_line": 20014,
+   "heading_note": "ok",
+   "n_sentences": 151,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 716,
+   "path": "ah_0716.txt",
+   "sha256": "2e2212f2bacf3a36223e1b19f3f4bb1decaed7e75451a6b5336f165f544820d3",
+   "bytes": 19347,
+   "heading_present": true,
+   "heading_line": 20015,
+   "end_line": 20209,
+   "heading_note": "ok",
+   "n_sentences": 87,
+   "n_blanks": 5,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 717,
+   "path": "ah_0717.txt",
+   "sha256": "1d772dee2554e1ed6a660aa3788150bf0cec86e44c75f7d7e357518bd94dc3d5",
+   "bytes": 20009,
+   "heading_present": true,
+   "heading_line": 20210,
+   "end_line": 20398,
+   "heading_note": "ok",
+   "n_sentences": 71,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "غرق": 1,
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 718,
+   "path": "ah_0718.txt",
+   "sha256": "9e4f98a31fbe70fe16fc7166cd6ded896ad1ddcc3551d2f8b9de68cebc377aaa",
+   "bytes": 21019,
+   "heading_present": true,
+   "heading_line": 20399,
+   "end_line": 20597,
+   "heading_note": "ok",
+   "n_sentences": 100,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "غرق": 1,
+    "بحر": 2,
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 719,
+   "path": "ah_0719.txt",
+   "sha256": "e7534ce7e227e10b002a3dc5f3b3b4311f293662642bc5a8a178b58efcfae683",
+   "bytes": 21603,
+   "heading_present": true,
+   "heading_line": 20598,
+   "end_line": 20800,
+   "heading_note": "ok",
+   "n_sentences": 96,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 720,
+   "path": "ah_0720.txt",
+   "sha256": "4bda2a20a07971a05e9d43fc784c2d64eb1a2f0638d55b97c4caf4f781205a60",
+   "bytes": 29214,
+   "heading_present": true,
+   "heading_line": 20801,
+   "end_line": 21071,
+   "heading_note": "ok",
+   "n_sentences": 106,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "ماء": 6,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 721,
+   "path": "ah_0721.txt",
+   "sha256": "40065735a3f78e28efdf4bffd80f756e93bf926c62b4f3d5f57de6523b749abf",
+   "bytes": 42988,
+   "heading_present": true,
+   "heading_line": 21072,
+   "end_line": 21478,
+   "heading_note": "ok",
+   "n_sentences": 184,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "ماء": 4,
+    "بحر": 5
+   }
+  },
+  {
+   "ah": 722,
+   "path": "ah_0722.txt",
+   "sha256": "39f18cfaecb692b4eaea05d54dc74416aea410949c50b8a906a1d6615a08673c",
+   "bytes": 11602,
+   "heading_present": true,
+   "heading_line": 21479,
+   "end_line": 21603,
+   "heading_note": "ok",
+   "n_sentences": 57,
+   "n_blanks": 2,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 723,
+   "path": "ah_0723.txt",
+   "sha256": "db92c7995c55ee9fc645371320d34b90cc1667f8fabc03688174ad491c9f4669",
+   "bytes": 26907,
+   "heading_present": true,
+   "heading_line": 21604,
+   "end_line": 21855,
+   "heading_note": "ok",
+   "n_sentences": 129,
+   "n_blanks": 6,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 2,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 724,
+   "path": "ah_0724.txt",
+   "sha256": "97b930c65797daf97cd8bc776065f273a9e6be6dde207bcde2a6fbbdd3202e84",
+   "bytes": 14976,
+   "heading_present": true,
+   "heading_line": 21856,
+   "end_line": 22004,
+   "heading_note": "ok",
+   "n_sentences": 69,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 2,
+    "بحر": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 725,
+   "path": "ah_0725.txt",
+   "sha256": "f8359e9efb6245d19f788ffb0a3ec37d6780d424680d6e643a0f62f5577f119c",
+   "bytes": 21524,
+   "heading_present": true,
+   "heading_line": 22005,
+   "end_line": 22213,
+   "heading_note": "ok",
+   "n_sentences": 88,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 726,
+   "path": "ah_0726.txt",
+   "sha256": "1adf4d43b1317f9548eb0a1a4f137eee27401eafe113ac4502ed7b14e205a616",
+   "bytes": 18030,
+   "heading_present": true,
+   "heading_line": 22214,
+   "end_line": 22380,
+   "heading_note": "ok",
+   "n_sentences": 78,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 727,
+   "path": "ah_0727.txt",
+   "sha256": "a5886d94f8454fbea8ebd440e2087f2bb8d96b1fdcabdc29f22be67acffad913",
+   "bytes": 28411,
+   "heading_present": true,
+   "heading_line": 22381,
+   "end_line": 22635,
+   "heading_note": "ok",
+   "n_sentences": 120,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "ماء": 3,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 728,
+   "path": "ah_0728.txt",
+   "sha256": "319b7a4bf7e1d3522f669aa4c6f7c5e27f5ce8bb981e45bfe675874780e2a22c",
+   "bytes": 26986,
+   "heading_present": true,
+   "heading_line": 22636,
+   "end_line": 22894,
+   "heading_note": "ok",
+   "n_sentences": 131,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 729,
+   "path": "ah_0729.txt",
+   "sha256": "b0b6837cbd4ab34c1ae264586ab6a319bb80bdeb28267f9f42b6552d27c252a3",
+   "bytes": 17075,
+   "heading_present": true,
+   "heading_line": 22895,
+   "end_line": 23072,
+   "heading_note": "ok",
+   "n_sentences": 73,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 730,
+   "path": "ah_0730.txt",
+   "sha256": "19eac549534ff1ef6aae003a47caf0cbec1f3d472536535b12dbbaa4a3974881",
+   "bytes": 27683,
+   "heading_present": true,
+   "heading_line": 23073,
+   "end_line": 23326,
+   "heading_note": "ok",
+   "n_sentences": 103,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 2,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 731,
+   "path": "ah_0731.txt",
+   "sha256": "d2fb8fd93ae1e3cddc1bb74f0ce1206c85898ec9c49e2bb4f253b3ab17a7b823",
+   "bytes": 30071,
+   "heading_present": true,
+   "heading_line": 23327,
+   "end_line": 23618,
+   "heading_note": "ok",
+   "n_sentences": 124,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 732,
+   "path": "ah_0732.txt",
+   "sha256": "352195e622b1f92f66dd98b5ddbb82bebeece6fc274d2610650661d4e1426aac",
+   "bytes": 29993,
+   "heading_present": true,
+   "heading_line": 23619,
+   "end_line": 23900,
+   "heading_note": "ok",
+   "n_sentences": 116,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 733,
+   "path": "ah_0733.txt",
+   "sha256": "3d41d601f4e182cd0d70f1b26ce103a4caf2baf393a1f1e59f70beba5035de00",
+   "bytes": 22486,
+   "heading_present": true,
+   "heading_line": 23901,
+   "end_line": 24105,
+   "heading_note": "ok",
+   "n_sentences": 81,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 734,
+   "path": "ah_0734.txt",
+   "sha256": "21ad38e6717f8b560cfb5657b11a04a09b01f1ac42ab1a9bf739d174351727a1",
+   "bytes": 23087,
+   "heading_present": true,
+   "heading_line": 24106,
+   "end_line": 24336,
+   "heading_note": "ok",
+   "n_sentences": 88,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 735,
+   "path": "ah_0735.txt",
+   "sha256": "eeeece74071c35430b6d20ae3553f347d66a3bc570c3037f530be88f3352619a",
+   "bytes": 28464,
+   "heading_present": true,
+   "heading_line": 24337,
+   "end_line": 24603,
+   "heading_note": "ok",
+   "n_sentences": 104,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 736,
+   "path": "ah_0736.txt",
+   "sha256": "456769a1f0ec0ff2e16a0da2aea9e85d67b06985f92bd50c57dbab7e97513c28",
+   "bytes": 38579,
+   "heading_present": true,
+   "heading_line": 24604,
+   "end_line": 24951,
+   "heading_note": "ok",
+   "n_sentences": 137,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 737,
+   "path": "ah_0737.txt",
+   "sha256": "0f53fb46985e0eece63469e62f3c1593319904f94eb09a1929879fc87382e86c",
+   "bytes": 40481,
+   "heading_present": true,
+   "heading_line": 24952,
+   "end_line": 25337,
+   "heading_note": "ok",
+   "n_sentences": 168,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 738,
+   "path": "ah_0738.txt",
+   "sha256": "4942d662ad89c12adc0ea361200f03ce9e1fa7546b2d0b780882edd8d63efa2e",
+   "bytes": 59012,
+   "heading_present": true,
+   "heading_line": 25338,
+   "end_line": 25896,
+   "heading_note": "ok",
+   "n_sentences": 254,
+   "n_blanks": 22,
+   "leftover_stems": {
+    "زيادة": 3,
+    "بحر": 3,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 739,
+   "path": "ah_0739.txt",
+   "sha256": "62d0e719da2a068c7c06c0a669c2527e127042bdbf0f1f77f391922bed01c1ec",
+   "bytes": 29395,
+   "heading_present": true,
+   "heading_line": 25897,
+   "end_line": 26166,
+   "heading_note": "ok",
+   "n_sentences": 117,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 2,
+    "بحر": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 740,
+   "path": "ah_0740.txt",
+   "sha256": "bdc0bda61ec0d79339db70ee4f3b2959762b5685c712b574877a646905379038",
+   "bytes": 74091,
+   "heading_present": true,
+   "heading_line": 26167,
+   "end_line": 26834,
+   "heading_note": "ok",
+   "n_sentences": 266,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 8,
+    "بحر": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 741,
+   "path": "ah_0741.txt",
+   "sha256": "d4c208c6536954dcd340d7933af16c0946b945261e41b9d04f301c75c76b00af",
+   "bytes": 96776,
+   "heading_present": true,
+   "heading_line": 26835,
+   "end_line": 27720,
+   "heading_note": "ok",
+   "n_sentences": 412,
+   "n_blanks": 18,
+   "leftover_stems": {
+    "زيادة": 5,
+    "كسر": 1,
+    "ماء": 4,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 2,
+    "زيادة_all_forms": 5
+   }
+  },
+  {
+   "ah": 742,
+   "path": "ah_0742.txt",
+   "sha256": "98d8158a41a6d2b16b2186d18352a328130e4a1f7ec5b8a888ff334f69e3c321",
+   "bytes": 135977,
+   "heading_present": true,
+   "heading_line": 27721,
+   "end_line": 28928,
+   "heading_note": "ok",
+   "n_sentences": 569,
+   "n_blanks": 23,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 743,
+   "path": "ah_0743.txt",
+   "sha256": "d76e36569adbd9f57c68b6e805165c24a0201d4fcd54266e33bd5369530e172c",
+   "bytes": 46755,
+   "heading_present": true,
+   "heading_line": 28929,
+   "end_line": 29353,
+   "heading_note": "ok",
+   "n_sentences": 229,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 744,
+   "path": "ah_0744.txt",
+   "sha256": "aaf540e18ccf06069a9493618045874ed6f9f98e7f96bd7ee5cab23f1fd1d925",
+   "bytes": 48322,
+   "heading_present": true,
+   "heading_line": 29354,
+   "end_line": 29801,
+   "heading_note": "ok",
+   "n_sentences": 221,
+   "n_blanks": 11,
+   "leftover_stems": {
+    "زيادة": 6,
+    "كسر": 1,
+    "زيادة_all_forms": 6
+   }
+  },
+  {
+   "ah": 745,
+   "path": "ah_0745.txt",
+   "sha256": "7f4749fa97fb1de726d16095cddc6d390993268aa910d950bdcef0a4112e1542",
+   "bytes": 58333,
+   "heading_present": true,
+   "heading_line": 29802,
+   "end_line": 30331,
+   "heading_note": "ok",
+   "n_sentences": 276,
+   "n_blanks": 6,
+   "leftover_stems": {
+    "زيادة": 5,
+    "زياده": 1,
+    "غرق": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 6
+   }
+  },
+  {
+   "ah": 746,
+   "path": "ah_0746.txt",
+   "sha256": "e4c98d2966529b47cf13e1af89e170b14ee76979cbc10db296b9ed7f90937e7e",
+   "bytes": 51237,
+   "heading_present": true,
+   "heading_line": 30332,
+   "end_line": 30801,
+   "heading_note": "ok",
+   "n_sentences": 250,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 747,
+   "path": "ah_0747.txt",
+   "sha256": "093381158a6e0485144f0a31f78ea001ae8506f5aeb966e95534c909c76c3b30",
+   "bytes": 55763,
+   "heading_present": true,
+   "heading_line": 30802,
+   "end_line": 31302,
+   "heading_note": "ok",
+   "n_sentences": 269,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "زيادة": 5,
+    "ماء": 5,
+    "زيادة_all_forms": 5
+   }
+  },
+  {
+   "ah": 748,
+   "path": "ah_0748.txt",
+   "sha256": "50538037b6e24dc7d5456b43097d988049a092454f8bc2ac0aec04d2a5bce542",
+   "bytes": 75129,
+   "heading_present": true,
+   "heading_line": 31303,
+   "end_line": 31966,
+   "heading_note": "ok",
+   "n_sentences": 335,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 4,
+    "ماء": 2,
+    "زيادة_all_forms": 4
+   }
+  },
+  {
+   "ah": 749,
+   "path": "ah_0749.txt",
+   "sha256": "3efb78af431d5c555529dc02f50553132dae512eca553029b2cb25c3de3300b4",
+   "bytes": 76641,
+   "heading_present": true,
+   "heading_line": 31967,
+   "end_line": 32730,
+   "heading_note": "ok",
+   "n_sentences": 393,
+   "n_blanks": 26,
+   "leftover_stems": {
+    "زيادة": 9,
+    "كسر": 1,
+    "ماء": 8,
+    "بحر": 7,
+    "زيادة_all_forms": 9
+   }
+  },
+  {
+   "ah": 750,
+   "path": "ah_0750.txt",
+   "sha256": "5fdb12dcf7bd7f0652a2bc5a79a2e8e0c7ca8682548552f91549b6f32ce5e598",
+   "bytes": 39756,
+   "heading_present": true,
+   "heading_line": 32731,
+   "end_line": 33091,
+   "heading_note": "ok",
+   "n_sentences": 192,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 3,
+    "غرق": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 751,
+   "path": "ah_0751.txt",
+   "sha256": "6b67488b26e19c92c10e18a5a75a9ddc7209b7826cfced6ca7dcfc5f486c6b8d",
+   "bytes": 44822,
+   "heading_present": true,
+   "heading_line": 33092,
+   "end_line": 33494,
+   "heading_note": "ok",
+   "n_sentences": 226,
+   "n_blanks": 6,
+   "leftover_stems": {
+    "زيادة": 3,
+    "كسر": 1,
+    "ماء": 3,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 752,
+   "path": "ah_0752.txt",
+   "sha256": "e4d17c35040170c22d839771b9dc779849253118cd79ca22ef64a9a90ea3cb0b",
+   "bytes": 52373,
+   "heading_present": true,
+   "heading_line": 33495,
+   "end_line": 33954,
+   "heading_note": "ok",
+   "n_sentences": 256,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 753,
+   "path": "ah_0753.txt",
+   "sha256": "ba83031092e7e2464282538dafe6f72f45a1864528f888bbdc28b73107ff7b5d",
+   "bytes": 62945,
+   "heading_present": true,
+   "heading_line": 33955,
+   "end_line": 34511,
+   "heading_note": "ok",
+   "n_sentences": 303,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 6,
+    "بحر": 2,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 754,
+   "path": "ah_0754.txt",
+   "sha256": "c6255e77212c7d9149847e4257134bd8aea868cf55fba76bf0342816c809ab9d",
+   "bytes": 47095,
+   "heading_present": true,
+   "heading_line": 34512,
+   "end_line": 34932,
+   "heading_note": "ok",
+   "n_sentences": 214,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 755,
+   "path": "ah_0755.txt",
+   "sha256": "c8795f7f83f72806138478facda19732ad867862119e5d0e151b3b7d890c0930",
+   "bytes": 75632,
+   "heading_present": true,
+   "heading_line": 34933,
+   "end_line": 35619,
+   "heading_note": "ok",
+   "n_sentences": 346,
+   "n_blanks": 14,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 2,
+    "بحر": 4,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 756,
+   "path": "ah_0756.txt",
+   "sha256": "fd29a99f99987d19b7cccaa00361e724fe34bfb7bd7899634dc857c1f1d384e3",
+   "bytes": 13470,
+   "heading_present": true,
+   "heading_line": 35620,
+   "end_line": 35755,
+   "heading_note": "ok",
+   "n_sentences": 73,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 757,
+   "path": "ah_0757.txt",
+   "sha256": "9956502cb392ecc396bd83a8bf5f233e5b67af4eb14493ba29cae19cfd2d78fa",
+   "bytes": 6850,
+   "heading_present": true,
+   "heading_line": 35756,
+   "end_line": 35822,
+   "heading_note": "ok",
+   "n_sentences": 35,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 758,
+   "path": "ah_0758.txt",
+   "sha256": "74988a4dee73efa14c1763ac2e9d52af1d219320b4386a0dd88d4a8a57caa9ec",
+   "bytes": 7355,
+   "heading_present": true,
+   "heading_line": 35823,
+   "end_line": 35892,
+   "heading_note": "ok",
+   "n_sentences": 43,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 759,
+   "path": "ah_0759.txt",
+   "sha256": "9e27cb35406c1003c26c4a4ecf8549b3cf2f547158489c14ac0acd0ece6c2fd0",
+   "bytes": 12256,
+   "heading_present": true,
+   "heading_line": 35893,
+   "end_line": 36008,
+   "heading_note": "ok",
+   "n_sentences": 67,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 760,
+   "path": "ah_0760.txt",
+   "sha256": "c837a52abd4043e624b5a6273c8590b1adac1942ea663cef7f1cacadf4e44d44",
+   "bytes": 3993,
+   "heading_present": true,
+   "heading_line": 36009,
+   "end_line": 36054,
+   "heading_note": "ok",
+   "n_sentences": 19,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 761,
+   "path": "ah_0761.txt",
+   "sha256": "c5ab7a7fb0b118acce75cb050420f76e6755889e385abd27dcea6ec86114fe45",
+   "bytes": 9760,
+   "heading_present": true,
+   "heading_line": 36055,
+   "end_line": 36158,
+   "heading_note": "ok",
+   "n_sentences": 55,
+   "n_blanks": 3,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 762,
+   "path": "ah_0762.txt",
+   "sha256": "b5460baaa012f1e254853d24bae3510c69f0f3daa1445e7994d4642cb1c4835e",
+   "bytes": 22635,
+   "heading_present": true,
+   "heading_line": 36159,
+   "end_line": 36380,
+   "heading_note": "ok",
+   "n_sentences": 113,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 763,
+   "path": "ah_0763.txt",
+   "sha256": "049acf315ffdd51dfc02b6c4d2c06733e43f03f22af75ed608da446cf40693d9",
+   "bytes": 12926,
+   "heading_present": true,
+   "heading_line": 36381,
+   "end_line": 36504,
+   "heading_note": "ok",
+   "n_sentences": 65,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 764,
+   "path": "ah_0764.txt",
+   "sha256": "d07d61541a83ca25c08a5d8a6eef602f79ccb50da400b2cc476eeb37e612353f",
+   "bytes": 11136,
+   "heading_present": true,
+   "heading_line": 36505,
+   "end_line": 36628,
+   "heading_note": "ok",
+   "n_sentences": 69,
+   "n_blanks": 5,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 765,
+   "path": "ah_0765.txt",
+   "sha256": "11db06b0a1727ff77ce1aa3474a7b3534b010c99a9c6e241277d7980ecdf7c4a",
+   "bytes": 8973,
+   "heading_present": true,
+   "heading_line": 36629,
+   "end_line": 36716,
+   "heading_note": "ok",
+   "n_sentences": 55,
+   "n_blanks": 0,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 766,
+   "path": "ah_0766.txt",
+   "sha256": "6ed73af4541be32fe3b9b91b670c76a008465ade65d823eb94be03b4e076acbf",
+   "bytes": 11391,
+   "heading_present": true,
+   "heading_line": 36717,
+   "end_line": 36831,
+   "heading_note": "ok",
+   "n_sentences": 65,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 3,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 767,
+   "path": "ah_0767.txt",
+   "sha256": "1eb62102cd5b70f0f0c5e0092b6bb3a775b7b7437a4d269e1ceef0bd52c1ac7e",
+   "bytes": 38300,
+   "heading_present": true,
+   "heading_line": 36832,
+   "end_line": 37176,
+   "heading_note": "ok",
+   "n_sentences": 191,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "غرق": 1,
+    "بحر": 4,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 768,
+   "path": "ah_0768.txt",
+   "sha256": "b75bf434544b3be096ef7e3751161382d0858c7f6d114746b2d22e047821904a",
+   "bytes": 35922,
+   "heading_present": true,
+   "heading_line": 37177,
+   "end_line": 37528,
+   "heading_note": "ok",
+   "n_sentences": 182,
+   "n_blanks": 14,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 769,
+   "path": "ah_0769.txt",
+   "sha256": "7d97d694b97ada70bbca96ecae6db0067b5faec2afdf12c0368613711c358dc4",
+   "bytes": 31860,
+   "heading_present": true,
+   "heading_line": 37529,
+   "end_line": 37837,
+   "heading_note": "ok",
+   "n_sentences": 129,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 2,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 770,
+   "path": "ah_0770.txt",
+   "sha256": "ec73c9ddc3eaec215d09c12af485c126a2297f2a7933252e88061b3ee91e51d1",
+   "bytes": 18067,
+   "heading_present": true,
+   "heading_line": 37838,
+   "end_line": 38007,
+   "heading_note": "ok",
+   "n_sentences": 65,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 771,
+   "path": "ah_0771.txt",
+   "sha256": "d9c27fd4fc466bf0065299fe84706a9c8a7528bf379181662a8091baabb0ef57",
+   "bytes": 14205,
+   "heading_present": true,
+   "heading_line": 38008,
+   "end_line": 38146,
+   "heading_note": "ok",
+   "n_sentences": 56,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 772,
+   "path": "ah_0772.txt",
+   "sha256": "2f7b3077e9c97d7f0ca97b4473980e2b5e3eb1ab092b6fc66c0dd83e599a4715",
+   "bytes": 10001,
+   "heading_present": true,
+   "heading_line": 38147,
+   "end_line": 38252,
+   "heading_note": "ok",
+   "n_sentences": 48,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 773,
+   "path": "ah_0773.txt",
+   "sha256": "8157bdb167596f678143c246d84cb0874168c0b16c8c4114c57feccb404176cf",
+   "bytes": 10151,
+   "heading_present": true,
+   "heading_line": 38253,
+   "end_line": 38355,
+   "heading_note": "ok",
+   "n_sentences": 35,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 774,
+   "path": "ah_0774.txt",
+   "sha256": "883210f23fefbff16c89fe698e70b8f3db5e978376e2f7bbc00ed1a7ced640d7",
+   "bytes": 14802,
+   "heading_present": true,
+   "heading_line": 38356,
+   "end_line": 38503,
+   "heading_note": "ok",
+   "n_sentences": 48,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 775,
+   "path": "ah_0775.txt",
+   "sha256": "6a1f1844eaac42111bf4712a696eed9ac34cdf4fb08575e2f3bed40f12614155",
+   "bytes": 29097,
+   "heading_present": true,
+   "heading_line": 38504,
+   "end_line": 38812,
+   "heading_note": "ok",
+   "n_sentences": 102,
+   "n_blanks": 9,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 776,
+   "path": "ah_0776.txt",
+   "sha256": "3f553baa7ecd224849cfcbe8cb68fdeaab66665e30248002e652289d1e7aacad",
+   "bytes": 30127,
+   "heading_present": true,
+   "heading_line": 38813,
+   "end_line": 39130,
+   "heading_note": "ok",
+   "n_sentences": 108,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 777,
+   "path": "ah_0777.txt",
+   "sha256": "dca358be72772ed2155c1c7f7037c718c913b327cc106fdb33b13cb3a42b5e39",
+   "bytes": 22178,
+   "heading_present": true,
+   "heading_line": 39131,
+   "end_line": 39344,
+   "heading_note": "ok",
+   "n_sentences": 68,
+   "n_blanks": 1,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 778,
+   "path": "ah_0778.txt",
+   "sha256": "93da8484109fa792e6a42f7ab977560f5e7d8c53b6f2f573de74e3be8fe723e9",
+   "bytes": 68407,
+   "heading_present": true,
+   "heading_line": 39345,
+   "end_line": 39982,
+   "heading_note": "ok",
+   "n_sentences": 193,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 779,
+   "path": "ah_0779.txt",
+   "sha256": "de7cba5068e4e0a857024f27f3be0f914b4dabdfa934b4b015ac898c3201d565",
+   "bytes": 42801,
+   "heading_present": true,
+   "heading_line": 39983,
+   "end_line": 40376,
+   "heading_note": "ok",
+   "n_sentences": 135,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "ماء": 1
+   }
+  },
+  {
+   "ah": 780,
+   "path": "ah_0780.txt",
+   "sha256": "fe5758f8166785b674a2237fd521bc56be8aacb09ca27bd45a19583c7b3ddbf3",
+   "bytes": 42877,
+   "heading_present": true,
+   "heading_line": 40377,
+   "end_line": 40759,
+   "heading_note": "ok",
+   "n_sentences": 156,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 781,
+   "path": "ah_0781.txt",
+   "sha256": "e4648d9b0d48df7e4e37d1f55f8324da364a0668d8980d05bce377be7f1229c3",
+   "bytes": 41390,
+   "heading_present": true,
+   "heading_line": 40760,
+   "end_line": 41145,
+   "heading_note": "ok",
+   "n_sentences": 162,
+   "n_blanks": 7,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 782,
+   "path": "ah_0782.txt",
+   "sha256": "de240a71a3e505405c922398f0f1ad119d2b3d78225a4dab4b6a6ea8c2ce6943",
+   "bytes": 55766,
+   "heading_present": true,
+   "heading_line": 41146,
+   "end_line": 41650,
+   "heading_note": "ok",
+   "n_sentences": 265,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 5,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 783,
+   "path": "ah_0783.txt",
+   "sha256": "a53005549535572c3df5667a6214650350b6741285bdfcc6d17f9e314bf89fa5",
+   "bytes": 119094,
+   "heading_present": true,
+   "heading_line": 41651,
+   "end_line": 42744,
+   "heading_note": "ok",
+   "n_sentences": 530,
+   "n_blanks": 24,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "كسر": 3,
+    "ماء": 8,
+    "بحر": 15,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 784,
+   "path": "ah_0784.txt",
+   "sha256": "fd18f344b6c892d41329a538d1bc6efa5929f1470c933853d7791ae816375390",
+   "bytes": 87,
+   "heading_present": false,
+   "heading_line": null,
+   "end_line": null,
+   "heading_note": "missing-heading",
+   "n_sentences": 0,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 785,
+   "path": "ah_0785.txt",
+   "sha256": "ca636c5af2d22e2d16d9d6b2e119f482d8d185eafcf4d74a7253217da8f37d12",
+   "bytes": 41548,
+   "heading_present": true,
+   "heading_line": 42745,
+   "end_line": 43122,
+   "heading_note": "ok",
+   "n_sentences": 186,
+   "n_blanks": 6,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 1,
+    "بحر": 3,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 786,
+   "path": "ah_0786.txt",
+   "sha256": "3f210614ee207013da46b62f1896e3ddfb68401d95290909e431d132d150731a",
+   "bytes": 26817,
+   "heading_present": true,
+   "heading_line": 43123,
+   "end_line": 43380,
+   "heading_note": "ok",
+   "n_sentences": 141,
+   "n_blanks": 7,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 787,
+   "path": "ah_0787.txt",
+   "sha256": "233986d3427e05d82e6f78b997f3d355dfe6c091bcc8f63a5f164b78d7e89745",
+   "bytes": 14763,
+   "heading_present": true,
+   "heading_line": 43381,
+   "end_line": 43534,
+   "heading_note": "ok",
+   "n_sentences": 94,
+   "n_blanks": 6,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 788,
+   "path": "ah_0788.txt",
+   "sha256": "f52f2782b3fb2779cb8d324c9413d3e5b33d0e481ab834735951030700c0153f",
+   "bytes": 47523,
+   "heading_present": true,
+   "heading_line": 43535,
+   "end_line": 43985,
+   "heading_note": "ok",
+   "n_sentences": 260,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "ماء": 2
+   }
+  },
+  {
+   "ah": 789,
+   "path": "ah_0789.txt",
+   "sha256": "54faf63896162da57d1a64b0eda2ed7acc57806bae8aaf7e40b159105d38fca7",
+   "bytes": 87,
+   "heading_present": false,
+   "heading_line": null,
+   "end_line": null,
+   "heading_note": "missing-heading",
+   "n_sentences": 0,
+   "n_blanks": 0,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 790,
+   "path": "ah_0790.txt",
+   "sha256": "5419d62dc3931ae0e0c2ab77645356580436e0a43a6773d181d6d79e546fa893",
+   "bytes": 24234,
+   "heading_present": true,
+   "heading_line": 43986,
+   "end_line": 44205,
+   "heading_note": "ok",
+   "n_sentences": 135,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "غرق": 1,
+    "بحر": 2,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 791,
+   "path": "ah_0791.txt",
+   "sha256": "7ca07608bea0d14941855a128c9521be36171308417910749481560612a3b0d1",
+   "bytes": 170861,
+   "heading_present": true,
+   "heading_line": 44206,
+   "end_line": 45674,
+   "heading_note": "ok",
+   "n_sentences": 758,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "زيادة": 3,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 792,
+   "path": "ah_0792.txt",
+   "sha256": "4dfad943cefc2f1862d9a1f94861f71ba52b9265d383c035b40e5099824b12a5",
+   "bytes": 70024,
+   "heading_present": true,
+   "heading_line": 45675,
+   "end_line": 46283,
+   "heading_note": "ok",
+   "n_sentences": 308,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 793,
+   "path": "ah_0793.txt",
+   "sha256": "b6223af2622633466d96e7a120231cbccfb43893c020b2d507c55799cfbf2668",
+   "bytes": 42626,
+   "heading_present": true,
+   "heading_line": 46284,
+   "end_line": 46682,
+   "heading_note": "ok",
+   "n_sentences": 201,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 794,
+   "path": "ah_0794.txt",
+   "sha256": "1c5ff9526ea466a3493c2c3b2a339f40310870bbe097f70f32bcb84850fa311f",
+   "bytes": 32410,
+   "heading_present": true,
+   "heading_line": 46683,
+   "end_line": 46987,
+   "heading_note": "ok",
+   "n_sentences": 179,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 795,
+   "path": "ah_0795.txt",
+   "sha256": "61ce4174946d7ca2edc14ea17df2577dea80adf9636d0112570f366fa6cc9d23",
+   "bytes": 24838,
+   "heading_present": true,
+   "heading_line": 46988,
+   "end_line": 47219,
+   "heading_note": "ok",
+   "n_sentences": 126,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 796,
+   "path": "ah_0796.txt",
+   "sha256": "dc76b9f20213bb0e3d19f2bba65128dc06122882879325c88eeb99c71df471a0",
+   "bytes": 47358,
+   "heading_present": true,
+   "heading_line": 47220,
+   "end_line": 47655,
+   "heading_note": "ok",
+   "n_sentences": 225,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "بلاغ": 1,
+    "غرق": 2,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 2
+   }
+  },
+  {
+   "ah": 797,
+   "path": "ah_0797.txt",
+   "sha256": "5fc7ac9695d73880fdd42bf489cedc4643aa498362db04a9c01ad925ca8dd7f0",
+   "bytes": 37667,
+   "heading_present": true,
+   "heading_line": 47656,
+   "end_line": 48017,
+   "heading_note": "ok",
+   "n_sentences": 188,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 798,
+   "path": "ah_0798.txt",
+   "sha256": "3d7205cbce03a09ae8b7752d19ce4d47adf1f4cb106be439f96cad4a2d1392fe",
+   "bytes": 30961,
+   "heading_present": true,
+   "heading_line": 48018,
+   "end_line": 48308,
+   "heading_note": "ok",
+   "n_sentences": 162,
+   "n_blanks": 5,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 799,
+   "path": "ah_0799.txt",
+   "sha256": "6846ccfcbbfdf05e8ec7425ff4938ec2c0254bf912330f2a4f88de92b04bd6cd",
+   "bytes": 28234,
+   "heading_present": true,
+   "heading_line": 48309,
+   "end_line": 48586,
+   "heading_note": "ok",
+   "n_sentences": 128,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 800,
+   "path": "ah_0800.txt",
+   "sha256": "416493e3e126daf9fd51e75c110b6148fadc2287fbdc27ba30f2792a7ae9f268",
+   "bytes": 44969,
+   "heading_present": true,
+   "heading_line": 48587,
+   "end_line": 49012,
+   "heading_note": "ok",
+   "n_sentences": 211,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 801,
+   "path": "ah_0801.txt",
+   "sha256": "c532aae5a290f106578f29ed97599cd766e22f6e82855a76d6fe5f9239c15f36",
+   "bytes": 87774,
+   "heading_present": true,
+   "heading_line": 49013,
+   "end_line": 49782,
+   "heading_note": "ok",
+   "n_sentences": 395,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 802,
+   "path": "ah_0802.txt",
+   "sha256": "119cffa64840c26a0db8c66bf9c1aeeeffbf7b926d48d04ab395397891fab198",
+   "bytes": 89646,
+   "heading_present": true,
+   "heading_line": 49783,
+   "end_line": 50587,
+   "heading_note": "ok",
+   "n_sentences": 422,
+   "n_blanks": 12,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 9,
+    "غرق_غريق_all_forms": 2
+   }
+  },
+  {
+   "ah": 803,
+   "path": "ah_0803.txt",
+   "sha256": "a9908829842a9a447b570448391b4bdc75b84cb9d7faf16fb14fb697eabe9afb",
+   "bytes": 93008,
+   "heading_present": true,
+   "heading_line": 50588,
+   "end_line": 51418,
+   "heading_note": "ok",
+   "n_sentences": 435,
+   "n_blanks": 11,
+   "leftover_stems": {
+    "زيادة": 3,
+    "كسر": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 804,
+   "path": "ah_0804.txt",
+   "sha256": "5c4868b9014cad89eb1dd74048ce677065eb2d8b1477c5183baba5899b6c0052",
+   "bytes": 26003,
+   "heading_present": true,
+   "heading_line": 51419,
+   "end_line": 51658,
+   "heading_note": "ok",
+   "n_sentences": 141,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "زيادة": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 805,
+   "path": "ah_0805.txt",
+   "sha256": "a4d889015c9f38699b4b1c5876be0ce994e1342f618fcfd9c9da42956a340f1d",
+   "bytes": 35032,
+   "heading_present": true,
+   "heading_line": 51659,
+   "end_line": 51977,
+   "heading_note": "ok",
+   "n_sentences": 168,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 3,
+    "غرق": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 806,
+   "path": "ah_0806.txt",
+   "sha256": "6a1bd6d1bab07e205d4b9703d91994d4357ed79ff5aa827e45c64be24fa981e4",
+   "bytes": 28390,
+   "heading_present": true,
+   "heading_line": 51978,
+   "end_line": 52255,
+   "heading_note": "ok",
+   "n_sentences": 148,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "ماء": 1,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 807,
+   "path": "ah_0807.txt",
+   "sha256": "a42163a9067ebe45b6b14f3ce0ea54512bcf209892f82ea9700b6926511db37e",
+   "bytes": 72692,
+   "heading_present": true,
+   "heading_line": 52256,
+   "end_line": 52886,
+   "heading_note": "ok",
+   "n_sentences": 312,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "ماء": 2,
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 808,
+   "path": "ah_0808.txt",
+   "sha256": "48025219d0ab6df0c5566ffe96e9763980b60d0032c84c485b182c7b5632ba81",
+   "bytes": 61459,
+   "heading_present": true,
+   "heading_line": 52887,
+   "end_line": 53444,
+   "heading_note": "ok",
+   "n_sentences": 349,
+   "n_blanks": 4,
+   "leftover_stems": {
+    "ماء": 5
+   }
+  },
+  {
+   "ah": 809,
+   "path": "ah_0809.txt",
+   "sha256": "c95facf6cc05269c2d9b680ef597f6b5af91ba3d38d8809791d367a31402aa7d",
+   "bytes": 41494,
+   "heading_present": true,
+   "heading_line": 53445,
+   "end_line": 53833,
+   "heading_note": "ok",
+   "n_sentences": 189,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "ماء": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 810,
+   "path": "ah_0810.txt",
+   "sha256": "42ed6628840d8edbebcc0bd876227408141cf61aa436a2a50eba85e2d7ac8d94",
+   "bytes": 28730,
+   "heading_present": true,
+   "heading_line": 53834,
+   "end_line": 54087,
+   "heading_note": "ok",
+   "n_sentences": 121,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "ماء": 2,
+    "بحر": 3,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 811,
+   "path": "ah_0811.txt",
+   "sha256": "34f4afca454ce1aee93cec81499ea88b3f5fb76ff84efbb9d451f563eaf4976a",
+   "bytes": 40815,
+   "heading_present": true,
+   "heading_line": 54088,
+   "end_line": 54458,
+   "heading_note": "ok",
+   "n_sentences": 185,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 4
+   }
+  },
+  {
+   "ah": 812,
+   "path": "ah_0812.txt",
+   "sha256": "7b40358e68b929c2ce941acb53f5c77b2e3fdfc412bb609a405f34b144e113b9",
+   "bytes": 77504,
+   "heading_present": true,
+   "heading_line": 54459,
+   "end_line": 55134,
+   "heading_note": "ok",
+   "n_sentences": 309,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 813,
+   "path": "ah_0813.txt",
+   "sha256": "4e6dfb15f9f1e43e9352a55e208d2edb9c91876481cd0af365e05e1d1a1b796c",
+   "bytes": 76001,
+   "heading_present": true,
+   "heading_line": 55135,
+   "end_line": 55780,
+   "heading_note": "ok",
+   "n_sentences": 224,
+   "n_blanks": 2,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 814,
+   "path": "ah_0814.txt",
+   "sha256": "34930d8bd74b7b851033c1a9b666531321dd6874c6241bc03469429d51e6641e",
+   "bytes": 56984,
+   "heading_present": true,
+   "heading_line": 55781,
+   "end_line": 56294,
+   "heading_note": "ok",
+   "n_sentences": 224,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "ماء": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 815,
+   "path": "ah_0815.txt",
+   "sha256": "bea649c5ab2ab10b2478c156bb91d9c87ee31ea8fa1e127f592a55033ae5b5c6",
+   "bytes": 93398,
+   "heading_present": true,
+   "heading_line": 56295,
+   "end_line": 57098,
+   "heading_note": "ok",
+   "n_sentences": 349,
+   "n_blanks": 3,
+   "leftover_stems": {
+    "زيادة": 6,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 6
+   }
+  },
+  {
+   "ah": 816,
+   "path": "ah_0816.txt",
+   "sha256": "3214037133af65b82cd027a1777e61a9750237a341b7168b19926564ae8ad2ca",
+   "bytes": 35487,
+   "heading_present": true,
+   "heading_line": 57099,
+   "end_line": 57434,
+   "heading_note": "ok",
+   "n_sentences": 132,
+   "n_blanks": 5,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 817,
+   "path": "ah_0817.txt",
+   "sha256": "2b835ed3d43ee5562a66c738a9a9c2ae6b28186d0abf3f6f02e767594cd79f66",
+   "bytes": 29343,
+   "heading_present": true,
+   "heading_line": 57435,
+   "end_line": 57696,
+   "heading_note": "ok",
+   "n_sentences": 95,
+   "n_blanks": 1,
+   "leftover_stems": {
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 818,
+   "path": "ah_0818.txt",
+   "sha256": "95b0248b50ec498fcb33f4e1322c262df89c9e5aa486bde1a7f69fc2eaf1c1ff",
+   "bytes": 61308,
+   "heading_present": true,
+   "heading_line": 57697,
+   "end_line": 58294,
+   "heading_note": "ok",
+   "n_sentences": 170,
+   "n_blanks": 12,
+   "leftover_stems": {
+    "زيادة": 2,
+    "بحر": 3,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 819,
+   "path": "ah_0819.txt",
+   "sha256": "d9284b9fc9a32d5612c2e33ce1b4ee45868c42b18f162b9bc7c013949c9e95ca",
+   "bytes": 58091,
+   "heading_present": true,
+   "heading_line": 58295,
+   "end_line": 58825,
+   "heading_note": "ok",
+   "n_sentences": 205,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 3
+   }
+  },
+  {
+   "ah": 820,
+   "path": "ah_0820.txt",
+   "sha256": "de1bf6f8b35c9f4b4f252421789dc91b5d5446efe3be16be97a57e72b7c77ba3",
+   "bytes": 79901,
+   "heading_present": true,
+   "heading_line": 58826,
+   "end_line": 59560,
+   "heading_note": "ok",
+   "n_sentences": 194,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "غرق": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1
+   }
+  },
+  {
+   "ah": 821,
+   "path": "ah_0821.txt",
+   "sha256": "6bbf065be9761bdc31012ef5fd1e8973c17636e88ca2de5499ef12d099f86760",
+   "bytes": 67461,
+   "heading_present": true,
+   "heading_line": 59561,
+   "end_line": 60195,
+   "heading_note": "ok",
+   "n_sentences": 220,
+   "n_blanks": 17,
+   "leftover_stems": {
+    "زيادة": 1,
+    "كسر": 1,
+    "بحر": 2,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 822,
+   "path": "ah_0822.txt",
+   "sha256": "3a3008d1d62ebdc27894212f71533fddb15534aeb915c3e30807832d07115932",
+   "bytes": 64513,
+   "heading_present": true,
+   "heading_line": 60196,
+   "end_line": 60816,
+   "heading_note": "ok",
+   "n_sentences": 298,
+   "n_blanks": 21,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 4,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 823,
+   "path": "ah_0823.txt",
+   "sha256": "7bbb312f4b471d5cc693d84fa24896c22f20b195a86372969015e1f9e820cc78",
+   "bytes": 45554,
+   "heading_present": true,
+   "heading_line": 60817,
+   "end_line": 61265,
+   "heading_note": "ok",
+   "n_sentences": 282,
+   "n_blanks": 23,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 824,
+   "path": "ah_0824.txt",
+   "sha256": "316ec073f3b90252b45600729180a96c28179bcfb58d8861a9e4d4c7541d7247",
+   "bytes": 73092,
+   "heading_present": true,
+   "heading_line": 61266,
+   "end_line": 61911,
+   "heading_note": "ok",
+   "n_sentences": 430,
+   "n_blanks": 9,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 825,
+   "path": "ah_0825.txt",
+   "sha256": "8ecffca1b552d1537bc2c11a370acd25f5d414c570ee9865a219170b22ea83ed",
+   "bytes": 45607,
+   "heading_present": true,
+   "heading_line": 61912,
+   "end_line": 62343,
+   "heading_note": "ok",
+   "n_sentences": 236,
+   "n_blanks": 17,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 826,
+   "path": "ah_0826.txt",
+   "sha256": "a5a3e55c5eb0e5ee24aaa0e459bd2261861c772be71b62bed8ec570a86a08f56",
+   "bytes": 42119,
+   "heading_present": true,
+   "heading_line": 62344,
+   "end_line": 62739,
+   "heading_note": "ok",
+   "n_sentences": 186,
+   "n_blanks": 15,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 3,
+    "غرق_غريق_all_forms": 3,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 827,
+   "path": "ah_0827.txt",
+   "sha256": "501a816745fdb06f7c01cbb7def22eda6725b1faff7a090caf73152f1eabb7dc",
+   "bytes": 38212,
+   "heading_present": true,
+   "heading_line": 62740,
+   "end_line": 63092,
+   "heading_note": "ok",
+   "n_sentences": 221,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 5,
+    "بحر": 3,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 828,
+   "path": "ah_0828.txt",
+   "sha256": "e93e3cd55f818e039d3a85dbde7a7966d9d1ff976af81b4168743ee32a23ceec",
+   "bytes": 46161,
+   "heading_present": true,
+   "heading_line": 63093,
+   "end_line": 63511,
+   "heading_note": "ok",
+   "n_sentences": 256,
+   "n_blanks": 17,
+   "leftover_stems": {
+    "زيادة": 2,
+    "ماء": 5,
+    "بحر": 5,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 829,
+   "path": "ah_0829.txt",
+   "sha256": "5f288999bc00df51a269df952a9313ed51eadb94a1913aea68c0bff8d08f4ade",
+   "bytes": 43375,
+   "heading_present": true,
+   "heading_line": 63512,
+   "end_line": 63958,
+   "heading_note": "ok",
+   "n_sentences": 129,
+   "n_blanks": 14,
+   "leftover_stems": {
+    "زيادة": 3,
+    "بحر": 6,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 830,
+   "path": "ah_0830.txt",
+   "sha256": "0c95895d0171803785a518bad4b03a1bf56ae0228a64b38890f1e2f190d4d91f",
+   "bytes": 47172,
+   "heading_present": true,
+   "heading_line": 63959,
+   "end_line": 64426,
+   "heading_note": "ok",
+   "n_sentences": 160,
+   "n_blanks": 20,
+   "leftover_stems": {
+    "زيادة": 4,
+    "ماء": 2,
+    "بحر": 3,
+    "زيادة_all_forms": 4
+   }
+  },
+  {
+   "ah": 831,
+   "path": "ah_0831.txt",
+   "sha256": "d1df443ad30dc201dc68da783649e663592728d2ba444f47ad401e39d094f59c",
+   "bytes": 43271,
+   "heading_present": true,
+   "heading_line": 64427,
+   "end_line": 64842,
+   "heading_note": "ok",
+   "n_sentences": 158,
+   "n_blanks": 13,
+   "leftover_stems": {}
+  },
+  {
+   "ah": 832,
+   "path": "ah_0832.txt",
+   "sha256": "34f9753f04ce5573326844e9bc31815ed5ff50647b54ec2b60373668f75a49e7",
+   "bytes": 44638,
+   "heading_present": true,
+   "heading_line": 64843,
+   "end_line": 65259,
+   "heading_note": "ok",
+   "n_sentences": 171,
+   "n_blanks": 11,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 1,
+    "بحر": 3,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 833,
+   "path": "ah_0833.txt",
+   "sha256": "ff470c5be572c6f40df869dffcbe2183b56771d927bf6bf3ab55f5a674567963",
+   "bytes": 56854,
+   "heading_present": true,
+   "heading_line": 65260,
+   "end_line": 65808,
+   "heading_note": "ok",
+   "n_sentences": 217,
+   "n_blanks": 14,
+   "leftover_stems": {
+    "زيادة": 5,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 5
+   }
+  },
+  {
+   "ah": 834,
+   "path": "ah_0834.txt",
+   "sha256": "a85ea365918e620182d3b55599d9d9151a39aa68821952e4830caa6c88080d14",
+   "bytes": 19736,
+   "heading_present": true,
+   "heading_line": 65809,
+   "end_line": 66008,
+   "heading_note": "ok",
+   "n_sentences": 72,
+   "n_blanks": 7,
+   "leftover_stems": {
+    "زيادة": 1,
+    "ماء": 6,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 835,
+   "path": "ah_0835.txt",
+   "sha256": "1d2a4b5817a649d6e10ab2259a423fcd6e4e8902d7b842642b117481a9fcf25c",
+   "bytes": 25636,
+   "heading_present": true,
+   "heading_line": 66009,
+   "end_line": 66253,
+   "heading_note": "ok",
+   "n_sentences": 81,
+   "n_blanks": 8,
+   "leftover_stems": {
+    "ماء": 3,
+    "بحر": 1
+   }
+  },
+  {
+   "ah": 836,
+   "path": "ah_0836.txt",
+   "sha256": "49c2a0d28fa75e82ed78df0c305cae8919cf475d7b1f32d76435e587faeba6fe",
+   "bytes": 35609,
+   "heading_present": true,
+   "heading_line": 66254,
+   "end_line": 66609,
+   "heading_note": "ok",
+   "n_sentences": 137,
+   "n_blanks": 15,
+   "leftover_stems": {
+    "زيادة": 2,
+    "زياده": 1,
+    "غرق": 1,
+    "ماء": 2,
+    "بحر": 1,
+    "غرق_غريق_all_forms": 1,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 837,
+   "path": "ah_0837.txt",
+   "sha256": "df8aa7106b2afb96eab90fd856507231457c226229680ab478bada1ff53756e0",
+   "bytes": 35658,
+   "heading_present": true,
+   "heading_line": 66610,
+   "end_line": 66967,
+   "heading_note": "ok",
+   "n_sentences": 242,
+   "n_blanks": 26,
+   "leftover_stems": {
+    "زيادة": 2,
+    "غرق": 1,
+    "كسر": 2,
+    "ماء": 1,
+    "بحر": 2,
+    "غرق_غريق_all_forms": 2,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 838,
+   "path": "ah_0838.txt",
+   "sha256": "9f2329221b8c44d05d6f64a737c6e2e5006098d3e03e617bd01cdf0669bf1a9a",
+   "bytes": 53860,
+   "heading_present": true,
+   "heading_line": 66968,
+   "end_line": 67445,
+   "heading_note": "ok",
+   "n_sentences": 255,
+   "n_blanks": 12,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 1,
+    "بحر": 5,
+    "زيادة_all_forms": 3
+   }
+  },
+  {
+   "ah": 839,
+   "path": "ah_0839.txt",
+   "sha256": "5917664cfbf4f0b422f45b96107026a01c0f8ae45d1f8409c6db33de965f83b3",
+   "bytes": 57580,
+   "heading_present": true,
+   "heading_line": 67446,
+   "end_line": 67980,
+   "heading_note": "ok",
+   "n_sentences": 290,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "زيادة": 1,
+    "غرق": 2,
+    "ماء": 3,
+    "بحر": 2,
+    "غرق_غريق_all_forms": 2,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 840,
+   "path": "ah_0840.txt",
+   "sha256": "b3d59d80d04bea0cf7294f52bdfc2062695a2d92fdea1f3daaf11ebd74916504",
+   "bytes": 49172,
+   "heading_present": true,
+   "heading_line": 67981,
+   "end_line": 68427,
+   "heading_note": "ok",
+   "n_sentences": 281,
+   "n_blanks": 12,
+   "leftover_stems": {
+    "زيادة": 1,
+    "بحر": 1,
+    "زيادة_all_forms": 1
+   }
+  },
+  {
+   "ah": 841,
+   "path": "ah_0841.txt",
+   "sha256": "808cdd371ecdc05260b402f555b406d642a46ba5923aee5b5c492849f8b84410",
+   "bytes": 81549,
+   "heading_present": true,
+   "heading_line": 68428,
+   "end_line": 69152,
+   "heading_note": "handfix-841-from-805",
+   "n_sentences": 381,
+   "n_blanks": 14,
+   "leftover_stems": {
+    "زيادة": 4,
+    "زياده": 1,
+    "بحر": 4,
+    "زيادة_all_forms": 5
+   }
+  },
+  {
+   "ah": 842,
+   "path": "ah_0842.txt",
+   "sha256": "ecfaca18f87774dc2aa1bc50a73781fad44b08a9e88e1e5503e7c138a85d8673",
+   "bytes": 157725,
+   "heading_present": true,
+   "heading_line": 69153,
+   "end_line": 70517,
+   "heading_note": "ok",
+   "n_sentences": 448,
+   "n_blanks": 10,
+   "leftover_stems": {
+    "زيادة": 10,
+    "كسر": 1,
+    "ماء": 1,
+    "بحر": 2,
+    "زيادة_all_forms": 10
+   }
+  },
+  {
+   "ah": 843,
+   "path": "ah_0843.txt",
+   "sha256": "d197fbcfcb1bab10ddb2aacf4f24fee03830f6585bb1e33b617ac3abeb0029d9",
+   "bytes": 65961,
+   "heading_present": true,
+   "heading_line": 70518,
+   "end_line": 71150,
+   "heading_note": "handfix-843-from-870",
+   "n_sentences": 168,
+   "n_blanks": 16,
+   "leftover_stems": {
+    "زيادة": 2,
+    "بحر": 3,
+    "زيادة_all_forms": 2
+   }
+  },
+  {
+   "ah": 844,
+   "path": "ah_0844.txt",
+   "sha256": "52f011962d0497a35e171f41fc6f8fd7eb536df6c923e5bc1681de069a95b1ee",
+   "bytes": 62231,
+   "heading_present": true,
+   "heading_line": 71151,
+   "end_line": 71736,
+   "heading_note": "ok",
+   "n_sentences": 176,
+   "n_blanks": 13,
+   "leftover_stems": {
+    "زيادة": 3,
+    "ماء": 1,
+    "بحر": 6,
+    "زيادة_all_forms": 3
+   }
+  }
+ ],
+ "amendment7": {
+  "script": "split_fix_784_789.py",
+  "script_sha256": "6bb2b89173eaa08e23223334cf7d48eb93bcb226bfc044c9fce8630adbe667b8",
+  "reason": "headings spelled 'سنه' were missed by the splitter",
+  "blank_counts_after_split": {
+   "783": 13,
+   "784": 11,
+   "788": 4,
+   "789": 5
+  },
+  "prior_manifest_sha256": "df50e6feaa2c47e29aa4d0663a70e2b6cb2a7a13859069265538d954d7468368"
+ }
+}
