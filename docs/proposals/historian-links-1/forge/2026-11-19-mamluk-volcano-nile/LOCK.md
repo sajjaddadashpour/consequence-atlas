@@ -92,3 +92,9 @@ Minimum data: at least 6 selected eruptions with key year in 1244-1517 (window t
 None of these can change a verdict, and none is promoted to primary afterwards.
 
 ## Does not count toward any "same law" claim. History and climate only; not a PRR test.
+
+## Amendment 1 (2026-11-19 19:36 America/Regina, pre-data; applies before any coding or join)
+Source: Priest's blindness review in the TOE room.
+1. Removing Nile and flood passages: the script that blanks every Nile-level, flood-height (dhirāʿ/iṣbaʿ, wafāʾ al-Nīl, qāʿ), Nilometer and flood-cause passage runs as a separate committed step, by a process other than the coder. Its output is hashed. The coder sees only that output. Ibn Taghrībirdī's *al-Nujūm* and al-Maqrīzī's *Ighātha* are excluded as coding sources, because they record or explain the floods directly.
+2. Famine kept apart from unrest: U2 (famine/price rise) is scored separately and is not part of the unrest outcome. The scored L3 outcome is U1+U3 (riots/looting plus rural/Bedouin revolt) only. U2 is reported as its own row, labelled mediator, because chroniclers often recorded famine as an effect of low flood.
+3. Blinding label: partial, since any coder may already know some famine or eruption years.
