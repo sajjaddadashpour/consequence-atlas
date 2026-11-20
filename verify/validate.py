@@ -738,6 +738,38 @@ def _crosslink_rules(
                 ),
             )
         )
+    # Evidence rung (Pearl's ladder, about the real system; philosophy proposal).
+    def _rung_checks(node, where):
+        out = []
+        r = node.get("evidence_rung")
+        if r is None:
+            return out
+        if r >= 2 and not node.get("rung_basis"):
+            out.append(Issue(doc.path, f"crosslink {who!r}{where} has evidence_rung={r} but no rung_basis"))
+        if r == 3:
+            lp = node.get("locked_prediction")
+            if not isinstance(lp, dict):
+                out.append(Issue(doc.path, f"crosslink {who!r}{where} has evidence_rung=3 but no locked_prediction"))
+            else:
+                bad = [v for v in lp.values() if isinstance(v, str) and v not in source_ids]
+                if bad:
+                    out.append(Issue(doc.path, f"crosslink {who!r}{where} locked_prediction cites unknown source ids: {bad}"))
+        if node.get("model_exists") and not node.get("model_refs"):
+            out.append(Issue(doc.path, f"crosslink {who!r}{where} has model_exists=true but no model_refs"))
+        return out
+    issues.extend(_rung_checks(data, ""))
+    if support == "analogy" and data.get("evidence_rung", 0) != 0:
+        issues.append(Issue(doc.path, f"crosslink {who!r} has support=analogy, so evidence_rung must be 0"))
+    _steps = data.get("steps")
+    if isinstance(_steps, list):
+        _sr = []
+        for _i, _st in enumerate(_steps):
+            if isinstance(_st, dict):
+                issues.extend(_rung_checks(_st, f" step {_i}"))
+                if "evidence_rung" in _st:
+                    _sr.append(_st["evidence_rung"])
+        if _sr and isinstance(data.get("evidence_rung"), int) and data["evidence_rung"] > min(_sr):
+            issues.append(Issue(doc.path, f"crosslink {who!r} has evidence_rung={data['evidence_rung']} but its weakest step has rung {min(_sr)}; a chain's rung cannot exceed its weakest step"))
     steps = data.get("steps")
     if isinstance(steps, list) and steps:
         rank = {"ESTABLISHED": 0, "MAINSTREAM-HYPOTHESIS": 1, "CONJECTURE": 2, "ANALOGY-ONLY": 3}

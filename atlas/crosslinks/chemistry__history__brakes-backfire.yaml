@@ -1,0 +1,41 @@
+id: x.brakes-backfire
+a:
+  field: chemistry
+  pattern: "Gel effect / Norrish-Trommsdorff autoacceleration: in a free-radical polymerization, termination is diffusion-limited. As conversion rises, so does viscosity; termination then slows more than propagation, the radical population grows, and the rate and the heat output run away. This is a runaway that starts when a brake weakens. It has no inverted-U optimum."
+b:
+  field: history
+  pattern: "Security dilemma: one state arms, or otherwise builds up, in order to feel safer. Its neighbour reads that move as a threat and arms too. Both end up less safe than before. In Jervis's account the dilemma is strongest when offence has the advantage and offensive and defensive arms are indistinguishable."
+connection: "These rows share a verbal pattern, not a shared derivation: a control meant to restrain something ends up increasing it, or otherwise defeating the aim. No common model is claimed. The gel effect and the security dilemma are both positive feedback triggered by a safety step; that parallel is an analogy unless it is written as one reaction-equation model. Two further rows of the same verbal pattern are recorded in notes: the 1902 Hanoi rat bounty (metric gaming) and contested risk compensation (Peltzman 1975)."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "Not breakable as a cause, because it claims none. It is retired if the negative analogy grows to cover the positive one, or upgraded only if someone writes a common model that makes a locked, distinctive prediction and that prediction holds."
+analogy:
+  positive:
+  - "In each row, a control or safety step meant to restrain something ends up increasing it, or otherwise defeating the aim."
+  - "The gel effect and the security dilemma are both positive feedback triggered by a safety step."
+  negative:
+  - "The gel effect is a laboratory-confirmed physical runaway when a diffusion-limited brake weakens; it has no inverted-U optimum and no intentional agent."
+  - "The security dilemma is a strategic interaction between states, and the fit of well-known cases, including the Anglo-German naval race before 1914, is contested."
+  - "The Hanoi 1902 row is metric gaming (a reward paid for a proxy), not a weakening brake and not a case of too much correction."
+  - "Risk compensation is a contested behavioral offset to safety regulation, not a physical or strategic runaway of the same kind."
+  - "No shared derivation or common reaction-equation model is claimed."
+  neutral:
+  - "Whether a single reaction-equation model can cover the gel effect and the security dilemma and make a locked, distinctive prediction."
+sources:
+- norrish-smith1942
+- trommsdorff1948
+- oneil-wisnudel-torkelson1996
+- oneil-torkelson1999
+- achilias2007
+- herz1950
+- jervis1978
+- vann2003
+- campbell1979
+- peltzman1975
+- hesse1966
+status: active
+proposed_by: chemist
+notes: "Card-level claim is ANALOGY-ONLY (verbal pattern only; no common model). History rows (security dilemma; Hanoi 1902): Historian. The gel effect was removed from the inverted-U / w-curve pattern and belongs here as its own row; linking it to the w-curve stays an analogy until someone shows the two come from the same equation. Brennan, Lo and Zhao is not a row on this card. The Delhi cobra-bounty story is an unverified legend and is not a row. Goodhart 1975 is named only as a pattern label for metric gaming; no Crossref DOI was confirmed, so it is not a source entry. Row 1, gel effect: ESTABLISHED; evidence_rung 2 (produced and suppressed by experimental intervention: Norrish & Smith 1942; Trommsdorff, Kohle & Lagally 1948; O'Neil, Wisnudel & Torkelson 1996); not rung 3, because no prediction from a named kinetic model has been locked in this atlas and held on unseen data; model_exists true (O'Neil & Torkelson 1999; Achilias 2007). Row 2, security dilemma: MAINSTREAM-HYPOTHESIS (mainstream IR theory; case fit is contested and is not treated as establishing the mechanism); evidence_rung 1; model_exists true as a verbal strategic model (Jervis 1978); no simulation or quantitative model is cited here, and none has been locked against a pre-declared case set, so the flag does not raise the rung. Row 3, Hanoi rat bounty 1902: ESTABLISHED as an episode (the tail bounty, the cutting and release of rats, and the dropping of the bounty); farming is reported, its scale is uncertain and is not treated as a measured fact; evidence_rung 1 (Vann 2003 is a historical reconstruction, not an intervention designed to test a locked model); model_exists false for this episode; Campbell 1979 names the broader metric-gaming pattern and is not a model of Hanoi. Row 4, risk compensation: MAINSTREAM-HYPOTHESIS, contested; evidence_rung 1 (the 1975 design could be read as a natural experiment, but the causal reading is disputed, so the row is not raised to rung 2); model_exists true (Peltzman 1975); no later critique is cited, because none was Crossref-checked for this card. Two proposed lockable tests (not scored): T1, O'Neil & Torkelson 1999 on an unseen polymerization series, aimed at raising row 1 toward rung 3; T2, Jervis's offence-defence claim on an unseen set of rivalries that excludes the Anglo-German naval race. A re-lock after seeing the numbers, or that reuses the same series or cases with a new measure picked after the result, would be a rescue. A single reaction-equation model covering row 1 and row 2 is not proposed as a test here."
+evidence_rung: 0
+model_exists: false

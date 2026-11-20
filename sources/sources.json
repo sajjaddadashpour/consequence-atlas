@@ -691,5 +691,111 @@
     "year": 2004,
     "identifier": "doi:10.1029/2003GC000654",
     "verified": true
+  },
+  {
+    "id": "norrish-smith1942",
+    "title": "Catalysed polymerization of methyl methacrylate in the liquid phase",
+    "authors": [
+      "R. G. W. Norrish",
+      "R. R. Smith"
+    ],
+    "year": 1942,
+    "identifier": "doi:10.1038/150336a0",
+    "verified": true
+  },
+  {
+    "id": "trommsdorff1948",
+    "title": "Zur Polymerisation des Methacrylsäuremethylesters",
+    "authors": [
+      "E. Trommsdorff",
+      "H. Köhle",
+      "P. Lagally"
+    ],
+    "year": 1948,
+    "identifier": "doi:10.1002/macp.1948.020010301",
+    "verified": true
+  },
+  {
+    "id": "oneil-wisnudel-torkelson1996",
+    "title": "A critical experimental examination of the gel effect in free radical polymerization: Do entanglements cause autoacceleration?",
+    "authors": [
+      "G. A. O'Neil",
+      "M. B. Wisnudel",
+      "J. M. Torkelson"
+    ],
+    "year": 1996,
+    "identifier": "doi:10.1021/ma9606263",
+    "verified": true
+  },
+  {
+    "id": "oneil-torkelson1999",
+    "title": "Modeling insight into the diffusion-limited cause of the gel effect in free radical polymerization",
+    "authors": [
+      "G. A. O'Neil",
+      "J. M. Torkelson"
+    ],
+    "year": 1999,
+    "identifier": "doi:10.1021/ma9811324",
+    "verified": true
+  },
+  {
+    "id": "achilias2007",
+    "title": "A review of modeling of diffusion controlled polymerization reactions",
+    "authors": [
+      "D. S. Achilias"
+    ],
+    "year": 2007,
+    "identifier": "doi:10.1002/mats.200700003",
+    "verified": true
+  },
+  {
+    "id": "herz1950",
+    "title": "Idealist internationalism and the security dilemma",
+    "authors": [
+      "J. H. Herz"
+    ],
+    "year": 1950,
+    "identifier": "doi:10.2307/2009187",
+    "verified": true
+  },
+  {
+    "id": "jervis1978",
+    "title": "Cooperation under the security dilemma",
+    "authors": [
+      "R. Jervis"
+    ],
+    "year": 1978,
+    "identifier": "doi:10.2307/2009958",
+    "verified": true
+  },
+  {
+    "id": "vann2003",
+    "title": "Of rats, rice, and race: The Great Hanoi Rat Massacre, an episode in French colonial history",
+    "authors": [
+      "M. G. Vann"
+    ],
+    "year": 2003,
+    "identifier": "doi:10.1353/fch.2003.0027",
+    "verified": true
+  },
+  {
+    "id": "peltzman1975",
+    "title": "The effects of automobile safety regulation",
+    "authors": [
+      "S. Peltzman"
+    ],
+    "year": 1975,
+    "identifier": "doi:10.1086/260352",
+    "verified": true
+  },
+  {
+    "id": "campbell1979",
+    "title": "Assessing the impact of planned social change",
+    "authors": [
+      "D. T. Campbell"
+    ],
+    "year": 1979,
+    "identifier": "doi:10.1016/0149-7189(79)90048-x",
+    "verified": true
   }
 ]
