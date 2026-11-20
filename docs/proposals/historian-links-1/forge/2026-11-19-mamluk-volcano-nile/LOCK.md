@@ -114,3 +114,26 @@ Sources: Philosopher, Priest and Physicist in the TOE room.
    - Residuals are fit once, by OLS, on the years that have both the current and the previous year's raw Nilometer maxima. Years missing either are excluded from L3b.
    - Circular shifts rotate the eruption years over the full 1250-1517 calendar, with the residuals held fixed. Each 0-2 year window is scored on the kept years it covers. There is no refit per shift.
    - An eruption is eligible if its window holds at least 1 kept year. The minimum of 6 eligible eruptions applies.
+
+## Amendment 4 (2026-11-19 19:47 America/Regina, pre-data; applies before any coding or join)
+
+Driven by a source failure found in the redaction step, before any text was coded and before any eruption, Nilometer or Chaney year-level data were opened. Not driven by any result.
+
+(a) Ibn Iyās treated as NOT-TESTABLE-YET until a corrected digital text exists. OpenITI's only copy (`0930IbnIyas.BadaicZuhur.Kraken220308195638-ara1`, OpenITI/0950AH @ d57b81e495eae739920ba3b7869fe1133890c23d, sha256 09891897fff976d52aa64fb480270f3f08e66920ac55c209c58d4366ee3c3c19) is uncorrected OCR. It stops at 905 AH, only about 59% of its year headings can be read, and flood words in it are garbled, so a keyword redaction would miss passages.
+
+(b) The scored window is now the *Sulūk* years only: Hijri 648–844 AH, mapped to CE as in (f). OpenITI `0845Maqrizi.Suluk.Shamela0006667-ara1.mARkdown` (PRIMARY_VERSION, OpenITI/0850AH @ e2715c62fb458ce3ddc43b962cd55677cdd7bc35, sha256 9424a9e1342135efa01af93b63b826fee806690e214469380499f95498c04588) has a readable year heading for 193 of those 197 calendar years. Headings are missing for 784, 789, 841 and 843 AH. Those four years stay in the calendar as missing and are never scored, as in (f). Unscored variant V2 (L3 restricted to the Maqrīzī years) is withdrawn, because that window is now the primary one.
+
+(c) The redaction list adds the Coptic month names, which point to the flood even without a Nile word: توت, بابه, هاتور, كيهك, طوبه, أمشير, برمهات, برمودة, بشنس, بؤونة, أبيب, مسرى, and the intercalary شهر النسيء, including usual spelling variants of these names.
+
+(d) One small leak is disclosed: two Ibn Iyās snippets turned up in the heading search showed Nile-rise wording with no year visible. Only heading lines were viewed. No entry body was read.
+
+(e) The L3b minimums are unchanged: at least 150 flood years and at least 6 eligible eruptions, now applied to the CE span in (f). With the shorter window, the eruption count is the one that might bind; if it falls short, the result is NOT-TESTABLE-YET.
+
+(f) The join and the null are on CE solar years, as in the base lock. CE years are Julian-calendar years, not proleptic Gregorian (the window is before the 1582 reform). Each Hijri year maps to the CE year containing its midpoint, using the tabular (arithmetic) Islamic calendar in **convertdate 2.5.1**, functions `convertdate.islamic.to_jd` and `convertdate.julian.from_jd`. The mapping script is `hijri_midpoint_ce.py` in this directory; its output is `hijri_midpoint_ce_map.csv`. Midpoint of AH year Y = halfway between 1 Muharram Y and 1 Muharram Y+1. The library's epoch is 1 Muharram 1 AH = JD 1948439.5 = 16 July 622 CE (Julian).
+- First CE year (midpoint of 648 AH): **1250**. Last CE year (midpoint of 844 AH): **1440**. **N = 191**.
+- When two AH years map to one CE year, that CE year's unrest code is the union (logical OR) of the two, per category (U1, U2, U3, U4 and P separately). The collision years are 1274 (672–673 AH), 1307 (706–707 AH), 1340 (740–741 AH), 1372 (773–774 AH), 1405 (807–808 AH) and 1437 (840–841 AH).
+- A CE year whose mapped AH years include any of the four heading-less years (784, 789, 841, 843) is missing and never scored. Those CE years are 1382 (784 AH), 1387 (789 AH), 1437 (840–841 AH) and 1439 (843 AH). 1437 is also a collision year; because it includes 841 AH it is missing and is never scored.
+- Events that already name a Hijri month are still mapped to the CE year of that date by the same library, as in the base lock.
+- Circular-shift offsets run from **3 to 188** (N−3) over the CE span 1250–1440 (186 offsets). The exact pass enumerates all 186, and the 10,000-draw Monte Carlo keeps seed 20261119. This replaces offsets 3–265 and the 263-offset exact pass, and it replaces Amendment 3's rotation of eruption years over the 1250–1517 calendar. Missing CE years stay in the calendar and travel with the series, but they are never scored.
+
+(g) The scored window ends at 1440 CE (midpoint of 844 AH). That falls almost entirely inside Chaney 2013's 641–1437 period (the only scored years after 1437 are 1438 and 1440; 1437 and 1439 are missing). So L2 can only score REDUCES-TO-KNOWN. The card follows L3b, as before.
