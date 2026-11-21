@@ -1,0 +1,23 @@
+id: x.math.gibrat-floor-zipf
+a:
+  field: physics
+  pattern: "Reflected multiplicative random growth: a size S with dS/S = mu dt + sigma dB (mu < 0 for normalised sizes) that is reflected at a floor S_min has a Pareto stationary law, P(S > s) = (s/S_min)^(-zeta)."
+b:
+  field: history
+  pattern: "City-size model: if normalised city sizes grow by Gibrat's law (growth independent of size) and are kept above a floor S_min, the steady-state rank-size distribution is Zipf-like with exponent zeta = 1/(1 - S_min/S_bar), where S_bar is the mean normalised size; zeta -> 1 as S_min/S_bar -> 0."
+connection: "Same mathematics: Gabaix 1999, Proposition 1 (p. 749). The log-size is a reflected Brownian motion with an exponential stationary law, so the size law is Pareto; the condition E[S] = S_bar fixes zeta = 1/(1 - S_min/S_bar). Gibrat's law alone, with no floor, has no steady state: sizes go lognormal with growing variance. Simon 1955 gives the discrete proportional-growth version of the same class. This is a theorem about the model. It says nothing about whether real cities follow it."
+label: ESTABLISHED
+support: mathematics
+claim: pattern
+breaks_if: "An error in the proof of Gabaix 1999 Proposition 1, i.e. a reflected geometric Brownian motion with E[S] = S_bar whose stationary tail exponent is not 1/(1 - S_min/S_bar). A numerical check (Mathematician audit-1, audit1_zipf_numerology.py Z3) gives Hill(top 500) 1.40 vs 1.43 theory at S_min/S_bar = 0.3 and 1.03 vs 1.11 at 0.1. The 0.02 run did not equilibrate (0.83 vs 1.02), so it is not counted."
+sources:
+- gabaix1999
+- simon1955
+status: active
+proposed_by: mathematician
+notes: "Split from x.hist.zipf-gibrat (mathematics half). Gabaix's own footnote 30 warns that the formula is not suitable for estimating real exponents, because zeta varies with city size. Use it only as the model identity. The real-city question is x.hist.gibrat-explains-zipf. evidence_rung 0 because this link makes no claim about a real system; model_exists true."
+evidence_rung: 0
+model_exists: true
+model_refs:
+- gabaix1999
+- simon1955

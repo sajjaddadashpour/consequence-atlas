@@ -1,0 +1,22 @@
+id: x.hist.gibrat-explains-zipf
+a:
+  field: history
+  pattern: "Upper-tail city growth over 2010-2020 is size-independent (Gibrat's law: regression slope b of decade log-growth on log 2010 size is near 0)."
+b:
+  field: economics
+  pattern: "The same country's 2020 city-size distribution is Zipf (rank-size exponent alpha near 1)."
+connection: "Hypothesis (Gabaix 1999): in real urban systems, proportional growth in the upper tail plus some force that keeps small cities from vanishing produces Zipf's law. The model identity is x.math.gibrat-floor-zipf. This record is the claim that it is the actual mechanism in real countries. Country-level test status: forge Claim E (lock e3bc861, WUP 2025 F21) was KILLED 17 vs threshold 16, using 'CI contains the null' as 'holds'. A post-hoc bootstrap TOST reanalysis (90% percentile CI, Zipf margin [0.9, 1.1], Gibrat margin |b| <= 0.01) finds Zipf equivalent in 3/74 countries (CHN, IND, RUS), non-equivalent in 7, and inconclusive in 64. Gibrat is equivalent in 0/64, non-equivalent in 14, and inconclusive in 50. Only one country is decisive for E: CHN, where Zipf is equivalent but Gibrat is clearly non-equivalent (b = +0.051, big cities growing faster). The data cannot confirm or kill E at country level."
+label: CONJECTURE
+support: mechanism
+claim: cause
+breaks_if: "Under a new pre-registered lock with an equivalence test: at least max(5, 25% of decisive units) countries where Zipf is equivalent to 1 and Gibrat is non-equivalent, or the reverse, or a pooled or hierarchical estimate showing upper-tail growth that depends on size while Zipf holds."
+sources:
+- gabaix1999
+- soo2005
+status: contested
+proposed_by: mathematician
+notes: "Split from x.hist.zipf-gibrat (real-city half). Label CONJECTURE, not MAINSTREAM-HYPOTHESIS. The atlas's own data neither supports nor kills the explanation, and the only decisive country (CHN) runs against it. The TOST was written after the forge results were seen, so it is a reanalysis, not a locked verdict: the forge E verdict under its lock stands as recorded, with the caveat that it rests on treating non-rejection as acceptance. Power: the Hill 90% interval half-width is about 1.645*alpha/sqrt(n), so equivalence at +/-0.1 needs roughly 270+ cities above 50k. Most countries have fewer, so country-level equivalence is structurally unreachable. Robustness at a 100k cutoff: N_Z 51 (0 EQUIV, 7 NONEQUIV, 44 INCONCL), no decisive E units. Code docs/analysis/zipf_tost.py. WUP values are DEGURBA model estimates (IMPORTED caveat from the forge run)."
+evidence_rung: 1
+model_exists: true
+model_refs:
+- gabaix1999
