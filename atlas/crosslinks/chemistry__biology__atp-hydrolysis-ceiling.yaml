@@ -5,7 +5,7 @@ a:
 b:
   field: biology
   pattern: "Doubling time of a recorded high-temperature organism, Methanopyrus kandleri 116, at 122 °C and 20 MPa (Takai 2008)."
-connection: "At 122 °C, uncatalysed Mg·ATP hydrolysis (t½ ≈ 6 min, Stockbridge & Wolfenden 2009, extrapolated) is ~125× faster than M. kandleri 116's doubling (~12 h, Takai 2008 Fig. 2A, digitised). Life outruns this decay by upkeep, so bond lability does not set the ceiling. Fragility: the species was not fixed in the lock, and ATP⁴⁻ or Mg·ADP would fall inside the window. Rates were measured in dilute solution."
+connection: "At 122 °C, uncatalysed Mg·ATP²⁻ hydrolysis (t½ ≈ 6 min, Stockbridge & Wolfenden 2009, Eyring-extrapolated 12 °C beyond their 50–110 °C data) decays about 125× faster than M. kandleri 116 doubles (~12 h, Takai 2008 Fig. 2A, digitised). Ratio t½/t_d: median 0.0079, 90% interval 0.0050–0.0127 (79–200× faster); P(more than 100× faster, the lock's kill edge) ≈ 0.79 (Monte Carlo, Mathematician, docs/analysis/chg2_mc.py; 0.65–0.92 across sweeps). The uncertainty is dominated by the growth rate, which Takai estimated from only 3–4 points. If life's ceiling is not set by this bond, cells must outrun its decay by upkeep. That reading is suggested, not shown. Fragile: ATP⁴⁻ or Mg·ADP as the species (ratio 0.08 / 0.05), the Fig. 1B growth rate (P ≈ 0.96), or the other 122 °C point (P ≈ 1.0) each change the picture. Rates were measured in dilute solution."
 label: CONJECTURE
 support: mechanism
 claim: cause
@@ -15,6 +15,6 @@ sources:
 - takai2008
 status: active
 proposed_by: physicist
-notes: "CH-G2 / inbox #17. Lock 97c6394, scorer correction 9ab566e (Amendment 1 clause 3: the 100× window is not loosened to 200×). Chemist checked the digitisation and agrees. Verdict KILLED on the 'life outruns uncatalysed decay by upkeep' branch: t_min/t_d = 0.0080, about 125×. The overall label is CONJECTURE because the hydrolysed species was not fixed in the lock and rates were measured in dilute solution. Wolfenden 2011 was not opened; numbers come from opened full texts of papers it cites. Card text used verbatim as the connection."
+notes: 'CH-G2 / inbox #17. Lock 97c6394, scorer correction 9ab566e (Amendment 1 clause 3: the 100× window is not loosened to 200×). Chemist checked the digitisation and agrees. Verdict KILLED on the ''life outruns uncatalysed decay by upkeep'' branch: t_min/t_d = 0.0080, about 125×. The overall label is CONJECTURE because the hydrolysed species was not fixed in the lock and rates were measured in dilute solution. Wolfenden 2011 was not opened; numbers come from opened full texts of papers it cites. Card text used verbatim as the connection. Mathematician MC (2026-11-20, not a locked test; docs/analysis/chg2_mc.py): pivoting the Arrhenius fit at its 77.5 °C data centre, dH‡ ±0.2 kcal/mol (Table 2 footnote: errors ≤0.4), ln k(pivot) ±0.10, ln μ ±0.25, T ±1 K. Half-life run: P(<0.01)=0.79, median 0.0079, 90% [0.0050, 0.0127]. Mean-lifetime run (τ=1/k vs t_d): P=0.32, median 0.0114, 90% [0.0072, 0.0182]. τ vs t_d mixes conventions; τ vs 1/μ equals the half-life ratio. The locked point verdict KILLED stands; the probability shows it is likely but not robust.'
 evidence_rung: 1
 model_exists: false
