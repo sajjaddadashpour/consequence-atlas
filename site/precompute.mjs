@@ -109,9 +109,9 @@ for (let i = 0; i < PAIR_IDS.length; i++) {
   for (let j = i + 1; j < PAIR_IDS.length; j++) {
     const x = PAIR_IDS[i];
     const y = PAIR_IDS[j];
-    const n = x === "alpha" && y === "beta" ? 41 : 21;
+    const n = 41;
     const detail = mapAt(hold, x, y, n, stageIds);
-    if (n === 41) {
+    if (x === "alpha" && y === "beta") {
       const overview = mapAt(hold, x, y, n);
       assertDefaultRegions(overview, detail, featured);
     }

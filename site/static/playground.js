@@ -238,7 +238,7 @@ function applyCommitted(param, committed) {
     const output = document.getElementById("out-" + param.name);
     if (control && control.type === "range") placeSlider(control, param, committed.value);
     if (output) {
-      output.textContent = formatParam(param, committed.value);
+      output.textContent = compactParam(param, committed.value);
       output.classList.toggle("pg-offlock", !valuesEqual(param, committed.value, param.locked) || outsideLocked(param, committed.value));
     }
   }
@@ -266,6 +266,11 @@ function formatParam(param, value) {
     return formatNumber(value);
   }
   return String(value);
+}
+
+function compactParam(param, value) {
+  if (param.options) return String(value);
+  return formatParam(param, value);
 }
 
 function sliderStep(param) {
@@ -578,13 +583,13 @@ function renderDials() {
     const off = !valuesEqual(param, value, param.locked) || outsideLocked(param, value);
     const symbol = param.symbol ? '<span class="pg-symbol">' + escapeHtml(param.symbol) + "</span> " : "";
     const ours = typeof param.locked === "number" || typeof param.locked === "string"
-      ? '<span class="ours-tag">ours <span class="mono">' + escapeHtml(formatParam(param, param.locked)) + "</span></span>"
+      ? '<span class="ours-tag" title="ours: ' + escapeHtml(formatParam(param, param.locked)) + '">ours <span class="mono">' + escapeHtml(compactParam(param, param.locked)) + "</span></span>"
       : "";
     row.innerHTML =
       '<div class="pg-dial-top"><button type="button" class="dial-name" id="name-' + escapeHtml(param.name) + '">' +
       symbol + escapeHtml(param.label) + "</button>" + ours +
       '<output id="out-' + escapeHtml(param.name) + '" class="' + (off ? "pg-offlock" : "") + '">' +
-      escapeHtml(formatParam(param, value)) + "</output></div>";
+      escapeHtml(compactParam(param, value)) + "</output></div>";
     let control;
     if (param.type === "boolean") {
       control = document.createElement("input");
@@ -620,7 +625,7 @@ function renderDials() {
       if (control.dataset.writing === "1") return;
       state.params[param.name] = clampToBounds(param, readControl(live, control), state.freePlay);
       const next = state.params[param.name];
-      output.textContent = formatParam(param, next);
+      output.textContent = compactParam(param, next);
       output.classList.toggle("pg-offlock", !valuesEqual(param, next, param.locked) || outsideLocked(param, next));
       showExact(param, next);
       scheduleRun();
@@ -694,7 +699,7 @@ function syncDialOutputs() {
     if (control.type === "checkbox") control.checked = Boolean(value);
     else if (control.tagName === "SELECT") control.value = String(value);
     else placeSlider(control, param, value);
-    output.textContent = formatParam(param, value);
+    output.textContent = compactParam(param, value);
     output.classList.toggle("pg-offlock", !valuesEqual(param, value, param.locked) || outsideLocked(param, value));
     showExact(param, value);
     const tick = control.parentElement && control.parentElement.querySelector(".ours-tick");

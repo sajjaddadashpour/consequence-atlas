@@ -45,7 +45,8 @@
         <p class="caveat">Toy simulations show mechanisms. They never predict chemistry or life. Most experiment cards are still <strong>CONJECTURE</strong> until the gate checker reruns and signs them. A card label above CONJECTURE needs a <code>gate</code> signature from the gate checker. Agents cannot promote their own cards.</p>
         <ul class="hero-stats" aria-label="Snapshot counts from the repository">
           <li><strong>{{N_TOTAL_CARDS}}</strong> experiment cards<span class="sub">{{N_CARDS}} in cards/, {{N_DEAD_ENDS}} in dead-ends/</span></li>
-          <li><strong>{{N_LINKS}}</strong> atlas links</li>
+          <li><strong>{{N_LINKS}}</strong> atlas links<span class="sub">stage to stage, in atlas/links/</span></li>
+          <li><strong>{{N_CROSSLINKS}}</strong> cross-field links<span class="sub">in atlas/crosslinks/</span></li>
           <li><strong>{{N_GATES}}</strong> gate signatures<span class="sub">{{N_LEGACY}} legacy (null arm not run)</span></li>
         </ul>
         <div class="hero-pills">
@@ -53,9 +54,13 @@
           <ul class="pills">
             {{CARD_LABEL_PILLS}}
           </ul>
-          <p class="pill-label">Links</p>
+          <p class="pill-label">Atlas links</p>
           <ul class="pills">
             {{LINK_LABEL_PILLS}}
+          </ul>
+          <p class="pill-label">Cross-field links</p>
+          <ul class="pills">
+            {{CROSSLINK_LABEL_PILLS}}
           </ul>
         </div>
         <p class="meta">Built from commit <a href="{{REPO_URL}}/tree/{{SOURCE_COMMIT}}"><code>{{SOURCE_COMMIT_SHORT}}</code></a> at {{GENERATED_AT}}. Examples are excluded. The repository files are the source of record.</p>
@@ -81,15 +86,22 @@
               {{LINK_LABEL_MEANINGS}}
             </dl>
           </div>
+          <div>
+            <h3>Cross-field links</h3>
+            <p class="quiet">These labels apply to records in <code>atlas/crosslinks/</code>. They are not stage-to-stage derivations. A chain's label cannot be stronger than its weakest step. <code>support=analogy</code> must be labelled ANALOGY-ONLY with <code>claim=pattern</code>.</p>
+            <dl class="meanings">
+              {{CROSSLINK_LABEL_MEANINGS}}
+            </dl>
+          </div>
         </div>
-        <p class="caveat">In this snapshot, {{N_CONJECTURE}} cards are labelled CONJECTURE in their card files, and {{N_REPRODUCED}} are labelled REPRODUCED. Those are the only labels this page shows. The 98 CONJECTURE cards are the gate-prototype set, including both single-factor cards of 011. A DIFFERS (or other) result in their notes is an unsigned prototype check, not a label. The REPRODUCED cards are legacy recipe cards: their outputs reproduce exactly, but their control changes several settings at once, so it is not a fair control. No card in this snapshot carries a gate signature ({{N_GATES}} signatures). Nothing here is promoted until a real gate signature is on the card.</p>
+        <p class="caveat">In this snapshot, {{N_CONJECTURE}} cards are labelled CONJECTURE in their card files, and {{N_REPRODUCED}} are labelled REPRODUCED. The CONJECTURE cards include the gate-prototype set, including both single-factor cards of 011. A DIFFERS (or other) result in their notes is an unsigned prototype check, not a label. The REPRODUCED cards are legacy recipe cards: their outputs reproduce exactly, but their control changes several settings at once, so it is not a fair control. No card in this snapshot carries a gate signature ({{N_GATES}} signatures). Nothing here is promoted until a real gate signature is on the card. Cross-field records are counted separately: this snapshot has {{N_CROSSLINKS}} files in <code>atlas/crosslinks/</code>.</p>
       </div>
     </section>
 
     <section class="browse" id="browse">
       <div class="wrap">
         <h2>Browse cards and links</h2>
-        <p class="quiet">Every real card in <code>cards/</code> and <code>dead-ends/</code>, and every atlas link. Example records are not listed. The compact index is loaded after this page paints.</p>
+        <p class="quiet">Every real card in <code>cards/</code> and <code>dead-ends/</code>, every stage-to-stage atlas link, and every cross-field link. Example records are not listed. The compact index is loaded after this page paints.</p>
         <form class="filters" id="filters" role="search">
           <label class="search">
             <span>Search</span>
@@ -102,6 +114,7 @@
               <option value="card">Cards</option>
               <option value="dead-end">Dead-ends</option>
               <option value="link">Links</option>
+              <option value="crosslink">Cross-field links</option>
             </select>
           </label>
           <label>
@@ -143,7 +156,7 @@
         <div class="browse-layout">
           <ol class="results" id="results"></ol>
           <article class="detail" id="detail" hidden>
-            <p class="quiet">Select a card or link to read its fields, label, lock and source path.</p>
+            <p class="quiet">Select a card, link or cross-field record to read its fields, label and source path.</p>
           </article>
         </div>
       </div>

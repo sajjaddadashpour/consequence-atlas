@@ -127,3 +127,59 @@ def test_front_page_carries_honesty_chrome_and_does_not_rewrite_labels(tmp_path:
             data = json.loads(path.read_text(encoding="utf-8"))
             assert by_id[data["id"]]["label"] == data["label"]
 
+
+
+def _file_counts(root: Path) -> dict:
+    cards = list((root / "cards").rglob("card.json"))
+    dead_ends = list((root / "dead-ends").rglob("card.json"))
+    links = list((root / "atlas" / "links").glob("*.yaml"))
+    crosslinks = list((root / "atlas" / "crosslinks").glob("*.yaml"))
+    return {
+        "cards": len(cards),
+        "dead_ends": len(dead_ends),
+        "cards_and_dead_ends": len(cards) + len(dead_ends),
+        "links": len(links),
+        "crosslinks": len(crosslinks),
+    }
+
+
+def test_registry_counts_track_repository_files(tmp_path: Path):
+    """Hero totals and index.json must be generated from the repo, not frozen text."""
+    template = (REPO / "site" / "templates" / "registry.html").read_text(encoding="utf-8")
+    assert "The 98 CONJECTURE cards" not in template
+    assert "{{N_CROSSLINKS}}" in template
+    assert "{{N_TOTAL_CARDS}}" in template
+
+    expected = _file_counts(REPO)
+    out = tmp_path / "site"
+    subprocess.check_call(
+        [sys.executable, "site/build.py", "--out", str(out), "--cname", "toeatlas.si"],
+        cwd=REPO,
+    )
+    index = json.loads((out / "data" / "index.json").read_text(encoding="utf-8"))
+    counts = index["counts"]
+    for key, n in expected.items():
+        assert counts[key] == n, f"{key}: index has {counts[key]}, repo has {n}"
+
+    loader = YAML(typ="safe")
+    by_id = {item["id"]: item for item in index.get("crosslinks") or []}
+    assert len(by_id) == expected["crosslinks"]
+    for path in sorted((REPO / "atlas" / "crosslinks").glob("*.yaml")):
+        data = loader.load(path.read_text(encoding="utf-8")) or {}
+        listed = by_id[data["id"]]
+        assert listed["label"] == data["label"]
+        assert listed["kind"] == "crosslink"
+
+    registry = (out / "registry.html").read_text(encoding="utf-8")
+    assert "{{" not in registry
+    assert "The 98 CONJECTURE cards" not in registry
+    assert f"<strong>{expected['cards_and_dead_ends']}</strong> experiment cards" in registry
+    assert f"<strong>{expected['links']}</strong> atlas links" in registry
+    assert f"<strong>{expected['crosslinks']}</strong> cross-field links" in registry
+    conjecture = counts["card_labels"].get("CONJECTURE", 0)
+    reproduced = counts["card_labels"].get("REPRODUCED", 0)
+    assert f"{conjecture} cards are labelled CONJECTURE" in registry
+    assert f"{reproduced} are labelled REPRODUCED" in registry
+    assert "x.hist.gibrat-explains-zipf" in json.dumps(index["crosslinks"])
+    app = (out / "app.js").read_text(encoding="utf-8")
+    assert "index.crosslinks" in app
