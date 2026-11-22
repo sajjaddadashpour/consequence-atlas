@@ -515,7 +515,7 @@ function renderStarter(root, api) {
   look.className = "lattice-play";
   const kicker = document.createElement("p");
   kicker.className = "live-kicker";
-  kicker.textContent = "Live output";
+  kicker.textContent = "Live · not a promotion";
   look.appendChild(kicker);
   const frame = document.createElement("div");
   frame.className = "pg-frame lattice-frame";

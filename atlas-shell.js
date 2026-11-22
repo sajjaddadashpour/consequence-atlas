@@ -5,7 +5,15 @@ const STATUS_CHAR = { PASS: "P", WEAK: "W", OPEN: "O", CONTESTED: "C", FAIL: "F"
 const CHAR_STATUS = { P: "PASS", W: "WEAK", O: "OPEN", C: "CONTESTED", F: "FAIL", B: "BLOCKED" };
 const RANK = { PASS: 0, OPEN: 1, WEAK: 2, CONTESTED: 3, FAIL: 4, BLOCKED: 5 };
 const REGION_OF = { PASS: "ok", WEAK: "weak", OPEN: "open", CONTESTED: "contested", FAIL: "fail", BLOCKED: "blocked" };
-const REGION_COLOR = {
+const REGION_VAR = {
+  ok: "--status-pass",
+  weak: "--status-weak",
+  open: "--status-open",
+  contested: "--status-contested",
+  fail: "--status-fail",
+  blocked: "--status-blocked",
+};
+const REGION_FALLBACK = {
   ok: "#3dcf8e",
   weak: "#c9b44a",
   open: "#7eb4e0",
@@ -13,6 +21,15 @@ const REGION_COLOR = {
   fail: "#e25c6a",
   blocked: "#8b9084",
 };
+
+function regionColor(region) {
+  const key = REGION_VAR[region];
+  if (key && typeof document !== "undefined" && document.documentElement) {
+    const value = getComputedStyle(document.documentElement).getPropertyValue(key).trim();
+    if (value) return value;
+  }
+  return REGION_FALLBACK[region] || "#333";
+}
 
 const LEGEND_KEY = "toeatlas.legend.dismissed.v1";
 
@@ -151,6 +168,35 @@ function packEngineStrip(strip) {
   };
 }
 
+const LINK_LABEL_RANK = {
+  DERIVED: 0,
+  "DERIVED-UNDER-ASSUMPTION": 1,
+  IMPORTED: 2,
+  ASSUMED: 3,
+  CONJECTURE: 4,
+  CONTESTED: 5,
+};
+
+function coverageOf(status) {
+  return (status === "OPEN" || status === "CONTESTED" || !status) ? "open" : "locked";
+}
+
+function dominantLabel(stage) {
+  const links = (stage && stage.links) || [];
+  let worst = null;
+  let worstRank = -1;
+  links.forEach((link) => {
+    const label = link && link.label;
+    if (!label) return;
+    const rank = Object.prototype.hasOwnProperty.call(LINK_LABEL_RANK, label) ? LINK_LABEL_RANK[label] : 6;
+    if (rank > worstRank) {
+      worstRank = rank;
+      worst = label;
+    }
+  });
+  return worst;
+}
+
 function paintSpine(root, stages, opts) {
   if (!root) return;
   const selected = opts && opts.selectedId;
@@ -168,10 +214,16 @@ function paintSpine(root, stages, opts) {
     button.type = "button";
     button.className = "spine-node";
     button.dataset.status = stage.status || "";
+    button.dataset.coverage = coverageOf(stage.status);
     button.setAttribute("aria-pressed", selected === stage.id ? "true" : "false");
+    const label = dominantLabel(stage);
+    const pill = label
+      ? '<span class="pill pill-' + escapeHtml(String(label).toLowerCase()) + '">' + escapeHtml(label) + "</span>"
+      : '<span class="spine-no-pill quiet">No stored link label</span>';
     button.innerHTML =
       '<span class="spine-status">' + escapeHtml(stage.status || "—") + "</span>" +
-      '<span class="spine-name">' + escapeHtml(stage.name || stage.id) + "</span>";
+      '<span class="spine-name">' + escapeHtml(stage.name || stage.id) + "</span>" +
+      pill;
     button.addEventListener("click", function () { onSelect(stage.id); });
     li.appendChild(button);
     list.appendChild(li);
@@ -247,7 +299,7 @@ function paintMap(host, grid, opts) {
     rect.setAttribute("y", y);
     rect.setAttribute("width", cw + 0.35);
     rect.setAttribute("height", ch + 0.35);
-    rect.setAttribute("fill", REGION_COLOR[cell.region] || "#333");
+    rect.setAttribute("fill", regionColor(cell.region));
     svg.appendChild(rect);
   });
   if (grid.ours && grid.ours.on_plane) {
@@ -261,7 +313,7 @@ function paintMap(host, grid, opts) {
     ring.setAttribute("cy", cy);
     ring.setAttribute("r", String(Math.max(7, Math.min(cw, ch) * 0.72)));
     ring.setAttribute("fill", "none");
-    ring.setAttribute("stroke", "#e0b15a");
+    ring.setAttribute("stroke", getComputedStyle(document.documentElement).getPropertyValue("--ours-ring").trim() || "#e0b15a");
     ring.setAttribute("stroke-width", "2.6");
     svg.appendChild(ring);
     const halo = svgEl("circle");
@@ -374,7 +426,7 @@ function paintStripBar(host, strip, stageId, stages, onOpen) {
     });
     const seg = document.createElement("span");
     seg.className = "sens-seg";
-    seg.style.background = REGION_COLOR[REGION_OF[worstStatus(statuses)]] || "#333";
+    seg.style.background = regionColor(REGION_OF[worstStatus(statuses)]);
     button.appendChild(seg);
   }
   const tick = document.createElement("span");
@@ -576,17 +628,13 @@ function openLinkDrawer(link, index) {
 
 function initLegend() {
   const el = document.getElementById("first-legend");
-  const skip = document.getElementById("legend-skip");
-  if (!el || !skip || el.dataset.bound) return;
+  if (!el || el.dataset.bound) return;
   el.dataset.bound = "1";
   let seen = false;
   try { seen = window.localStorage.getItem(LEGEND_KEY) === "1"; } catch (err) { seen = false; }
-  if (!seen) el.hidden = false;
-  skip.addEventListener("click", function () {
-    el.hidden = true;
-    try { window.localStorage.setItem(LEGEND_KEY, "1"); } catch (err) { /* session only */ }
-    const map = document.getElementById("universe-map");
-    if (map) map.focus();
+  el.open = !seen;
+  el.addEventListener("toggle", function () {
+    try { window.localStorage.setItem(LEGEND_KEY, el.open ? "0" : "1"); } catch (err) { /* session only */ }
   });
 }
 
@@ -613,4 +661,7 @@ export {
   initLegend,
   stripById,
   escapeHtml,
+  dominantLabel,
+  coverageOf,
+  regionColor,
 };

@@ -1,0 +1,1038 @@
+{
+  "format": "consequence-atlas-graph",
+  "format_version": "0.1.0",
+  "generated_from": "locked registry (atlas/stages, atlas/links, dials/*.yaml)",
+  "source_commit": "718b42665c977943c401cf04216deb37b28dc27b",
+  "note": "This is a view of locked atlas links. Sparse regions show missing or weak connections. Live runs do not add or promote links.",
+  "consecutive_rule": "A gap is a pair of stages that are adjacent in the locked stage order and have no atlas link from the earlier stage to the later stage. Gaps are not links.",
+  "counts": {
+    "nodes": 21,
+    "stages": 15,
+    "dials": 6,
+    "edges": 25,
+    "gaps": 5
+  },
+  "nodes": [
+    {
+      "id": "s00.rules",
+      "type": "stage",
+      "name": "Chosen rules (dial settings)",
+      "label": null,
+      "status": null,
+      "order": 0,
+      "requires": [],
+      "notes": null,
+      "path": "atlas/stages/s00.rules.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s00.rules.yaml"
+    },
+    {
+      "id": "s01.predictable-laws",
+      "type": "stage",
+      "name": "Predictable laws",
+      "label": null,
+      "status": null,
+      "order": 1,
+      "requires": [
+        "s00.rules"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s01.predictable-laws.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s01.predictable-laws.yaml"
+    },
+    {
+      "id": "s02.sharp-signals",
+      "type": "stage",
+      "name": "Sharp signals (light, sound)",
+      "label": null,
+      "status": null,
+      "order": 2,
+      "requires": [
+        "s01.predictable-laws"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s02.sharp-signals.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s02.sharp-signals.yaml"
+    },
+    {
+      "id": "s03.orbits-atoms-gravity",
+      "type": "stage",
+      "name": "Stable orbits, atoms and gravity",
+      "label": null,
+      "status": null,
+      "order": 3,
+      "requires": [
+        "s01.predictable-laws"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s03.orbits-atoms-gravity.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s03.orbits-atoms-gravity.yaml"
+    },
+    {
+      "id": "s04.stable-atoms",
+      "type": "stage",
+      "name": "Non-relativistic, stable atoms",
+      "label": null,
+      "status": null,
+      "order": 4,
+      "requires": [
+        "s03.orbits-atoms-gravity"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s04.stable-atoms.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s04.stable-atoms.yaml"
+    },
+    {
+      "id": "s05.hydrogen-table",
+      "type": "stage",
+      "name": "Hydrogen and a periodic table with C and O",
+      "label": null,
+      "status": null,
+      "order": 5,
+      "requires": [
+        "s04.stable-atoms"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s05.hydrogen-table.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s05.hydrogen-table.yaml"
+    },
+    {
+      "id": "s06.chemistry",
+      "type": "stage",
+      "name": "Ordered chemistry (molecules, water)",
+      "label": null,
+      "status": null,
+      "order": 6,
+      "requires": [
+        "s05.hydrogen-table"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s06.chemistry.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s06.chemistry.yaml"
+    },
+    {
+      "id": "s07g.galaxies",
+      "type": "stage",
+      "name": "Galaxies (gravitationally bound structures)",
+      "label": null,
+      "status": null,
+      "order": 7,
+      "requires": [
+        "s03.orbits-atoms-gravity"
+      ],
+      "notes": "Added in v0.1 for the cosmological-constant dial; not in the Atlas v0 page.",
+      "path": "atlas/stages/s07g.galaxies.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s07g.galaxies.yaml"
+    },
+    {
+      "id": "s07.stars",
+      "type": "stage",
+      "name": "Stars",
+      "label": null,
+      "status": null,
+      "order": 8,
+      "requires": [
+        "s03.orbits-atoms-gravity",
+        "s04.stable-atoms",
+        "s07g.galaxies"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s07.stars.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s07.stars.yaml"
+    },
+    {
+      "id": "s08.fusion-hoyle",
+      "type": "stage",
+      "name": "Fusion chain and carbon/oxygen (Hoyle)",
+      "label": null,
+      "status": null,
+      "order": 9,
+      "requires": [
+        "s07.stars"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s08.fusion-hoyle.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s08.fusion-hoyle.yaml"
+    },
+    {
+      "id": "s09.planets",
+      "type": "stage",
+      "name": "Planets with long stable climates",
+      "label": null,
+      "status": null,
+      "order": 10,
+      "requires": [
+        "s03.orbits-atoms-gravity",
+        "s07.stars"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s09.planets.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s09.planets.yaml"
+    },
+    {
+      "id": "s10.records",
+      "type": "stage",
+      "name": "Records and memory (arrow of time)",
+      "label": null,
+      "status": null,
+      "order": 11,
+      "requires": [
+        "s01.predictable-laws",
+        "s04.stable-atoms"
+      ],
+      "notes": null,
+      "path": "atlas/stages/s10.records.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s10.records.yaml"
+    },
+    {
+      "id": "s11.life",
+      "type": "stage",
+      "name": "Life",
+      "label": null,
+      "status": null,
+      "order": 12,
+      "requires": [
+        "s06.chemistry",
+        "s08.fusion-hoyle",
+        "s09.planets",
+        "s10.records"
+      ],
+      "notes": "Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).",
+      "path": "atlas/stages/s11.life.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s11.life.yaml"
+    },
+    {
+      "id": "s12.minds",
+      "type": "stage",
+      "name": "Minds",
+      "label": null,
+      "status": null,
+      "order": 13,
+      "requires": [
+        "s11.life"
+      ],
+      "notes": "Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).",
+      "path": "atlas/stages/s12.minds.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s12.minds.yaml"
+    },
+    {
+      "id": "s13.carers",
+      "type": "stage",
+      "name": "Beings who can care",
+      "label": null,
+      "status": null,
+      "order": 14,
+      "requires": [
+        "s12.minds"
+      ],
+      "notes": "Physics cannot certify this stage. Its links are CONJECTURE: at best no physical precondition has failed (check upstream for CONTESTED).",
+      "path": "atlas/stages/s13.carers.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/stages/s13.carers.yaml"
+    },
+    {
+      "id": "alpha",
+      "type": "dial",
+      "name": "Fine-structure constant",
+      "label": null,
+      "status": null,
+      "symbol": "α",
+      "units": "dimensionless",
+      "ours": 0.0072973525693,
+      "range": [
+        1e-06,
+        1.0
+      ],
+      "scale": "log",
+      "sources": [
+        "barnes2012",
+        "adams2019"
+      ],
+      "sources_count": 2,
+      "path": "dials/alpha.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/alpha.yaml"
+    },
+    {
+      "id": "arrow",
+      "type": "dial",
+      "name": "Arrow of time and records",
+      "label": null,
+      "status": null,
+      "symbol": "arrow",
+      "units": "0 = reversible laws, equilibrium start; 1 = reversible laws, low-entropy start (ours); 2 = irreversible laws",
+      "ours": 1,
+      "range": [
+        0,
+        2
+      ],
+      "scale": "discrete",
+      "sources": [
+        "rovelli2020",
+        "wolpert1992"
+      ],
+      "sources_count": 2,
+      "path": "dials/arrow.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/arrow.yaml"
+    },
+    {
+      "id": "beta",
+      "type": "dial",
+      "name": "Electron-to-proton mass ratio",
+      "label": null,
+      "status": null,
+      "symbol": "β = m_e/m_p",
+      "units": "dimensionless (proton mass held fixed)",
+      "ours": 0.000544617021,
+      "range": [
+        1e-05,
+        100.0
+      ],
+      "scale": "log",
+      "sources": [
+        "barnes2012",
+        "tegmark1998"
+      ],
+      "sources_count": 2,
+      "path": "dials/beta.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/beta.yaml"
+    },
+    {
+      "id": "cosmological-constant",
+      "type": "dial",
+      "name": "Cosmological constant",
+      "label": null,
+      "status": null,
+      "symbol": "Λ",
+      "units": "rho_Lambda / rho_Lambda,ours (signed; negative = negative vacuum energy; UIs should use a symmetric-log axis)",
+      "ours": 1,
+      "range": [
+        -1000.0,
+        1000.0
+      ],
+      "scale": "linear",
+      "sources": [
+        "weinberg1987",
+        "msw1998",
+        "planck2018",
+        "barrow-tipler1986",
+        "peacock2007"
+      ],
+      "sources_count": 5,
+      "path": "dials/cosmological-constant.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/cosmological-constant.yaml"
+    },
+    {
+      "id": "dimensions",
+      "type": "dial",
+      "name": "Number of space dimensions",
+      "label": null,
+      "status": null,
+      "symbol": "n",
+      "units": "count (one time dimension fixed in v0)",
+      "ours": 3,
+      "range": [
+        1,
+        5
+      ],
+      "scale": "discrete",
+      "sources": [
+        "tegmark1997",
+        "barrow1983"
+      ],
+      "sources_count": 2,
+      "path": "dials/dimensions.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/dimensions.yaml"
+    },
+    {
+      "id": "strong",
+      "type": "dial",
+      "name": "Strong-force change",
+      "label": null,
+      "status": null,
+      "symbol": "s",
+      "units": "fractional change of the strong coupling (0 = ours)",
+      "ours": 0,
+      "range": [
+        -0.2,
+        0.6
+      ],
+      "scale": "linear",
+      "sources": [
+        "barnes2012",
+        "adams2019"
+      ],
+      "sources_count": 2,
+      "path": "dials/strong.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/dials/strong.yaml"
+    }
+  ],
+  "edges": [
+    {
+      "id": "l.s01.hyperbolic-laws",
+      "source": "s00.rules",
+      "target": "s01.predictable-laws",
+      "from": "s00.rules",
+      "to": "s01.predictable-laws",
+      "from_name": "Chosen rules (dial settings)",
+      "to_name": "Predictable laws",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "tegmark1997"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "One time dimension (fixed in v0): field equations are hyperbolic, so the present predicts the future. PASS always in v0.",
+      "path": "atlas/links/s00.rules__s01.predictable-laws__hyperbolic-laws.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s00.rules__s01.predictable-laws__hyperbolic-laws.yaml"
+    },
+    {
+      "id": "l.s02.huygens",
+      "source": "s01.predictable-laws",
+      "target": "s02.sharp-signals",
+      "from": "s01.predictable-laws",
+      "to": "s02.sharp-signals",
+      "from_name": "Predictable laws",
+      "to_name": "Sharp signals (light, sound)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "dimensions == 3 or dimensions == 5",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "courant-hilbert",
+        "barrow1983"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "PASS: odd n >= 3, Huygens' principle holds (sharp signals). WEAK: n = 1 (no spreading, no inverse-square law) or even n (signals leave a tail inside the light cone).",
+      "path": "atlas/links/s01.predictable-laws__s02.sharp-signals__huygens.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s02.sharp-signals__huygens.yaml"
+    },
+    {
+      "id": "l.s03.gravity-orbits",
+      "source": "s01.predictable-laws",
+      "target": "s03.orbits-atoms-gravity",
+      "from": "s01.predictable-laws",
+      "to": "s03.orbits-atoms-gravity",
+      "from_name": "Predictable laws",
+      "to_name": "Stable orbits, atoms and gravity",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "dimensions == 3",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "tegmark1997"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "FAIL n < 3: no gravitational force (Tegmark 1997). FAIL n > 3: no stable planetary orbits and no traditional atoms (Ehrenfest 1917, via Tegmark 1997).",
+      "path": "atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__gravity-orbits.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__gravity-orbits.yaml"
+    },
+    {
+      "id": "l.s03.hydrogen-ground-state",
+      "source": "s01.predictable-laws",
+      "target": "s03.orbits-atoms-gravity",
+      "from": "s01.predictable-laws",
+      "to": "s03.orbits-atoms-gravity",
+      "from_name": "Predictable laws",
+      "to_name": "Stable orbits, atoms and gravity",
+      "label": "DERIVED",
+      "style": "solid",
+      "condition": "dimensions == 3",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "derive.d2"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "PASS n = 3: numeric E = -0.2500 test units (exact -1/4). FAIL n = 4 (1/r^2 at the collapse threshold) and n = 5 (energy falls without bound as the core shrinks). WEAK n <= 2: everything binds; chemistry unrecognisable (no source; flagged). PRE-EMPTED (slate A1, 2026-11-16): FAILs only when n >= 4, where l.s03.gravity-orbits FAILs in the same stage.",
+      "path": "atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__hydrogen-ground-state.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__hydrogen-ground-state.yaml"
+    },
+    {
+      "id": "l.s03.orbit-stability",
+      "source": "s01.predictable-laws",
+      "target": "s03.orbits-atoms-gravity",
+      "from": "s01.predictable-laws",
+      "to": "s03.orbits-atoms-gravity",
+      "from_name": "Predictable laws",
+      "to_name": "Stable orbits, atoms and gravity",
+      "label": "DERIVED",
+      "style": "solid",
+      "condition": "dimensions == 3",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "derive.d1"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "PASS n = 3 (circular orbit at a minimum of the effective potential). FAIL n = 4 (no extremum), n = 5 (only a maximum, at r = 3 test units), n = 1 (no sideways direction). WEAK n = 2 (log potential orbits stable, but see gravity link). PRE-EMPTED (slate A1, 2026-11-16): FAILs only when n != 3, where l.s03.gravity-orbits FAILs in the same stage.",
+      "path": "atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__orbit-stability.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s03.orbits-atoms-gravity__orbit-stability.yaml"
+    },
+    {
+      "id": "l.s10.landauer",
+      "source": "s01.predictable-laws",
+      "target": "s10.records",
+      "from": "s01.predictable-laws",
+      "to": "s10.records",
+      "from_name": "Predictable laws",
+      "to_name": "Records and memory (arrow of time)",
+      "label": "DERIVED",
+      "style": "solid",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "landauer1961",
+        "derive.d7"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "Each erased record bit costs at least k_B T ln 2 = 0.018 eV at 300 K. Always PASS; a cost, not a gate.",
+      "path": "atlas/links/s01.predictable-laws__s10.records__landauer.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s10.records__landauer.yaml"
+    },
+    {
+      "id": "l.s10.past-traces",
+      "source": "s01.predictable-laws",
+      "target": "s10.records",
+      "from": "s01.predictable-laws",
+      "to": "s10.records",
+      "from_name": "Predictable laws",
+      "to_name": "Records and memory (arrow of time)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "arrow >= 1",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "rovelli2020",
+        "wolpert1992",
+        "landauer1961"
+      ],
+      "sources_count": 3,
+      "status": "active",
+      "notes": "arrow = 1: low-entropy past + separated systems + slow thermalisation leave traces of the past (Rovelli 2020). arrow = 0: no entropy gradient, no traces. arrow = 2: records form, but the past cannot be recovered even in principle. REDUNDANT PAIR (slate A1, 2026-11-16): same condition as l.s10.toy-arrow (arrow >= 1); either one alone never decides a verdict, the pair does.",
+      "path": "atlas/links/s01.predictable-laws__s10.records__past-traces.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s10.records__past-traces.yaml"
+    },
+    {
+      "id": "l.s10.toy-arrow",
+      "source": "s01.predictable-laws",
+      "target": "s10.records",
+      "from": "s01.predictable-laws",
+      "to": "s10.records",
+      "from_name": "Predictable laws",
+      "to_name": "Records and memory (arrow of time)",
+      "label": "DERIVED",
+      "style": "solid",
+      "condition": "arrow >= 1",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "derive.us27"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "Toy-model mechanism demonstration, not a prediction (lattice gas, 5 seeds): low-entropy start S 0.84 -> 3.26 of max 3.74 with an exact backward echo; equilibrium start stays at 1.965 (its maximum); with 2% noise S reaches 3.74 and the echo misses 21.6% of sites. REDUNDANT PAIR (slate A1, 2026-11-16): same condition as l.s10.past-traces (arrow >= 1); either one alone never decides a verdict, the pair does.",
+      "path": "atlas/links/s01.predictable-laws__s10.records__toy-arrow.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s01.predictable-laws__s10.records__toy-arrow.yaml"
+    },
+    {
+      "id": "l.s04.atomic-scales",
+      "source": "s03.orbits-atoms-gravity",
+      "target": "s04.stable-atoms",
+      "from": "s03.orbits-atoms-gravity",
+      "to": "s04.stable-atoms",
+      "from_name": "Stable orbits, atoms and gravity",
+      "to_name": "Non-relativistic, stable atoms",
+      "label": "DERIVED",
+      "style": "solid",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "derive.d3"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "Informational, always PASS: atom size = (alpha0*beta0)/(alpha*beta) x ours; Rydberg energy scale = (alpha/alpha0)^2 * (beta/beta0) x ours (proton mass fixed).",
+      "path": "atlas/links/s03.orbits-atoms-gravity__s04.stable-atoms__atomic-scales.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s03.orbits-atoms-gravity__s04.stable-atoms__atomic-scales.yaml"
+    },
+    {
+      "id": "l.s04.nonrelativistic-atoms",
+      "source": "s03.orbits-atoms-gravity",
+      "target": "s04.stable-atoms",
+      "from": "s03.orbits-atoms-gravity",
+      "to": "s04.stable-atoms",
+      "from_name": "Stable orbits, atoms and gravity",
+      "to_name": "Non-relativistic, stable atoms",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "alpha < 0.2",
+      "assumptions": [],
+      "window": {
+        "dial": "alpha",
+        "hi": 0.2
+      },
+      "sources": [
+        "barnes2012",
+        "adams2019"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "PASS alpha < 0.2: ground-state electron speed v/c = alpha. CONTESTED 0.2 <= alpha < 1/3: between Barrow & Tipler (via Barnes 2012) and Adams 2019. FAIL alpha >= 1/3: relativistic electrons, unstable to pair creation.",
+      "path": "atlas/links/s03.orbits-atoms-gravity__s04.stable-atoms__nonrelativistic-atoms.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s03.orbits-atoms-gravity__s04.stable-atoms__nonrelativistic-atoms.yaml"
+    },
+    {
+      "id": "l.s07.coulomb-barrier",
+      "source": "s03.orbits-atoms-gravity",
+      "target": "s07.stars",
+      "from": "s03.orbits-atoms-gravity",
+      "to": "s07.stars",
+      "from_name": "Stable orbits, atoms and gravity",
+      "to_name": "Stars",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "alpha**2*beta >= 2.62e-12",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "adams2019",
+        "adams2008"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "FAIL alpha^2*beta < 2.6e-12: Coulomb barrier too low, stars burn their fuel at once. SOURCE CHECK (2026-11-16, papers re-read): Adams 2019 eq. (24), p.26 gives alpha^2 beta >~ 2.62e-12 ~ 9.03e-5 alpha0^2 beta0: VERIFIED. Adams 2008 eq. (44), p.15-16 (ours a factor ~11,000 inside the burning limit, kappa0 ∝ alpha^2, particle masses fixed) gives alpha_min = alpha0/sqrt(11000) = 0.00953 alpha0 vs 0.00950 alpha0 here: AGREES. Adams 2008 holds m_e fixed, so the beta dependence rests on Adams 2019.",
+      "path": "atlas/links/s03.orbits-atoms-gravity__s07.stars__coulomb-barrier.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s03.orbits-atoms-gravity__s07.stars__coulomb-barrier.yaml"
+    },
+    {
+      "id": "l.s07.star-mass-window",
+      "source": "s03.orbits-atoms-gravity",
+      "target": "s07.stars",
+      "from": "s03.orbits-atoms-gravity",
+      "to": "s07.stars",
+      "from_name": "Stable orbits, atoms and gravity",
+      "to_name": "Stars",
+      "label": "DERIVED-UNDER-ASSUMPTION",
+      "style": "solid",
+      "condition": "beta/alpha**2 >= 1/100",
+      "assumptions": [
+        "Stellar mass limits scale as in the cited papers: minimum mass set by electron degeneracy versus nuclear ignition, maximum mass set by radiation pressure, both in units of the Chandrasekhar mass; the ratio depends on the constants only through beta/alpha^2.",
+        "Gravity (G), the proton mass and the nuclear burning physics are held fixed; only alpha and beta change.",
+        "The thresholds 1/464, 1/200 and 1/100 are imported as published (Adams 2019, Tegmark 1998, Barnes 2012); their spread is reported as CONTESTED, not averaged."
+      ],
+      "window": null,
+      "sources": [
+        "derive.d6",
+        "adams2019",
+        "tegmark1998",
+        "barnes2012"
+      ],
+      "sources_count": 4,
+      "status": "contested",
+      "notes": "PASS beta/alpha^2 >= 1/100 (above all three published limits: 1/464 Adams 2019, 1/200 Tegmark 1998, 1/100 Barnes 2012). CONTESTED between 10^(-8/3) ~ 1/464 and 1/100. FAIL below 10^(-8/3): the smallest hydrogen-burning star would outweigh the largest stable one. The scaling with beta/alpha^2 is derived (derive.d6); the three thresholds are imported from the cited papers. At our beta: alpha must stay below 0.233 (Barnes), 0.330 (Tegmark) or 0.503 (Adams). SOURCE CHECK (2026-11-16, papers re-read): the single-combination form beta >~ 10^(-8/3) alpha^2 is Adams 2019 eq. (23), p.26 (from eqs. A.4-A.5): VERIFIED. Adams 2008 (eqs. 41-45) does not reduce the mass-window closure to beta/alpha^2 alone (it depends on kT_nuc/m_e c^2, with T_nuc from eq. 42 involving G, C and m_e^3 kappa0), so the beta/alpha^2 scaling is Adams 2019's simplified form, not a result of Adams 2008. At our beta the FAIL edge (alpha = 0.503 = 69 alpha0) is consistent with Adams 2008 Fig. 5 (about 10^2 alpha0 at G0, read by eye).",
+      "path": "atlas/links/s03.orbits-atoms-gravity__s07.stars__star-mass-window.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s03.orbits-atoms-gravity__s07.stars__star-mass-window.yaml"
+    },
+    {
+      "id": "l.s07g.lambda-galaxies",
+      "source": "s03.orbits-atoms-gravity",
+      "target": "s07g.galaxies",
+      "from": "s03.orbits-atoms-gravity",
+      "to": "s07g.galaxies",
+      "from_name": "Stable orbits, atoms and gravity",
+      "to_name": "Galaxies (gravitationally bound structures)",
+      "label": "DERIVED-UNDER-ASSUMPTION",
+      "style": "solid",
+      "condition": "cosmological_constant < 189",
+      "assumptions": [
+        "Earliest galaxies at redshift z ~ 4, as used by Martel, Shapiro & Weinberg 1998.",
+        "Primordial fluctuation amplitude Q and dark-matter-to-photon ratio held at our values (Tegmark et al. 2006 show the bound scales with Q^3).",
+        "Our density ratio Omega_Lambda/Omega_m = 0.685/0.315 (Planck 2018).",
+        "Spherical top-hat collapse with the linear growing mode (MSW 1998 eq. 4 and eq. 57); collapse at z = 4 means linear overdensity 1.686 (Einstein-de Sitter value, IMPORTED); Lambda negligible before z = 4.",
+        "Applies to positive Lambda. For negative Lambda, structure forms readily in the recollapsing phase (Peacock 2007), so this link PASSes; the negative-Lambda limit is the lifetime link l.s11.lambda-lifetime."
+      ],
+      "window": {
+        "dial": "cosmological-constant",
+        "hi": 189
+      },
+      "sources": [
+        "weinberg1987",
+        "msw1998",
+        "planck2018",
+        "derive.d10"
+      ],
+      "sources_count": 4,
+      "status": "active",
+      "notes": "Weinberg 1987 and MSW 1998 eq. (4), p.6: a spherical fluctuation recollapses iff rho_V <= (500/729) delta^3 rhobar, with delta the linear growing-mode overdensity at recombination (MSW use the growing-mode sigma, eq. 57). A galaxy at z ~ 4 has linear overdensity 1.686 at z = 4, and delta^3 rhobar is invariant under linear growth, so rho_V <= (500/729) 1.686^3 (1+z)^3 rho_m0 = 411 rho_m0. With Omega_m = 0.315 (Planck 2018) and Omega_Lambda = 0.685, rho_Lambda,ours = 2.17 rho_m0, so the bound is 189 in dial units. Until atlas@locked-2026-11-16a this link used 57.5 = 125/2.17, treating (1+z)^3 rho_m0 = 125 rho_m0 as the bound; MSW p.3 and Weinberg 1996 p.3 state 125 rho_m0 only as a value the bound cannot be much less than (docs/locks/LOCKED_LAMBDA_GALAXY_189.md). MSW also find the observed-typical value is much smaller than this bound. FAIL above the bound; PASS below.",
+      "path": "atlas/links/s03.orbits-atoms-gravity__s07g.galaxies__lambda-galaxies.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s03.orbits-atoms-gravity__s07g.galaxies__lambda-galaxies.yaml"
+    },
+    {
+      "id": "l.s05.carbon-nuclei",
+      "source": "s04.stable-atoms",
+      "target": "s05.hydrogen-table",
+      "from": "s04.stable-atoms",
+      "to": "s05.hydrogen-table",
+      "from_name": "Non-relativistic, stable atoms",
+      "to_name": "Hydrogen and a periodic table with C and O",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "0.1*(1 + strong) >= 0.3*sqrt(alpha)",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "tegmark1998"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "Carbon and heavier nuclei hold together iff alpha_s >= 0.3*sqrt(alpha), with alpha_s = 0.1 scaled by the strong dial (Tegmark 1998, citing Barrow & Tipler). | CONTESTED NUCLEAR EDGES (Chemist lock C2, informational, do not change this link's condition): (a) deuteron unbinds at s in [-0.06, -0.04]; (b) diproton binds at s in [+0.06, +0.17]. Ranges are model-dependent: square well -4%/+6%, Yukawa -6%/+17% (Adams, Phys. Rep. 807 (2019), arXiv:1902.03928, sec. 2.4, last paragraph, arXiv PDF p. 31, citing Davies, J. Phys. A 5 (1972) 1296). ASSUMED: nuclear well depth scales linearly with alpha_s, so s = fractional change in alpha_s (as in MacDonald & Mullan 2009, V = G^2 V0, s = G^2 - 1; their diproton binding at G = 1.065 gives s = 0.134, inside (b)). Neither edge fails a universe. Dissent on (a): Adams & Grohs, Astropart. Phys. 91 (2017) 90-104, doi:10.1016/j.astropartphys.2017.03.009 (stars without stable deuterium). Dissent on (b): MacDonald & Mullan, PRD 80, 043507 (2009), arXiv:0904.1807 (primordial H survives for G < 1.5). Stage version kept on branch chemist-c2-stages for a later PR. PRE-EMPTED (slate A1, 2026-11-16): this link FAILs only for alpha > 0.071, where l.s05.hydrogen-stable already FAILs (it FAILs for every alpha > 0.0244 at any beta in range), so it never decides a verdict alone in the current dial ranges.",
+      "path": "atlas/links/s04.stable-atoms__s05.hydrogen-table__carbon-nuclei.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s04.stable-atoms__s05.hydrogen-table__carbon-nuclei.yaml"
+    },
+    {
+      "id": "l.s05.hydrogen-stable",
+      "source": "s04.stable-atoms",
+      "target": "s05.hydrogen-table",
+      "from": "s04.stable-atoms",
+      "to": "s05.hydrogen-table",
+      "from_name": "Non-relativistic, stable atoms",
+      "to_name": "Hydrogen and a periodic table with C and O",
+      "label": "DERIVED-UNDER-ASSUMPTION",
+      "style": "solid",
+      "condition": "(2.52 - 0.294) + (-1.00 - 0.157)*(alpha/0.0072973525693) > beta*938.272",
+      "assumptions": [
+        "The electromagnetic part of the neutron-proton mass difference scales linearly with alpha (leading order).",
+        "Quark masses (and so the QCD part Q) are held fixed while alpha changes.",
+        "Errors on Q and E are treated as independent 1-sigma intervals."
+      ],
+      "window": {
+        "dial": "alpha",
+        "lo": 0.01082,
+        "hi": 0.01993
+      },
+      "sources": [
+        "borsanyi2015",
+        "derive.d9"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "m_n - m_p = Q + E*(alpha/alpha0), Q = 2.52 +/- 0.29 MeV (QCD), E = -1.00 +/- 0.16 MeV (QED) (Borsanyi et al. 2015). Hydrogen is stable against electron capture iff m_n - m_p > m_e = beta * 938.272 MeV. PASS if stable over the whole 1-sigma box, FAIL if unstable over all of it, else CONTESTED. At beta = ours the central critical alpha is 2.01 x ours (0.01466); band 1.48-2.73 x ours.",
+      "path": "atlas/links/s04.stable-atoms__s05.hydrogen-table__hydrogen-stable.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s04.stable-atoms__s05.hydrogen-table__hydrogen-stable.yaml"
+    },
+    {
+      "id": "l.s05.table-length",
+      "source": "s04.stable-atoms",
+      "target": "s05.hydrogen-table",
+      "from": "s04.stable-atoms",
+      "to": "s05.hydrogen-table",
+      "from_name": "Non-relativistic, stable atoms",
+      "to_name": "Hydrogen and a periodic table with C and O",
+      "label": "DERIVED-UNDER-ASSUMPTION",
+      "style": "solid",
+      "condition": "min(floor(1.24/alpha), Z_fission(alpha, strong)) >= 26",
+      "assumptions": [
+        "The Coulomb coefficient a_c scales linearly with alpha and the surface coefficient a_s scales linearly with the strong-force change s; all other nuclear structure is held fixed.",
+        "Liquid-drop coefficients a_s = 17.8 MeV, a_c = 0.711 MeV (one published fit; other fits differ by a few percent).",
+        "Nuclei follow the valley-of-stability relation Z = A/2 - 0.2 A^2/(A + 200) (approximation used in derive.py, not separately sourced).",
+        "The table ends where spontaneous fission becomes barrier-free (Z^2/A at the Bohr-Wheeler limit) or where the 1s level dives into the Dirac sea (Z ~ 1.24/alpha); shell effects and islands of stability are ignored.",
+        "Electron masses and the proton mass are held fixed."
+      ],
+      "window": null,
+      "sources": [
+        "derive.d5",
+        "zeldovich-popov1972",
+        "bohr-wheeler1939",
+        "rohlf1994"
+      ],
+      "sources_count": 4,
+      "status": "active",
+      "notes": "Periodic table ends at min(relativistic limit Z ~ 1.24/alpha (Z_cr ~ 170 at our alpha, Zeldovich & Popov 1972), liquid-drop fission limit Z^2/A = 2*a_s*(1+s)/(a_c*alpha/alpha0) (Bohr & Wheeler 1939), with a_s = 17.8 MeV and a_c = 0.711 MeV (Rohlf 1994 fit)). PASS end >= 26 (iron); WEAK 8 <= end < 26 (C and O exist, heavier missing); FAIL end < 8. Z_fission(alpha, strong) = largest Z with Z^2/A(Z) below that limit, A(Z) from the valley-of-stability approximation in derive.py. Ours: relativistic 137 (Dirac) to 169 (finite nucleus), fission 134. PRE-EMPTED (slate A1, 2026-11-16): FAIL (L < 8) needs alpha > 0.075, where l.s05.hydrogen-stable already FAILs, so it never decides a verdict alone in the current dial ranges.",
+      "path": "atlas/links/s04.stable-atoms__s05.hydrogen-table__table-length.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s04.stable-atoms__s05.hydrogen-table__table-length.yaml"
+    },
+    {
+      "id": "l.s06.nuclei-still",
+      "source": "s05.hydrogen-table",
+      "target": "s06.chemistry",
+      "from": "s05.hydrogen-table",
+      "to": "s06.chemistry",
+      "from_name": "Hydrogen and a periodic table with C and O",
+      "to_name": "Ordered chemistry (molecules, water)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "beta < 1/81",
+      "assumptions": [],
+      "window": {
+        "dial": "beta",
+        "hi": 0.012346
+      },
+      "sources": [
+        "tegmark1998",
+        "barnes2012",
+        "adams2019"
+      ],
+      "sources_count": 3,
+      "status": "active",
+      "notes": "PASS beta^(1/4) < 1/3: nuclei sit still inside molecules. CONTESTED beta > 81: second window with electron heavier than proton (Adams 2019), chemistry unworked. FAIL otherwise: ordered molecules melt. PRE-EMPTED (slate A1, 2026-11-16): FAIL needs 1/81 <= beta <= 81, i.e. m_e >= 11.6 MeV, above the 2.81 MeV top of the hydrogen box, so l.s05.hydrogen-stable already FAILs and S6 is BLOCKED.",
+      "path": "atlas/links/s05.hydrogen-table__s06.chemistry__nuclei-still.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s05.hydrogen-table__s06.chemistry__nuclei-still.yaml"
+    },
+    {
+      "id": "l.s06.water",
+      "source": "s05.hydrogen-table",
+      "target": "s06.chemistry",
+      "from": "s05.hydrogen-table",
+      "to": "s06.chemistry",
+      "from_name": "Hydrogen and a periodic table with C and O",
+      "to_name": "Ordered chemistry (molecules, water)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "alpha <= 10*0.0072973525693",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "adams2019"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "PASS: water energetics shift well under 10%. WEAK alpha > 10 x ours: O-H bond weakens (about 7 kcal/mol at 7x), roughly a 10% shift (Adams 2019 benchmark). CH-G1 P1 (Physicist, 2026-11-19, lock 97c6394, repo 8d40dfd): an independent locked CCSD(T) rerun gave ΔD_e(α×7)−ΔD_e(α×1) = −7.07 kcal/mol, SURVIVED / REDUCES-TO-KNOWN relative to that −7 value. P2 (H-bond/O–H ratio through 10×) is NOT-TESTABLE-YET (compute budget).",
+      "path": "atlas/links/s05.hydrogen-table__s06.chemistry__water.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s05.hydrogen-table__s06.chemistry__water.yaml"
+    },
+    {
+      "id": "l.s08.hoyle-window",
+      "source": "s07.stars",
+      "target": "s08.fusion-hoyle",
+      "from": "s07.stars",
+      "to": "s08.fusion-hoyle",
+      "from_name": "Stars",
+      "to_name": "Fusion chain and carbon/oxygen (Hoyle)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "abs(strong) <= 0.005 and abs(alpha/0.0072973525693 - 1) <= 0.02",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "oberhummer2000",
+        "epelbaum2013",
+        "adams2019",
+        "kragh2010"
+      ],
+      "sources_count": 4,
+      "status": "contested",
+      "notes": "PASS inside strong +/-0.5% (Oberhummer, Csoto & Schlattl 2000) and alpha +/-2% (Epelbaum et al. 2013, PRL 110, 112502). CONTESTED alpha 2-4% (outside Epelbaum 2013, inside Oberhummer 2000's Coulomb window) or outside the window altogether: models predict C or O output drops by orders of magnitude; Adams 2019 argues viable universes remain. Kragh 2010 on the history of the Hoyle story. Lock C1b (Chemist).",
+      "path": "atlas/links/s07.stars__s08.fusion-hoyle__hoyle-window.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s07.stars__s08.fusion-hoyle__hoyle-window.yaml"
+    },
+    {
+      "id": "l.s08.pp-chain",
+      "source": "s07.stars",
+      "target": "s08.fusion-hoyle",
+      "from": "s07.stars",
+      "to": "s08.fusion-hoyle",
+      "from_name": "Stars",
+      "to_name": "Fusion chain and carbon/oxygen (Hoyle)",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "-0.04 <= strong <= 0.06",
+      "assumptions": [
+        "ASSUMED: nuclear well depth scales linearly with alpha_s, so dial s = fractional change in alpha_s (MacDonald & Mullan 2009: V = G^2 V0, s = G^2 - 1)."
+      ],
+      "window": null,
+      "sources": [
+        "adams2019",
+        "adams-grohs2017",
+        "macdonald-mullan2009",
+        "barnes2012"
+      ],
+      "sources_count": 4,
+      "status": "contested",
+      "notes": "PASS: deuteron bound, diproton unbound (square-well edges -4% / +6%, Adams 2019 sec. 2.4, arXiv PDF p. 31, citing Davies 1972). Never FAIL. CONTESTED s > 0.06: diproton may bind (edge +6% square well to +17% Yukawa); classic claim (Dyson 1971) fatal, but MacDonald & Mullan 2009 find substantial primordial hydrogen survives for G < 1.5 (s < 1.25). CONTESTED s < -0.04: deuteron may unbind (edge -4% to -6% Yukawa); classic claim no pp chain, but Adams & Grohs 2017 find working stars. Lock C2b (Chemist).",
+      "path": "atlas/links/s07.stars__s08.fusion-hoyle__pp-chain.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s07.stars__s08.fusion-hoyle__pp-chain.yaml"
+    },
+    {
+      "id": "l.s09.planet-orbits",
+      "source": "s07.stars",
+      "target": "s09.planets",
+      "from": "s07.stars",
+      "to": "s09.planets",
+      "from_name": "Stars",
+      "to_name": "Planets with long stable climates",
+      "label": "IMPORTED",
+      "style": "solid",
+      "condition": "dimensions == 3",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "tegmark1997",
+        "adams2019"
+      ],
+      "sources_count": 2,
+      "status": "active",
+      "notes": "Stable orbits around long-lived stars only for n = 3. PRE-EMPTED (slate A1, 2026-11-16): FAILs only when n != 3, where l.s03.gravity-orbits already FAILs and S9 is BLOCKED.",
+      "path": "atlas/links/s07.stars__s09.planets__planet-orbits.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s07.stars__s09.planets__planet-orbits.yaml"
+    },
+    {
+      "id": "l.s11.lambda-lifetime",
+      "source": "s09.planets",
+      "target": "s11.life",
+      "from": "s09.planets",
+      "to": "s11.life",
+      "from_name": "Planets with long stable climates",
+      "to_name": "Life",
+      "label": "CONTESTED",
+      "style": "dashed",
+      "condition": "cosmological_constant >= -7.09",
+      "assumptions": [
+        "Spatially flat universe dominated by matter after early times; radiation ignored. The lifetime then depends only on |Lambda|.",
+        "Observers need at least as long as they took here (13.787 Gyr, Planck 2018). This is a one-sample benchmark, not a derived requirement.",
+        "The heating-to-8 K cutoff that Peacock 2007 discusses is not modelled."
+      ],
+      "window": {
+        "dial": "cosmological-constant",
+        "lo": -7.09
+      },
+      "sources": [
+        "barrow-tipler1986",
+        "msw1998",
+        "peacock2007",
+        "planck2018",
+        "derive.d11"
+      ],
+      "sources_count": 5,
+      "status": "contested",
+      "notes": "Negative Lambda makes a flat universe recollapse. Its total lifetime is t = (2*pi/3)/H_L with H_L = sqrt(8*pi*G*|rho_Lambda|/3), exact for flat matter + Lambda < 0 (derive.d11). With Planck 2018 H0 = 67.4 km/s/Mpc and Omega_Lambda = 0.685, t = 36.7 Gyr / sqrt(|x|) for dial value x < 0. The anthropic condition for negative Lambda is that the universe survives long enough for observers (Barrow & Tipler 1986, as stated by Martel, Shapiro & Weinberg 1998). The literature gives no agreed lifetime threshold: Peacock 2007 finds that structure forms readily while recollapsing, and that negative Lambda is disfavoured only if observers cannot form once the recollapsing universe heats above 8 K. The condition shown uses our own single sample as the benchmark (observers at 13.787 Gyr, Planck 2018), giving x >= -7.09. With a 5 Gyr benchmark it would be x >= -53.9. CONTESTED because the threshold is an assumption, not a result. PASS for every positive Lambda.",
+      "path": "atlas/links/s09.planets__s11.life__lambda-lifetime.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s09.planets__s11.life__lambda-lifetime.yaml"
+    },
+    {
+      "id": "l.s11.life",
+      "source": "s10.records",
+      "target": "s11.life",
+      "from": "s10.records",
+      "to": "s11.life",
+      "from_name": "Records and memory (arrow of time)",
+      "to_name": "Life",
+      "label": "CONJECTURE",
+      "style": "dashed",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [],
+      "sources_count": 0,
+      "status": "active",
+      "notes": "OPEN. Requires S6, S8, S9, S10. Whether life follows from chemistry, stars, C/O (or substitutes), planets and records is not settled by physics.",
+      "path": "atlas/links/s10.records__s11.life__life.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s10.records__s11.life__life.yaml"
+    },
+    {
+      "id": "l.s12.minds",
+      "source": "s11.life",
+      "target": "s12.minds",
+      "from": "s11.life",
+      "to": "s12.minds",
+      "from_name": "Life",
+      "to_name": "Minds",
+      "label": "CONJECTURE",
+      "style": "dashed",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [
+        "rovelli2020"
+      ],
+      "sources_count": 1,
+      "status": "active",
+      "notes": "OPEN. Memory and a model of the future are physically possible; with arrow = 2 the past is lost faster, so minds may lean harder on records.",
+      "path": "atlas/links/s11.life__s12.minds__minds.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s11.life__s12.minds__minds.yaml"
+    },
+    {
+      "id": "l.s13.carers",
+      "source": "s12.minds",
+      "target": "s13.carers",
+      "from": "s12.minds",
+      "to": "s13.carers",
+      "from_name": "Minds",
+      "to_name": "Beings who can care",
+      "label": "CONJECTURE",
+      "style": "dashed",
+      "condition": "true",
+      "assumptions": [],
+      "window": null,
+      "sources": [],
+      "sources_count": 0,
+      "status": "active",
+      "notes": "OPEN. Caring needs memory, anticipation and a lasting self. At best no physical precondition above has failed (check for CONTESTED ones). The rest is biology and philosophy; no 'ought' is derived from any 'is' here.",
+      "path": "atlas/links/s12.minds__s13.carers__carers.yaml",
+      "github": "https://github.com/sajjaddadashpour/consequence-atlas/blob/main/atlas/links/s12.minds__s13.carers__carers.yaml"
+    }
+  ],
+  "gaps": [
+    {
+      "source": "s02.sharp-signals",
+      "target": "s03.orbits-atoms-gravity",
+      "from": "s02.sharp-signals",
+      "to": "s03.orbits-atoms-gravity",
+      "from_name": "Sharp signals (light, sound)",
+      "to_name": "Stable orbits, atoms and gravity",
+      "label": "no link recorded",
+      "kind": "gap"
+    },
+    {
+      "source": "s06.chemistry",
+      "target": "s07g.galaxies",
+      "from": "s06.chemistry",
+      "to": "s07g.galaxies",
+      "from_name": "Ordered chemistry (molecules, water)",
+      "to_name": "Galaxies (gravitationally bound structures)",
+      "label": "no link recorded",
+      "kind": "gap"
+    },
+    {
+      "source": "s07g.galaxies",
+      "target": "s07.stars",
+      "from": "s07g.galaxies",
+      "to": "s07.stars",
+      "from_name": "Galaxies (gravitationally bound structures)",
+      "to_name": "Stars",
+      "label": "no link recorded",
+      "kind": "gap"
+    },
+    {
+      "source": "s08.fusion-hoyle",
+      "target": "s09.planets",
+      "from": "s08.fusion-hoyle",
+      "to": "s09.planets",
+      "from_name": "Fusion chain and carbon/oxygen (Hoyle)",
+      "to_name": "Planets with long stable climates",
+      "label": "no link recorded",
+      "kind": "gap"
+    },
+    {
+      "source": "s09.planets",
+      "target": "s10.records",
+      "from": "s09.planets",
+      "to": "s10.records",
+      "from_name": "Planets with long stable climates",
+      "to_name": "Records and memory (arrow of time)",
+      "label": "no link recorded",
+      "kind": "gap"
+    }
+  ]
+}

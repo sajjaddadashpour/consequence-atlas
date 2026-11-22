@@ -35,6 +35,10 @@ In a link condition, a hyphenated dial id may be written with underscores (`cosm
 
 In YAML, quote `yes`, `no`, `on`, `off`, `y`, and `n`. Unquoted, YAML 1.1 turns them into booleans. `true` and `false` are real booleans and may stay unquoted.
 
+## No fraction without a prior
+
+The atlas gives verdicts per dial setting. It does not give a "fraction of universes" that reach a stage, because that number depends on how dial space is weighted. Measured on atlas@locked-2026-11-14b (slate A4, 100,000 samples per prior, fixed seed), the fraction reaching "beings who can care" (not FAIL or BLOCKED) was 0.0103 with log-uniform dials, 0 of 100,000 with uniform dials, 1e-5 uniform in square root, 0.33 for a wide spread around our values and 0.72 for a narrow one. If you quote a fraction, state the prior. Details: docs/analysis/SLATE_A_2026-11-16.md.
+
 ## Validate locally
 
 From the repository root, three commands:

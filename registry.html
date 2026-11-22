@@ -28,6 +28,7 @@
       <nav aria-label="Site">
         <a href="./">Playground</a>
         <a href="#browse" aria-current="page">Registry</a>
+        <a href="graph.html">Graph</a>
         <a href="#labels">Labels</a>
         <a href="#contribute">Contribute</a>
         <a href="https://github.com/sajjaddadashpour/consequence-atlas">GitHub</a>
@@ -45,7 +46,8 @@
         <p class="caveat">Toy simulations show mechanisms. They never predict chemistry or life. Most experiment cards are still <strong>CONJECTURE</strong> until the gate checker reruns and signs them. A card label above CONJECTURE needs a <code>gate</code> signature from the gate checker. Agents cannot promote their own cards.</p>
         <ul class="hero-stats" aria-label="Snapshot counts from the repository">
           <li><strong>398</strong> experiment cards<span class="sub">139 in cards/, 259 in dead-ends/</span></li>
-          <li><strong>25</strong> atlas links</li>
+          <li><strong>25</strong> atlas links<span class="sub">stage to stage, in atlas/links/</span></li>
+          <li><strong>17</strong> cross-field links<span class="sub">in atlas/crosslinks/</span></li>
           <li><strong>0</strong> gate signatures<span class="sub">70 legacy (null arm not run)</span></li>
         </ul>
         <div class="hero-pills">
@@ -57,7 +59,7 @@
             <li><span class="pill pill-dead-end"><span class="pill-n">4</span> DEAD-END</span></li>
             <li><span class="pill pill-inert-by-construction"><span class="pill-n">47</span> INERT-BY-CONSTRUCTION</span></li>
           </ul>
-          <p class="pill-label">Links</p>
+          <p class="pill-label">Atlas links</p>
           <ul class="pills">
             <li><span class="pill pill-derived"><span class="pill-n">5</span> DERIVED</span></li>
             <li><span class="pill pill-derived-under-assumption"><span class="pill-n">4</span> DERIVED-UNDER-ASSUMPTION</span></li>
@@ -65,8 +67,15 @@
             <li><span class="pill pill-conjecture"><span class="pill-n">3</span> CONJECTURE</span></li>
             <li><span class="pill pill-contested"><span class="pill-n">1</span> CONTESTED</span></li>
           </ul>
+          <p class="pill-label">Cross-field links</p>
+          <ul class="pills">
+            <li><span class="pill pill-established"><span class="pill-n">2</span> ESTABLISHED</span></li>
+            <li><span class="pill pill-mainstream-hypothesis"><span class="pill-n">9</span> MAINSTREAM-HYPOTHESIS</span></li>
+            <li><span class="pill pill-conjecture"><span class="pill-n">4</span> CONJECTURE</span></li>
+            <li><span class="pill pill-analogy-only"><span class="pill-n">2</span> ANALOGY-ONLY</span></li>
+          </ul>
         </div>
-        <p class="meta">Built from commit <a href="https://github.com/sajjaddadashpour/consequence-atlas/tree/54635ec6f8e62497c1eab3eee5976d84e41785f6"><code>54635ec</code></a> at 2026-11-15T21:50:04Z. Examples are excluded. The repository files are the source of record.</p>
+        <p class="meta">Built from commit <a href="https://github.com/sajjaddadashpour/consequence-atlas/tree/718b42665c977943c401cf04216deb37b28dc27b"><code>718b426</code></a> at 2026-11-22T22:05:22Z. Examples are excluded. The repository files are the source of record.</p>
       </div>
     </section>
 
@@ -117,15 +126,29 @@
           <dd>A contested claim; disagreement is marked rather than hidden.</dd>
             </dl>
           </div>
+          <div>
+            <h3>Cross-field links</h3>
+            <p class="quiet">These labels apply to records in <code>atlas/crosslinks/</code>. They are not stage-to-stage derivations. A chain's label cannot be stronger than its weakest step. <code>support=analogy</code> must be labelled ANALOGY-ONLY with <code>claim=pattern</code>.</p>
+            <dl class="meanings">
+              <dt><span class="pill pill-established">ESTABLISHED</span></dt>
+          <dd>Evidence label for a cross-field link in atlas/crosslinks/. Separate from stage-to-stage atlas labels. Strongest of the four; a chain's label cannot be stronger than its weakest step.</dd>
+          <dt><span class="pill pill-mainstream-hypothesis">MAINSTREAM-HYPOTHESIS</span></dt>
+          <dd>Evidence label for a cross-field link in atlas/crosslinks/. Weaker than ESTABLISHED and stronger than CONJECTURE. A chain's label cannot be stronger than its weakest step.</dd>
+          <dt><span class="pill pill-conjecture">CONJECTURE</span></dt>
+          <dd>Evidence label for a cross-field link in atlas/crosslinks/. Weaker than MAINSTREAM-HYPOTHESIS and stronger than ANALOGY-ONLY. A chain's label cannot be stronger than its weakest step.</dd>
+          <dt><span class="pill pill-analogy-only">ANALOGY-ONLY</span></dt>
+          <dd>Evidence label for a cross-field link in atlas/crosslinks/. Required when support is analogy (with claim=pattern). Weakest of the four; a chain's label cannot be stronger than its weakest step.</dd>
+            </dl>
+          </div>
         </div>
-        <p class="caveat">In this snapshot, 98 cards are labelled CONJECTURE in their card files, and 41 are labelled REPRODUCED. Those are the only labels this page shows. The 98 CONJECTURE cards are the gate-prototype set, including both single-factor cards of 011. A DIFFERS (or other) result in their notes is an unsigned prototype check, not a label. The REPRODUCED cards are legacy recipe cards: their outputs reproduce exactly, but their control changes several settings at once, so it is not a fair control. No card in this snapshot carries a gate signature (0 signatures). Nothing here is promoted until a real gate signature is on the card.</p>
+        <p class="caveat">In this snapshot, 98 cards are labelled CONJECTURE in their card files, and 41 are labelled REPRODUCED. The CONJECTURE cards include the gate-prototype set, including both single-factor cards of 011. A DIFFERS (or other) result in their notes is an unsigned prototype check, not a label. The REPRODUCED cards are legacy recipe cards: their outputs reproduce exactly, but their control changes several settings at once, so it is not a fair control. No card in this snapshot carries a gate signature (0 signatures). Nothing here is promoted until a real gate signature is on the card. Cross-field records are counted separately: this snapshot has 17 files in <code>atlas/crosslinks/</code>.</p>
       </div>
     </section>
 
     <section class="browse" id="browse">
       <div class="wrap">
         <h2>Browse cards and links</h2>
-        <p class="quiet">Every real card in <code>cards/</code> and <code>dead-ends/</code>, and every atlas link. Example records are not listed. The compact index is loaded after this page paints.</p>
+        <p class="quiet">Every real card in <code>cards/</code> and <code>dead-ends/</code>, every stage-to-stage atlas link, and every cross-field link. Example records are not listed. The compact index is loaded after this page paints.</p>
         <form class="filters" id="filters" role="search">
           <label class="search">
             <span>Search</span>
@@ -138,6 +161,7 @@
               <option value="card">Cards</option>
               <option value="dead-end">Dead-ends</option>
               <option value="link">Links</option>
+              <option value="crosslink">Cross-field links</option>
             </select>
           </label>
           <label>
@@ -179,7 +203,7 @@
         <div class="browse-layout">
           <ol class="results" id="results"></ol>
           <article class="detail" id="detail" hidden>
-            <p class="quiet">Select a card or link to read its fields, label, lock and source path.</p>
+            <p class="quiet">Select a card, link or cross-field record to read its fields, label and source path.</p>
           </article>
         </div>
       </div>
@@ -206,11 +230,11 @@ make test</code></pre>
   <footer class="site-footer">
     <div class="wrap">
       <p>TOE Consequences Atlas · <a href="https://github.com/sajjaddadashpour/consequence-atlas">sajjaddadashpour/consequence-atlas</a> · <a href="llms.txt">llms.txt</a> · <a href="data/index.json">data/index.json</a></p>
-      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-15T21:50:04Z from <code>54635ec</code>. This page is the stored record. Live verdicts on the atlas never promote these labels. A DIFFERS line in a card note is an unsigned prototype check, not a label.</p>
+      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-22T22:05:22Z from <code>718b426</code>. This page is the stored record. Live verdicts on the atlas never promote these labels. A DIFFERS line in a card note is an unsigned prototype check, not a label.</p>
     </div>
   </footer>
 
-  <script type="application/json" id="boot">{"generated_at":"2026-11-15T21:50:04Z","source_commit":"54635ec6f8e62497c1eab3eee5976d84e41785f6","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
+  <script type="application/json" id="boot">{"generated_at":"2026-11-22T22:05:22Z","source_commit":"718b42665c977943c401cf04216deb37b28dc27b","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"crosslinks":17,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"crosslink_labels":{"CONJECTURE":4,"ANALOGY-ONLY":2,"MAINSTREAM-HYPOTHESIS":9,"ESTABLISHED":2},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
   <script src="app.js" defer></script>
 </body>
 </html>

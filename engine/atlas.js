@@ -22,7 +22,7 @@ export const BARRIER = 2.62e-12;
 export const K_ADAMS = 10 ** (-8 / 3);
 export const K_TEGMARK = 1 / 200;
 export const K_BARNES = 1 / 100;
-export const LAMBDA_GALAXY = 57.5;
+export const LAMBDA_GALAXY = 189; // was 57.5 until atlas@locked-2026-11-16a (docs/locks/LOCKED_LAMBDA_GALAXY_189.md)
 export const LAMBDA_LIFE = -7.09;
 export const LAMBDA_LIFE_LOOSE = -53.9;
 export const LAMBDA_T0 = 36.7; // Gyr, t = 36.7 / sqrt(|x|) for x < 0
@@ -299,7 +299,7 @@ function linksOf(d) {
   add("l.s07g.lambda-galaxies", "s03.orbits-atoms-gravity", "s07g.galaxies", "DERIVED-UNDER-ASSUMPTION",
     ["weinberg1987", "msw1998", "planck2018", "derive.d10"],
     L < LAMBDA_GALAXY ? "PASS" : "FAIL",
-    L < LAMBDA_GALAXY ? "PASS below the z~4 galaxy-formation bound (57.5 in dial units), including negative Lambda."
+    L < LAMBDA_GALAXY ? "PASS below the z~4 galaxy-formation bound (189 in dial units; MSW 1998 eq. 4), including negative Lambda."
       : "FAIL above the bound: a positive vacuum energy too large stops galaxies forming.");
 
   add("l.s05.carbon-nuclei", "s04.stable-atoms", "s05.hydrogen-table", "IMPORTED", ["tegmark1998"],
@@ -334,18 +334,17 @@ function linksOf(d) {
 
   add("l.s08.hoyle-window", "s07.stars", "s08.fusion-hoyle", "IMPORTED",
     ["oberhummer2000", "epelbaum2013", "adams2019", "kragh2010"],
-    ds <= 0.005 && da <= 0.025 ? "PASS" : "CONTESTED",
-    ds <= 0.005 && da <= 0.025 ? "PASS inside strong +/-0.5% and alpha +/-2.5% (Epelbaum 2013)."
-      : ds <= 0.005 && da <= 0.04 ? "CONTESTED alpha 2.5-4%: outside Epelbaum 2013's window, inside Oberhummer 2000's."
+    ds <= 0.005 && da <= 0.02 ? "PASS" : "CONTESTED",
+    ds <= 0.005 && da <= 0.02 ? "PASS inside strong +/-0.5% (Oberhummer 2000) and alpha +/-2% (Epelbaum 2013)."
+      : ds <= 0.005 && da <= 0.04 ? "CONTESTED alpha 2-4%: outside Epelbaum 2013's window, inside Oberhummer 2000's."
         : "CONTESTED outside the Hoyle window: models predict C or O output drops; Adams 2019 argues viable universes remain.");
 
   add("l.s08.pp-chain", "s07.stars", "s08.fusion-hoyle", "IMPORTED",
-    ["barnes2012", "adams2019", "macdonald-mullan2009", "tegmark1998"],
-    s >= 0.5 ? "FAIL" : (s > 0.034 || s < -0.04) ? "CONTESTED" : "PASS",
-    s >= 0.5 ? "FAIL s >= 0.5: most hydrogen burned in the Big Bang (MacDonald & Mullan 2009)."
-      : s > 0.034 ? "CONTESTED 0.034 < s < 0.5 (diproton may bind). Classic papers: fatal. Adams 2019: stars still work."
-        : s < -0.04 ? "CONTESTED s < -0.04 (deuteron may unbind). Classic papers: no pp chain. Adams 2019: stars still work."
-          : "PASS: deuteron bound, diproton unbound.");
+    ["adams2019", "adams-grohs2017", "macdonald-mullan2009", "barnes2012"],
+    (s > 0.06 || s < -0.04) ? "CONTESTED" : "PASS",
+    s > 0.06 ? "CONTESTED s > 0.06 (diproton may bind; edge +6% square well to +17% Yukawa, Adams 2019). Classic papers: fatal. MacDonald & Mullan 2009: hydrogen survives."
+      : s < -0.04 ? "CONTESTED s < -0.04 (deuteron may unbind; edge -4% square well to -6% Yukawa, Adams 2019). Classic papers: no pp chain. Adams & Grohs 2017: stars still work."
+        : "PASS: deuteron bound, diproton unbound.");
 
   add("l.s09.planet-orbits", "s07.stars", "s09.planets", "IMPORTED", ["tegmark1997", "adams2019"],
     n === 3 ? "PASS" : "FAIL",
@@ -550,7 +549,7 @@ function axisSamples(dialId, n, includeExtra) {
     return { id, scale: def.scale, values: xs, def };
   }
   if (id === "cosmological_constant") {
-    const must = [-1000, -53.9, -7.09, -1, 0, 1, 57.5, 100, 1000].concat(includeExtra || []);
+    const must = [-1000, -53.9, -7.09, -1, 0, 1, 57.5, 100, 189, 1000].concat(includeExtra || []);
     return { id, scale: "symlog", values: symlogspace(def.range[0], def.range[1], n, must), def };
   }
   if (def.scale === "log") {

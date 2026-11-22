@@ -35,13 +35,13 @@ Other imported numbers, already in `derived.json` or the derivations README / li
 - Star-mass k: Adams 2019 `10**(-8/3)`, Tegmark 1998 `1/200`, Barnes 2012 `1/100`.
 - Hydrogen (Borsanyi 2015, as in derive.py / page): `Q=2.52`, `E=-1.00`, `dQ=hypot(0.17,0.24)`, `dE=hypot(0.07,0.14)`; page/yaml rounded box uses `0.294` and `0.157`. Proton mass `938.272` MeV.
 - Landauer: `k_B=1.380649e-23`, `e=1.602176634e-19`, T=300 K.
-- Λ galaxy bound: `57.5` in dial units (derive.d10 / link).
+- Λ galaxy bound: `189` in dial units (derive.d10 / link). Was `57.5` until atlas@locked-2026-11-16a; see docs/locks/LOCKED_LAMBDA_GALAXY_189.md.
 - Λ recollapse: `t = 36.7 / sqrt(|x|)` Gyr for `x<0`; benchmarks `x>=-7.09` (13.787 Gyr) and `x>=-53.9` (5 Gyr) (derive.d11 / link).
 - Water: `alpha <= 10 * A0_DIAL`.
-- Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.025` PASS; `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` still inside Oberhummer, CONTESTED vs Epelbaum; else CONTESTED.
+- Hoyle: `|s|<=0.005` and `|alpha/A0_DIAL - 1|<=0.02` PASS (Epelbaum 2013 alpha +/-2%; strong +/-0.5% Oberhummer 2000); `|s|<=0.005` and `|alpha/A0_DIAL-1|<=0.04` CONTESTED alpha 2-4%: outside Epelbaum 2013, inside Oberhummer 2000; else CONTESTED.
 - Nuclei-still: PASS `beta < 1/81`; CONTESTED `beta > 81`; else FAIL.
 - Non-relativistic atoms: PASS `alpha < 0.2`; CONTESTED `0.2 <= alpha < 1/3`; FAIL `alpha >= 1/3`.
-- pp-chain: PASS `-0.04 <= s <= 0.034`; CONTESTED `s < -0.04` or `0.034 < s < 0.5`; FAIL `s >= 0.5`.
+- pp-chain (Amendment 1, 2026-11-18): PASS `-0.04 <= s <= 0.06` (square-well edges, Adams 2019 §2.4); CONTESTED `s < -0.04` (deuteron may unbind; −4% square well to −6% Yukawa; dissent Adams & Grohs 2017) or `s > 0.06` (diproton may bind; +6% square well to +17% Yukawa; dissent MacDonald & Mullan 2009). Never FAIL.
 - Carbon nuclei: PASS iff `0.1*(1+s) >= 0.3*sqrt(alpha)`.
 
 Time dimensions are not a dial (fixed at one in v0). Gravity G is not a dial.
@@ -77,14 +77,14 @@ Per-link test: the yaml `condition` is the PASS predicate only. The richer PASS 
 | l.s04.nonrelativistic-atoms | α<0.2 | | 0.2≤α<1/3 | α≥1/3 | |
 | l.s07.coulomb-barrier | α²β≥2.62e-12 | | | else | |
 | l.s07.star-mass-window | β/α² ≥ 1/100 | | 10^(-8/3) ≤ β/α² < 1/100 | β/α² < 10^(-8/3) | |
-| l.s07g.lambda-galaxies | Λ<57.5 (including Λ≤0) | | | Λ≥57.5 | |
+| l.s07g.lambda-galaxies | Λ<189 (including Λ≤0) | | | Λ≥189 | |
 | l.s05.carbon-nuclei | 0.1(1+s)≥0.3√α | | | else | |
 | l.s05.hydrogen-stable | whole 1-σ box above m_e | | box straddles m_e | whole box below m_e | |
 | l.s05.table-length | L≥26 | 8≤L<26 | | L<8 | |
 | l.s06.nuclei-still | β<1/81 | | β>81 | 1/81≤β≤81 | |
 | l.s06.water | α≤10·A0_DIAL | α>10·A0_DIAL (never FAIL) | | | |
-| l.s08.hoyle-window | \|s\|≤0.005 and \|α/A0_DIAL−1\|≤0.025 | | otherwise (never FAIL) | | |
-| l.s08.pp-chain | −0.04≤s≤0.034 | | s<−0.04 or 0.034<s<0.5 | s≥0.5 | |
+| l.s08.hoyle-window | \|s\|≤0.005 and \|α/A0_DIAL−1\|≤0.02 | | otherwise (never FAIL) | | |
+| l.s08.pp-chain | −0.04≤s≤0.06 | | s<−0.04 or s>0.06 (Yukawa limits −0.06 / +0.17; dissents Adams & Grohs 2017, MacDonald & Mullan 2009) | never | |
 | l.s09.planet-orbits | n=3 | | | n≠3 | |
 | l.s11.lambda-lifetime | Λ≥−7.09 (so every Λ≥0) | | −53.9≤Λ<−7.09 (the two stated benchmarks disagree) | Λ<−53.9 (fails both stated benchmarks) | |
 | l.s10.landauer | always | | | | |
@@ -110,7 +110,7 @@ Coarse `verdict` (for the UI contract):
 
 `evaluate` also returns, at the given dials and at ours:
 - numeric windows and margins already in `derived.json` (D3 scales, D5 L and α maxima for C/O/Fe, D6 β minima and α bounds at our β, D7, D9 band, `beta_max_ordered=1/81` and its margin)
-- Λ: galaxy threshold 57.5, lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 57.5
+- Λ: galaxy threshold 189 (57.5 before 2026-11-16a), lifetime thresholds −7.09 and −53.9, `t=36.7/sqrt(|Λ|)` for Λ<0, and the margin of ours (Λ=1) to 189
 - each link and stage carries `label` + `sources`
 
 ## 4. Plot data (no new claims; shading uses existing labels)
@@ -121,7 +121,7 @@ All plots take the same dial object; unused axes are held at ours unless the cal
 
 Featured stages for the default "possible universes" map: s03 (atoms/orbits), s05 (hydrogen + table), s07 (stars), s07g (galaxies). The stage-strip can request others.
 
-(b) `lambdaLine`: Λ sample (default 161 points, symmetric-log on [−1000,1000]), `t(Λ)` for Λ<0, thresholds at 57.5 (galaxy formation; l.s07g.lambda-galaxies, DERIVED-UNDER-ASSUMPTION) and −7.09 / −53.9 (recollapse lifetime; l.s11.lambda-lifetime, CONTESTED), plus the evaluate verdict at each point with other dials at ours (or caller). Our point Λ=1.
+(b) `lambdaLine`: Λ sample (default 161 points, symmetric-log on [−1000,1000]), `t(Λ)` for Λ<0, thresholds at 189 (galaxy formation; 57.5 before 2026-11-16a; l.s07g.lambda-galaxies, DERIVED-UNDER-ASSUMPTION) and −7.09 / −53.9 (recollapse lifetime; l.s11.lambda-lifetime, CONTESTED), plus the evaluate verdict at each point with other dials at ours (or caller). Our point Λ=1.
 
 (c) `dialStrips`: for each of the six dials, a 1D sweep (default 81 points, or the discrete values for n and arrow) with the other dials held at ours (or caller). At each sample, every stage's status. Report the switch points (adjacent samples where a given stage's status changes).
 
@@ -171,12 +171,12 @@ T-A. Numeric: `atlas.js` vs `derived.json` / a Python port of `derive.py` functi
 T-B. Verdicts: `atlas.js` `evaluate` vs a Python reference that implements §3, on a locked grid of at least 1000 dial points, listed below. Identical per-link statuses, identical per-stage statuses, floats in windows to 1e-9 relative. Report the real mismatch counts. Grid (other dials at ours unless named):
 
 - G1: 21 log α in [1e-6,1] (endpoints and A0_DIAL included by snapping the nearest of the 21 to A0_DIAL if not already exact) × 21 log β in [1e-5,100] (snap nearest to B0_DIAL). n=3,s=0,arrow=1,Λ=1. (441)
-- G2: 11 log α (snap ours) × 11 linear s in [−0.2,0.6] including {−0.2,−0.04,−0.005,0,0.005,0.034,0.5,0.6}. n=3,β=ours,arrow=1,Λ=1. (121)
+- G2: 11 log α (snap ours) × 11 linear s in [−0.2,0.6] including {−0.2,−0.04,−0.005,0,0.005,0.06,0.55,0.6} (Amendment 1; was 0.034, 0.5). n=3,β=ours,arrow=1,Λ=1. (121)
 - G3: 21 Λ samples on a symmetric-log of [−1000,1000] forced to include {−1000,−53.9,−7.09,−1,0,1,57.5,100,1000}. other dials ours. (21)
 - G4: n∈{1,2,3,4,5} × 11 log α (snap ours). β,s,arrow,Λ at ours. (55)
 - G5: arrow∈{0,1,2} at ours. (3)
 - G6: the 18 `D5_grid` (α,s) pairs at β=ours,n=3,arrow=1,Λ=1; plus each yaml range endpoint for every dial, one at a time. (18+12=30)
-- G7: n∈{1,3,5} × arrow∈{0,1} × α∈{1e-4,A0_DIAL,0.02,0.1,0.2,1/3,0.5} × β∈{1e-5,B0_DIAL,1/81,1,81} × s∈{−0.2,0,0.034,0.5} × Λ∈{−53.9,1,57.5}. (3*2*7*5*4*3=2520, but this is the fill; the required minimum is the union, deduplicated, which is well above 1000)
+- G7: n∈{1,3,5} × arrow∈{0,1} × α∈{1e-4,A0_DIAL,0.02,0.1,0.2,1/3,0.5} × β∈{1e-5,B0_DIAL,1/81,1,81} × s∈{−0.2,0,0.06,0.55} (Amendment 1; was 0.034, 0.5) × Λ∈{−53.9,1,57.5}. (3*2*7*5*4*3=2520, but this is the fill; the required minimum is the union, deduplicated, which is well above 1000)
 
 The Python reference is a test oracle written from this lock, not a second theory.
 
@@ -186,3 +186,13 @@ T-D. `demo.html` loads both modules. A node smoke test imports the modules and, 
 
 ## 7. Out of scope
 No new stages, dials, or thresholds. No gate signing. No push. No hosting. Usage kept modest (no large Starter sweeps).
+
+## Amendment 1 (Physicist, 2026-11-18 ~20:30 CST, America/Regina; written after the C2 run 87993ed, applies to future runs only)
+Follows Chemist's lock docs/locks/LOCKED_C1b_C2b_ENGINE.md (a2bd5c9). Earlier parity reports and verdicts are not re-scored by this amendment.
+- pp-chain thresholds above: PASS −0.04 ≤ s ≤ +0.06; CONTESTED outside, with the Yukawa limits (−0.06, +0.17) and both dissents named; never FAIL.
+- Parity grid: G2 and G7 strong values 0.034 → 0.06 and 0.5 → 0.55 (the C1b/C2b lock drops the +0.034 edge and the s ≥ 0.5 FAIL;
+  0.55 is its K6 point). New G8: α = 1.022·A0_DIAL, other dials ours (inside the old 2–2.5% Hoyle gap; C1b K1). Grid size is reported as run.
+- Not changed here: the Hoyle line (§ above, still 0.025 in this document); that belongs to C1b's own scope.
+
+### Amendment (Physicist, 2026-11-18 ~20:27 CST, doc-only, future runs)
+- Lines 41 and 86: Hoyle alpha PASS cut 0.025 -> 0.02, matching the engine code already in c8d595d (atlas.js:337-339) and the C1b/C2b lock. No code change.

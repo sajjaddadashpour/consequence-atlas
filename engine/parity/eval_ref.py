@@ -17,7 +17,7 @@ BARRIER = 2.62e-12
 K_ADAMS = 10 ** (-8 / 3)
 K_TEGMARK = 1 / 200
 K_BARNES = 1 / 100
-LAMBDA_GALAXY = 57.5
+LAMBDA_GALAXY = 189  # was 57.5 until atlas@locked-2026-11-16a
 LAMBDA_LIFE = -7.09
 LAMBDA_LIFE_LOOSE = -53.9
 LAMBDA_T0 = 36.7
@@ -184,10 +184,8 @@ def links_of(d):
     add("l.s05.table-length", "PASS" if Ltab >= 26 else ("WEAK" if Ltab >= 8 else "FAIL"))
     add("l.s06.nuclei-still", "PASS" if b < 1 / 81 else ("CONTESTED" if b > 81 else "FAIL"))
     add("l.s06.water", "PASS" if a <= 10 * A0_DIAL else "WEAK")
-    add("l.s08.hoyle-window", "PASS" if ds <= 0.005 and da <= 0.025 else "CONTESTED")
-    if s >= 0.5:
-        pp = "FAIL"
-    elif s > 0.034 or s < -0.04:
+    add("l.s08.hoyle-window", "PASS" if ds <= 0.005 and da <= 0.02 else "CONTESTED")
+    if s > 0.06 or s < -0.04:
         pp = "CONTESTED"
     else:
         pp = "PASS"

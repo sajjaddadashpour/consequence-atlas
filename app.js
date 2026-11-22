@@ -3,7 +3,8 @@
   "use strict";
 
   const LABEL_ORDER = [
-    "CONJECTURE", "REPRODUCED", "DIFFERS", "ROBUST",
+    "ESTABLISHED", "MAINSTREAM-HYPOTHESIS", "CONJECTURE", "ANALOGY-ONLY",
+    "REPRODUCED", "DIFFERS", "ROBUST",
     "KNOWN-MECHANISM", "NOVEL-CANDIDATE", "FAILED", "DEAD-END",
     "INERT-BY-CONSTRUCTION", "DERIVED", "DERIVED-UNDER-ASSUMPTION",
     "IMPORTED", "ASSUMED", "CONTESTED"
@@ -45,13 +46,20 @@
   }
 
   function topicOf(item) {
-    if (item.type === "link") return item.topic || (item.from + " → " + item.to);
+    if (item.type === "link" || item.type === "crosslink") return item.topic || (item.from + " → " + item.to);
     return item.factor || item.family || "";
   }
 
   function titleOf(item) {
     if (item.type === "link") return (item.from_name || item.from) + " → " + (item.to_name || item.to);
+    if (item.type === "crosslink") return item.topic || item.id;
     return item.id;
+  }
+
+  function recordView(item) {
+    if (item.type === "link") return "link";
+    if (item.type === "crosslink") return "crosslink";
+    return "card";
   }
 
   function parseHash() {
@@ -60,6 +68,7 @@
     const params = new URLSearchParams(query || "");
     if (path.startsWith("card/")) return { view: "card", id: decodeURIComponent(path.slice(5)), params };
     if (path.startsWith("link/")) return { view: "link", id: decodeURIComponent(path.slice(5)), params };
+    if (path.startsWith("crosslink/")) return { view: "crosslink", id: decodeURIComponent(path.slice(10)), params };
     if (path === "browse" || path === "labels" || path === "contribute" || path === "top" || path === "") {
       return { view: path || "top", id: null, params };
     }
@@ -68,7 +77,7 @@
 
   function writeHash(view, id, params, replace) {
     let path = view;
-    if (view === "card" || view === "link") path = view + "/" + encodeURIComponent(id);
+    if (view === "card" || view === "link" || view === "crosslink") path = view + "/" + encodeURIComponent(id);
     const q = params && String(params);
     const hash = "#" + path + (q ? "?" + q : "");
     if (replace) history.replaceState(null, "", hash);
@@ -114,7 +123,7 @@
       if (item.from !== stage && item.to !== stage) return false;
     }
     if (engine) {
-      if (item.type === "link") return false;
+      if (item.type === "link" || item.type === "crosslink") return false;
       if (item.engine !== engine) return false;
     }
     if (!q) return true;
@@ -122,8 +131,11 @@
       item.id, item.label, item.kind, item.path, item.notes,
       item.author, item.engine, item.family, item.factor, item.measure,
       item.from, item.to, item.from_name, item.to_name, item.condition,
+      item.a_field, item.b_field, item.a_pattern, item.b_pattern, item.connection,
+      item.support, item.claim, item.breaks_if, item.proposed_by,
       item.status, item.dead_end_reason, (item.sources || []).join(" "),
       (item.assumptions || []).join(" "), (item.parents || []).join(" "),
+      (item.model_refs || []).join(" "),
     ].join(" ").toLowerCase();
     return hay.includes(q);
   }
@@ -180,8 +192,7 @@
         '<span class="topic"> · ' + escapeHtml(topicOf(item) || titleOf(item)) + "</span></span>" +
         '<span class="kind">' + escapeHtml(item.kind) + (item.legacy ? " · legacy" : "") + "</span>";
       btn.addEventListener("click", function () {
-        const view = item.type === "link" ? "link" : "card";
-        writeHash(view, item.id, filterParams());
+        writeHash(recordView(item), item.id, filterParams());
       });
       li.appendChild(btn);
       frag.appendChild(li);
@@ -207,7 +218,8 @@
   }
 
   function linkToItem(type, id) {
-    const href = "#" + (type === "link" ? "link/" : "card/") + encodeURIComponent(id);
+    const prefix = type === "link" ? "link/" : type === "crosslink" ? "crosslink/" : "card/";
+    const href = "#" + prefix + encodeURIComponent(id);
     return '<a href="' + href + '"><code>' + escapeHtml(id) + "</code></a>";
   }
 
@@ -308,15 +320,42 @@
     );
   }
 
+  function renderCrosslink(item) {
+    const github = '<a href="' + escapeHtml(item.github) + '" rel="noopener">Open ' + escapeHtml(item.path) + " on GitHub</a>";
+    return (
+      "<h3>" + escapeHtml(item.id) + "</h3>" +
+      '<p class="lead"><span class="' + pillClass(item.label) + '">' + escapeHtml(item.label) + "</span> · cross-field link</p>" +
+      '<p class="quiet">Label stored in the crosslink file. This is not a stage-to-stage atlas link.</p>' +
+      '<table class="kv"><tbody>' +
+      row("Source path", "<code>" + escapeHtml(item.path) + "</code><br>" + github) +
+      textRow("From field", item.a_field) +
+      textRow("From pattern", item.a_pattern) +
+      textRow("To field", item.b_field) +
+      textRow("To pattern", item.b_pattern) +
+      textRow("Connection", item.connection) +
+      textRow("Support", item.support) +
+      textRow("Claim", item.claim) +
+      textRow("Breaks if", item.breaks_if) +
+      textRow("Evidence rung", item.evidence_rung) +
+      textRow("Status", item.status) +
+      textRow("Sources", item.sources) +
+      textRow("Proposed by", item.proposed_by) +
+      textRow("Model exists", item.model_exists === true ? "yes" : item.model_exists === false ? "no" : "") +
+      textRow("Model refs", item.model_refs) +
+      "</tbody></table>" +
+      (item.notes ? '<h4>Notes</h4><p class="notes">' + escapeHtml(item.notes) + "</p>" : "")
+    );
+  }
+
   function showDetail(item) {
     const el = $("detail");
     state.selected = item;
     el.hidden = false;
     if (!item) {
-      el.innerHTML = '<p class="quiet">Select a card or link to read its fields, label, lock and source path.</p>';
+      el.innerHTML = '<p class="quiet">Select a card, link or cross-field record to read its fields, label and source path.</p>';
       return;
     }
-    el.innerHTML = item.type === "link" ? renderLink(item) : renderCard(item);
+    el.innerHTML = item.type === "link" ? renderLink(item) : item.type === "crosslink" ? renderCrosslink(item) : renderCard(item);
     el.scrollTop = 0;
     if (window.matchMedia("(max-width: 900px)").matches) {
       el.scrollIntoView({ block: "start" });
@@ -329,10 +368,10 @@
 
   function onRoute() {
     const route = parseHash();
-    if (route.view === "card" || route.view === "link") {
+    if (route.view === "card" || route.view === "link" || route.view === "crosslink") {
       applyParams(route.params);
       renderList();
-      showDetail(findItem(route.view === "link" ? "link" : "card", route.id));
+      showDetail(findItem(route.view, route.id));
       const current = document.querySelector('.row[aria-current="true"]');
       if (current) current.scrollIntoView({ block: "nearest" });
     } else {
@@ -346,6 +385,7 @@
     const topics = new Set();
     index.cards.forEach(function (c) { labels.add(c.label); if (c.factor) topics.add(c.factor); });
     index.links.forEach(function (l) { labels.add(l.label); topics.add(topicOf(l)); });
+    (index.crosslinks || []).forEach(function (x) { labels.add(x.label); topics.add(topicOf(x)); });
     const labelSel = $("label");
     LABEL_ORDER.concat(Array.from(labels).sort()).forEach(function (label) {
       if (!labels.has(label)) return;
@@ -428,8 +468,8 @@
       node.addEventListener(ev, function () {
         if (id === "label") syncLabelChips();
         const route = parseHash();
-        const view = (route.view === "card" || route.view === "link") ? route.view : "browse";
-        const idVal = (view === "card" || view === "link") ? route.id : null;
+        const view = (route.view === "card" || route.view === "link" || route.view === "crosslink") ? route.view : "browse";
+        const idVal = (view === "card" || view === "link" || view === "crosslink") ? route.id : null;
         writeHash(view, idVal, filterParams(), true);
         renderList();
       });
@@ -447,7 +487,7 @@
       })
       .then(function (index) {
         state.index = index;
-        state.items = (index.cards || []).concat(index.links || []);
+        state.items = (index.cards || []).concat(index.links || []).concat(index.crosslinks || []);
         populateFilters(index);
         onRoute();
       })

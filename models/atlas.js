@@ -17,7 +17,7 @@ const summary = "Six recorded dials. The map, strips, and stage lights are the l
 const cardIds = [];
 const lockNote = "Locked values are the ours fields in dials/*.yaml. Link labels and sources are the atlas records. This page does not promote them.";
 const fidelity = "engine";
-const engine = { name: "atlas", version: "locked-2026-11-14b" };
+const engine = { name: "atlas", version: "locked-2026-11-16a" };
 
 const LABEL = {
   alpha: "Fine-structure constant",

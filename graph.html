@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOE Consequences Atlas · Graph</title>
+  <meta name="description" content="A 3D view of locked atlas links between stages and dials. Sparse regions show missing or weak connections. Live runs do not add or promote links.">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://toeatlas.si/graph.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="TOE Consequences Atlas · Graph">
+  <meta property="og:description" content="A 3D view of locked atlas links. Sparse regions show missing or weak connections. Live runs do not add or promote links.">
+  <meta property="og:url" content="https://toeatlas.si/graph.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Source+Sans+3:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="graph.css">
+</head>
+<body class="graph-page">
+  <a class="skip" href="#graph">Skip to the graph</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <img src="favicon.svg" width="28" height="28" alt="">
+        <span>TOE Consequences Atlas</span>
+      </a>
+      <nav aria-label="Site">
+        <a href="./">Atlas</a>
+        <a href="registry.html">Registry</a>
+        <a href="graph.html" aria-current="page">Graph</a>
+        <a href="registry.html#labels">Labels</a>
+        <a href="https://github.com/sajjaddadashpour/consequence-atlas">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="graph-shell">
+    <p class="graph-note" role="note">This is a view of locked atlas links. Sparse regions show missing or weak connections. Live runs do not add or promote links.</p>
+    <div class="graph-toolbar" id="graph-toolbar">
+      <fieldset class="graph-filters" id="label-filters">
+        <legend>Honesty label</legend>
+      </fieldset>
+      <fieldset class="graph-filters" id="type-filters">
+        <legend>Node type</legend>
+      </fieldset>
+      <label class="graph-select">
+        <span>Stage</span>
+        <select id="stage-filter"></select>
+      </label>
+      <label class="graph-select">
+        <span>Dial</span>
+        <select id="dial-filter"></select>
+      </label>
+      <label class="graph-check">
+        <input type="checkbox" id="gaps-mode">
+        <span>Gaps mode</span>
+      </label>
+      <label class="graph-check">
+        <input type="checkbox" id="axis-mode" checked>
+        <span>Order stages along an axis</span>
+      </label>
+      <span class="graph-actions">
+        <button type="button" id="reheat">Reheat</button>
+        <button type="button" id="reset-view">Reset view</button>
+        <button type="button" id="copy-link" class="pg-text-button">Copy link</button>
+      </span>
+    </div>
+    <p class="graph-status" id="graph-status" aria-live="polite"></p>
+    <div class="graph-stage">
+      <div id="graph" tabindex="0" aria-label="3D force-directed graph of locked atlas links"></div>
+      <aside class="graph-legend" id="graph-legend" aria-label="Honesty colour legend"></aside>
+      <article class="graph-panel" id="graph-panel" aria-live="polite">
+        <p class="quiet">Hover or click a node or a link to read the stored registry record. This view does not change any label.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>TOE Consequences Atlas · <a href="https://github.com/sajjaddadashpour/consequence-atlas">sajjaddadashpour/consequence-atlas</a> · <a href="registry.html">Registry</a> · <a href="data/graph.json">data/graph.json</a> · <a href="data/index.json">data/index.json</a></p>
+      <p class="quiet">Code MIT · data CC-BY-4.0. Snapshot generated 2026-11-22T22:05:22Z from <code>718b426</code>. Edge colours come from stored honesty labels. Ghost edges are not links.</p>
+    </div>
+  </footer>
+  <noscript><p class="wrap">This graph needs JavaScript. The locked records are at <a href="data/graph.json">data/graph.json</a> and <a href="data/index.json">data/index.json</a>.</p></noscript>
+  <script type="application/json" id="boot">{"generated_at":"2026-11-22T22:05:22Z","source_commit":"718b42665c977943c401cf04216deb37b28dc27b","counts":{"cards":139,"dead_ends":259,"cards_and_dead_ends":398,"links":25,"crosslinks":17,"legacy":70,"with_gate":0,"card_labels":{"CONJECTURE":98,"REPRODUCED":41,"DEAD-END":4,"FAILED":208,"INERT-BY-CONSTRUCTION":47},"link_labels":{"IMPORTED":12,"DERIVED":5,"DERIVED-UNDER-ASSUMPTION":4,"CONTESTED":1,"CONJECTURE":3},"crosslink_labels":{"CONJECTURE":4,"ANALOGY-ONLY":2,"MAINSTREAM-HYPOTHESIS":9,"ESTABLISHED":2},"kinds":{"card":139,"dead-end":259}},"repository":"https://github.com/sajjaddadashpour/consequence-atlas"}</script>
+  <script type="module" src="graph.js"></script>
+</body>
+</html>
