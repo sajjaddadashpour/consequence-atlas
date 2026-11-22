@@ -34,10 +34,10 @@
     </div>
   </header>
 
-  <aside id="first-legend" class="first-legend" hidden>
-    <p><strong>Reading the atlas.</strong> Borders are engine status: PASS, WEAK, OPEN, CONTESTED, FAIL, BLOCKED. Pills are honesty labels stored on the records. Those are different. The gold ring is our universe. The map is relative consequences under the stated assumptions, not a history of our universe.</p>
-    <button type="button" id="legend-skip">Skip</button>
-  </aside>
+  <details id="first-legend" class="first-legend">
+    <summary><strong>Reading the atlas</strong></summary>
+    <p>Borders are engine status: PASS, WEAK, OPEN, CONTESTED, FAIL, BLOCKED. Pills are honesty labels stored on the records. Those are different. The gold ring is our universe. The map is relative consequences under the stated assumptions, not a history of our universe.</p>
+  </details>
 
   <main id="top">
     <div class="atlas-screen" id="atlas-screen">
@@ -45,9 +45,11 @@
       <section id="universe-map" class="map-panel" tabindex="-1" aria-label="Possible universes">
         <div class="map-toolbar">
           <h1 id="pg-title">Possible universes</h1>
+          <p class="lock-eval-badge">Locked evaluation, not a prediction</p>
           <div id="map-axes" class="map-axes"></div>
           <button type="button" id="pg-compare" aria-pressed="false">Compare to ours</button>
         </div>
+        <p id="stage-focus-line" class="stage-focus-line" hidden></p>
         <div id="map-stage" class="map-stage"></div>
         <p id="map-read" class="map-read"></p>
       </section>
@@ -84,7 +86,7 @@
 
     <section id="lattice" class="lattice-section wrap" aria-label="Universe Starter">
       <div class="lattice-live" id="starter-view">
-        <p class="live-kicker">Live output</p>
+        <p class="live-kicker">Live · not a promotion</p>
         <div class="lattice-quiet">
           <p>The lattice stays quiet until you run it. Frames come from the pinned Universe Starter. They are not the card beside them.</p>
           <button type="button" id="run-lattice">Run the lattice</button>
@@ -114,7 +116,10 @@
         <span class="pill pill-conjecture">CONJECTURE</span>
         <span class="pill pill-contested">CONTESTED</span>
       </p>
-      <p id="foot-note">{{FOOT_NOTE}}</p>
+      <details class="foot-coverage">
+        <summary>Coverage and engine</summary>
+        <p id="foot-note">{{FOOT_NOTE}}</p>
+      </details>
       <p class="quiet">Status colours are the engine. Pills are honesty labels on the stored records. <a href="registry.html">Registry</a> · <a href="registry.html#labels">Labels</a> · <a href="llms.txt">llms.txt</a> · <a href="data/index.json">data/index.json</a> · <a href="{{REPO_URL}}">GitHub</a></p>
     </div>
   </footer>

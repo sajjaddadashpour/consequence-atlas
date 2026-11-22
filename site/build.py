@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the static TOE Consequences Atlas site from repository data.
 
-Reads cards, dead-ends, atlas links and stages. Excludes examples/.
+Reads cards, dead-ends, atlas links, crosslinks and stages. Excludes examples/.
 Writes plain HTML, CSS, JS and a compact JSON index to --out.
 
 Usage:
@@ -57,6 +57,26 @@ LINK_LABEL_MEANINGS = [
     ("ASSUMED", "An assumed claim, labelled as such."),
     ("CONJECTURE", "A conjectural link, not yet derived or imported."),
     ("CONTESTED", "A contested claim; disagreement is marked rather than hidden."),
+]
+
+# Wording taken from schema/label.schema.json and verify/validate.py. Do not invent new meanings.
+CROSSLINK_LABEL_MEANINGS = [
+    (
+        "ESTABLISHED",
+        "Evidence label for a cross-field link in atlas/crosslinks/. Separate from stage-to-stage atlas labels. Strongest of the four; a chain's label cannot be stronger than its weakest step.",
+    ),
+    (
+        "MAINSTREAM-HYPOTHESIS",
+        "Evidence label for a cross-field link in atlas/crosslinks/. Weaker than ESTABLISHED and stronger than CONJECTURE. A chain's label cannot be stronger than its weakest step.",
+    ),
+    (
+        "CONJECTURE",
+        "Evidence label for a cross-field link in atlas/crosslinks/. Weaker than MAINSTREAM-HYPOTHESIS and stronger than ANALOGY-ONLY. A chain's label cannot be stronger than its weakest step.",
+    ),
+    (
+        "ANALOGY-ONLY",
+        "Evidence label for a cross-field link in atlas/crosslinks/. Required when support is analogy (with claim=pattern). Weakest of the four; a chain's label cannot be stronger than its weakest step.",
+    ),
 ]
 
 
@@ -178,6 +198,52 @@ def load_cards(root: Path) -> list[dict]:
     return records
 
 
+def load_crosslinks(root: Path) -> list[dict]:
+    records: list[dict] = []
+    folder = root / "atlas" / "crosslinks"
+    if not folder.is_dir():
+        return records
+    loader = _yaml()
+    for path in sorted(folder.glob("*.yaml")):
+        data = loader.load(path.read_text(encoding="utf-8")) or {}
+        if not isinstance(data, dict) or not data.get("id"):
+            continue
+        rel = str(path.relative_to(root)).replace("\\", "/")
+        a = data.get("a") or {}
+        b = data.get("b") or {}
+        a_field = a.get("field") if isinstance(a, dict) else None
+        b_field = b.get("field") if isinstance(b, dict) else None
+        a_pattern = a.get("pattern") if isinstance(a, dict) else None
+        b_pattern = b.get("pattern") if isinstance(b, dict) else None
+        records.append(
+            {
+                "type": "crosslink",
+                "kind": "crosslink",
+                "id": data["id"],
+                "label": data["label"],
+                "path": rel,
+                "github": f"{GITHUB_BLOB}/{rel}",
+                "a_field": a_field,
+                "b_field": b_field,
+                "a_pattern": a_pattern,
+                "b_pattern": b_pattern,
+                "topic": " → ".join([part for part in (a_field, b_field) if part]) or data["id"],
+                "connection": data.get("connection"),
+                "support": data.get("support"),
+                "claim": data.get("claim"),
+                "breaks_if": data.get("breaks_if"),
+                "sources": data.get("sources") or [],
+                "status": data.get("status"),
+                "notes": data.get("notes"),
+                "evidence_rung": data.get("evidence_rung"),
+                "proposed_by": data.get("proposed_by"),
+                "model_exists": data.get("model_exists"),
+                "model_refs": data.get("model_refs") or [],
+            }
+        )
+    return records
+
+
 def load_links(root: Path, stages: dict[str, dict]) -> list[dict]:
     records: list[dict] = []
     folder = root / "atlas" / "links"
@@ -224,9 +290,11 @@ def build_index(root: Path) -> dict:
     stages = load_stages(root)
     cards = load_cards(root)
     links = load_links(root, stages)
+    crosslinks = load_crosslinks(root)
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     card_labels = count_labels(cards)
     link_labels = count_labels(links)
+    crosslink_labels = count_labels(crosslinks)
     kind_counts = dict(Counter(item["kind"] for item in cards))
     return {
         "format": "consequence-atlas-site-index",
@@ -236,7 +304,7 @@ def build_index(root: Path) -> dict:
         "repository": GITHUB_REPO,
         "note": (
             "Generated from cards/ and dead-ends/ (card.json only), atlas/links/, "
-            "atlas/stages/, and dials/*.yaml. examples/ are excluded. "
+            "atlas/crosslinks/, atlas/stages/, and dials/*.yaml. examples/ are excluded. "
             "The repository files are the source of record. "
             "Runs and outputs.json are omitted from this compact index. "
             "Dial records are copied, not evaluated, by this index. "
@@ -248,16 +316,19 @@ def build_index(root: Path) -> dict:
             "dead_ends": sum(1 for item in cards if item["kind"] == "dead-end"),
             "cards_and_dead_ends": len(cards),
             "links": len(links),
+            "crosslinks": len(crosslinks),
             "legacy": sum(1 for item in cards if item.get("legacy")),
             "with_gate": sum(1 for item in cards if item.get("gate")),
             "card_labels": card_labels,
             "link_labels": link_labels,
+            "crosslink_labels": crosslink_labels,
             "kinds": kind_counts,
         },
         "stages": list(stages.values()),
         "dials": load_dials(root),
         "cards": cards,
         "links": links,
+        "crosslinks": crosslinks,
     }
 
 
@@ -326,6 +397,7 @@ def _escape(text: str) -> str:
 def render_html(template: str, index: dict) -> str:
     card_order = [name for name, _ in CARD_LABEL_MEANINGS]
     link_order = [name for name, _ in LINK_LABEL_MEANINGS]
+    cross_order = [name for name, _ in CROSSLINK_LABEL_MEANINGS]
     counts = index["counts"]
     commit = index.get("source_commit") or ""
     short = commit[:7] if commit else "local"
@@ -338,14 +410,17 @@ def render_html(template: str, index: dict) -> str:
         "{{N_DEAD_ENDS}}": str(counts["dead_ends"]),
         "{{N_TOTAL_CARDS}}": str(counts["cards_and_dead_ends"]),
         "{{N_LINKS}}": str(counts["links"]),
+        "{{N_CROSSLINKS}}": str(counts["crosslinks"]),
         "{{N_LEGACY}}": str(counts["legacy"]),
         "{{N_GATES}}": str(counts["with_gate"]),
         "{{N_CONJECTURE}}": str(counts["card_labels"].get("CONJECTURE", 0)),
         "{{N_REPRODUCED}}": str(counts["card_labels"].get("REPRODUCED", 0)),
         "{{CARD_LABEL_PILLS}}": render_count_pills(counts["card_labels"], card_order),
         "{{LINK_LABEL_PILLS}}": render_count_pills(counts["link_labels"], link_order),
+        "{{CROSSLINK_LABEL_PILLS}}": render_count_pills(counts.get("crosslink_labels") or {}, cross_order),
         "{{CARD_LABEL_MEANINGS}}": render_meaning_list(CARD_LABEL_MEANINGS, "card"),
         "{{LINK_LABEL_MEANINGS}}": render_meaning_list(LINK_LABEL_MEANINGS, "link"),
+        "{{CROSSLINK_LABEL_MEANINGS}}": render_meaning_list(CROSSLINK_LABEL_MEANINGS, "crosslink"),
         "{{BOOT_JSON}}": json.dumps(
             {
                 "generated_at": index["generated_at"],
@@ -517,6 +592,7 @@ def main(argv: list[str] | None = None) -> int:
     print(
         f"Wrote site to {out} — "
         f"{counts['cards']} cards, {counts['dead_ends']} dead-ends, {counts['links']} links, "
+        f"{counts['crosslinks']} crosslinks, "
         f"commit {index.get('source_commit') or 'local'}",
         file=sys.stderr,
     )

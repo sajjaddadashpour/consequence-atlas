@@ -7,6 +7,7 @@ import {
   initLegend,
   openCellDrawer,
   openDialDrawer,
+  openDrawer,
   openLinkDrawer,
   openStageDrawer,
   packEngineStrip,
@@ -237,7 +238,7 @@ function applyCommitted(param, committed) {
     const output = document.getElementById("out-" + param.name);
     if (control && control.type === "range") placeSlider(control, param, committed.value);
     if (output) {
-      output.textContent = formatParam(param, committed.value);
+      output.textContent = compactParam(param, committed.value);
       output.classList.toggle("pg-offlock", !valuesEqual(param, committed.value, param.locked) || outsideLocked(param, committed.value));
     }
   }
@@ -265,6 +266,11 @@ function formatParam(param, value) {
     return formatNumber(value);
   }
   return String(value);
+}
+
+function compactParam(param, value) {
+  if (param.options) return String(value);
+  return formatParam(param, value);
 }
 
 function sliderStep(param) {
@@ -401,6 +407,18 @@ function paintStageChrome() {
   paintLinked($("linked-records"), state.index, state.stageId, selected && selected.name, function (link) {
     openLinkDrawer(link, state.index);
   });
+  const focus = $("stage-focus-line");
+  if (focus) {
+    if (selected) {
+      focus.hidden = false;
+      focus.textContent = "Focus: " + (selected.name || selected.id) + ". The map and dial bars show this stage.";
+    } else {
+      focus.hidden = true;
+      focus.textContent = "";
+    }
+  }
+  const dock = $("dial-dock");
+  if (dock) dock.classList.toggle("has-stage-focus", Boolean(state.stageId));
 }
 
 function mapOpts() {
@@ -565,13 +583,13 @@ function renderDials() {
     const off = !valuesEqual(param, value, param.locked) || outsideLocked(param, value);
     const symbol = param.symbol ? '<span class="pg-symbol">' + escapeHtml(param.symbol) + "</span> " : "";
     const ours = typeof param.locked === "number" || typeof param.locked === "string"
-      ? '<span class="ours-tag">ours <span class="mono">' + escapeHtml(formatParam(param, param.locked)) + "</span></span>"
+      ? '<span class="ours-tag" title="ours: ' + escapeHtml(formatParam(param, param.locked)) + '">ours <span class="mono">' + escapeHtml(compactParam(param, param.locked)) + "</span></span>"
       : "";
     row.innerHTML =
       '<div class="pg-dial-top"><button type="button" class="dial-name" id="name-' + escapeHtml(param.name) + '">' +
       symbol + escapeHtml(param.label) + "</button>" + ours +
       '<output id="out-' + escapeHtml(param.name) + '" class="' + (off ? "pg-offlock" : "") + '">' +
-      escapeHtml(formatParam(param, value)) + "</output></div>";
+      escapeHtml(compactParam(param, value)) + "</output></div>";
     let control;
     if (param.type === "boolean") {
       control = document.createElement("input");
@@ -607,7 +625,7 @@ function renderDials() {
       if (control.dataset.writing === "1") return;
       state.params[param.name] = clampToBounds(param, readControl(live, control), state.freePlay);
       const next = state.params[param.name];
-      output.textContent = formatParam(param, next);
+      output.textContent = compactParam(param, next);
       output.classList.toggle("pg-offlock", !valuesEqual(param, next, param.locked) || outsideLocked(param, next));
       showExact(param, next);
       scheduleRun();
@@ -681,7 +699,7 @@ function syncDialOutputs() {
     if (control.type === "checkbox") control.checked = Boolean(value);
     else if (control.tagName === "SELECT") control.value = String(value);
     else placeSlider(control, param, value);
-    output.textContent = formatParam(param, value);
+    output.textContent = compactParam(param, value);
     output.classList.toggle("pg-offlock", !valuesEqual(param, value, param.locked) || outsideLocked(param, value));
     showExact(param, value);
     const tick = control.parentElement && control.parentElement.querySelector(".ours-tick");
@@ -752,6 +770,32 @@ function findCard(id) {
   return (state.index && state.index.cards || []).find(function (card) { return card.id === id; }) || null;
 }
 
+
+function openCardDrawer(card) {
+  if (!card) return;
+  const effect = card.result || {};
+  const parts = [
+    "<p>" + pill(card.label) + "</p>",
+    "<p class=\"quiet\">Label stored in the card file. Opening this does not change it.</p>",
+    prototypeCallout(card),
+    "<p class=\"mono\">" + escapeHtml(card.id) + "</p>",
+  ];
+  if (effect && (effect.effect != null || effect.se != null || effect.z != null)) {
+    parts.push("<p class=\"mono quiet\">effect " + escapeHtml(formatNumber(effect.effect)) +
+      " · se " + escapeHtml(formatNumber(effect.se)) +
+      " · z " + escapeHtml(formatNumber(effect.z)) + "</p>");
+  }
+  if (card.notes) {
+    parts.push("<details open class=\"link-fold\"><summary>Notes</summary><p class=\"quiet\">" +
+      escapeHtml(card.notes) + "</p></details>");
+  } else {
+    parts.push("<p class=\"quiet\">This compact record has no notes field.</p>");
+  }
+  parts.push("<p class=\"quiet\">Sources, assumptions and the rest of the file are on the registry record. This drawer does not invent them.</p>");
+  parts.push('<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '">Open the full record</a></p>');
+  openDrawer(card.id, parts.join(""));
+}
+
 function renderVerdict() {
   const root = $("honesty");
   if (!root) return;
@@ -780,18 +824,27 @@ function renderVerdict() {
     const legacy = card.legacy ? ' <span class="badge-legacy">legacy, unverified</span>' : "";
     record =
       "<p class=\"lock-kicker\">Locked record" + legacy + "</p>" +
-      "<p>" + pill(card.label) + "</p>" +
-      "<p class=\"quiet\">Label stored in the card file. The picture does not change it.</p>" +
-      prototypeCallout(card) +
-      '<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '"><code>' + escapeHtml(card.id) + "</code></a></p>" +
-      "<p class=\"mono quiet\">effect " + escapeHtml(formatNumber(effect.effect)) +
+      "<button type=\"button\" class=\"honesty-card\" data-open-card=\"" + escapeHtml(card.id) + "\">" +
+      "<span class=\"honesty-card-label\">" + pill(card.label) + "</span>" +
+      "<span class=\"quiet honesty-card-line\">Label stored in the card file. The picture does not change it.</span>" +
+      "<span class=\"honesty-card-line\"><code>" + escapeHtml(card.id) + "</code></span>" +
+      "<span class=\"mono quiet honesty-card-line\">effect " + escapeHtml(formatNumber(effect.effect)) +
       " · se " + escapeHtml(formatNumber(effect.se)) +
-      " · z " + escapeHtml(formatNumber(effect.z)) + "</p>";
+      " · z " + escapeHtml(formatNumber(effect.z)) + "</span>" +
+      "</button>" +
+      prototypeCallout(card) +
+      '<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '">Open the full record</a></p>';
   }
   const note = src && src.lockNote
     ? '<details class="pg-details"><summary>What is locked</summary><p class="quiet">' + escapeHtml(src.lockNote) + "</p></details>"
     : "";
   root.innerHTML = live + record + note;
+  const opener = root.querySelector("[data-open-card]");
+  if (opener) {
+    opener.addEventListener("click", function () {
+      openCardDrawer(findCard(opener.getAttribute("data-open-card")));
+    });
+  }
   if (src && src.id === "starter" && result && result.verdict && !example) {
     root.classList.add("has-live");
   } else {
