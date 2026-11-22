@@ -7,6 +7,7 @@ import {
   initLegend,
   openCellDrawer,
   openDialDrawer,
+  openDrawer,
   openLinkDrawer,
   openStageDrawer,
   packEngineStrip,
@@ -401,6 +402,18 @@ function paintStageChrome() {
   paintLinked($("linked-records"), state.index, state.stageId, selected && selected.name, function (link) {
     openLinkDrawer(link, state.index);
   });
+  const focus = $("stage-focus-line");
+  if (focus) {
+    if (selected) {
+      focus.hidden = false;
+      focus.textContent = "Focus: " + (selected.name || selected.id) + ". The map and dial bars show this stage.";
+    } else {
+      focus.hidden = true;
+      focus.textContent = "";
+    }
+  }
+  const dock = $("dial-dock");
+  if (dock) dock.classList.toggle("has-stage-focus", Boolean(state.stageId));
 }
 
 function mapOpts() {
@@ -752,6 +765,32 @@ function findCard(id) {
   return (state.index && state.index.cards || []).find(function (card) { return card.id === id; }) || null;
 }
 
+
+function openCardDrawer(card) {
+  if (!card) return;
+  const effect = card.result || {};
+  const parts = [
+    "<p>" + pill(card.label) + "</p>",
+    "<p class=\"quiet\">Label stored in the card file. Opening this does not change it.</p>",
+    prototypeCallout(card),
+    "<p class=\"mono\">" + escapeHtml(card.id) + "</p>",
+  ];
+  if (effect && (effect.effect != null || effect.se != null || effect.z != null)) {
+    parts.push("<p class=\"mono quiet\">effect " + escapeHtml(formatNumber(effect.effect)) +
+      " · se " + escapeHtml(formatNumber(effect.se)) +
+      " · z " + escapeHtml(formatNumber(effect.z)) + "</p>");
+  }
+  if (card.notes) {
+    parts.push("<details open class=\"link-fold\"><summary>Notes</summary><p class=\"quiet\">" +
+      escapeHtml(card.notes) + "</p></details>");
+  } else {
+    parts.push("<p class=\"quiet\">This compact record has no notes field.</p>");
+  }
+  parts.push("<p class=\"quiet\">Sources, assumptions and the rest of the file are on the registry record. This drawer does not invent them.</p>");
+  parts.push('<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '">Open the full record</a></p>');
+  openDrawer(card.id, parts.join(""));
+}
+
 function renderVerdict() {
   const root = $("honesty");
   if (!root) return;
@@ -780,18 +819,27 @@ function renderVerdict() {
     const legacy = card.legacy ? ' <span class="badge-legacy">legacy, unverified</span>' : "";
     record =
       "<p class=\"lock-kicker\">Locked record" + legacy + "</p>" +
-      "<p>" + pill(card.label) + "</p>" +
-      "<p class=\"quiet\">Label stored in the card file. The picture does not change it.</p>" +
-      prototypeCallout(card) +
-      '<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '"><code>' + escapeHtml(card.id) + "</code></a></p>" +
-      "<p class=\"mono quiet\">effect " + escapeHtml(formatNumber(effect.effect)) +
+      "<button type=\"button\" class=\"honesty-card\" data-open-card=\"" + escapeHtml(card.id) + "\">" +
+      "<span class=\"honesty-card-label\">" + pill(card.label) + "</span>" +
+      "<span class=\"quiet honesty-card-line\">Label stored in the card file. The picture does not change it.</span>" +
+      "<span class=\"honesty-card-line\"><code>" + escapeHtml(card.id) + "</code></span>" +
+      "<span class=\"mono quiet honesty-card-line\">effect " + escapeHtml(formatNumber(effect.effect)) +
       " · se " + escapeHtml(formatNumber(effect.se)) +
-      " · z " + escapeHtml(formatNumber(effect.z)) + "</p>";
+      " · z " + escapeHtml(formatNumber(effect.z)) + "</span>" +
+      "</button>" +
+      prototypeCallout(card) +
+      '<p><a href="registry.html#card/' + encodeURIComponent(card.id) + '">Open the full record</a></p>';
   }
   const note = src && src.lockNote
     ? '<details class="pg-details"><summary>What is locked</summary><p class="quiet">' + escapeHtml(src.lockNote) + "</p></details>"
     : "";
   root.innerHTML = live + record + note;
+  const opener = root.querySelector("[data-open-card]");
+  if (opener) {
+    opener.addEventListener("click", function () {
+      openCardDrawer(findCard(opener.getAttribute("data-open-card")));
+    });
+  }
   if (src && src.id === "starter" && result && result.verdict && !example) {
     root.classList.add("has-live");
   } else {

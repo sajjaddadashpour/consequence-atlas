@@ -95,3 +95,35 @@ def test_model_contract():
         pytest.skip("node is not installed")
     subprocess.check_call([node, "site/check-models.mjs"], cwd=REPO)
     subprocess.check_call([node, "site/check-runs.mjs"], cwd=REPO)
+
+
+def test_front_page_carries_honesty_chrome_and_does_not_rewrite_labels(tmp_path: Path):
+    out = tmp_path / "site"
+    subprocess.check_call(
+        [sys.executable, "site/build.py", "--out", str(out), "--cname", "toeatlas.si"],
+        cwd=REPO,
+    )
+    html = (out / "index.html").read_text(encoding="utf-8")
+    assert "Possible universes" in html
+    assert 'id="spine"' in html
+    assert "Locked evaluation, not a prediction" in html
+    assert "Live · not a promotion" in html
+    assert "Reading the atlas" in html
+    assert "<details id=\"first-legend\"" in html or "<details id='first-legend'" in html or 'id="first-legend"' in html
+    shell = (out / "atlas-shell.js").read_text(encoding="utf-8")
+    assert "dominantLabel" in shell
+    assert "toeatlas.legend.dismissed.v1" in shell
+    play = (out / "playground.js").read_text(encoding="utf-8")
+    assert "No experiment card is attached" in play
+    assert "The picture does not change it" in play
+    css = (out / "styles.css").read_text(encoding="utf-8")
+    assert "--status-pass" in css
+    assert "--ours-ring" in css
+    # The compact index still carries only file labels.
+    index = json.loads((out / "data" / "index.json").read_text(encoding="utf-8"))
+    by_id = {card["id"]: card for card in index["cards"]}
+    for bucket in ("cards", "dead-ends"):
+        for path in (REPO / bucket).rglob("card.json"):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            assert by_id[data["id"]]["label"] == data["label"]
+
