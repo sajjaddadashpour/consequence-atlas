@@ -554,7 +554,9 @@ def write_site(root: Path, out: Path, cname: str | None) -> dict:
     (out / "index.html").write_text(render_html(template, index), encoding="utf-8")
     registry = (SITE_DIR / "templates" / "registry.html").read_text(encoding="utf-8")
     (out / "registry.html").write_text(render_html(registry, index), encoding="utf-8")
-    for name in ("styles.css", "app.js", "playground.js", "views.js", "engine-views.js", "atlas-shell.js", "run-record.js", "storage.js", "favicon.svg"):
+    graph_page = (SITE_DIR / "templates" / "graph.html").read_text(encoding="utf-8")
+    (out / "graph.html").write_text(render_html(graph_page, index), encoding="utf-8")
+    for name in ("styles.css", "app.js", "playground.js", "views.js", "engine-views.js", "atlas-shell.js", "run-record.js", "storage.js", "favicon.svg", "graph.js", "graph.css"):
         src = SITE_DIR / "static" / name
         (out / name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
     copy_models(out)
@@ -565,6 +567,10 @@ def write_site(root: Path, out: Path, cname: str | None) -> dict:
         json.dumps(index, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    if str(REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT))
+    from verify.gen_graph import build_graph, dumps as dumps_graph
+    (out / "data" / "graph.json").write_text(dumps_graph(build_graph(root)), encoding="utf-8")
     if preview is not None:
         (out / "data" / "preview.json").write_text(
             json.dumps(preview, ensure_ascii=False, separators=(",", ":")),
