@@ -2,7 +2,7 @@
   "format": "consequence-atlas-graph",
   "format_version": "0.1.0",
   "generated_from": "locked registry (atlas/stages, atlas/links, dials/*.yaml)",
-  "source_commit": "718b42665c977943c401cf04216deb37b28dc27b",
+  "source_commit": "69e704e10f419e7cf9386f72ab495e818885f500",
   "note": "This is a view of locked atlas links. Sparse regions show missing or weak connections. Live runs do not add or promote links.",
   "consecutive_rule": "A gap is a pair of stages that are adjacent in the locked stage order and have no atlas link from the earlier stage to the later stage. Gaps are not links.",
   "counts": {
