@@ -1,0 +1,101 @@
+--- PRyMordial/PRyM/PRyM_main.py	2026-11-24 08:11:41.922094860 -0600
++++ PRyMordial-nstar/PRyM/PRyM_main.py	2026-11-24 08:23:26.045462012 -0600
+@@ -167,6 +167,9 @@
+             if(PRyMini.NP_thermo_flag):
+                 TNPofT = interp1d(Tg_vec[:],TNP_vec[:],bounds_error=False,fill_value="extrapolate",kind='linear')
+         
++        # [CH-BBN-NSTAR-1 patch] expose code's own H(Tgamma) in s^-1, Tgamma in MeV (read-only)
++        self.Hubble_of_Tg = (lambda Tg: Hubble(Tg,TnuofT(Tg),TnuofT(Tg))) if PRyMini.aTid_flag else None
++        self.Tg_min_MeV = float(np.min(Tg_vec))
+         ################
+         # N effective  #
+         ################
+@@ -309,6 +312,16 @@
+         t_nucl = t_of_T(PRyMini.T_nucl/PRyMini.MeV_to_Kelvin)
+         t_end = t_of_T(PRyMini.T_end/PRyMini.MeV_to_Kelvin)
+ 
++        # [CH-BBN-NSTAR-1 patch] excited-neutron weak-rate multiplier (None -> 1)
++        # [CH-BBN-NSTAR-1 A2 patch] p->n multiplier 1 + (tau_g/tau_e)(g*/g)e^{-dE/T} (None -> 1)
++        def _nstar_multb(T):
++            if(getattr(PRyMini,'nstar_weak_b',None) is None):
++                return 1.
++            return PRyMini.nstar_weak_b(T)
++        def _nstar_mult(T):
++            if(getattr(PRyMini,'nstar_weak',None) is None):
++                return 1.
++            return PRyMini.nstar_weak(T)
+         ##############################
+         # Import n <--> p weak rates #
+         ###############################
+@@ -331,15 +344,15 @@
+         ##################################
+         # Initial conditions from detailed balance
+         def Yni(T):
+-            return nTOp_bkwrd_HT(T)/(nTOp_bkwrd_HT(T) + nTOp_frwrd_HT(T))
++            return nTOp_bkwrd_HT(T)*_nstar_multb(T)/(nTOp_bkwrd_HT(T)*_nstar_multb(T) + nTOp_frwrd_HT(T)*_nstar_mult(T))
+         def Ypi(T):
+             return (1.-Yni(T))
+ 
+         # Weak rates at HT
+         def nTOp_frwrd(T):
+-            return NormWeakRates*nTOp_frwrd_HT(T)
++            return NormWeakRates*nTOp_frwrd_HT(T)*_nstar_mult(T)
+         def nTOp_bkwrd(T):
+-            return NormWeakRates*nTOp_bkwrd_HT(T)
++            return NormWeakRates*nTOp_bkwrd_HT(T)*_nstar_multb(T)
+             
+         def Yn_prime_HT(t,Y):
+             T_t = T_of_t(t)*PRyMini.MeV_to_Kelvin # temperature in [K]
+@@ -382,6 +395,10 @@
+         else:
+             sol_at_HT = solve_ivp(Y_prime_HT,[t_init,t_fin],Yi_vec,method='LSODA',rtol=1.e-6,atol=1.e-9)
+             Yn_HT_f,Yp_HT_f = sol_at_HT.y[0][-1],sol_at_HT.y[1][-1]
++            # [CH-BBN-NSTAR-1 A2 patch] read-only exports for sanity gate
++            self.HT_t = np.array(sol_at_HT.t); self.HT_Yn = np.array(sol_at_HT.y[0]); self.HT_Yp = np.array(sol_at_HT.y[1])
++            self.HT_T_MeV = np.array([float(T_of_t(x)) for x in sol_at_HT.t])
++            self.HT_rates = lambda TK: (float(nTOp_frwrd_HT(TK)), float(nTOp_bkwrd_HT(TK)), float(_nstar_mult(TK)), float(_nstar_multb(TK)))
+         
+         if(PRyMini.verbose_flag):
+             print("--- running time: %s seconds ---" % (time.time() - start_time))
+@@ -398,6 +415,17 @@
+         else:
+             import PRyM.PRyM_nuclear_net63 as PRyMnuclear
+             PRyMnucl = PRyMnuclear.UpdateNuclearRates(PRyMini.p_npdg,PRyMini.p_dpHe3g,PRyMini.p_ddHe3n,PRyMini.p_ddtp,PRyMini.p_tpag,PRyMini.p_tdan,PRyMini.p_taLi7g,PRyMini.p_He3ntp,PRyMini.p_He3dap,PRyMini.p_He3aBe7g,PRyMini.p_Be7nLi7p,PRyMini.p_Li7paa,PRyMini.p_Li7paag,PRyMini.p_Be7naa,PRyMini.p_Be7daap,PRyMini.p_daLi6g,PRyMini.p_Li6pBe7g,PRyMini.p_Li6pHe3a,PRyMini.p_B8naap,PRyMini.p_Li6He3aap,PRyMini.p_Li6taan,PRyMini.p_Li6tLi8p,PRyMini.p_Li7He3Li6a,PRyMini.p_Li8He3Li7a,PRyMini.p_Be7tLi6a,PRyMini.p_B8tBe7a,PRyMini.p_B8nLi6He3,PRyMini.p_B8nBe7d,PRyMini.p_Li6tLi7d,PRyMini.p_Li6He3Be7d,PRyMini.p_Li7He3aad,PRyMini.p_Li8He3aat,PRyMini.p_Be7taad,PRyMini.p_Be7tLi7He3,PRyMini.p_B8dBe7He3,PRyMini.p_B8taaHe3,PRyMini.p_Be7He3ppaa,PRyMini.p_ddag,PRyMini.p_He3He3app,PRyMini.p_Be7pB8g,PRyMini.p_Li7daan,PRyMini.p_dntg,PRyMini.p_ttann,PRyMini.p_He3nag,PRyMini.p_He3tad,PRyMini.p_He3tanp,PRyMini.p_Li7taan,PRyMini.p_Li7He3aanp,PRyMini.p_Li8dLi7t,PRyMini.p_Be7taanp,PRyMini.p_Be7He3aapp,PRyMini.p_Li6nta,PRyMini.p_He3tLi6g,PRyMini.p_anpLi6g,PRyMini.p_Li6nLi7g,PRyMini.p_Li6dLi7p,PRyMini.p_Li6dBe7n,PRyMini.p_Li7nLi8g,PRyMini.p_Li7dLi8p,PRyMini.p_Li8paan,PRyMini.p_annHe6g,PRyMini.p_ppndp,PRyMini.p_Li7taann)
++            # [CH-BBN-NSTAR-1 patch] Variant B: scale neutron-consuming rates by f_n^k
++            if(getattr(PRyMini,'nstar_nucl',None) is not None):
++                _fn = PRyMini.nstar_nucl
++                _KF = {'npdg':1,'He3ntp':1,'Be7nLi7p':1,'Be7naa':1,'B8naap':1,'B8nLi6He3':1,'B8nBe7d':1,'dntg':1,'He3nag':1,'Li6nta':1,'anpLi6g':1,'Li6nLi7g':1,'Li7nLi8g':1,'ppndp':1,'annHe6g':2}
++                _KB = {'ddHe3n':1,'tdan':1,'Li6taan':1,'Li7daan':1,'He3tanp':1,'Li7taan':1,'Li7He3aanp':1,'Be7taanp':1,'Li6dBe7n':1,'Li8paan':1,'ttann':2,'Li7taann':2}
++                def _wrap(f,k):
++                    return lambda T: f(T)*_fn(T)**k
++                for _nm,_k in _KF.items():
++                    setattr(PRyMnucl,_nm+'_frwrd',_wrap(getattr(PRyMnucl,_nm+'_frwrd'),_k))
++                for _nm,_k in _KB.items():
++                    setattr(PRyMnucl,_nm+'_bkwrd',_wrap(getattr(PRyMnucl,_nm+'_bkwrd'),_k))
+             if(PRyMini.julia_flag):
+                 pMT = [lambda x: np.float64(PRyMnucl.npdg_frwrd(x)),lambda x: np.float64(PRyMnucl.npdg_bkwrd(x)),lambda x: np.float64(PRyMnucl.dpHe3g_frwrd(x)),lambda x: np.float64(PRyMnucl.dpHe3g_bkwrd(x)),lambda x: np.float64(PRyMnucl.ddHe3n_frwrd(x)),lambda x: np.float64(PRyMnucl.ddHe3n_bkwrd(x)),lambda x: np.float64(PRyMnucl.ddtp_frwrd(x)),lambda x: np.float64(PRyMnucl.ddtp_bkwrd(x)),lambda x: np.float64(PRyMnucl.tpag_frwrd(x)),lambda x: np.float64(PRyMnucl.tpag_bkwrd(x)),lambda x: np.float64(PRyMnucl.tdan_frwrd(x)),lambda x: np.float64(PRyMnucl.tdan_bkwrd(x)),lambda x: np.float64(PRyMnucl.taLi7g_frwrd(x)),lambda x: np.float64(PRyMnucl.taLi7g_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3ntp_frwrd(x)),lambda x: np.float64(PRyMnucl.He3ntp_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3dap_frwrd(x)),lambda x: np.float64(PRyMnucl.He3dap_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3aBe7g_frwrd(x)),lambda x: np.float64(PRyMnucl.He3aBe7g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7nLi7p_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7nLi7p_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7paa_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7paa_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7paag_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7paag_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7naa_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7naa_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7daap_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7daap_bkwrd(x)),lambda x: np.float64(PRyMnucl.daLi6g_frwrd(x)),lambda x: np.float64(PRyMnucl.daLi6g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6pBe7g_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6pBe7g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6pHe3a_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6pHe3a_bkwrd(x))]
+                 pLT = pMT+[lambda x: np.float64(PRyMnucl.B8naap_frwrd(x)),lambda x: np.float64(PRyMnucl.B8naap_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6He3aap_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6He3aap_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6taan_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6taan_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6tLi8p_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6tLi8p_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3Li6a_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3Li6a_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li8He3Li7a_frwrd(x)),lambda x: np.float64(PRyMnucl.Li8He3Li7a_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7tLi6a_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7tLi6a_bkwrd(x)),lambda x: np.float64(PRyMnucl.B8tBe7a_frwrd(x)),lambda x: np.float64(PRyMnucl.B8tBe7a_bkwrd(x)),lambda x: np.float64(PRyMnucl.B8nLi6He3_frwrd(x)),lambda x: np.float64(PRyMnucl.B8nLi6He3_bkwrd(x)),lambda x: np.float64(PRyMnucl.B8nBe7d_frwrd(x)),lambda x: np.float64(PRyMnucl.B8nBe7d_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6tLi7d_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6tLi7d_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6He3Be7d_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6He3Be7d_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3aad_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3aad_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li8He3aat_frwrd(x)),lambda x: np.float64(PRyMnucl.Li8He3aat_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7taad_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7taad_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7tLi7He3_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7tLi7He3_bkwrd(x)),lambda x: np.float64(PRyMnucl.B8dBe7He3_frwrd(x)),lambda x: np.float64(PRyMnucl.B8dBe7He3_bkwrd(x)),lambda x: np.float64(PRyMnucl.B8taaHe3_frwrd(x)),lambda x: np.float64(PRyMnucl.B8taaHe3_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7He3ppaa_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7He3ppaa_bkwrd(x)),lambda x: np.float64(PRyMnucl.ddag_frwrd(x)),lambda x: np.float64(PRyMnucl.ddag_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3He3app_frwrd(x)),lambda x: np.float64(PRyMnucl.He3He3app_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7pB8g_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7pB8g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7daan_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7daan_bkwrd(x)),lambda x: np.float64(PRyMnucl.dntg_frwrd(x)),lambda x: np.float64(PRyMnucl.dntg_bkwrd(x)),lambda x: np.float64(PRyMnucl.ttann_frwrd(x)),lambda x: np.float64(PRyMnucl.ttann_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3nag_frwrd(x)),lambda x: np.float64(PRyMnucl.He3nag_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3tad_frwrd(x)),lambda x: np.float64(PRyMnucl.He3tad_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3tanp_frwrd(x)),lambda x: np.float64(PRyMnucl.He3tanp_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7taan_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7taan_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3aanp_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7He3aanp_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li8dLi7t_frwrd(x)),lambda x: np.float64(PRyMnucl.Li8dLi7t_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7taanp_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7taanp_bkwrd(x)),lambda x: np.float64(PRyMnucl.Be7He3aapp_frwrd(x)),lambda x: np.float64(PRyMnucl.Be7He3aapp_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6nta_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6nta_bkwrd(x)),lambda x: np.float64(PRyMnucl.He3tLi6g_frwrd(x)),lambda x: np.float64(PRyMnucl.He3tLi6g_bkwrd(x)),lambda x: np.float64(PRyMnucl.anpLi6g_frwrd(x)),lambda x: np.float64(PRyMnucl.anpLi6g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6nLi7g_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6nLi7g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6dLi7p_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6dLi7p_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li6dBe7n_frwrd(x)),lambda x: np.float64(PRyMnucl.Li6dBe7n_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7nLi8g_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7nLi8g_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7dLi8p_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7dLi8p_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li8paan_frwrd(x)),lambda x: np.float64(PRyMnucl.Li8paan_bkwrd(x)),lambda x: np.float64(PRyMnucl.annHe6g_frwrd(x)),lambda x: np.float64(PRyMnucl.annHe6g_bkwrd(x)),lambda x: np.float64(PRyMnucl.ppndp_frwrd(x)),lambda x: np.float64(PRyMnucl.ppndp_bkwrd(x)),lambda x: np.float64(PRyMnucl.Li7taann_frwrd(x)),lambda x: np.float64(PRyMnucl.Li7taann_bkwrd(x))]
+@@ -464,9 +492,9 @@
+         
+         # Weak rates at MT
+         def nTOp_frwrd(T):
+-            return NormWeakRates*nTOp_frwrd_MT(T)
++            return NormWeakRates*nTOp_frwrd_MT(T)*_nstar_mult(T)
+         def nTOp_bkwrd(T):
+-            return NormWeakRates*nTOp_bkwrd_MT(T)
++            return NormWeakRates*nTOp_bkwrd_MT(T)*_nstar_multb(T)
+         
+         # Initial conditions at MT
+         Yn_i = Yn_HT_f
+@@ -529,9 +557,9 @@
+ 
+         # Weak rates at LT
+         def nTOp_frwrd(T):
+-            return NormWeakRates*nTOp_frwrd_LT(T)
++            return NormWeakRates*nTOp_frwrd_LT(T)*_nstar_mult(T)
+         def nTOp_bkwrd(T):
+-            return NormWeakRates*nTOp_bkwrd_LT(T)
++            return NormWeakRates*nTOp_bkwrd_LT(T)*_nstar_multb(T)
+             
+         # Initial conditions at LT
+         Yn_i = Yn_MT_f
