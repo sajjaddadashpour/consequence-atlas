@@ -1,0 +1,37 @@
+== Z1: pure Gibrat (no barrier) vs Gibrat + reflecting lower barrier, top-500 Hill exponent ==
+barrier=False t=500: Hill(top500)=1.183
+barrier=False t=2000: Hill(top500)=0.590
+barrier=False t=4000: Hill(top500)=0.413
+barrier=True t=500: Hill(top500)=1.316
+barrier=True t=2000: Hill(top500)=1.440
+barrier=True t=4000: Hill(top500)=1.341
+(pure Gibrat -> lognormal with growing variance; exponent drifts toward 0. Zipf exponent ~1 needs the floor AND normalisation)
+
+== Z2: 'Zipf holds' = Hill 95% CI contains 1 is a power statement ==
+n=   20 true alpha=0.8: P(CI contains 1)=0.77
+n=   20 true alpha=1.25: P(CI contains 1)=0.92
+n=   50 true alpha=0.8: P(CI contains 1)=0.58
+n=   50 true alpha=1.25: P(CI contains 1)=0.76
+n=  200 true alpha=0.8: P(CI contains 1)=0.10
+n=  200 true alpha=1.25: P(CI contains 1)=0.15
+n= 1000 true alpha=0.8: P(CI contains 1)=0.00
+n= 1000 true alpha=1.25: P(CI contains 1)=0.00
+
+== N1: look-elsewhere baseline for PRR seeds |r|=0.98122, f=0.087 ==
+distinct simple expressions: 4237
+1/alpha: within 0.01: 21 hits e.g. 1*1*r^-2*f^-2
+1/alpha: within 0.001: 0 hits 
+1/alpha: within 0.0001: 0 hits 
+mp/me: within 0.01: 0 hits 
+mp/me: within 0.001: 0 hits 
+mp/me: within 0.0001: 0 hits 
+OmL/Om: within 0.01: 29 hits e.g. 2*1*r^-2*r^-2
+OmL/Om: within 0.001: 2 hits e.g. 2*0.333*r^-2*pi^1
+OmL/Om: within 0.0001: 0 hits 
+null expectation (log-uniform) per target @ 0.001: ~1.5
+null expectation (log-uniform) per target @ 0.0001: ~0.2
+
+== Z3: Gabaix/Kesten exponent zeta = 1/(1 - floor/mean) ==
+floor=0.3: theory zeta=1.429, Hill(top500)=1.398
+floor=0.1: theory zeta=1.111, Hill(top500)=1.029
+floor=0.02: theory zeta=1.020, Hill(top500)=0.832
