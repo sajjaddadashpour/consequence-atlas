@@ -1,0 +1,49 @@
+id: x.prr.complex-amplitudes-required
+a:
+  field: prr
+  pattern: "PRR A1/D2: readings are +1 or -1, and mirrored readings sum to zero. One reading (CONJECTURE) takes +-1 as the phases 0 and pi, the real slice of U(1), so 'mirroring to zero' is destructive interference at phase difference pi."
+  refs:
+  - prr.a1-directional-alphabet
+  - prr.d2-mirroring
+b:
+  field: physics
+  pattern: "Network Bell-type experiments with two independent sources exclude real-amplitude quantum theory when independent systems are combined by the tensor product (Renou et al. 2021; Chen et al. 2022; Li et al. 2022)."
+connection: "A REQUIREMENT on PRR, not a PRR prediction. If PRR composes independent systems by the tensor product (ASSUMED; PRR has not stated its composition rule) and its sources are independent, its amplitudes must be complex. Two legs: (1) real amplitudes break local tomography: for two +-1 systems (d=2) a real joint state has 10 parameters but local products span only 9 (10 != 9; normalised 9 vs 8); complex amplitudes give 16 = 4 x 4 (forge H2, code/h2_count.py). (2) Real quantum theory is bounded at T <= 7.66 (7.6605) in the Renou et al. entanglement-swapping test; Chen et al. measured 8.09(1) on superconducting qubits, a 43 standard-deviation violation; Li et al. used a different, tailored inequality on photons (real bound W ~ 0.7486, measured 0.8508 +- 0.0218), a 4.70 standard-deviation violation. Reading +-1 as phases 0 and pi is CONJECTURE."
+label: CONJECTURE
+support: mathematics
+claim: pattern
+breaks_if: "Under H2-LOCK: any of the three experimental numbers (bound, score or significance) is materially different on re-read, or the explicit rank count disagrees with 10 vs 9. Separately, the requirement stops binding if PRR states a composition rule that is not the tensor product of independent parts (for example a shared extra rebit or an irreducible Peirce-style pairing): Renou et al. note that real quantum theory reproduces any experiment when parts may share arbitrary real states."
+steps:
+- from: "PRR +-1 readings"
+  to: "amplitudes with phases 0 and pi"
+  label: CONJECTURE
+  sources: []
+- from: "amplitudes with phases 0 and pi"
+  to: "real amplitudes composed by tensor product of independent parts"
+  label: CONJECTURE
+  sources: []
+- from: "real amplitudes composed by tensor product of independent parts"
+  to: "local tomography fails (10 != 9 for two +-1 systems)"
+  label: ESTABLISHED
+  support: mathematics
+  sources:
+  - hardy-wootters2012
+  - masanes-muller2011
+- from: "local tomography fails (10 != 9 for two +-1 systems)"
+  to: "real quantum theory excluded by network experiments"
+  label: ESTABLISHED
+  sources:
+  - renou2021
+  - chen2022-real-qt
+  - li2022-real-qt
+sources:
+- renou2021
+- chen2022-real-qt
+- li2022-real-qt
+- masanes-muller2011
+- hardy-wootters2012
+status: active
+proposed_by: mathematician
+notes: "Forge verdict REDUCES-TO-KNOWN (H2-LOCK section 5), carried as a requirement on PRR's +-1 to Hilbert-space map, not a prediction; SURVIVED was not an available outcome. Files: docs/forge/2026-11-23-math-h1-h3/ (H2-LOCK.md, code/h2_count.py, out/h2_output.txt; rerun on the box 2026-11-23, byte-identical). Step 2 is the ASSUMED composition rule (tensor product plus independent sources); the crosslink label set has no ASSUMED, so it is carried as CONJECTURE. The overall label is CONJECTURE because steps 1 and 2 are. Citations re-checked 2026-11-23 against Crossref and the arXiv full texts: Renou arXiv:2101.10873 (T <= 7.6605 for real QT; 'T <= 7.66' in the main text); Chen arXiv:2103.08123 (score 8.09(1); 'beats the real-number bound of 7.66 by 43 standard deviations'); Li arXiv:2111.15128 (W_EXP = 0.8508 +- 0.0218 vs W_RQT ~ 0.7486, '4.70 standard deviations'; abstract says 'over 4.5'). Li et al. did not test the 7.66 bound. The step 3 to step 4 order is a reading chain, not a derivation: the experiments exclude real QT directly. Rung 0: no claim about a real system is made for PRR."
+evidence_rung: 0
+model_exists: false

@@ -1,0 +1,4 @@
+R d=2: K_A=3 K_AB=10 span(local products)=9 -> local tomography FAILS  | normalised: 9 vs (K_A-1+1)^2-1=8
+R d=3: K_A=6 K_AB=45 span(local products)=36 -> local tomography FAILS  | normalised: 44 vs (K_A-1+1)^2-1=35
+C d=2: K_A=4 K_AB=16 span(local products)=16 -> local tomography HOLDS  | normalised: 15 vs (K_A-1+1)^2-1=15
+C d=3: K_A=9 K_AB=81 span(local products)=81 -> local tomography HOLDS  | normalised: 80 vs (K_A-1+1)^2-1=80

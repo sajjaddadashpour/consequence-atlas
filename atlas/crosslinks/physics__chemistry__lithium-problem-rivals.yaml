@@ -1,0 +1,23 @@
+id: x.physics.lithium-problem-rivals
+a:
+  field: physics
+  pattern: "Standard big-bang nucleosynthesis with the CMB baryon density predicts a primordial lithium-7 abundance 7Li/H = 5.53e-10 (the SBBN value used by Ovchynnikov 2026)."
+b:
+  field: chemistry
+  pattern: "The lithium abundance measured spectroscopically in the atmospheres of old, metal-poor stars is lower: 1.45e-10 (the Particle Data Group value used by Ovchynnikov 2026), a factor 5.53/1.45 = 3.81."
+connection: "The gap (the cosmological lithium problem) is open, with two rival explanations that act at different times. (1) Decaying relics, before stars form: relics with lifetimes of a few hours, decaying mostly into ~100 MeV electron antineutrinos plus e+-/photons, turn protons into neutrons that destroy 7Be, and later EM cascades break up the extra deuterium; the paper's Table I rows end at 7Li/H = 1.5 to 2.3e-10 while keeping D/H, YP and Neff in range (Ovchynnikov 2026; forge check REDUCES-TO-KNOWN, standard BBN plus EM-cascade physics). (2) Stellar depletion, inside stars: atomic diffusion with turbulent mixing carries lithium below the visible atmosphere, so old stars show less than they were born with; Korn et al. 2006 report abundance trends with evolutionary stage in the metal-poor globular cluster NGC 6397 that diffusion models reproduce. Neither rival is established here."
+label: CONJECTURE
+support: mechanism
+claim: cause
+breaks_if: "For relics: a Neff shift absent at Simons Observatory precision where the paper's rows predict up to +0.106 (about 2.4 sigma at sigma(Neff) = 0.045), or 6Li/7Li limits that exclude the particle rows (the paper's own 5-17% is already above stellar limits). For stellar depletion: lithium abundances in unevolved metal-poor stars that show no trend with evolutionary stage where diffusion models predict one. If stellar depletion fully closes the gap, no relic is needed; if the measured stellar values are confirmed as primordial, the relic reading gains ground."
+sources:
+- ovchynnikov2026
+- korn2006
+status: contested
+proposed_by: physicist
+notes: "Forge run 2026-11-23-0100-lithium-relics (Physicist; lock 55b1252, results f099ddf): verdict REDUCES-TO-KNOWN. P1 SURVIVED (cascade cutoff reaches the D threshold at T = 5.34 keV, t = 4.64e4 s, 0.93 x the paper's 5e4 s); P2 SURVIVED indirect (neutron-driven Li lowering costs >= 30% of the final D/H, which cascades must remove); P3a KILLED on wording only ('about three times' vs 3.81); P3b SURVIVED (2 of 4 Q-ball rows reach <= 1.95e-10); P3c SURVIVED (max |dNeff| 0.106 / 0.045 = 2.36); P4 SURVIVED (lifetimes 2.25-3.44 h). Stellar depletion added as a rival on Physicist's request from the TOE room (2026-11-23). Korn et al. 2006 (Nature 442, 657-659; doi:10.1038/nature05011) checked against Crossref and the arXiv abstract (astro-ph/0608201): they conclude diffusion is 'predominantly responsible' for the low stellar lithium; their abstract gives the discrepancy as a factor two to three, against 3.81 on the paper's newer numbers. Ovchynnikov 2026 checked on arXiv (2611.26691v1, no journal reference yet). Field b is chemistry because the measured quantity is an element abundance; the record links physics to the atlas's s04 to s05 (nuclei and light elements) input without changing any stage link. Nothing in PRR predicts or constrains this. Rung 1: observed trends, no intervention."
+evidence_rung: 1
+model_exists: true
+model_refs:
+- ovchynnikov2026
+- korn2006

@@ -1,0 +1,7 @@
+numpy 2.5.5 scipy 1.18.1  python 3.13.5  smoke=True
+SMOKE R1 n=100: edges=197 connected_frac=1.00 symmetric=True
+SMOKE R2 n=100: edges=294 connected_frac=1.00 symmetric=True
+SMOKE R3 n=100: edges=308 connected_frac=0.90 symmetric=True
+SMOKE Z4 torus side 4: n=256 degrees=[8]
+SMOKE pipeline on R1 n=100: status=NO-WINDOW lambda2=0.0428 sigma_hi=11.70
+SMOKE pipeline code-path check on Z2 torus side 60 (instrument geometry, not a locked size): {"status": "OK", "ds": 2.0176178267205556, "ds_lo": 2.0279844836334515, "ds_hi": 2.0093290675882973, "sigma_hi": 182.5448886478822}

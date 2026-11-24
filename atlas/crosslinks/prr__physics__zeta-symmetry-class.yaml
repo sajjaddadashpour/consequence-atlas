@@ -1,0 +1,35 @@
+id: x.math.zeta-pm1-symmetry-class
+a:
+  field: prr
+  pattern: "PRR A1: readings take values in a binary alphabet {+1, -1}. Any operator written only with real +-1 entries is real symmetric, so it commutes with complex conjugation (time reversal with T^2 = +1)."
+  refs:
+  - prr.a1-directional-alphabet
+b:
+  field: physics
+  pattern: "High Riemann zeta zeros have the local spacing statistics of the Gaussian Unitary Ensemble (GUE), the random-matrix class of complex Hermitian operators without time-reversal symmetry (Montgomery 1973, as cited by Atas et al. 2013; Odlyzko 1987)."
+connection: "Real +-1 operators sit in GOE, the zeros in GUE, and complexified +-1 in GUE; this is Wigner-Dyson universality plus Montgomery-Odlyzko. The PRR link holds only if the zeros are a PRR operator's spectrum (Hilbert-Polya), which is ANALOGY-ONLY. Forge H1 (Mathematician; lock 218a3a9, outputs a093cf4), statistic <r~> = mean ratio of consecutive spacings: unseen Odlyzko zeros #10^21+1 to #10^21+10^4 give 0.5972 +- 0.0029 (GUE); #10^22+1 to #10^22+10^4 give 0.6019 +- 0.0029 (GUE). Every real +-1 operator class at its largest locked size lands in GOE (0.5070 to 0.5279: dense with diagonal 0.5279, dense zero-diagonal 0.5271, sparse degree-4 0.5267, real spin chain L=12 0.5070); dense complex {+-1, +-i} lands in GUE (0.5991). References: GOE 0.5307, GUE 0.5996 (Atas et al. 2013)."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "Under H1-LOCK: an unseen zero window (#10^21 or #10^22) classifies GOE, or any real +-1 operator class classifies GUE at its largest locked size. Either would have KILLED the reading; neither happened. The PRR link itself can only move off ANALOGY-ONLY if PRR defines an operator whose spectrum is claimed to be the zeros (a Hilbert-Polya operator); none exists."
+analogy:
+  positive:
+  - "Both are spectra whose local statistics fall into a Wigner-Dyson symmetry class fixed by the presence or absence of time-reversal symmetry."
+  - "Complexifying the alphabet to {+1, -1, +i, -i} moves +-1 operators from GOE to GUE, the class of the zeros."
+  negative:
+  - "No PRR operator has the zeros as its spectrum; the Hilbert-Polya antecedent is not defined in PRR (Mathematician's score of lock 03ced66 found no operator)."
+  - "GOE versus GUE follows from imported theorems (Erdos-Yau-Yin 2012; Tao-Vu 2011) for any real versus complex entries, not from anything PRR-specific."
+  - "Matching a symmetry class is a statement about local statistics only; it says nothing about which operator produced the spectrum."
+  neutral:
+  - "Whether PRR's readings, once a composition rule is fixed, force a complex alphabet for independent reasons (see x.prr.complex-amplitudes-required)."
+sources:
+- odlyzko1987
+- atas2013
+- erdos-yau-yin2012
+- tao-vu2011
+- hesse1966
+status: active
+proposed_by: mathematician
+notes: "Forge verdict REDUCES-TO-KNOWN (H1-LOCK section 5, rule 3; SURVIVED was not an available outcome). Files: docs/forge/2026-11-23-math-h1-h3/ (H1-LOCK.md, code/h1_run.py, out/h1_output.txt). Classification rule: tol = max(3 SE, 0.010) around the Atas references; largest size only (N=2000; chains L=12). Seen replication #10^12 window gave 0.6000 (GUE) and cannot confirm anything. Instruments passed: Gaussian GOE 0.5359, Gaussian GUE 0.5953 at N=2000. Smaller sizes (reported as trend, not classified) range up to 0.5373 for dense real +-1 at N=500. The real chain at L=12 has only 4 samples (SE 0.0256). The complex chain control gave 0.6087 (GUE). Montgomery 1973 is cited through Atas et al. 2013; its own record was not checked. The forge verdict word is recorded here, not as an atlas label."
+evidence_rung: 0
+model_exists: false

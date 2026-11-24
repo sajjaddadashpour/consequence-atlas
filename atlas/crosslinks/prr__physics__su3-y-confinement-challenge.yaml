@@ -1,0 +1,32 @@
+id: x.prr.su3-y-confinement-challenge
+a:
+  field: prr
+  pattern: "PRR A1: a binary alphabet, readings +1 or -1, with zero only as a sum of mirrored readings (D2)."
+  refs:
+  - prr.a1-directional-alphabet
+  - prr.d2-mirroring
+b:
+  field: physics
+  pattern: "Quarks carry SU(3) color and are confined. In SU(3) lattice QCD the static three-quark potential has a linear term proportional to the minimal total length of a color flux tube joining the three quarks, the Y-shaped string (Takahashi et al. 2001)."
+connection: "OPEN CHALLENGE to PRR's binary alphabet. No derivation of SU(3) color or Y-shaped confinement from a binary alphabet is known. Rishons (Harari 1979) get the counting, not the dynamics."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "Closed as a challenge (not broken) if someone derives, from PRR's +-1 alphabet and stated rules, an SU(3) gauge structure and a three-body confining term proportional to the minimal flux-tube length, with a prediction that lattice QCD can check. Until then PRR has no account of color or confinement."
+analogy:
+  positive:
+  - "Harari's rishon model builds one generation of quarks and leptons from two constituents (T and V) and their antiparticles, so a two-letter alphabet can reproduce the counting of states and charges."
+  negative:
+  - "The rishon counting gives no SU(3) gauge dynamics, no confinement and no Y-shaped flux tube."
+  - "PRR names no gauge group, no color charge and no string tension."
+  neutral:
+  - "Whether a PRR composition rule, once stated, could produce a three-valued charge with a three-body (not pairwise) binding."
+sources:
+- harari1979
+- takahashi2001
+- hesse1966
+status: active
+proposed_by: physicist
+notes: "Filed from the TOE room 2026-11-23 on Physicist's request as an open challenge; the atlas has no separate format for open challenges, so it is recorded as an ANALOGY-ONLY crosslink whose connection says plainly that no derivation exists (same pattern as x.prism-split). Not a forge test; no verdict. Harari 1979 (Phys. Lett. B 86, 83-86; doi:10.1016/0370-2693(79)90626-9) and Takahashi et al. 2001 (Phys. Rev. Lett. 86, 18-21) checked against Crossref; Takahashi abstract read on arXiv (hep-lat/0006005). The rishon wording ('the counting, not the dynamics') is Physicist's summary, not a quote from Harari."
+evidence_rung: 0
+model_exists: false

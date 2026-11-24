@@ -1,0 +1,27 @@
+numpy 2.5.5  python 3.13.5
+zeros4 [PRIMARY unseen: 10^21+1..10^21+10^4] <r>=0.5972 SE(batch)=0.0029 tol=0.0100 -> GUE
+zeros5 [SECONDARY unseen by us (Atas 2013 Fig.4 showed a histogram): 10^22+1..+10^4] <r>=0.6019 SE(batch)=0.0029 tol=0.0100 -> GUE
+zeros3 [SEEN replication: 10^12+1..+10^4] <r>=0.6000 SE(batch)=0.0027 tol=0.0100 -> GUE
+a_dense_real_pm1                           size=  500 S= 40 <r>=0.5373 SE=0.0034 tol=0.0101 -> GOE  (dropped 0)
+a_dense_real_pm1                           size= 1000 S= 20 <r>=0.5292 SE=0.0034 tol=0.0102 -> GOE  (dropped 0)
+a_dense_real_pm1                           size= 2000 S= 10 <r>=0.5279 SE=0.0026 tol=0.0100 -> GOE  (dropped 0)
+a0_dense_real_pm1_zero_diag (REPORT A)     size=  500 S= 40 <r>=0.5264 SE=0.0030 tol=0.0100 -> GOE  (dropped 0)
+a0_dense_real_pm1_zero_diag (REPORT A)     size= 1000 S= 20 <r>=0.5266 SE=0.0038 tol=0.0113 -> GOE  (dropped 0)
+a0_dense_real_pm1_zero_diag (REPORT A)     size= 2000 S= 10 <r>=0.5271 SE=0.0019 tol=0.0100 -> GOE  (dropped 0)
+b_dense_hermitian_Z4                       size=  500 S= 40 <r>=0.5971 SE=0.0034 tol=0.0101 -> GUE  (dropped 0)
+b_dense_hermitian_Z4                       size= 1000 S= 20 <r>=0.6019 SE=0.0036 tol=0.0107 -> GUE  (dropped 0)
+b_dense_hermitian_Z4                       size= 2000 S= 10 <r>=0.5991 SE=0.0020 tol=0.0100 -> GUE  (dropped 0)
+c_sparse_real_pm1_deg4 (REPORT F)          size=  500 S= 40 <r>=0.5319 SE=0.0029 tol=0.0100 -> GOE  (dropped 459)
+c_sparse_real_pm1_deg4 (REPORT F)          size= 1000 S= 20 <r>=0.5322 SE=0.0023 tol=0.0100 -> GOE  (dropped 393)
+c_sparse_real_pm1_deg4 (REPORT F)          size= 2000 S= 10 <r>=0.5267 SE=0.0041 tol=0.0124 -> GOE  (dropped 440)
+d1_chain_real (REPORT C)                   size=   10 S= 20 <r>=0.5273 SE=0.0060 tol=0.0181 -> GOE  (dropped 0)
+d1_chain_real (REPORT C)                   size=   12 S=  4 <r>=0.5070 SE=0.0256 tol=0.0767 -> GOE  (dropped 0)
+d2_chain_complex (REPORT D)                size=   10 S= 20 <r>=0.6008 SE=0.0027 tol=0.0100 -> GUE  (dropped 0)
+d2_chain_complex (REPORT D)                size=   12 S=  4 <r>=0.6087 SE=0.0045 tol=0.0135 -> GUE  (dropped 0)
+ref_GOE_gaussian                           size=  500 S= 40 <r>=0.5288 SE=0.0035 tol=0.0104 -> GOE  (dropped 0)
+ref_GOE_gaussian                           size= 1000 S= 20 <r>=0.5378 SE=0.0034 tol=0.0101 -> GOE  (dropped 0)
+ref_GOE_gaussian                           size= 2000 S= 10 <r>=0.5359 SE=0.0034 tol=0.0102 -> GOE  (dropped 0)
+ref_GUE_gaussian                           size=  500 S= 40 <r>=0.6029 SE=0.0028 tol=0.0100 -> GUE  (dropped 0)
+ref_GUE_gaussian                           size= 1000 S= 20 <r>=0.5962 SE=0.0047 tol=0.0141 -> GUE  (dropped 0)
+ref_GUE_gaussian                           size= 2000 S= 10 <r>=0.5953 SE=0.0032 tol=0.0100 -> GUE  (dropped 0)
+VERDICT H1: REDUCES-TO-KNOWN -- zeros GUE, no real +-1 class GUE, complex Z4 class GUE: Wigner-Dyson universality + Montgomery-Odlyzko
