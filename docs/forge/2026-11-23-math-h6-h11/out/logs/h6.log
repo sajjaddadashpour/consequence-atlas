@@ -1,0 +1,2 @@
+{"T1a_meanfield": true, "T1b_mirror_strict_min": true, "T2_decoupling": "PASS"} 
+VERDICT: SURVIVED (math conjecture); PRR-level verdict REDUCES-TO-KNOWN

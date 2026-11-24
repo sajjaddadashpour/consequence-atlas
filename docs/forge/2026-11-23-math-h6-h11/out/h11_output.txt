@@ -1,0 +1,32 @@
+INSTR_Z4_torus24: {"status": "OK", "ds": 4.124509239491362, "ds_lo": 4.159818520178541, "ds_hi": 4.093349718118912, "lambda2": 0.008518543427732922, "sigma_hi": 58.69548054098108}
+INSTR_Z2_torus316: {"status": "OK", "ds": 2.0154224491634003, "ds_lo": 2.025983852678497, "ds_hi": 2.00725418907405, "lambda2": 9.883511496722175e-05, "sigma_hi": 256.0}
+INSTRUMENT PASS
+R4a n=10000 seed=1: {"status": "SATURATED", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.00803213788901691, "sigma_hi": 62.249927342967624, "mean_deg": 7.998, "max_deg": 1024, "lcc_frac": 1.0, "secs": 3.5}
+R4a n=10000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.010900767327838512, "sigma_hi": 45.86833063788949, "mean_deg": 7.998, "max_deg": 974, "lcc_frac": 1.0, "secs": 0.1}
+R4a n=10000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.01264690310363048, "sigma_hi": 39.53537050951767, "mean_deg": 7.998, "max_deg": 880, "lcc_frac": 1.0, "secs": 0.2}
+R4a n=100000 seed=1: {"status": "OK", "ds": 3.924375420344487, "ds_lo": 3.8068338801115607, "ds_hi": 4.0657291840574326, "lambda2": 0.00487173623604642, "sigma_hi": 102.63281421117475, "mean_deg": 7.9998, "max_deg": 5562, "lcc_frac": 1.0, "secs": 136.5}
+R4a n=100000 seed=2: {"status": "OK", "ds": 3.239232770740166, "ds_lo": 3.246916642757898, "ds_hi": 3.2807621556868924, "lambda2": 0.003710832953897736, "sigma_hi": 134.74063807556107, "mean_deg": 7.9998, "max_deg": 5141, "lcc_frac": 1.0, "secs": 148.7}
+R4a n=100000 seed=3: {"status": "OK", "ds": 3.970710844869613, "ds_lo": 3.7214364024719964, "ds_hi": 4.205945799139504, "lambda2": 0.006695406777269097, "sigma_hi": 74.67806163734514, "mean_deg": 7.9998, "max_deg": 5832, "lcc_frac": 1.0, "secs": 115.8}
+RULE R4a: NOT-TESTABLE-YET -- mean d_s 3.711 in band but not every seed/half in band (or one NO-WINDOW)
+R4b n=10000 seed=1: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.017163783765212992, "sigma_hi": 29.131105753813095, "mean_deg": 7.998, "max_deg": 2154, "lcc_frac": 1.0, "secs": 0.1}
+R4b n=10000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.02851371186636853, "sigma_hi": 17.53542303938836, "mean_deg": 7.998, "max_deg": 1772, "lcc_frac": 1.0, "secs": 0.1}
+R4b n=10000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.03041955633812643, "sigma_hi": 16.436794621272096, "mean_deg": 7.998, "max_deg": 2096, "lcc_frac": 1.0, "secs": 0.1}
+R4b n=100000 seed=1: {"status": "OK", "ds": 3.4886336737955204, "ds_lo": 3.451009876532229, "ds_hi": 3.5466151727408968, "lambda2": 0.007493013150504435, "sigma_hi": 66.72882990554203, "mean_deg": 7.9998, "max_deg": 13727, "lcc_frac": 1.0, "secs": 107.4}
+R4b n=100000 seed=2: {"status": "OK", "ds": 4.485255647987414, "ds_lo": 4.567523208869677, "ds_hi": 4.382319080397788, "lambda2": 0.006416202555519446, "sigma_hi": 77.9277143565055, "mean_deg": 7.9998, "max_deg": 10302, "lcc_frac": 1.0, "secs": 113.7}
+R4b n=100000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.010509448028506396, "sigma_hi": 47.576237937879604, "mean_deg": 7.9998, "max_deg": 9255, "lcc_frac": 1.0, "secs": 2.5}
+RULE R4b: NOT-TESTABLE-YET -- mean d_s 3.987 in band but not every seed/half in band (or one NO-WINDOW)
+R5a n=10000 seed=1: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.027970377080716258, "sigma_hi": 17.87605503340594, "mean_deg": 9.997, "max_deg": 2150, "lcc_frac": 1.0, "secs": 0.1}
+R5a n=10000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.04060946639055896, "sigma_hi": 12.312400148066017, "mean_deg": 9.997, "max_deg": 1879, "lcc_frac": 1.0, "secs": 0.1}
+R5a n=10000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.020594756089372, "sigma_hi": 24.278024844296496, "mean_deg": 9.997, "max_deg": 1421, "lcc_frac": 1.0, "secs": 0.1}
+R5a n=100000 seed=1: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.015809766192100394, "sigma_hi": 31.626021152028997, "mean_deg": 9.9997, "max_deg": 11582, "lcc_frac": 1.0, "secs": 2.9}
+R5a n=100000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.012746185147697098, "sigma_hi": 39.2274232804736, "mean_deg": 9.9997, "max_deg": 11502, "lcc_frac": 1.0, "secs": 1.8}
+R5a n=100000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.014316445182972704, "sigma_hi": 34.92487091660688, "mean_deg": 9.9997, "max_deg": 12722, "lcc_frac": 1.0, "secs": 1.6}
+RULE R5a: KILLED -- NO-WINDOW in 3/3 seeds
+R5b n=10000 seed=1: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.04720605159972746, "sigma_hi": 10.591862336626491, "mean_deg": 9.997, "max_deg": 2754, "lcc_frac": 1.0, "secs": 0.1}
+R5b n=10000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.05420245011848057, "sigma_hi": 9.224675248204743, "mean_deg": 9.997, "max_deg": 2841, "lcc_frac": 1.0, "secs": 0.0}
+R5b n=10000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.031428388750523784, "sigma_hi": 15.909183380954172, "mean_deg": 9.997, "max_deg": 2874, "lcc_frac": 1.0, "secs": 0.0}
+R5b n=100000 seed=1: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.016219697971338265, "sigma_hi": 30.826714583930425, "mean_deg": 9.9997, "max_deg": 18886, "lcc_frac": 1.0, "secs": 2.0}
+R5b n=100000 seed=2: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.024163707388935807, "sigma_hi": 20.692188990375804, "mean_deg": 9.9997, "max_deg": 17428, "lcc_frac": 1.0, "secs": 1.8}
+R5b n=100000 seed=3: {"status": "NO-WINDOW", "ds": null, "ds_lo": null, "ds_hi": null, "lambda2": 0.026297493354053847, "sigma_hi": 19.013218988908815, "mean_deg": 9.9997, "max_deg": 20715, "lcc_frac": 1.0, "secs": 2.5}
+RULE R5b: KILLED -- NO-WINDOW in 3/3 seeds
+VERDICT H11 (PRR-level): NOT-TESTABLE-YET -- no stacked rule gives d_s ~ 4; PRR still lacks a locality rule

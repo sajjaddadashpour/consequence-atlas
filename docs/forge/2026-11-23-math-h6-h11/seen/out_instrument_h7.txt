@@ -1,0 +1,8 @@
+canonical L=8: U4 = [0.5895 0.6051 0.609  0.6144 0.622  0.6266 0.6301]
+canonical L=16: U4 = [0.5362 0.5739 0.5954 0.6075 0.6133 0.6382 0.643 ]
+canonical L=32: U4 = [0.4342 0.4554 0.5765 0.5894 0.6336 0.6523 0.6564]
+  Binder crossing L=8,16: K = 0.4471   (Onsager/KW K_c = 0.440687, diff +0.0065)
+  Binder crossing L=16,32: K = 0.4424   (Onsager/KW K_c = 0.440687, diff +0.0017)
+Kawasaki M=0, L=16, K=0.2: U_stripe = 0.537  (known limit 0.5 Gaussian)
+Kawasaki M=0, L=16, K=0.8: U_stripe = 0.997  (known limit 1.0 ordered stripe)
+KW check: sinh(2*K_c) = 1.0 ; dual of K_c: 0.4406867935097716

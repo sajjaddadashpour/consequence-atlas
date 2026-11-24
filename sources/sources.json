@@ -1290,5 +1290,144 @@
     "year": 2001,
     "identifier": "doi:10.1103/PhysRevLett.86.18",
     "verified": true
+  },
+  {
+    "id": "blaser-dell2007",
+    "title": "Complexity of the Cover Polynomial (ICALP 2007, LNCS 4596, 801-812)",
+    "authors": [
+      "M. Bläser",
+      "H. Dell"
+    ],
+    "year": 2007,
+    "identifier": "doi:10.1007/978-3-540-73420-8_69",
+    "verified": true
+  },
+  {
+    "id": "blaser-dell-fouz2012",
+    "title": "Complexity and Approximability of the Cover Polynomial",
+    "authors": [
+      "M. Bläser",
+      "H. Dell",
+      "M. Fouz"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1007/s00037-011-0018-0",
+    "verified": true
+  },
+  {
+    "id": "kotek-makowsky-ravve2013",
+    "title": "A Computational Framework for the Study of Partition Functions and Graph Polynomials (Proc. 12th Asian Logic Conference, 210-230)",
+    "authors": [
+      "T. Kotek",
+      "J. A. Makowsky",
+      "E. V. Ravve"
+    ],
+    "year": 2013,
+    "identifier": "doi:10.1142/9789814449274_0012",
+    "verified": true
+  },
+  {
+    "id": "mertens-moore2013",
+    "title": "The Complexity of the Fermionant and Immanants of Constant Width",
+    "authors": [
+      "S. Mertens",
+      "C. Moore"
+    ],
+    "year": 2013,
+    "identifier": "doi:10.4086/toc.2013.v009a006",
+    "verified": true
+  },
+  {
+    "id": "curticapean2021",
+    "title": "A full complexity dichotomy for immanant families (STOC 2021, 1770-1783)",
+    "authors": [
+      "R. Curticapean"
+    ],
+    "year": 2021,
+    "identifier": "doi:10.1145/3406325.3451124",
+    "verified": true
+  },
+  {
+    "id": "valiant1979",
+    "title": "The complexity of computing the permanent",
+    "authors": [
+      "L. G. Valiant"
+    ],
+    "year": 1979,
+    "identifier": "doi:10.1016/0304-3975(79)90044-6",
+    "verified": true
+  },
+  {
+    "id": "berry1985",
+    "title": "Semiclassical theory of spectral rigidity",
+    "authors": [
+      "M. V. Berry"
+    ],
+    "year": 1985,
+    "identifier": "doi:10.1098/rspa.1985.0078",
+    "verified": true
+  },
+  {
+    "id": "berry1988",
+    "title": "Semiclassical formula for the number variance of the Riemann zeros",
+    "authors": [
+      "M. V. Berry"
+    ],
+    "year": 1988,
+    "identifier": "doi:10.1088/0951-7715/1/3/001",
+    "verified": true
+  },
+  {
+    "id": "hess2026-zenodo",
+    "title": "Berry saturation and the statistics of the Riemann zeros from t ~ 1e4 to 1e21: a reproducible numerical study (Zenodo preprint, not peer-reviewed)",
+    "authors": [
+      "D. Hess"
+    ],
+    "year": 2026,
+    "identifier": "doi:10.5281/zenodo.23815327",
+    "verified": true
+  },
+  {
+    "id": "petz1996",
+    "title": "Monotone metrics on matrix spaces",
+    "authors": [
+      "D. Petz"
+    ],
+    "year": 1996,
+    "identifier": "doi:10.1016/0024-3795(94)00211-8",
+    "verified": true
+  },
+  {
+    "id": "cencov1982",
+    "title": "Statistical Decision Rules and Optimal Inference (AMS Translations of Mathematical Monographs 53; Crossref lists the 2000 reprint)",
+    "authors": [
+      "N. N. Čencov"
+    ],
+    "year": 1982,
+    "identifier": "doi:10.1090/mmono/053",
+    "verified": true
+  },
+  {
+    "id": "campbell1986",
+    "title": "An extended Čencov characterization of the information metric",
+    "authors": [
+      "L. L. Campbell"
+    ],
+    "year": 1986,
+    "identifier": "doi:10.1090/S0002-9939-1986-0848890-5",
+    "verified": true
+  },
+  {
+    "id": "berg-dewitt-morette2001",
+    "title": "The Pin groups in physics: C, P and T",
+    "authors": [
+      "M. Berg",
+      "C. DeWitt-Morette",
+      "S. Gwo",
+      "E. Kramer"
+    ],
+    "year": 2001,
+    "identifier": "doi:10.1142/S0129055X01000922",
+    "verified": true
   }
 ]
