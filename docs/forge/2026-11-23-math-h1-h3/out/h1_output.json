@@ -1,0 +1,311 @@
+{
+ "zeros": {
+  "zeros4": {
+   "role": "PRIMARY unseen: 10^21+1..10^21+10^4",
+   "n_ratios": 9998,
+   "r_mean": 0.5971564667580206,
+   "se_batch": 0.0029421835535945267,
+   "se_naive": 0.0023069752292077194,
+   "tol": 0.01,
+   "cls": "GUE"
+  },
+  "zeros5": {
+   "role": "SECONDARY unseen by us (Atas 2013 Fig.4 showed a histogram): 10^22+1..+10^4",
+   "n_ratios": 9998,
+   "r_mean": 0.601933237110756,
+   "se_batch": 0.0028635455408965484,
+   "se_naive": 0.0022935459882800473,
+   "tol": 0.01,
+   "cls": "GUE"
+  },
+  "zeros3": {
+   "role": "SEEN replication: 10^12+1..+10^4",
+   "n_ratios": 9998,
+   "r_mean": 0.6000390287441087,
+   "se_batch": 0.0027262279201804257,
+   "se_naive": 0.002324172452043984,
+   "tol": 0.01,
+   "cls": "GUE"
+  }
+ },
+ "ensembles": {
+  "a_dense_real_pm1": {
+   "role": "REAL-PM1 (kill-eligible)",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9920,
+     "r_mean": 0.5372633439358461,
+     "se": 0.003376464723739902,
+     "tol": 0.010129394171219705,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 4.1
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9960,
+     "r_mean": 0.5291738621027171,
+     "se": 0.003396728581651613,
+     "tol": 0.010190185744954838,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 11.6
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9980,
+     "r_mean": 0.5278723018446478,
+     "se": 0.002632424215565816,
+     "tol": 0.01,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 10.4
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GOE"
+  },
+  "a0_dense_real_pm1_zero_diag (REPORT A)": {
+   "role": "REAL-PM1 (kill-eligible, seen replication)",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9920,
+     "r_mean": 0.5264238667703327,
+     "se": 0.002992566265967711,
+     "tol": 0.01,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 5.1
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9960,
+     "r_mean": 0.5266056720896435,
+     "se": 0.0037662958316993177,
+     "tol": 0.011298887495097953,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 5.4
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9980,
+     "r_mean": 0.5270760192615073,
+     "se": 0.0018633143739299153,
+     "tol": 0.01,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 19.1
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GOE"
+  },
+  "b_dense_hermitian_Z4": {
+   "role": "COMPLEX (must be GUE for REDUCES-TO-KNOWN)",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9920,
+     "r_mean": 0.5970821732658999,
+     "se": 0.0033605433323149335,
+     "tol": 0.010081629996944801,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 12.6
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9960,
+     "r_mean": 0.6018905710892896,
+     "se": 0.0035547921406427247,
+     "tol": 0.010664376421928174,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 32.7
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9980,
+     "r_mean": 0.5990785664231258,
+     "se": 0.0020241788231204487,
+     "tol": 0.01,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 60.5
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GUE"
+  },
+  "c_sparse_real_pm1_deg4 (REPORT F)": {
+   "role": "REAL-PM1 (kill-eligible)",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9461,
+     "r_mean": 0.5319313233524623,
+     "se": 0.0029365629794083875,
+     "tol": 0.01,
+     "cls": "GOE",
+     "dropped_degenerate": 459,
+     "secs": 1.8
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9567,
+     "r_mean": 0.5322032302524243,
+     "se": 0.0022550744032286685,
+     "tol": 0.01,
+     "cls": "GOE",
+     "dropped_degenerate": 393,
+     "secs": 10.0
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9540,
+     "r_mean": 0.526710949111939,
+     "se": 0.004139972995494928,
+     "tol": 0.012419918986484785,
+     "cls": "GOE",
+     "dropped_degenerate": 440,
+     "secs": 16.2
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GOE"
+  },
+  "d1_chain_real (REPORT C)": {
+   "role": "REAL-PM1 (kill-eligible)",
+   "sizes": {
+    "10": {
+     "samples": 20,
+     "n_ratios": 10200,
+     "r_mean": 0.5272666895107606,
+     "se": 0.006024816449442374,
+     "tol": 0.01807444934832712,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 18.9
+    },
+    "12": {
+     "samples": 4,
+     "n_ratios": 8184,
+     "r_mean": 0.5069660122360113,
+     "se": 0.025550917227688184,
+     "tol": 0.07665275168306455,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 34.1
+    }
+   },
+   "final_size": 12,
+   "final_cls": "GOE"
+  },
+  "d2_chain_complex (REPORT D)": {
+   "role": "COMPLEX control (reported only)",
+   "sizes": {
+    "10": {
+     "samples": 20,
+     "n_ratios": 10200,
+     "r_mean": 0.600832957593411,
+     "se": 0.002740261161128165,
+     "tol": 0.01,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 14.3
+    },
+    "12": {
+     "samples": 4,
+     "n_ratios": 8184,
+     "r_mean": 0.6086957205595201,
+     "se": 0.004514858726434325,
+     "tol": 0.013544576179302974,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 95.2
+    }
+   },
+   "final_size": 12,
+   "final_cls": "GUE"
+  },
+  "ref_GOE_gaussian": {
+   "role": "INSTRUMENT",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9920,
+     "r_mean": 0.5287950799331307,
+     "se": 0.0034773809584393942,
+     "tol": 0.010432142875318183,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 7.4
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9960,
+     "r_mean": 0.5378205804194335,
+     "se": 0.003370686097125738,
+     "tol": 0.010112058291377214,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 10.5
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9980,
+     "r_mean": 0.5359250743865853,
+     "se": 0.003404138789091036,
+     "tol": 0.010212416367273108,
+     "cls": "GOE",
+     "dropped_degenerate": 0,
+     "secs": 20.7
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GOE"
+  },
+  "ref_GUE_gaussian": {
+   "role": "INSTRUMENT",
+   "sizes": {
+    "500": {
+     "samples": 40,
+     "n_ratios": 9920,
+     "r_mean": 0.602931960994873,
+     "se": 0.002800536580630051,
+     "tol": 0.01,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 17.9
+    },
+    "1000": {
+     "samples": 20,
+     "n_ratios": 9960,
+     "r_mean": 0.5962046804975929,
+     "se": 0.00468733389747938,
+     "tol": 0.01406200169243814,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 21.4
+    },
+    "2000": {
+     "samples": 10,
+     "n_ratios": 9980,
+     "r_mean": 0.5952893804267801,
+     "se": 0.003223195861529412,
+     "tol": 0.01,
+     "cls": "GUE",
+     "dropped_degenerate": 0,
+     "secs": 54.9
+    }
+   },
+   "final_size": 2000,
+   "final_cls": "GUE"
+  }
+ },
+ "verdict": "REDUCES-TO-KNOWN",
+ "reason": "zeros GUE, no real +-1 class GUE, complex Z4 class GUE: Wigner-Dyson universality + Montgomery-Odlyzko"
+}

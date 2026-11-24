@@ -1044,5 +1044,251 @@
     "year": 2003,
     "identifier": "doi:10.1016/b0-08-043751-6/03016-4",
     "verified": true
+  },
+  {
+    "id": "renou2021",
+    "title": "Quantum theory based on real numbers can be experimentally falsified",
+    "authors": [
+      "M.-O. Renou",
+      "D. Trillo",
+      "M. Weilenmann",
+      "T. P. Le",
+      "A. Tavakoli",
+      "N. Gisin",
+      "A. Acín",
+      "M. Navascués"
+    ],
+    "year": 2021,
+    "identifier": "doi:10.1038/s41586-021-04160-4",
+    "verified": true
+  },
+  {
+    "id": "chen2022-real-qt",
+    "title": "Ruling Out Real-Valued Standard Formalism of Quantum Theory",
+    "authors": [
+      "M.-C. Chen",
+      "C. Wang",
+      "F.-M. Liu",
+      "J.-W. Wang",
+      "et al."
+    ],
+    "year": 2022,
+    "identifier": "doi:10.1103/PhysRevLett.128.040403",
+    "verified": true
+  },
+  {
+    "id": "li2022-real-qt",
+    "title": "Testing Real Quantum Theory in an Optical Quantum Network",
+    "authors": [
+      "Z.-D. Li",
+      "Y.-L. Mao",
+      "M. Weilenmann",
+      "A. Tavakoli",
+      "et al."
+    ],
+    "year": 2022,
+    "identifier": "doi:10.1103/PhysRevLett.128.040402",
+    "verified": true
+  },
+  {
+    "id": "masanes-muller2011",
+    "title": "A derivation of quantum theory from physical requirements",
+    "authors": [
+      "L. Masanes",
+      "M. P. Müller"
+    ],
+    "year": 2011,
+    "identifier": "doi:10.1088/1367-2630/13/6/063001",
+    "verified": true
+  },
+  {
+    "id": "hardy-wootters2012",
+    "title": "Limited Holism and Real-Vector-Space Quantum Theory",
+    "authors": [
+      "L. Hardy",
+      "W. K. Wootters"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1007/s10701-011-9616-6",
+    "verified": true
+  },
+  {
+    "id": "odlyzko1987",
+    "title": "On the distribution of spacings between zeros of the zeta function",
+    "authors": [
+      "A. M. Odlyzko"
+    ],
+    "year": 1987,
+    "identifier": "doi:10.1090/S0025-5718-1987-0866115-0",
+    "verified": true
+  },
+  {
+    "id": "atas2013",
+    "title": "Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles",
+    "authors": [
+      "Y. Y. Atas",
+      "E. Bogomolny",
+      "O. Giraud",
+      "G. Roux"
+    ],
+    "year": 2013,
+    "identifier": "doi:10.1103/PhysRevLett.110.084101",
+    "verified": true
+  },
+  {
+    "id": "erdos-yau-yin2012",
+    "title": "Bulk universality for generalized Wigner matrices",
+    "authors": [
+      "L. Erdős",
+      "H.-T. Yau",
+      "J. Yin"
+    ],
+    "year": 2012,
+    "identifier": "doi:10.1007/s00440-011-0390-3",
+    "verified": true
+  },
+  {
+    "id": "tao-vu2011",
+    "title": "Random matrices: Universality of local eigenvalue statistics",
+    "authors": [
+      "T. Tao",
+      "V. Vu"
+    ],
+    "year": 2011,
+    "identifier": "doi:10.1007/s11511-011-0061-3",
+    "verified": true
+  },
+  {
+    "id": "ambjorn-jurkiewicz-loll2005",
+    "title": "The Spectral Dimension of the Universe is Scale Dependent",
+    "authors": [
+      "J. Ambjørn",
+      "J. Jurkiewicz",
+      "R. Loll"
+    ],
+    "year": 2005,
+    "identifier": "doi:10.1103/PhysRevLett.95.171301",
+    "verified": true
+  },
+  {
+    "id": "eichhorn-mizera2014",
+    "title": "Spectral dimension in causal set quantum gravity",
+    "authors": [
+      "A. Eichhorn",
+      "S. Mizera"
+    ],
+    "year": 2014,
+    "identifier": "doi:10.1088/0264-9381/31/12/125007",
+    "verified": true
+  },
+  {
+    "id": "zhou-yan-wang2005",
+    "title": "Maximal planar networks with large clustering coefficient and power-law degree distribution",
+    "authors": [
+      "T. Zhou",
+      "G. Yan",
+      "B.-H. Wang"
+    ],
+    "year": 2005,
+    "identifier": "doi:10.1103/PhysRevE.71.046141",
+    "verified": true
+  },
+  {
+    "id": "inglehart-baker2000",
+    "title": "Modernization, Cultural Change, and the Persistence of Traditional Values",
+    "authors": [
+      "R. Inglehart",
+      "W. E. Baker"
+    ],
+    "year": 2000,
+    "identifier": "doi:10.2307/2657288",
+    "verified": true
+  },
+  {
+    "id": "wvs-trend-1981-2022",
+    "title": "World Values Survey (1981-2022). Trend File (DOI record version 4.0; the forge used the v4.1 SPSS file)",
+    "authors": [
+      "C. Haerpfer",
+      "R. Inglehart",
+      "A. Moreno",
+      "C. Welzel",
+      "K. Kizilova",
+      "J. Diez-Medrano",
+      "et al."
+    ],
+    "year": 2024,
+    "identifier": "doi:10.14281/18241.27",
+    "verified": true
+  },
+  {
+    "id": "evs-trend-za7503",
+    "title": "EVS Trend File 1981-2017 (ZA7503, v3.0.0)",
+    "authors": [
+      "EVS"
+    ],
+    "year": 2022,
+    "identifier": "doi:10.4232/1.14021",
+    "verified": true
+  },
+  {
+    "id": "maddison2023",
+    "title": "Maddison Project Database 2023",
+    "authors": [
+      "J. Bolt",
+      "J. L. van Zanden"
+    ],
+    "year": 2024,
+    "identifier": "doi:10.34894/INZBF2",
+    "verified": true
+  },
+  {
+    "id": "ovchynnikov2026",
+    "title": "The cosmological lithium problem and how decaying relics still solve it",
+    "authors": [
+      "M. Ovchynnikov"
+    ],
+    "year": 2026,
+    "identifier": "arxiv:2611.26691",
+    "verified": true
+  },
+  {
+    "id": "korn2006",
+    "title": "A probable stellar solution to the cosmological lithium discrepancy",
+    "authors": [
+      "A. J. Korn",
+      "F. Grundahl",
+      "O. Richard",
+      "P. S. Barklem",
+      "L. Mashonkina",
+      "R. Collet",
+      "N. Piskunov",
+      "B. Gustafsson"
+    ],
+    "year": 2006,
+    "identifier": "doi:10.1038/nature05011",
+    "verified": true
+  },
+  {
+    "id": "harari1979",
+    "title": "A schematic model of quarks and leptons",
+    "authors": [
+      "H. Harari"
+    ],
+    "year": 1979,
+    "identifier": "doi:10.1016/0370-2693(79)90626-9",
+    "verified": true
+  },
+  {
+    "id": "takahashi2001",
+    "title": "Three-Quark Potential in SU(3) Lattice QCD",
+    "authors": [
+      "T. T. Takahashi",
+      "H. Matsufuru",
+      "Y. Nemoto",
+      "H. Suganuma"
+    ],
+    "year": 2001,
+    "identifier": "doi:10.1103/PhysRevLett.86.18",
+    "verified": true
   }
 ]

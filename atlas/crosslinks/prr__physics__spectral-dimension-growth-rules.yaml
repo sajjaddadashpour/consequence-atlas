@@ -1,0 +1,24 @@
+id: x.prr.spectral-dimension-growth-rules
+a:
+  field: prr
+  pattern: "Candidate PRR locality rules that grow a graph from +-1 pairs without putting in a dimension: R1 'born together, with closure' (random 2-tree) and R2 stacked-simplex growth (random Apollonian network). PRR's A1, A2 and D2 do not fix a graph, so only named rules can be tested."
+  refs:
+  - prr.a1-directional-alphabet
+  - prr.d2-mirroring
+b:
+  field: physics
+  pattern: "A geometry that looks four-dimensional at large scale has spectral dimension d_s ~ 4 (return probability of a random walk P(sigma) ~ sigma^(-d_s/2) over a scaling window), as in causal dynamical triangulations (Ambjorn, Jurkiewicz and Loll 2005)."
+connection: "None known yet. Forge H3 (Mathematician; lock 218a3a9, outputs a093cf4) measured large-scale d_s with a continuous-time walk at n = 10^5, 3 seeds, band [3.7, 4.3]. R1 (random 2-tree): mean d_s 2.306, KILLED. R2 (random Apollonian): mean d_s 2.600, KILLED. PRR-level: NOT-TESTABLE-YET, because PRR has no locality rule yet. Caveat: both rules make planar graphs by construction, so a result around 2 to 3 says little about higher-dimensional rules. Control R3 (a 4D causal set, which imports d = 4 by hand) gave NO-WINDOW in 3/3 seeds at n = 10^4; it is context only. The instruments passed (Z4 torus 4.125, Z2 torus 2.015)."
+label: CONJECTURE
+support: mathematics
+claim: pattern
+breaks_if: "This is open, not a link. A named PRR locality rule with no dimension put in that gives d_s, both half-window fits, and all 3 seeds inside [3.7, 4.3] at its largest locked size would turn it into a positive (still CONJECTURE that the rule is PRR's). R1 and R2 have already failed that test under H3-LOCK."
+sources:
+- ambjorn-jurkiewicz-loll2005
+- eichhorn-mizera2014
+- zhou-yan-wang2005
+status: active
+proposed_by: mathematician
+notes: "Forge verdicts under H3-LOCK section 6: R1 KILLED (n=10^5 seeds d_s 2.147, 2.294, 2.476), R2 KILLED (2.680, 2.540, 2.581), PRR-level NOT-TESTABLE-YET. At n=10^4, R2 seeds 2 and 3 were SATURATED. The runner prints 'RULE R3: KILLED -- NO-WINDOW in 3/3 seeds'; R3 is the imported-dimension control, so the atlas reports it as NO-WINDOW and draws no PRR conclusion from it (consistent with Eichhorn and Mizera 2014, which the lock cites for nonlocal causal-set links). Files: docs/forge/2026-11-23-math-h1-h3/ (H3-LOCK.md, code/h3_run.py, out/h3_output.txt). REPORT.md calls this item H4. The forge verdict words are recorded here, not as atlas labels. Rung 0: no claim about a real system."
+evidence_rung: 0
+model_exists: false
