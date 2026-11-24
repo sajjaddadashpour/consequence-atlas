@@ -1,0 +1,35 @@
+id: x.prr.berry-number-variance
+a:
+  field: prr
+  pattern: "A Hilbert-Polya reading of PRR: the Riemann zeros as the spectrum of some operator built from readings, with the primes playing the part of its periodic orbits ('primes as a spectrum')."
+  refs:
+  - prr.a1-directional-alphabet
+b:
+  field: physics
+  pattern: "Berry's semiclassical formula for the number variance Sigma^2(L) of the Riemann zeros: GUE behaviour for L well below L_max = ln(E/2pi)/(2pi ln 2), and saturation beyond it, computed from prime powers treated as periodic orbits (Berry 1985, 1988)."
+connection: "Analogy only for PRR; the physics-number theory link is Berry's. Forge H8 (Mathematician; lock 14e7826, outputs 3b8fd8d) replicates a Zenodo deposit by D. Hess (2026), which is a preprint and not peer-reviewed. On Odlyzko's zeros #10^21+1 to #10^21+10^4 and #10^22+1 to #10^22+10^4, in the saturation regime (L from about 2 L_max to 50), Berry's formula fits (z = 0.94 and 1.07) and pure GUE is excluded (z = 39.6 and 49.9); both windows are also GUE-consistent at small L. Forge verdict REDUCES-TO-KNOWN (Berry 1988 confirmed; replication of Hess). The PRR link holds only if the zeros are a PRR operator's spectrum (Hilbert-Polya), which is ANALOGY-ONLY."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "Under H8-LOCK: in either decisive window, Berry misfits at small L (z > 3), or, with the saturation regime powered, Berry misfits there (z > 3) or fits no better than GUE. Neither happened. The PRR link can only move off ANALOGY-ONLY if PRR defines an operator whose periodic orbits are the primes."
+analogy:
+  positive:
+  - "In Berry's picture the primes act like periodic orbits of a chaotic system without time-reversal symmetry, and the zeros like its quantum levels; the data follow that picture."
+  negative:
+  - "No PRR operator exists whose spectrum is the zeros or whose orbits are the primes."
+  - "The fit tests Berry's semiclassical formula, which is number theory plus semiclassics; nothing PRR-specific enters."
+  neutral:
+  - "Whether a PRR composition rule could define a classical dynamics with prime-length orbits."
+sources:
+- berry1985
+- berry1988
+- hess2026-zenodo
+- odlyzko1987
+- hesse1966
+status: active
+proposed_by: mathematician
+notes: "H8-LOCK decision rule per decisive window (zeros4, zeros5): G_consistent and powered (P_BG >= 3) and z_Berry,S <= 2 and z_GUE,S >= 3. Values: zeros4 G z_Berry 1.15 / z_GUE 1.09, S z_Berry 0.94 / z_GUE 39.61, power 40.07; zeros5 G 1.00 / 1.24, S 1.07 / 49.91, power 49.79. Seen replication zeros3 (#10^12): S z_Berry 0.90 / z_GUE 82.19, not scored. Berry vs Cramer random primes sub-question: the lock's a-priori power estimate (theory curves with a Gaussian SE model) expected NOT-TESTABLE-YET (< 1 sigma), but the locked rule computes power from the data SE, which gave 11.36 and 14.16, so under the lock the output reads 'Berry beats every Cramer set' in both windows (minimum z_Cramer,S 3.01 and 7.53 against the >= 3 bar; zeros4 is at the edge). That sub-question was not part of the headline verdict. The 'GUE 15-82%' figure attributed to Hess comes from his GitHub README, not the Zenodo abstract (PROPOSALS-errata (b)). Hess's deposit states MIT code and CC BY 4.0 text and data. H8 full locked run reproduced byte for byte on the box. Files: docs/forge/2026-11-23-math-h6-h11/ (H8-LOCK.md, code/h8_berry_locked.py, out/h8_result.json; zero tables not included, see PROVENANCE.md)."
+evidence_rung: 0
+model_exists: true
+model_refs:
+- berry1988

@@ -1,0 +1,4 @@
+SMOKE R4a n=100: edges=390 mean_deg=7.80 min_deg=4 connected_frac=1.00 symmetric=True
+SMOKE R4b n=100: edges=390 mean_deg=7.80 min_deg=4 connected_frac=1.00 symmetric=True
+SMOKE R5a n=100: edges=485 mean_deg=9.70 min_deg=5 connected_frac=1.00 symmetric=True
+SMOKE R5b n=100: edges=485 mean_deg=9.70 min_deg=5 connected_frac=1.00 symmetric=True

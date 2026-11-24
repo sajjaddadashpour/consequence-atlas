@@ -1,0 +1,9 @@
+Berry check at x=1e11 (E=2.677e+11):
+  L_max = ln(E/2pi)/(2 pi ln2) = 5.62   (Berry: 5.62)
+  longest wavelength ln(E/2pi)/ln2 = 35.31   (Berry: 35.31)
+  eq.(23) (ln ln(E/2pi)+1.4009)/pi^2 = 0.4659   (Berry: 0.4659)
+  tau*=1/4 -> prime powers up to 454, largest included 449  (Berry: p^r <= 449)
+  eq.(21) with sin^2=1/2: 0.4663   (Berry: 0.4663)
+  mean of full formula over L in [200,1000): 0.4659
+  small L: V_berry [0.09   0.2791 0.34   0.4017]  V_GUE [0.0901 0.2802 0.3442 0.4157]
+GUE matrices N=400 x200, bulk half, Sigma^2: [0.2799 0.3419 0.4134 0.4561]  exact GUE: [0.2802 0.3442 0.4157 0.4571]

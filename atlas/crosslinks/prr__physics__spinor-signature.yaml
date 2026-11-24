@@ -1,0 +1,32 @@
+id: x.prr.spinor-signature
+a:
+  field: prr
+  pattern: "A PRR claim under test: the +-1 sign choice, plus a demand for real (Majorana) spinors and one time dimension, forces 3+1 spacetime."
+  refs:
+  - prr.a1-directional-alphabet
+b:
+  field: physics
+  pattern: "Clifford algebras Cl(p,q) (p generators squaring to +1, q to -1) are simple real matrix algebras, which allows real spinors, exactly when (p - q) mod 8 is 0 or 2. Cl(3,1) is M4(R); Cl(1,3) is M2(H), so the two sign conventions differ at spinor level (Pin(3,1) vs Pin(1,3))."
+connection: "Analogy only. 'PRR forces 3+1' is KILLED: with one time dimension and up to 10 space dimensions, the real-spinor criterion allows (1,1), (3,1) and (9,1). 'Compatible with 3+1' is the most that survives (REDUCES-TO-KNOWN / ANALOGY-ONLY); it gives the sign convention spinor-level content. Picking p = 3 needs Tegmark 1997's stability and complexity arguments, and q = 1 needs his predictability argument; both are IMPORTED. The criterion itself is ASSUMED, not derived from A1, and was chosen after seeing that it picks (3,1) at p + q = 4, so it is post hoc."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "The 'forces' kill is fixed by the mod-8 classification. The record would change only if PRR derived, from its own rules and locked before checking, an argument that excludes (1,1) and (9,1)."
+analogy:
+  positive:
+  - "PRR's choice of sign for the time direction and the Clifford sign convention both decide whether spinors can be real, and (3,1) is one of the signatures that allows them."
+  negative:
+  - "(1,1) and (9,1) pass the same criterion, so the sign choice does not select 3+1."
+  - "The real-spinor criterion is ASSUMED; A1 does not imply it."
+  - "Choosing three space dimensions and one time dimension uses imported physics (Tegmark 1997), not PRR."
+  neutral:
+  - "Majorana reality sits inside complex quantum mechanics (compare x.prr.complex-amplitudes-required); compatible, but it must be stated."
+sources:
+- tegmark1997
+- berg-dewitt-morette2001
+- hesse1966
+status: active
+proposed_by: mathematician
+notes: "Forge H10 (lock 14e7826, outputs 3b8fd8d), a derivation audit locked so the verdict cannot drift: 'forces 3+1' KILLED; 'compatible' REDUCES-TO-KNOWN / ANALOGY-ONLY. out/h10_output.txt reproduces the p + q = 4 table (real 4x4 representations only for Cl(2,2) and Cl(3,1)); the q = 1, p <= 10 enumeration giving p in {1, 3, 9} is DERIVED in H10-LOCK (p - 1 mod 8 in {0, 2}) and is not printed by the code. Convention per Lounesto 2001 and Berg et al. 2001; under the opposite convention the labels swap but the physics statement does not. Tegmark 1997 cited via the existing arXiv source (gr-qc/9702052; journal Class. Quantum Grav. 14, L69, Crossref-checked). H10 reproduced on the box. The forge verdict words are recorded here, not as atlas labels."
+evidence_rung: 0
+model_exists: false

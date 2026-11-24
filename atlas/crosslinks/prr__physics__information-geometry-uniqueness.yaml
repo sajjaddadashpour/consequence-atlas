@@ -1,0 +1,23 @@
+id: x.prr.information-geometry-uniqueness
+a:
+  field: prr
+  pattern: "A PRR claim under test: the geometry of +-1 possibilities (two-outcome readings, or a qubit's states) is unique."
+  refs:
+  - prr.a1-directional-alphabet
+b:
+  field: physics
+  pattern: "Monotone (contractive) Riemannian metrics on state spaces: on classical probability distributions the Fisher metric is the unique one up to scale (Cencov; Campbell 1986); on mixed quantum states there is an infinite family, one for each operator-monotone function (Petz 1996)."
+connection: "The uniqueness claim is KILLED for mixed quantum states: the Wigner-Yanase, Kubo-Mori/BKM and RLD metrics differ from the SLD/Bures metric on tangential directions of mixed qubit states (forge H9 ratios to SLD at Bloch radius r = 0.5: 1.072, 1.099, 1.333; at r = 0.99: 1.753, 2.673, 50.25), while all agree on commuting directions. Classically it reduces to known (Cencov). On pure states, Fubini-Study is unique only by assuming unitary invariance, which is IMPORTED, not supplied by +-1. Guard rail: any 'PRR fixes a unique geometry' link must be restricted to classical or pure-state readings and must name that assumption."
+label: CONJECTURE
+support: mathematics
+claim: pattern
+breaks_if: "The quantum kill is theorem-fixed (Petz 1996) and cannot be undone by data. The record changes only if PRR states which states its readings are (classical distributions, pure states, or mixed states) and which symmetry it assumes; then the matching theorem decides it."
+sources:
+- petz1996
+- cencov1982
+- campbell1986
+status: contested
+proposed_by: mathematician
+notes: "Forge H9 (lock 14e7826, outputs 3b8fd8d): verdict KILLED (quantum uniqueness), recorded as already decided by theorem before the run; code/h9_petz.py is an illustration and reproduced byte for byte on the box. Classical uniqueness: REDUCES-TO-KNOWN (Cencov). Pure states: REDUCES-TO-KNOWN only with IMPORTED unitary invariance. Label CONJECTURE because the PRR side is not defined; status contested because the claim as stated is killed for mixed states. Petz 1996 checked on Crossref (title, journal, volume 244, pages 81-96); the operator-monotone characterization is taken from the lock (Crossref has no abstract). Cencov's monograph: Crossref lists the AMS 2000 reprint of the 1982 translation. Files: docs/forge/2026-11-23-math-h6-h11/ (H9-LOCK.md, code/h9_petz.py, out/h9_result.json)."
+evidence_rung: 0
+model_exists: false

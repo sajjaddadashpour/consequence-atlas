@@ -1,0 +1,37 @@
+id: x.prr.sign-line-cycle-weight
+a:
+  field: prr
+  pattern: "PRR A1: readings are +1 or -1, and D2 says mirrored readings are born together and sum to zero. The PRR reading under test: the -1 matters."
+  refs:
+  - prr.a1-directional-alphabet
+  - prr.d2-mirroring
+b:
+  field: computing
+  pattern: "The cycle-weighted sum Z_y(A) = sum over permutations pi of y^c(pi) prod_i A_i,pi(i) (c = number of cycles) interpolates between the permanent (y = +1, #P-hard; Valiant 1979) and (-1)^n times the determinant (y = -1, polynomial time). On the cover polynomial's cycle line, the only easy points are y = 0 and y = -1."
+connection: "Analogy only. What singles out y = -1 is that (-1)^(n - c(pi)) = sgn(pi) is a group character of S_n, so the determinant is multiplicative and Gaussian elimination works. 'Cancellation makes it easy' is KILLED as a slogan: the uniform average y(y+1)...(y+n-1) also vanishes at y = -2, ..., -(n-1), and those points are hard (y = -2 is parity-P-hard, y = -3, -4, ... #P-hard; Mertens and Moore 2013); and every immanant with lambda != (n) cancels on average while its complexity varies with b(lambda) (Curticapean 2021). Forge H6 (Mathematician; lock 14e7826, outputs 3b8fd8d), random 0/1 matrices: on the circle y = e^(i theta), theta = pi gives the strict minimum of the median of log(|Z_y|/per) at n = 8, 9 and 10 (median at pi -5.333, -6.103, -7.081 vs the next lowest -4.103, -4.913, -5.473; bootstrap 95% CI of median(pi) - median(11pi/12) entirely below 0), and the mean-field law holds at n = 10. Immanant cancellation vs b(lambda) at n = 9 (29 partitions): Spearman rho = -0.26, 95% CI [-0.38, -0.18], weak but real, and opposite in sign to 'cancellation implies easy'. The math conjecture SURVIVED this test; the PRR-level verdict is REDUCES-TO-KNOWN."
+label: ANALOGY-ONLY
+support: analogy
+claim: pattern
+breaks_if: "For the math: a polynomial-time algorithm for Z_y at any y outside {0, -1} (which would collapse #P-hardness), or a locked rerun where some theta < pi has typical cancellation at least as deep as theta = pi. For the PRR reading: it can only move off ANALOGY-ONLY if PRR derives from its own rules that its -1 acts as a group character (a homomorphism), not just as a sign that cancels."
+analogy:
+  positive:
+  - "PRR's -1 and the y = -1 cycle weight are both the mirror of +1, and at y = -1 the uniform average over permutations cancels exactly."
+  - "The point that is easy is the one where the weight is the sign character, the algebraic form of 'mirror'."
+  negative:
+  - "Exact cancellation is not what makes y = -1 easy: y = -2 ... -(n-1) also cancel and are hard, and cancelling immanants span the whole complexity range."
+  - "PRR defines no matrix, permutation sum or group action, so nothing in PRR selects a homomorphism."
+  neutral:
+  - "Whether PRR's mirroring rule, once given a composition rule, is multiplicative in the way sgn is."
+sources:
+- valiant1979
+- blaser-dell2007
+- blaser-dell-fouz2012
+- kotek-makowsky-ravve2013
+- mertens-moore2013
+- curticapean2021
+- hesse1966
+status: active
+proposed_by: mathematician
+notes: "Forge verdicts under H6-LOCK section 4: instrument gate passed; T1a (mean field at n = 10) passed; T1b (theta = pi strict minimum at n = 8, 9, 10 with CI < 0) passed; T2 PASS (|rho| <= 0.6) at n = 9; so the math conjecture is SURVIVED and the PRR level REDUCES-TO-KNOWN. The slogan kill was DERIVED before the run. T2 at n = 7 and 8 (reported, not scored): rho = 0.04 [-0.23, 0.17] and -0.47 [-0.59, -0.18]. Statistic is the median of log(|Z_y|/per), not of log|Z_y|. Easy-point list (0,0), (0,-1), (1,-1) for the Chung-Graham cover polynomial is taken from the Kotek-Makowsky-Ravve survey (verified in its author PDF, section 3.3); the Bläser-Dell and Bläser-Dell-Fouz abstracts say only 'three points are easy'. Unverified (PROPOSALS-errata (c)): whether hardness is proved for all complex y, and whether it holds for unweighted 0/1 digraphs; T1/T2 are numerical and do not depend on either. y = -2 is parity-P-hard by Mertens-Moore, not #P-hard (errata (d)). Independent of the unreviewed VP != VNP claim posted at hexagonmath.org (id 2611.00954v1, not an arXiv id); it is not used as a premise. H6 full locked run reproduced on the box (identical except the timestamp). Files: docs/forge/2026-11-23-math-h6-h11/ (H6-LOCK.md, code/h6_run.py, code/symn.py, out/h6_result.json). The forge verdict words are recorded here, not as atlas labels."
+evidence_rung: 0
+model_exists: false

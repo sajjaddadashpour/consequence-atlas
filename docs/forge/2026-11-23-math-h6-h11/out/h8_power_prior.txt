@@ -1,0 +1,6 @@
+zeros3 E0=2.677e+11 L_max=5.620 regime G L=[0.25,2.0] n=8: power Berry-vs-GUE=1.10  Berry-vs-Cramer median=1.85 (range 0.16-4.43); mean rel. gap Berry-GUE=0.016
+zeros3 E0=2.677e+11 L_max=5.620 regime S L=[11.5,50.0] n=78: power Berry-vs-GUE=6.25  Berry-vs-Cramer median=1.10 (range 0.83-2.23); mean rel. gap Berry-GUE=0.486
+zeros4 E0=1.442e+20 L_max=10.236 regime G L=[0.25,2.0] n=8: power Berry-vs-GUE=0.41  Berry-vs-Cramer median=0.67 (range 0.16-1.44); mean rel. gap Berry-GUE=0.006
+zeros4 E0=1.442e+20 L_max=10.236 regime S L=[20.5,50.0] n=60: power Berry-vs-GUE=3.36  Berry-vs-Cramer median=0.83 (range 0.37-1.52); mean rel. gap Berry-GUE=0.281
+zeros5 E0=1.371e+21 L_max=10.753 regime G L=[0.25,2.0] n=8: power Berry-vs-GUE=0.38  Berry-vs-Cramer median=0.59 (range 0.02-1.95); mean rel. gap Berry-GUE=0.006
+zeros5 E0=1.371e+21 L_max=10.753 regime S L=[22.0,50.0] n=57: power Berry-vs-GUE=3.14  Berry-vs-Cramer median=0.88 (range 0.55-1.64); mean rel. gap Berry-GUE=0.266

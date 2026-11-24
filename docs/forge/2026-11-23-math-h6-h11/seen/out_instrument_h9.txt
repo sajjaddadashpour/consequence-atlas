@@ -1,0 +1,5 @@
+radial (classical) r=0.0:  {'SLD/Bures (min)': np.float64(1.0), 'Wigner-Yanase': np.float64(1.0), 'Kubo-Mori/BKM': np.float64(1.0), 'RLD (max)': np.float64(1.0)}  Fisher 1/(1-r^2)=1.000000
+radial (classical) r=0.3:  {'SLD/Bures (min)': np.float64(1.098901), 'Wigner-Yanase': np.float64(1.098901), 'Kubo-Mori/BKM': np.float64(1.098901), 'RLD (max)': np.float64(1.098901)}  Fisher 1/(1-r^2)=1.098901
+radial (classical) r=0.9:  {'SLD/Bures (min)': np.float64(5.263158), 'Wigner-Yanase': np.float64(5.263158), 'Kubo-Mori/BKM': np.float64(5.263158), 'RLD (max)': np.float64(5.263158)}  Fisher 1/(1-r^2)=5.263158
+tangential at r=0 (maximally mixed): {'SLD/Bures (min)': np.float64(1.0), 'Wigner-Yanase': np.float64(1.0), 'Kubo-Mori/BKM': np.float64(1.0), 'RLD (max)': np.float64(1.0)}
+Cencov (classical) uniqueness reproduced on the commuting direction: True
