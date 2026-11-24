@@ -1,0 +1,28 @@
+id: x.physics.excited-neutron-bbn-helium
+a:
+  field: physics
+  pattern: "The neutron lifetime puzzle: beam experiments measure a longer lifetime than bottle experiments (Δτ = 8.6 ± 2.2 s in Koch and Hummel 2024). Koch and Hummel propose that free neutrons fresh from reactions can sit in long-lived excited states n* that beta-decay more slowly and drop to the ground state by photon emission, between beam and bottle timescales."
+b:
+  field: chemistry
+  pattern: "Primordial element abundances left by big-bang nucleosynthesis: helium-4 mass fraction Yp = 0.245 ± 0.003 and D/H = (25.08 ± 0.29) × 10⁻⁶ (PDG 2025 review)."
+connection: "If n* couples to photons, the hot early-universe plasma holds it in thermal balance with the ground state, so extra neutron states take part in weak freeze-out (Silagadze 2026). In the open BBN code PRyMordial (Burns, Tait & Valli 2024; commit 725d8a8), with detailed balance enforced on the neutron–proton rates, every testable point gives Yp 0.39–0.81 and D/H 3.5–30 × 10⁻⁵, far outside the measured 2σ ranges (Yp 0.239–0.251, D/H 2.450–2.566 × 10⁻⁵). The standard-model control in the same code gives Yp 0.2469 and D/H 2.454 × 10⁻⁵, inside both. This excludes the thermally coupled version of the excited-neutron idea. It says nothing about an n* that does not couple to photons or that decays into a dark sector. Context check only, not a test of PRR: what was KILLED is Koch and Hummel's excited-neutron model, which lies outside standard physics, and PRR neither predicts nor forbids it, so this carries no PRR verdict and does not count toward PRR's own tally."
+label: CONJECTURE
+support: mechanism
+claim: cause
+breaks_if: "A BBN calculation with the same detailed-balance mapping that keeps Yp within 0.239–0.251 and D/H within 2.450–2.566 × 10⁻⁵ for some photon-coupled n* with ΔE ≤ 30 keV in thermal balance; or a demonstration that photon-coupled n* does not reach thermal balance before weak freeze-out over the Koch–Hummel parameter range (as at the 8 untestable points, τ_γ = 100 s at 10–30 keV); or primordial abundance measurements revised to Yp ≥ 0.39."
+sources:
+- koch-hummel2024
+- silagadze2026
+- pdg2025-bbn
+- burns-tait-valli2024
+- aver2021
+- cooke2018
+- planck2018
+status: active
+proposed_by: chemist
+notes: "Context check only, not a test of PRR: what was KILLED is Koch and Hummel's excited-neutron model, which lies outside standard physics, and PRR neither predicts nor forbids it, so this carries no PRR verdict and does not count toward PRR's own tally. (The atlas has no schema tag for context checks; this wording is the marker.) CH-BBN-NSTAR-1 (Chemist; Physicist assigned and reviewed). Forge files: docs/forge/2026-11-24-chem-bbn-nstar/. Lock f30de3e, A1 f2d3690, A2 89eece1, A2 patch 45f325e, drift-flag note e95528d, run-1 score 0f15451, A2 score b3c1eb0, drift-flag clearance 9fc2211 (Chemist locks repo). Forge verdict KILLED for an excited neutron that couples to photons and stays in thermal balance with the ground state (16 of 24 grid points, all excluded by both Yp and D/H). 8 points (τ_γ = 100 s at ΔE = 10 and 30 keV) are NOT-TESTABLE-YET: they fail the locked thermal-balance cut. Dark-decay and no-photon-coupling variants are not covered; Koch and Hummel specify neither. Our helium at g*/g = 1 (0.392–0.397 when n* beta-decays in 887 s; 0.555–0.575 when it never decays) differs from Silagadze's 0.46–0.49, so REDUCES-TO-KNOWN was not earned. Both numerical predictions were wrong (Physicist about 0.45; Chemist 0.45–0.575 for finite τ_e), though both predicted KILLED. Run 1 showed a 'SURVIVED' half at τ_e = 887 s; that was a detailed-balance flaw in Chemist's lock mapping (the proton-to-neutron rate was not raised to match n*), recorded as a lock artifact and superseded by A2. A 3% drift flag (model n/p against its own equilibrium curve, relative to the SM) was raised at most points and cleared by Physicist: the never-decaying points run the run-1 code unchanged and still drift, and the sign follows the total weak rate. Reading it as freeze-out lag is CONJECTURE. Inputs: PRIMAT rates, full network, τ_n 878.4 s, Ω_b h² 0.02230 (Planck without BBN, as quoted in the PDG 2025 review), N_eff 3.044 from the code. Control matched the PRyMordial paper's Fig. 3 PRIMAT values (Yp 0.24689(11), D/H 2.459(26) × 10⁻⁵) within the locked tolerance. Aver 2021 (Yp 0.2453 ± 0.0034) and Cooke 2018 (D/H 2.527 ± 0.030 × 10⁻⁵) were cross-checks only. Label CONJECTURE because the mapping assumes n* rates scale by τ_g/τ_e in all three weak channels (ASSUMED) and because no non-equilibrium solver was run. Rung 1: a model compared against existing measurements; no intervention."
+evidence_rung: 1
+model_exists: true
+model_refs:
+- burns-tait-valli2024
+- koch-hummel2024

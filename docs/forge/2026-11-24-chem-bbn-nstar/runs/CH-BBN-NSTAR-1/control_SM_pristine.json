@@ -1,0 +1,17 @@
+{
+ "label": "control_SM_pristine",
+ "codedir": "/workspace/chemist/bbn-code/PRyMordial",
+ "tau_n": 878.4,
+ "Omegabh2": 0.0223,
+ "DeltaNeff": 0.0,
+ "rates_dir": "key_primat_rates/",
+ "nacreii": false,
+ "smallnet": false,
+ "Neff": 3.04438852027702,
+ "YPCMB": 0.24556141384182678,
+ "YPBBN": 0.24688731803869873,
+ "DoH_x1e5": 2.454486754073651,
+ "He3oH_x1e5": 1.0411947139172446,
+ "Li7oH_x1e10": 5.438591948397592,
+ "runtime_s": 7.663332462310791
+}

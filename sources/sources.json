@@ -1429,5 +1429,77 @@
     "year": 2001,
     "identifier": "doi:10.1142/S0129055X01000922",
     "verified": true
+  },
+  {
+    "id": "koch-hummel2024",
+    "title": "Exciting hint toward the solution of the neutron lifetime puzzle",
+    "authors": [
+      "B. Koch",
+      "F. Hummel"
+    ],
+    "year": 2024,
+    "identifier": "doi:10.1103/PhysRevD.110.073004",
+    "verified": true
+  },
+  {
+    "id": "silagadze2026",
+    "title": "Neutron lifetime puzzle and Dicke coherence in spontaneous decays",
+    "authors": [
+      "Z. K. Silagadze"
+    ],
+    "year": 2026,
+    "identifier": "arxiv:2611.29328",
+    "verified": true
+  },
+  {
+    "id": "pdg2025-bbn",
+    "title": "Review of Particle Physics 2025, 24. Big-Bang Nucleosynthesis (revised August 2025)",
+    "authors": [
+      "B. D. Fields",
+      "P. Molaro",
+      "S. Sarkar"
+    ],
+    "year": 2025,
+    "identifier": "url:https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-nucleosynthesis.pdf",
+    "verified": true
+  },
+  {
+    "id": "aver2021",
+    "title": "Improving helium abundance determinations with Leo P as a case study",
+    "authors": [
+      "E. Aver",
+      "D. A. Berg",
+      "K. A. Olive",
+      "R. W. Pogge",
+      "J. J. Salzer",
+      "E. D. Skillman"
+    ],
+    "year": 2021,
+    "identifier": "doi:10.1088/1475-7516/2021/03/027",
+    "verified": true
+  },
+  {
+    "id": "cooke2018",
+    "title": "One percent determination of the primordial deuterium abundance",
+    "authors": [
+      "R. J. Cooke",
+      "M. Pettini",
+      "C. C. Steidel"
+    ],
+    "year": 2018,
+    "identifier": "doi:10.3847/1538-4357/aaab53",
+    "verified": true
+  },
+  {
+    "id": "burns-tait-valli2024",
+    "title": "PRyMordial: the first three minutes, within and beyond the standard model",
+    "authors": [
+      "A.-K. Burns",
+      "T. M. P. Tait",
+      "M. Valli"
+    ],
+    "year": 2024,
+    "identifier": "doi:10.1140/epjc/s10052-024-12442-0",
+    "verified": true
   }
 ]

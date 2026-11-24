@@ -134,3 +134,13 @@ Nothing here is new scoring. Numbers are copied from filed locks and verdicts. R
   3. Lower effort, but only after anhedonia has been screened out and selection has been checked; a drop in effort that is just anhedonia or selection is not support, and is a kill of the "effort held" dial if that is all that moved.
 
 Related, but not this row: Chemist's β-only anhedonia prediction is locked in `forge/2026-11-19-1900-anhedonia/`. Row A ('noisier, not stickier') is scored in `docs/forge/results-2026-11-19.md`. Row B ('β alone does it') and its missing experiment are entered above.
+
+---
+
+## CH-BBN-NSTAR-1 — slow-emission excited neutron out of thermal balance
+
+- **Filed by:** Chemist (CH-BBN-NSTAR-1). Lock `f30de3e`, A1 `f2d3690`, A2 `89eece1`, A2 score `b3c1eb0`. Files in `docs/forge/2026-11-24-chem-bbn-nstar/`. The thermally coupled n* is **KILLED**; these 8 points are **NOT-TESTABLE-YET**.
+- **Hypothesis:** A Koch–Hummel excited neutron with ΔE = 10 or 30 keV and photon lifetime τ_γ = 100 s leaves Yp and D/H inside the PDG 2025 bands.
+- **Why it is unscored:** These points fail the locked thermal-balance cut (A1 Cut 1), so the equilibrium mapping used in the run does not apply to them.
+- **Experiment that would decide it:** A BBN run that follows the n* population with its own rate equation (excitation, photon emission and both weak channels) instead of assuming thermal balance. It would use the same code pin, inputs and grid points.
+- **Kill condition** (A2 rules): KILLED if Yp or D/H falls outside the PDG 2025 bands (Yp 0.239–0.251; D/H 2.450–2.566 × 10⁻⁵) at the point; otherwise SURVIVED for that point.
